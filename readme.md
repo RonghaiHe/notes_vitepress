@@ -54,3 +54,6 @@ npx vitepress init
 ```bash
 npm run docs:dev
 ```
+### 部署Github page
+部署page时特别注意：
+<img width="1394" height="667" alt="注意" src="https://github.com/user-attachments/assets/e337c166-15b3-4e73-8b4a-934474a918b2" />
