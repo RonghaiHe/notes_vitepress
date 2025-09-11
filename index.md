@@ -4,7 +4,7 @@ layout: home
 
 hero:
   name: "My notes"
-  text: "A 存放笔记的 VitePress 网站"
+  text: "An 存放笔记的 VitePress 网站"
   tagline: My great project tagline
   actions:
     - theme: brand
