@@ -58,6 +58,13 @@ export default defineConfig({
       ],
     },
 
+    markdown: {
+      math: true,
+      image: {
+        lazyLoading: true
+      }
+    },
+
     search: {
       provider: 'local'
     },
