@@ -6,6 +6,14 @@ export default defineConfig({
   base: '/notes_vitepress/',
   title: "Notes of RonghaiHe",
   description: "Notes shown in the website powered by VitePress & Github Actions+Pages",
+  
+  markdown: {
+    math: true,
+    image: {
+      lazyLoading: true
+    }
+  },
+
   themeConfig: {
     // https://vitepress.dev/zh/reference/default-theme-config
     logo: '/logo/book.svg',
@@ -56,13 +64,6 @@ export default defineConfig({
             ]
         }
       ],
-    },
-
-    markdown: {
-      math: true,
-      image: {
-        lazyLoading: true
-      }
     },
 
     search: {
