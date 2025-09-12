@@ -3,23 +3,23 @@
 layout: home
 
 hero:
-  name: "My notes"
-  text: "An 存放笔记的 VitePress 网站"
-  tagline: My great project tagline
+  name: "RonghaiHe's Notes"
+  text: "Storge most notes during learning"
+  tagline: Remain true to the orginal aspiration （不忘初心）
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
+      text: Optimal Control
+      link: /docs/Control/Optimal_Control/a
     - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: Engineering Methods
+      link: /docs/Math/Engineering_Methods/linear_algebra1
 
 features:
-  - title: Feature A
-    details: 这里是功能A的详细描述，内容可以根据实际需求调整
-  - title: Feature B
-    details: 这里是功能A的详细描述，内容可以根据实际需求调整
-  - title: Feature C
-    details: 这里是功能A的详细描述，内容可以根据实际需求调整
+  - title: Math
+    details: 1. Engineering Methods
+  - title: Control
+    details: 1. Optimal Control
+  - title: Robotics
+    details: Empty
 ---
 
