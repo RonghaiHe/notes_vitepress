@@ -16,10 +16,10 @@ export default defineConfig({
 
   themeConfig: {
     // https://vitepress.dev/zh/reference/default-theme-config
-    logo: '/logo/book.svg',
+    logo: {src: '/book.svg', width: 24, height: 24},
     nav: [
       { text: 'Home', link: 'https://ronghaihe.github.io' },
-      { text: 'List', link: '/' },
+      { text: 'Notes List', link: '/' },
       {
         text: 'Math',
         items: [
@@ -68,6 +68,11 @@ export default defineConfig({
 
     search: {
       provider: 'local'
+    },
+
+    editLink: {
+      pattern: 'https://github.com/RonghaiHe/notes_vitepress/issues/new',
+      text: 'Report mistakes on Github Issues'
     },
 
     socialLinks: [
