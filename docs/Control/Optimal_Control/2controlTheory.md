@@ -253,7 +253,7 @@ Proof:
 
   (How to understand: in the hyperplane, there is no hypersphere in the set)
 
-4. Conversely, assume that $0 \notin \mathcal{C}^\circ$. Thus $0 \notin \mathcal{C}^\circ(t), \, \forall t>0$. Since $\mathcal{C}(t)$ is convex, there exits a support hyperplane to $\mathcal{C}(t)$ through $0$(This hyperplane put the set into just one side, and $0$ is not in te interior, so can do this). This means that $\exist b\neq 0$, s.t. $b\cdot x^0\le 0, \forall x^0\in\mathcal{C}(t)$
+4. Conversely, assume that $0 \notin \mathcal{C}^\circ$. Thus $0 \notin \mathcal{C}^\circ(t), \, \forall t>0$. Since $\mathcal{C}(t)$ is convex, there exits a support hyperplane to $\mathcal{C}(t)$ through $0$(This hyperplane put the set into just one side, and $0$ is not in te interior, so can do this). This means that $\exists b\neq 0$, s.t. $b\cdot x^0\le 0, \forall x^0\in\mathcal{C}(t)$
 
 (An equation for hyperplane that crosses thre origin is $b\cdot x=0$)
 
@@ -427,7 +427,7 @@ Indeed, in the picture we see that $b\cdot(x^0-z^0)\le 0$; and this implies that
 
 We will derive a contradiction.
 
-2. Given $b\neq 0, \mu\in\mathbb{R}$, our intention is to **find $x^0\in \mathcal{C}$ s.t. $b\cdot x^0\le\mu$ fails**. Recall $x^0\in \mathcal{C}$ iff $\exist t>0$ and a control $\boldsymbol{\alpha}(\cdot)\in\mathcal{A}$ s.t. 
+2. Given $b\neq 0, \mu\in\mathbb{R}$, our intention is to **find $x^0\in \mathcal{C}$ s.t. $b\cdot x^0\le\mu$ fails**. Recall $x^0\in \mathcal{C}$ iff $\exists t>0$ and a control $\boldsymbol{\alpha}(\cdot)\in\mathcal{A}$ s.t. 
 
   $$x^0=-\int_0^t\boldsymbol{X}^{-1}(s)N\boldsymbol{\alpha}(s)\mathrm{d}s$$
 
@@ -519,7 +519,7 @@ Furthermore, we see that $\mu_{n+1}=0$ and $\mu_k=-\lambda_k$, where $\lambda_1,
 
 that is, $\phi(t)\to 0$ as $t\to\infty$. This's a contradiction to the representation formula of $\phi(t)=\sum p_i(t)e^{\mu_i t}$, with $\operatorname{Re}\mu_i\ge 0$. Assertaion is proved.
 
-5. Consequently given any $\mu, \exist t>0$ s.t.
+5. Consequently given any $\mu, \exists t>0$ s.t.
 
   $$
   	b\cdot x^0=\int_0^t |\boldsymbol{v}(s)|\mathrm{d}s > \mu
@@ -580,7 +580,7 @@ is *controllable*, meaning that $\mathcal{C}=\mathbb{R}^n$
 
 Proof:
 
-1. ($\leftarrow$) Suppose the system 1 is not observable. Then $\exist x^1\neq x^2\in\mathbb{R}^n$, s.t.
+1. ($\leftarrow$) Suppose the system 1 is not observable. Then $\exists x^1\neq x^2\in\mathbb{R}^n$, s.t.
 
    $$
    	\begin{cases}
@@ -633,7 +633,7 @@ $$
 
 Since $x^0\neq 0, \operatorname{rank}[N^\top, \cdots, (M^\top)^{n-1}N^\top]<n$. Thus system 2 is not controllable. Consequently, system 2 controllable implies system 1 is observable.
 
-2. ($\to$)Assume now system 2 is not controllable. Then $\operatorname{rank}[N^\top, \cdots,(M^\top)^{n-1}N^\top]<n$, and consequently according to Theorem 2.3, $\exist x^0\neq 0$, s.t.
+2. ($\to$)Assume now system 2 is not controllable. Then $\operatorname{rank}[N^\top, \cdots,(M^\top)^{n-1}N^\top]<n$, and consequently according to Theorem 2.3, $\exists x^0\neq 0$, s.t.
 
   $$
   	(x^0)^\top[N^\top, \cdots,(M^\top)^{n-1}N^\top]=0
@@ -678,7 +678,7 @@ We have shown that if system 2 is not controllable, then system 1 is not observa
 Again take $A$ to be the cube $[-1,1]^m\in\mathbb{R}^m$.
 
 ::: warning Defnition: bang-bang
-A control $\boldsymbol{\alpha}(\cdot)\in\boldsymbol{\mathcal{A}}$ is called *bang-bang* if $\forall t\ge 0$ and for each index $i=1,\cdots,m$, we have $|\alpha^i(t)|=1$, where
+A control $\boldsymbol{\alpha}(\cdot)\in{\mathcal{A}}$ is called *bang-bang* if $\forall t\ge 0$ and for each index $i=1,\cdots,m$, we have $|\alpha^i(t)|=1$, where
 
 $$
   \boldsymbol{\alpha}(t)=
@@ -706,8 +706,11 @@ We will study the “geometry” of certain infinite dimensional spaces of funct
 
 ::: info Notation
 $$
-L^\infty = L^\infty(0,t;\mathbb{R}^m) = \{\boldsymbol{\alpha}(\cdot):(0,t)\to\mathbb{R}^m | \sup_{0\le s\le t}|\boldsymbol{\alpha}(s)|<\infty\}. \\
-\|\boldsymbol{\alpha}\|_{L^\infty}=\sup_{0\le s\le t}|\boldsymbol{\alpha}(s)|.
+\begin{gather}
+  L^\infty = L^\infty(0,t;\mathbb{R}^m) = \{\boldsymbol{\alpha}(\cdot):(0,t)\to\mathbb{R}^m | \sup_{0\le s\le t}|\boldsymbol{\alpha}(s)|<\infty\}. \\
+  \|\boldsymbol{\alpha}\|_{L^\infty}=\sup_{0\le s\le t}|\boldsymbol{\alpha}(s)|.
+\end{gather}
+
 $$
 
 :::
@@ -731,7 +734,7 @@ as $n\to\infty$, for all $\boldsymbol{v}(\cdot):[0,t]\to\mathbb{R}^m$ satisfying
 We will the following useful weak* compactness theorem for $L^\infty$.
 
 ::: danger Alaoglu's Theorem
-Let $\boldsymbol{\alpha}_n\in\boldsymbol{\mathcal{A}},n=1,\cdots$. Then there exists a subsequence $\boldsymbol{\alpha}_{n_k}$ and $\boldsymbol{\alpha}\in\boldsymbol{\mathcal{A}}$ s.t.
+Let $\boldsymbol{\alpha}_n\in{\mathcal{A}},n=1,\cdots$. Then there exists a subsequence $\boldsymbol{\alpha}_{n_k}$ and $\boldsymbol{\alpha}\in{\mathcal{A}}$ s.t.
 
 $$
   \boldsymbol{\alpha}_{n_k}\stackrel{*}{\rightharpoonup} \boldsymbol{\alpha}.
@@ -752,7 +755,7 @@ $$
 :::
 
 ::: danger Krein-Milman Theorem
-Let $\mathbb{K}$ be a convex, nonempty subset of $L^\infty$, which is compact in the weak ∗ topology.
+Let $\mathbb{K}$ be a convex, nonempty subset of $L^\infty$, which is compact in the weak* topology.
 
 Then $\mathbb{K}$ has **at least one extreme point**.
 :::
@@ -772,7 +775,7 @@ $$
 take $x^0\in\mathcal{C}(t)$ and write
 
 $$
-  \mathbb{K}=\{\boldsymbol{\alpha}(\cdot)\in\boldsymbol{\mathcal{A}}|\boldsymbol{\alpha}(\cdot) \text{ steers } x^0 \text{ to } 0 \text{ in time }t\}.
+  \mathbb{K}=\{\boldsymbol{\alpha}(\cdot)\in{\mathcal{A}}|\boldsymbol{\alpha}(\cdot) \text{ steers } x^0 \text{ to } 0 \text{ in time }t\}.
 $$
 
 ::: tip Lemma 2.9: Geometry of set of controls
@@ -802,7 +805,7 @@ $$
 Hence $\lambda\boldsymbol{\alpha} + (1-\lambda)\hat{\boldsymbol{\alpha}}\in\mathbb{K}$.
 
 Lastly, we confirm the **compactness**. Let $\boldsymbol{\alpha}_n\in\mathbb{K}$ for $n=1,\cdots$. According to
-Alaoglu’s Theorem $\exists n_k\to\infty$ and $\boldsymbol{\alpha}\in\mathcal{A}$ s.t. $\boldsymbol{\alpha}_{n_k}\stackrel{*}{\rightharpoonup} \boldsymbol{\alpha}$. We need to show that $\boldsymbol{\alpha}\in\mathbb{K}$.
+Alaoglu’s Theorem $\existss n_k\to\infty$ and $\boldsymbol{\alpha}\in\mathcal{A}$ s.t. $\boldsymbol{\alpha}_{n_k}\stackrel{*}{\rightharpoonup} \boldsymbol{\alpha}$. We need to show that $\boldsymbol{\alpha}\in\mathbb{K}$.
 
 Now $\boldsymbol{\alpha}_{n_k}\in\mathbb{K}$ implies
 
@@ -826,7 +829,7 @@ Proof:
     |\alpha^{i*}(s)|=1.
   $$
 
-  Suppose not. Then there exists an index $i\in\{1,\cdots,m\}$ and a subset $E\subset[0,t]$ of positive measure s.t. $|\alpha^{i*}(s)|<1$ for $s\in E$. In fact, $\exists \varepsilon>0$ and a subset $F\subseteq E$ s.t.
+  Suppose not. Then there exists an index $i\in\{1,\cdots,m\}$ and a subset $E\subset[0,t]$ of positive measure s.t. $|\alpha^{i*}(s)|<1$ for $s\in E$. In fact, $\existss \varepsilon>0$ and a subset $F\subseteq E$ s.t.
 
   $$
     |F|>0 \text{ and } |\alpha^{i*}(s)|\le 1-\varepsilon \text{ for } s\in F.
@@ -867,7 +870,7 @@ Proof:
   \end{aligned}
   $$
 
-  Note also $\boldsymbol{\alpha}_1(\cdot) \in \boldsymbol{\mathcal{A}}$. Indeed,
+  Note also $\boldsymbol{\alpha}_1(\cdot) \in {\mathcal{A}}$. Indeed,
   
   $$
     \begin{cases}\boldsymbol{\alpha}_1(s)=\boldsymbol{\alpha}^*(s) & (s \notin F) \\ \boldsymbol{\alpha}_1(s)=\boldsymbol{\alpha}^*(s)+\varepsilon \boldsymbol{\beta}(s) & (s \in F) .\end{cases}

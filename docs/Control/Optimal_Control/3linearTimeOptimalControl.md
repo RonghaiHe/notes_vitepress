@@ -109,7 +109,7 @@ Proof:
   $$
     x^k = \boldsymbol{X}(t)x^0 + \boldsymbol{X}(t)\int_0^t \boldsymbol{X}^{-1}(s)N\boldsymbol{\alpha}_k(s)\mathrm{d}s.
   $$
-  According to Alaoglu’s Theorem, there exist a subsequence $k_j\to\infty$ and $\boldsymbol{\alpha}\in\mathcal{A}$ s.t. $boldsymbol{\alpha}_{k}\stackrel{*}{\rightharpoonup} \boldsymbol{\alpha}$. Let $k=k_j\to\infty$ in the expression above, to find
+  According to Alaoglu’s Theorem, there exist a subsequence $k_j\to\infty$ and $\boldsymbol{\alpha}\in\mathcal{A}$ s.t. $\boldsymbol{\alpha}_{k}\stackrel{*}{\rightharpoonup} \boldsymbol{\alpha}$. Let $k=k_j\to\infty$ in the expression above, to find
   $$
     y = \boldsymbol{X}(t)x^0 + \boldsymbol{X}(t)\int_0^t \boldsymbol{X}^{-1}(s)N\boldsymbol{\alpha}(s)\mathrm{d}s.
   $$
@@ -177,7 +177,7 @@ Proof:
   $$
   for $s\in E$. Design a new control $\hat{\boldsymbol{\alpha}}(\cdot)$ as follows:
   $$
-    \hat{\boldsymbol}(s) = 
+    \hat{\boldsymbol(s)} = 
     \begin{cases}
       \boldsymbol{\alpha}^*(s) & (s\notin E) \\
       \boldsymbol{\alpha}(s) & (s\in E)
@@ -208,9 +208,9 @@ Then there exists a function $\boldsymbol{p}^*(\cdot):[0,\tau^*]\to\mathbb{R}^n$
 
 $$
   \begin{aligned}
-    \dot{\boldsymbol{x}}^*(t) &= \nabla_p H(\boldsymbol{x}^*(t), \boldsymbol{p}^*(t), \boldsymbol{\alpha}^*(t)), \tag{ODE}\\
-    \dot{\boldsymbol{p}}^*(t) &= -\nabla_x H(\boldsymbol{x}^*(t), \boldsymbol{p}^*(t), \boldsymbol{\alpha}^*(t)), \tag{ADJ}\\
-    H(\boldsymbol{x}^*(t), \boldsymbol{p}^*(t), \boldsymbol{\alpha}^*(t)) &= \max_{a\in A}H(\boldsymbol{x}^*(t), \boldsymbol{p}^*(t), a). \tag{M}
+    \dot{\boldsymbol{x}}^*(t) &= \nabla_p H(\boldsymbol{x}^*(t), \boldsymbol{p}^*(t), \boldsymbol{\alpha}^*(t)), \quad &&{(ODE)}\\
+    \dot{\boldsymbol{p}}^*(t) &= -\nabla_x H(\boldsymbol{x}^*(t), \boldsymbol{p}^*(t), \boldsymbol{\alpha}^*(t)), \quad &&{(ADJ)}\\
+    H(\boldsymbol{x}^*(t), \boldsymbol{p}^*(t), \boldsymbol{\alpha}^*(t)) &= \max_{a\in A}H(\boldsymbol{x}^*(t), \boldsymbol{p}^*(t), a). \quad &&{(M)}
   \end{aligned}
 $$
 
@@ -245,7 +245,7 @@ Proof:
 
 ## 3.3 Examples
 ### Example 1: Rocket Railroad Car
-We recall this example, introduced in [§1.2](./1introduction#12-examples). We have
+We recall this example, introduced in [§1.2](./1introduction#1-2-examples). We have
 
 $$
   \dot{\boldsymbol{x}}(t) = \underbrace{
@@ -356,9 +356,9 @@ $$
   \end{cases}
 $$
 
-Therefore the optimal control $\boldsymbol{\alpha}^*$ switches at most once($-th_1+h_2$ is a function of $t$); and if $h_1 = 0$, then $\alpha^*$ is constant.
+Therefore the optimal control $\boldsymbol{\alpha}^*$ switches at most once($-th_1+h_2$ is a function of $t$, i.e. a line); and if $h_1 = 0$, then $\alpha^*$ is constant.
 
-Since the optimal control switches at most once, then the control we constructed by a geometric method in [§1.3](./1introduction#13-a-geometric-solution) must have been optimal. <div style="text-align: right;">$\square$</div>
+Since the optimal control switches at most once, then the control we constructed by a geometric method in [§1.3](./1introduction#1-3-a-geometric-solution) must have been optimal. <div style="text-align: right;">$\square$</div>
 
 ### Example 2: Control of a Vibrating Spring
 Consider next thesimple dynamics
@@ -540,6 +540,6 @@ Next, we figure out the geometric consequences.
   Thus $(x^1(t) + 1)^2 + (x^2(t))^2\equiv r_2^2$, for some radius $r_2$, and motion lies on a circle with center $(-1, 0)$, as illustrated.
   <img src="/control_om3_3_3_traj_1.JPG" alt="traj when alpha=-1" width="50%" align="center">
 
-In summary, to get to the origin we must switch our control $\alpha(\cdot)$ back and forth between the values $\pm 1$, causing the trajectory to switch between lying on circles centered at (±1, 0). The switches occur each π units of time.
+In summary, to get to the origin we must switch our control $\alpha(\cdot)$ back and forth between the values $\pm 1$, causing the trajectory to switch between lying on circles centered at $(\pm 1, 0)$. The switches occur each π units of time.
 
 <img src="/control_om3_3_4_control.JPG" alt="contolled dynamics" width="50%" align="center">
