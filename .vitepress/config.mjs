@@ -38,7 +38,8 @@ export default defineConfig({
           {
             text: 'Optimal Control',
             items: [
-              { text: 'Introduction', link: '/docs/Control/Optimal_Control/1introduction' }
+              { text: 'Introduction', link: '/docs/Control/Optimal_Control/1introduction' },
+              { text: 'Control Theory', link: '/docs/Control/Optimal_Control/2controlTheory'}
             ]
           }
         ]
@@ -60,7 +61,8 @@ export default defineConfig({
         {
           text: 'Optimal Control',
             items: [
-              { text: 'Introduction', link: '/docs/Control/Optimal_Control/1introduction' }
+              { text: 'Introduction', link: '/docs/Control/Optimal_Control/1introduction' },
+              { text: 'Control Theory', link: '/docs/Control/Optimal_Control/2controlTheory'}
             ]
         }
       ],
