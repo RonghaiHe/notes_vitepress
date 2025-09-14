@@ -38,7 +38,7 @@ export default defineConfig({
           {
             text: 'Optimal Control',
             items: [
-              { text: 'Introduction', link: '/docs/Control/Optimal_Control/linear_algebra1' }
+              { text: 'Introduction', link: '/docs/Control/Optimal_Control/1introduction' }
             ]
           }
         ]
@@ -60,7 +60,7 @@ export default defineConfig({
         {
           text: 'Optimal Control',
             items: [
-              { text: 'Introduction', link: '/docs/Control/Optimal_Control/linear_algebra1' }
+              { text: 'Introduction', link: '/docs/Control/Optimal_Control/1introduction' }
             ]
         }
       ],

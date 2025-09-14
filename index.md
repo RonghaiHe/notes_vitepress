@@ -9,7 +9,7 @@ hero:
   actions:
     - theme: brand
       text: Optimal Control
-      link: /docs/Control/Optimal_Control/a
+      link: /docs/Control/Optimal_Control/1introduction
     - theme: alt
       text: Engineering Methods
       link: /docs/Math/Engineering_Methods/linear_algebra1
