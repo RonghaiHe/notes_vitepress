@@ -45,6 +45,17 @@ export default defineConfig({
           }
         ]
       },
+      {
+        text: 'Fluid',
+        items: [
+          {
+            text: 'Thermal Fluid',
+            items: [
+              { text: 'External Flow', link: '/docs/Fluid/Thermal_Fluid/2externalFlow'}
+            ]
+          }
+        ]
+      },
     ],
 
     sidebar: {
@@ -65,6 +76,15 @@ export default defineConfig({
               { text: 'Introduction', link: '/docs/Control/Optimal_Control/1introduction' },
               { text: 'Control Theory', link: '/docs/Control/Optimal_Control/2controlTheory'},
               { text: 'Linear Time-Optimal Control', link: '/docs/Control/Optimal_Control/3linearTimeOptimalControl'}
+            ]
+        }
+      ],
+
+      '/docs/Fluid/Thermal_Fluid/': [
+        {
+          text: 'Thermal Fluid',
+            items: [
+              { text: 'External Flow', link: '/docs/Fluid/Thermal_Fluid/2externalFlow' },
             ]
         }
       ],
