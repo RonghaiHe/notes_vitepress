@@ -220,10 +220,22 @@ Operation| Addition $+$| Scalar multiplication $\times$| Addition $+$ | Multipli
 Closure|$\vec{u}+\vec{v}\in V$|$a\times \vec{u}\in V$ | $a+b\in F$ | $a\times b\in F$ 
 Associative|$(\vec{u}+\vec{v})+\vec{w} = \vec{u}+(\vec{v}+\vec{w})$|$(a\times b)\times \vec{u}=a\times(b\times \vec{u})$| $(a+b)+c=a+(b+c)$ | $(a\times b)\times c=a\times(b\times c)$
 Commutative|$\vec{u}+\vec{v}=\vec{v}+\vec{u}$|<span style="color:gray">$a\times \vec{u}=\vec{u}\times a$</span>| $a+b=b+a$ | $a\times b=b\times a$
-Distributive|-|$a\times(\vec{u}+\vec{v})=a\times\vec{u}+a\times\vec{v}; (a+b)\times\vec{u}=a\times\vec{u}+b\times\vec{u}$| $a\times(b+c)=a\times b + a\times c$
+Distributive|-|$a\times(\vec{u}+\vec{v})=a\times\vec{u}+a\times\vec{v};<br> (a+b)\times\vec{u}=a\times\vec{u}+b\times\vec{u}$| $a\times(b+c)=a\times b + a\times c$
 Identity| $\exists \vec{0}\in V: \vec{u}+\vec{0}=\vec{0}+\vec{u}=\vec{u}$ |$1\times \vec{u}=\vec{u}$|$\exists 0\in F: a+0=0+a=a$ | $\exists 1\in F: 1\times a = a\times 1 = a$
-inverses| $\exists (-\vec{u})\in V: \vec{u}+(-\vec{u})=\vec{0}$|<span style="color:gray">$0\times u=\vec{0};<br> (-1)\times \vec{u}=-\vec{u}$</span>|$\exists (-a)\in F: a+(-a)=0$ | $\exists a^{-1}\in F: a\times a^{-1}=1$
+inverses| $\exists (-\vec{u})\in V: \vec{u}+(-\vec{u})=\vec{0}$|<span style="color:gray">$0\times u=\vec{0}$;</span><br> <span style="color:gray">$(-1)\times \vec{u}=-\vec{u}$</span>|$\exists (-a)\in F: a+(-a)=0$ | $\exists a^{-1}\in F: a\times a^{-1}=1$
 
+::: warning Definition: vector space $\mathsf{V}$ [core]
+A vector space $\mathsf{V}$ over a field $F$ consists of a set on which 2 operations (addition and scalar multiplication) are defined and closedness, s.t. the following conditions hold:
+
+1. $\forall x,y\in\mathsf{V}, x+y=y+x$ (Commutativity of addition);
+2. $\forall x,y,z\in\mathsf{V}, (x+y)+z = x+(y+z)$ (Associativity for each $x\in\mathsf{V}$);
+3. There exists an element in $\mathsf{V}$ denoted by $0$ s.t. $x+0=0+x=x, \forall x\in\mathsf{V}$;
+4. $\forall x\in\mathsf{V}$, there exists an element $y\in\mathsf{V}$, s.t. $x+y=0$;
+5. $\forall x\in\mathsf{V}, 1x=x$;
+6. $\forall a,b\in F, \forall x\in\mathsf{V}, (ab)x=a(bx)$;
+7. $\forall a\in F, \forall x,y\in\mathsf{V}, a(x+y)=ax+by$;
+8. $\forall a,b\in F, \forall x\in\mathsf{V}, (a+b)x=ax+bx$
+:::
 
 Module definition: similar to vector space, but:
 
@@ -238,7 +250,7 @@ Module definition: similar to vector space, but:
 - vectors: elements of vector space $\mathsf{V}$
 - n-tuple: $n$ elements of a field in this form: $(a_1,\cdots,a_n)$
   - entries / components: $a_1,\cdots,a_n$
-  - 2 n-tuples are equal if $a_i=b_i, \forall i=01,2,\cdots,n$
+  - 2 n-tuples are equal if $a_i=b_i, \forall i=0,1,2,\cdots,n$
   - $\mathsf{F}^n$: set of all n-tuples with entries from a field $F$ 
   - vectors in $\mathsf{F}^n$: column vectors
 :::
@@ -337,10 +349,10 @@ The **transpose** $A^t$ of an $m \times n$ matrix $A$ is the $n \times m$ matrix
 
 A **symmetric** matrix is a matrix $A$ such that $A^t = A$. 
 
-- Clearly, a symmetric matrix must be **square**. The set $W$ of all symmetric matrices in $\mathsf{M}_{nxn}(F)$ is a subspace of $\mathsf{M}_{nxn}(F)$ since the conditions of Theorem 1.3 hold
+- Clearly, a symmetric matrix must be **square**. The set $W$ of all symmetric matrices in $\mathsf{M}_{n\times n}(F)$ is a subspace of $\mathsf{M}_{n\times n}(F)$ since the conditions of Theorem 1.3 hold
 
 A diagonal matrix is a $n\times n$ matrix if $M_{ij}=0$ whenever $i\neq j$
-- the set of diagonal matrices is a subspace of $\mathsf{M}_{nxn}(F)$
+- the set of diagonal matrices is a subspace of $\mathsf{M}_{n\times n}(F)$
 
 #### polynominal
 Let $n$ be nonnegative integer, $\mathsf{P}_n(F)$ consists of all polynominals in $\mathsf{P}(F)$ having degree less than or equal to $n$.
@@ -374,12 +386,12 @@ Let $s$ be a nonempty subset of a vector space $\mathsf{V}$. The span of $S$, de
 
 In $\mathbb{R}^3$, for instance, the span of the set $\{(1,0,0), (0,1,0)\}$ consists of al vectors in $\mathbb{R}^3$ that have the form $a(1,0,0) + b(0,1,0) = (a,b,0)$ for some scalars $a$ and $b$. Thus the span of $\{(1,0,0), (0,1,  0)\}$ contains all the points in the xy-plane. In this case, the span of the set is a subspace of $\mathbb{R}^3$. This fact is true in general.
 
-:: danger Theorem 1.5(span and subspace)
+::: danger Theorem 1.5(span and subspace)
 - The span of any subset $S$ of a vector space $\mathsf{V}$ is a subspace of $\mathsf{V}$. 
 - Any subspace of $\mathsf{V}$ that contains $S$ must also contain the span of $S$
 :::
 
-::: warning Definition(generate)
+::: warning Definition: generate
 A subset $S$ of a vector space $\mathsf{V}$ **generates** (or **spans**)$\mathsf{V}$ if $\operatorname{span}(S)=\mathsf{V}$. In this case, we also say that the vectors of $S$ generate (or span)$\mathsf{V}$.
 :::
 
@@ -420,7 +432,7 @@ $$\{p_0(x),p_1(x),\cdots,p_n(x)\}$$
 is linearly independent in $\mathsf{P}_n(F)$. 
 
 ### theorem
-:: danger Theorem 1.6
+::: danger Theorem 1.6
 Let $\mathsf{V}$ be a vector space, and let $S_1 \subseteq S_2 \subseteq \mathsf{V}$.If $S_1$ is
 
 linearly dependent, then $S_2$ is linearly dependent
@@ -436,7 +448,7 @@ Let $S$ be a linearly independent subset of a vector space $\mathsf{V}$.and let 
 
 ## 1.6 bases and dimension
 ### basis
-::: warning Definition: basis
+::: warning Definition: basis [core]
 A **basis** $\beta$ for a vector space $\mathsf{V}$ is a **linearly independent subset of $\mathsf{V}$ that generates $\mathsf{V}$**. If $\beta$ is a basis for $\mathsf{V}$, we also say that the vectors of $\beta$ **form a basis** for V.
 :::
 
@@ -451,7 +463,7 @@ A **basis** $\beta$ for a vector space $\mathsf{V}$ is a **linearly independent 
 
 #### Theorem
 ::: danger Theorem 1.8: 
-Let $\mathsf{V}$ be a vector space and $\beta=\{\vec{u}_1, \vec{u}_2,\cdot, \vec{u}_n\}$ be a subset of $\mathsf{V}$. Then $\beta$ is a basis for $\mathsf{V}$ if and only if each $\vec{v}\in\mathsf{V}$ can be **uniquely expressed as a linear combination** of vectors of $\beta$, that is, can be expressed in the form
+Let $\mathsf{V}$ be a vector space and $\beta=\{\vec{u}_1, \vec{u}_2,\cdots, \vec{u}_n\}$ be a subset of $\mathsf{V}$. Then $\beta$ is a basis for $\mathsf{V}$ if and only if each $\vec{v}\in\mathsf{V}$ can be **uniquely expressed as a linear combination** of vectors of $\beta$, that is, can be expressed in the form
 
 $$\vec{v} = a_1\vec{u}_1 + a_2\vec{u}_2 + \cdots + a_n \vec{u}_n$$
 
@@ -471,7 +483,7 @@ Let $\mathsf{V}$ be a vector space having a finite basis. Then every basis for $
 :::
 
 ### dimension
-::: warning Definitions: dimension
+::: warning Definitions: dimension [core]
 A vector space is called **finite-dimensional** if it has a basis consisting of a finite number of vectors. The unique number of vectors in each basis for $\mathsf{V}$ is called the dimension of $\mathsf{V}$ and is denoted by $\operatorname{dim}(\mathsf{V})$. A vector space that is not finite-dimensional is called **infinite-dimensional**. 
 :::
 
