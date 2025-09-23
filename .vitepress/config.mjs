@@ -51,7 +51,8 @@ export default defineConfig({
           {
             text: 'Thermal Fluid',
             items: [
-              { text: 'External Flow', link: '/docs/Fluid/Thermal_Fluid/2externalFlow'}
+              { text: 'External Flow', link: '/docs/Fluid/Thermal_Fluid/2externalFlow'},
+              { text: 'Boundary Layer', link: '/docs/Fluid/Thermal_Fluid/3boundaryLayer'},
             ]
           }
         ]
@@ -85,6 +86,7 @@ export default defineConfig({
           text: 'Thermal Fluid',
             items: [
               { text: 'External Flow', link: '/docs/Fluid/Thermal_Fluid/2externalFlow' },
+              { text: 'Boundary Layer', link: '/docs/Fluid/Thermal_Fluid/3boundaryLayer'},
             ]
         }
       ],
