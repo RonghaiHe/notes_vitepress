@@ -26,8 +26,10 @@ export default defineConfig({
           {
             text: 'Engineering Methods',
             items: [
-              { text: 'Ch1', link: '/docs/Math/Engineering_Methods/linear_algebra1' },
-              { text: 'Ch2', link: '/docs/Math/Engineering_Methods/linear_algebra2' },
+              { text: 'Vector Space', link: '/docs/Math/Engineering_Methods/linear_algebra1' },
+              { text: 'Linear Transformation', link: '/docs/Math/Engineering_Methods/linear_algebra2' },
+              { text: 'Linear Equation', link: '/docs/Math/Engineering_Methods/linear_algebra3' },
+              { text: 'Determinant', link: '/docs/Math/Engineering_Methods/linear_algebra4' },
             ]
           }
         ]
@@ -64,8 +66,10 @@ export default defineConfig({
         {
           text: 'Engineering Methods',
               items: [
-                { text: 'Ch1', link: '/docs/Math/Engineering_Methods/linear_algebra1' },
-                { text: 'Ch2', link: '/docs/Math/Engineering_Methods/linear_algebra2' },
+                { text: 'Vector Space', link: '/docs/Math/Engineering_Methods/linear_algebra1' },
+                { text: 'Linear Transformation', link: '/docs/Math/Engineering_Methods/linear_algebra2' },
+                { text: 'Linear Equation', link: '/docs/Math/Engineering_Methods/linear_algebra3' },
+                { text: 'Determinant', link: '/docs/Math/Engineering_Methods/linear_algebra4' },
               ]
         }
       ],
