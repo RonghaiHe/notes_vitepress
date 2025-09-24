@@ -42,7 +42,8 @@ export default defineConfig({
             items: [
               { text: 'Introduction', link: '/docs/Control/Optimal_Control/1introduction' },
               { text: 'Control Theory', link: '/docs/Control/Optimal_Control/2controlTheory'},
-              { text: 'Linear Time-Optimal Control', link: '/docs/Control/Optimal_Control/3linearTimeOptimalControl'}
+              { text: 'Linear Time-Optimal Control', link: '/docs/Control/Optimal_Control/3linearTimeOptimalControl'},
+              { text: 'Pontryagin Maximum Principle', link: '/docs/Control/Optimal_Control/4pontryagin'},
             ]
           }
         ]
@@ -80,7 +81,8 @@ export default defineConfig({
             items: [
               { text: 'Introduction', link: '/docs/Control/Optimal_Control/1introduction' },
               { text: 'Control Theory', link: '/docs/Control/Optimal_Control/2controlTheory'},
-              { text: 'Linear Time-Optimal Control', link: '/docs/Control/Optimal_Control/3linearTimeOptimalControl'}
+              { text: 'Linear Time-Optimal Control', link: '/docs/Control/Optimal_Control/3linearTimeOptimalControl'},
+              { text: 'Pontryagin Maximum Principle', link: '/docs/Control/Optimal_Control/4pontryagin'},
             ]
         }
       ],
