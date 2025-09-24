@@ -284,7 +284,7 @@ $$
 
 is a matrix with a row whose 1st 3entries are zeros. Therefore $A$ is not invertible.
 
-#### Example 3.2.7
+#### Example 3.2.7 [core]
 Let $\mathsf{T}: \mathsf{P}_2(\mathbb{R}) \to \mathsf{P}_2(\mathbb{R})$ be defined by
 
 $$\mathsf{T}(f(x)) = f(x) + f'(x) + f''(x),$$
@@ -303,7 +303,7 @@ $$
 Using the method of Examples 5 and 6, $[\mathsf{T}]_\beta$ is invertible with inverse
 
 $$
-([\mathsf{T}]_\beta)^{-1} = \begin{pmatrix} 0 & -1 & 1 \\ -1 & 2 & 0 \\ 0 & 0 & 1 \end{pmatrix}.
+([\mathsf{T}]_\beta)^{-1} = \begin{pmatrix} 1 & -1 & 0 \\  0 & 1 & -2 \\ 0 & 0 & 1 \end{pmatrix}.
 $$
 
 Thus $\mathsf{T}$ is invertible, and $([\mathsf{T}]_\beta)^{-1} = [\mathsf{T}^{-1}]_\beta$. Hence by Theorem 2.14 (p. 91), we have
@@ -452,7 +452,7 @@ Let $Ax = 0$ be a homogeneous system of $m$ linear equations in $n$ unknowns ove
 If $m < n$, the system $Ax = 0$ has a nonzero solution.
 :::
 
-#### Example 3.3.2
+#### Example 3.3.2 [core]
 
 (a) Consider the system
 
@@ -492,7 +492,7 @@ $$
 
 where $t \in \mathbb{R}.$
 
-(b) Consider the system $2X_1 + 2X_2 + X_3 = 0$ of one equation in three unknowns. If
+(b) Consider the system $x_1 - 2x_2 + x_3 = 0$ of one equation in three unknowns. If
 $A = \begin{pmatrix} 1 & -2 & 1 \end{pmatrix}$ is the coefficient matrix, then $\operatorname{rank}(A) = 1.$ Hence if $K$ is the solution set, then $\dim(K) = 3 - 1 = 2.$ Note that
 
 $$
@@ -554,7 +554,7 @@ is a solution to the preceding nonhomogeneous system. So the solution set of the
 
 $$
   \mathsf{K} = 
-  \begin{pmatrix} 1 \\ 1 \\ --4 \end{pmatrix} + t
+  \begin{pmatrix} 1 \\ 1 \\ 4 \end{pmatrix} + t
   \begin{pmatrix} 1 \\ -2 \\ 3 \end{pmatrix}, \quad t \in \mathbb{R}
 $$
 

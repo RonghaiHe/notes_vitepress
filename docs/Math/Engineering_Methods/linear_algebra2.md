@@ -857,8 +857,8 @@ $$
 Let $\mathsf{T}$ be an invertible linear transformation from $\mathsf{V}$ to $\mathsf{W}$. Then $\mathsf{V}$ is finite-dimensional if and only if $\mathsf{W}$ is finite-dimensional. In this case, $\dim(\mathsf{V}) = \dim(\mathsf{W})$.
 :::
 
-::: danger Theorem 2.18
-Let $\mathsf{V}$ and $\mathsf{W}$ be finite-dimensional vector spaces with ordered bases $\beta$ and $\gamma$, respectively. Let $\mathsf{T:V\to W}$ be linear. Then $\mathsf{T}$ is invertible if and only if $[\mathsf{T}]$ is invertible. Furthermore, $[\mathsf{T}^{-1}]^\beta_\gamma = ([\mathsf{T}]_\beta^\gamma)^{-1}$.
+::: danger Theorem 2.18: Judgement if invertible [core]
+Let $\mathsf{V}$ and $\mathsf{W}$ be finite-dimensional vector spaces with ordered bases $\beta$ and $\gamma$, respectively. Let $\mathsf{T:V\to W}$ be linear. Then $\mathsf{T}$ is invertible **if and only if** $[\mathsf{T}]$ is invertible. Furthermore, $[\mathsf{T}^{-1}]^\beta_\gamma = ([\mathsf{T}]_\beta^\gamma)^{-1}$.
 :::
 
 #### Example 2.4.3

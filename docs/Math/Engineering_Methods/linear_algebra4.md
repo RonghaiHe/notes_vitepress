@@ -395,7 +395,7 @@ The determinant of elementary matrices:
 (c) Type 3 (row addition): determinant = $1$.
 
 
-::: Theorem 4.7
+::: danger Theorem 4.7 [core]
 For any $A, B \in \mathsf{M}_{n \times n}(F)$,
 
 $$
@@ -423,14 +423,15 @@ $$
 $$
 :::
 
-### Cramer's Rule
-::: Theorem 4.9 Cramer's Rule
+### Cramer's Rule [core]
+::: danger Theorem 4.9 Cramer's Rule
 
 Let $Ax = b$ be a system of $n$ linear equations in $n$ unknowns. If $\det(A) \neq 0$, then the system has a unique solution, and for each $k$ ($1 \le k \le n$),
 
 $$
 x_k = \frac{\det(M_k)}{\det(A)},
 $$
+
 where $M_k$ is the matrix obtained from $A$ by replacing column $k$ by $b$.
 :::
 
@@ -450,7 +451,7 @@ $$ A =
 \begin{pmatrix} 1 & 2 & 3 \\ 1 & 0 & 1 \\ 0 & 1 & 2 \end{pmatrix}
 , \quad b = 
 \begin{pmatrix} 2 \\ 3 \\ 1 \end{pmatrix}
-$$.
+$$
 
 Since $\det(A) = 6 \neq 0$, the system has a unique solution:
 
