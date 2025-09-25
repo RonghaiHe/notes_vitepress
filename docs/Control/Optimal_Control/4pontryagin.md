@@ -909,11 +909,11 @@ $$
 The maximization condition $(\mathrm{M})$ reads
 
 $$
-\begin{aligned}
+\begin{align*}
   &H(\boldsymbol{x}(t), \boldsymbol{p}(t), \alpha(t))  =\max _{0 \leq a \leq 1} H(\boldsymbol{x}(t), \boldsymbol{p}(t), a) \tag{M}\\
   =&\max _{0 \leq a \leq 1}\left\{-a+p^{1}(t) v(t)+p^{2}(t)\left[-g+\frac{a}{m(t)}\right]+p^{3}(t)(-k a)\right\} \\
   =&p^{1}(t) v(t)-p^{2}(t) g+\max _{0 \leq a \leq 1}\left\{a\left(-1+\frac{p^{2}(t)}{m(t)}-k p^{3}(t)\right)\right\}
-\end{aligned}
+\end{align*}
 $$
 
 Thus the optimal control law is given by the rule:
@@ -1131,10 +1131,10 @@ for $A=S^{1}$, the unit sphere in $\mathbb{R}^{2}: a \in S^{1}$ if and only if $
 We take
 
 $$
-\begin{aligned}
+\begin{align*}
 P[\boldsymbol{\alpha}(\cdot)] & =-\int_{0}^{\tau}|\dot{\boldsymbol{x}}(t)| \mathrm{d} t=- \text { the length of the curve } \\
 & =-\int_{0}^{\tau} \mathrm{d} t=- \text { time it takes to reach } X_{1} \tag{P}
-\end{aligned}
+\end{align*}
 $$
 
 We want to minimize the length of the curve and, as a check on our general theory, will prove that **the minimum is of course a straight line**.
