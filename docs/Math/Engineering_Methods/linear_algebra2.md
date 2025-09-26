@@ -1073,6 +1073,7 @@ $$
 
 For the remainder of this section, we consider only linear transformations that map a vector space $\mathsf{V}$ into itself. Such a linear transformation is called a linear operator on $\mathsf{V}$
 
+### Theorem 2.23
 :::danger Theorem 2.23
 Let $\mathsf{T}$ be a linear operator on a finite-dimensional vector space $\mathsf{V}$, and let $\beta$ and $\beta'$ be ordered bases for $\mathsf{V}$. Suppose $Q$ is the change of coordinate matrix that changes $\beta'$-coordinates into $\beta$-coordinates. Then  
 
@@ -1294,6 +1295,7 @@ $$
   \end{pmatrix}
 $$
 
+### Corollary of Theorem 2.23
 ::: tip Corollary
 Let $A \in \mathsf{M}_{n\times n}(F)$, and let $\gamma$ be an ordered basis for $\mathsf{F}^n$. Then  
 

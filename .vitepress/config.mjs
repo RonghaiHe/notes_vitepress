@@ -30,6 +30,8 @@ export default defineConfig({
               { text: 'Linear Transformation', link: '/docs/Math/Engineering_Methods/linear_algebra2' },
               { text: 'Linear Equation', link: '/docs/Math/Engineering_Methods/linear_algebra3' },
               { text: 'Determinant', link: '/docs/Math/Engineering_Methods/linear_algebra4' },
+              { text: 'Eigen-values&vectors', link: '/docs/Math/Engineering_Methods/linear_algebra5' },
+              { text: 'Inner Product', link: '/docs/Math/Engineering_Methods/linear_algebra6' },
             ]
           }
         ]
@@ -72,6 +74,8 @@ export default defineConfig({
                 { text: 'Linear Transformation', link: '/docs/Math/Engineering_Methods/linear_algebra2' },
                 { text: 'Linear Equation', link: '/docs/Math/Engineering_Methods/linear_algebra3' },
                 { text: 'Determinant', link: '/docs/Math/Engineering_Methods/linear_algebra4' },
+                { text: 'Eigen-values&vectors', link: '/docs/Math/Engineering_Methods/linear_algebra5' },
+                { text: 'Inner Product', link: '/docs/Math/Engineering_Methods/linear_algebra6' },
               ]
         }
       ],

@@ -255,7 +255,7 @@ Module definition: similar to vector space, but:
   - vectors in $\mathsf{F}^n$: column vectors
 :::
 
-### addition and scalar multiplication
+### Definition about some vector spaces
 
 ::: warning Definitions: Matrix
 - diagonal entries: $a_{ij}$ with $i=j$
