@@ -4,9 +4,9 @@
 ### Definition
 
 ::: warning Definition: Inner product [core]
-Let $\mathsf{V}$ be a vector space over field ${F}$. An **inner product** on $\mathsf{V}$ is a function assigning each ordered pair of vectors  $\langle x,y\rangle $ in $\mathsf{V} \times \mathsf{V}$ a scalar $\langle x,y\rangle  \in {F}$,satisfying:  
-- $\langle x+z,y\rangle  = \langle x,y\rangle  + \langle z,y\rangle $.
-- $\langle c x, y\rangle  = c \langle x,y\rangle $ for $c \in {F}$.
+Let $\mathsf{V}$ be a vector space over field ${F}$. An **inner product** on $\mathsf{V}$ is a function assigning each ordered pair of vectors  $\langle x,y\rangle$ in $\mathsf{V} \times \mathsf{V}$ a scalar $\langle x,y\rangle  \in {F}$,satisfying:  
+- $\langle x+z,y\rangle  = \langle x,y\rangle  + \langle z,y\rangle$.
+- $\langle c x, y\rangle  = c \langle x,y\rangle$ for $c \in {F}$.
 - $\langle x,y\rangle  = \overline{\langle y,x\rangle }$ where the bar denotes complex conjugation.   
 - $\langle x,x\rangle  > 0$ if $x \neq 0$  
 :::
@@ -29,7 +29,7 @@ $$
 \langle x, y\rangle=\sum_{i=1}^n a_i \overline{b_i}
 $$
 
-The verification that $\langle\cdot, \cdot\rangle$ satisfies conditions (a) through (\mathrm{d}) is easy. For example, if $z=\left(c_1, c_2, \ldots, c_n\right)$, we have for (a)
+The verification that $\langle\cdot, \cdot\rangle$ satisfies conditions the 1st through (4th) is easy. For example, if $z=\left(c_1, c_2, \ldots, c_n\right)$, we have for (a)
 $$
 \begin{aligned}
 \langle x+z, y\rangle & =\sum_{i=1}^n\left(a_i+c_i\right) \overline{b_i}=\sum_{i=1}^n a_i \overline{b_i}+\sum_{i=1}^n c_i \overline{b_i} \\
@@ -312,7 +312,7 @@ $$
 So
 
 $$
-c = \frac{(W_2, W_1)}{\|W_1\|^2}.
+c = \frac{(w_2, w_1)}{\|w_1\|^2}.
 $$
 
 Thus
@@ -347,7 +347,7 @@ Finally,
 
 $$
 \begin{aligned}
-  v_3 &= w_3 - \frac{\langle w_3, v_1\rangle}{\|v_1\|^2} v_1 - \frac{\langle w_3, v_1\rangle}{\|v_2\|^2} v_2 \\
+  v_3 &= w_3 - \frac{\langle w_3, v_1\rangle}{\|v_1\|^2} v_1 - \frac{\langle w_3, v_2\rangle}{\|v_2\|^2} v_2 \\
   &= (0,1,2,1) - \frac{2}{2} (1,0,1,0) - \frac{2}{2} (0,1,0,1) = (-1,0,1,0).  
 \end{aligned}
 $$
@@ -451,7 +451,7 @@ $$
 
 ### Fourier coefficients [core]
 ::: warning Definition: Fourier coefficients
-Let $\beta$ be an orthonormal subset (possibly infinite) of an inner product space $\mathsf{V}$, and let $x \in \mathsf{V}$. We define the **Fourier coefficients** of $x$ relative to $\beta$ to be the scalars $(x, y)$ where $y \in \beta$.
+Let $\beta$ be an **orthonormal subset** (possibly infinite) of an inner product space $\mathsf{V}$, and let $x \in \mathsf{V}$. We define the **Fourier coefficients** of $x$ relative to $\beta$ to be the scalars $\langle x, y\rangle$ where $y \in \beta$.
 :::
 
 #### Example 6.2.7

@@ -2,7 +2,8 @@
 
 # 1 Introduction
 
-> Reference e-book: [An Introduction to Mathematical Optimal Control Theory](https://www.math.berkeley.edu/~evans/control.course.pdf) by Lawrence C. Evans in 2024
+> This fist 5 parts refers this e-book: [An Introduction to Mathematical Optimal Control Theory](https://www.math.berkeley.edu/~evans/control.course.pdf) by Lawrence C. Evans in 2024. The Chapter 6 (differential game) and 7 (stochastic control) of this e-book are not contained
+> This 6th part is the note from various notes online
 
 ## 1.1 basic problem
 

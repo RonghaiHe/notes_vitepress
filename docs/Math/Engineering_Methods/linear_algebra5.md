@@ -221,7 +221,7 @@ Let $A \in \mathsf{M}_{n \times n}(F)$.
 Let $\mathsf{T}$ be a linear operator on a vector space $\mathsf{V}$, and let $\lambda$ be an eigenvalue of $\mathsf{T}$. A vector $v \in \mathsf{V}$ is an eigenvector of $\mathsf{T}$ corresponding to $\lambda$ if and only if $v \neq 0$ and $v \in \mathsf{N}(\mathsf{T} - \lambda I)$.  
 :::
 
-#### Example 5.1.6  
+#### Example 5.1.6 [core] 
 To find all eigenvectors of the matrix  
 
 $$

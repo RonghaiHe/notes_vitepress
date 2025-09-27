@@ -46,7 +46,7 @@ $$
 with the associated payoff functional
 
 $$
-P[\boldsymbol{\alpha}(\cdot)]=\int_{0}^{\top} r(\boldsymbol{x}(s), \boldsymbol{\alpha}(s)) \mathrm{d} s+g(\boldsymbol{x}(T)). \tag{P}
+P[\boldsymbol{\alpha}(\cdot)]=\int_{0}^{T} r(\boldsymbol{x}(s), \boldsymbol{\alpha}(s)) \mathrm{d} s+g(\boldsymbol{x}(T)). \tag{P}
 $$
 
 We embed this into a larger family of similar problems, by **varying the starting times and starting points**:
@@ -58,7 +58,7 @@ $$
 with
 
 $$
-P_{x, t}[\boldsymbol{\alpha}(\cdot)]=\int_{t}^{\top} r(\boldsymbol{x}(s), \boldsymbol{\alpha}(s)) \mathrm{d} s+g(\boldsymbol{x}(T)). \tag{5.2}
+P_{x, t}[\boldsymbol{\alpha}(\cdot)]=\int_{t}^{T} r(\boldsymbol{x}(s), \boldsymbol{\alpha}(s)) \mathrm{d} s+g(\boldsymbol{x}(T)). \tag{5.2}
 $$
 
 Consider the above problems for **all choices of starting times** $0 \leq t \leq T$ and **all initial points** $x \in \mathbb{R}^{n}$.
@@ -263,16 +263,16 @@ The control $\boldsymbol{\alpha}^{*}(\cdot)$ defined by the construction $(5.7)$
 We have
 
 $$
-P_{x, t}\left[\boldsymbol{\alpha}^{*}(\cdot)\right]=\int_{t}^{\top} r\left(\boldsymbol{x}^{*}(s), \boldsymbol{\alpha}^{*}(s)\right) \mathrm{d} s+g\left(\boldsymbol{x}^{*}(T)\right).
+P_{x, t}\left[\boldsymbol{\alpha}^{*}(\cdot)\right]=\int_{t}^{T} r\left(\boldsymbol{x}^{*}(s), \boldsymbol{\alpha}^{*}(s)\right) \mathrm{d} s+g\left(\boldsymbol{x}^{*}(T)\right).
 $$
 
 Furthermore according to the definition $(5.7)$ of $\boldsymbol{\alpha}(\cdot)$ :
 
 $$
 \begin{aligned}
-P_{x, t}\left[\boldsymbol{\alpha}^{*}(\cdot)\right] & =\int_{t}^{\top}\left(-v_{t}\left(\boldsymbol{x}^{*}(s), s\right)-\boldsymbol{f}\left(\boldsymbol{x}^{*}(s), \boldsymbol{\alpha}^{*}(s)\right) \cdot \nabla_{x} v\left(\boldsymbol{x}^{*}(s), s\right)\right) \mathrm{d} s+g\left(\boldsymbol{x}^{*}(T)\right) \\
-& =-\int_{t}^{\top} v_{t}\left(\boldsymbol{x}^{*}(s), s\right)+\nabla_{x} v\left(\boldsymbol{x}^{*}(s), s\right) \cdot \dot{\boldsymbol{x}}^{*}(s) \mathrm{d} s+g\left(\boldsymbol{x}^{*}(T)\right) \\
-& =-\int_{t}^{\top} \frac{\mathrm{d}}{\mathrm{d} s} v\left(\boldsymbol{x}^{*}(s), s\right) \mathrm{d} s+g\left(\boldsymbol{x}^{*}(T)\right) (Chain Rule)\\
+P_{x, t}\left[\boldsymbol{\alpha}^{*}(\cdot)\right] & =\int_{t}^{T}\left(-v_{t}\left(\boldsymbol{x}^{*}(s), s\right)-\boldsymbol{f}\left(\boldsymbol{x}^{*}(s), \boldsymbol{\alpha}^{*}(s)\right) \cdot \nabla_{x} v\left(\boldsymbol{x}^{*}(s), s\right)\right) \mathrm{d} s+g\left(\boldsymbol{x}^{*}(T)\right) \\
+& =-\int_{t}^{T} v_{t}\left(\boldsymbol{x}^{*}(s), s\right)+\nabla_{x} v\left(\boldsymbol{x}^{*}(s), s\right) \cdot \dot{\boldsymbol{x}}^{*}(s) \mathrm{d} s+g\left(\boldsymbol{x}^{*}(T)\right) \\
+& =-\int_{t}^{T} \frac{\mathrm{d}}{\mathrm{d} s} v\left(\boldsymbol{x}^{*}(s), s\right) \mathrm{d} s+g\left(\boldsymbol{x}^{*}(T)\right) (Chain Rule)\\
 & =-v\left(\boldsymbol{x}^{*}(T), T\right)+v\left(\boldsymbol{x}^{*}(t), t\right)+g\left(\boldsymbol{x}^{*}(T)\right) \\
 & =-g\left(\boldsymbol{x}^{*}(T)\right)+v\left(\boldsymbol{x}^{*}(t), t\right)+g\left(\boldsymbol{x}^{*}(T)\right) \\
 & =v(x, t)=\sup _{\boldsymbol{\alpha}(\cdot) \in \mathcal{A}} P_{x, t}[\boldsymbol{\alpha}(\cdot)].
@@ -521,13 +521,13 @@ $$
 for which we want to **minimize** the quadratic cost functional
 
 $$
-\int_{t}^{\top} x(s)^{\top} B \boldsymbol{x}(s)+\boldsymbol{\alpha}(s)^{\top} C \boldsymbol{\alpha}(s) \mathrm{d} s+\boldsymbol{x}(T)^{\top} D \boldsymbol{x}(T).
+\int_{t}^{T} x(s)^{\top} B \boldsymbol{x}(s)+\boldsymbol{\alpha}(s)^{\top} C \boldsymbol{\alpha}(s) \mathrm{d} s+\boldsymbol{x}(T)^{\top} D \boldsymbol{x}(T).
 $$
 
 So we must **maximize** the payoff
 
 $$
-P_{x, t}[\boldsymbol{\alpha}(\cdot)]=-\int_{t}^{\top} x(s)^{\top} B \boldsymbol{x}(s)+\boldsymbol{\alpha}(s)^{\top} C \boldsymbol{\alpha}(s) \mathrm{d} s-\boldsymbol{x}(T)^{\top} \mathrm{d} \boldsymbol{x}(T). \tag{P}
+P_{x, t}[\boldsymbol{\alpha}(\cdot)]=-\int_{t}^{T} x(s)^{\top} B \boldsymbol{x}(s)+\boldsymbol{\alpha}(s)^{\top} C \boldsymbol{\alpha}(s) \mathrm{d} s-\boldsymbol{x}(T)^{\top} \mathrm{d} \boldsymbol{x}(T). \tag{P}
 $$
 
 The control values are unconstrained, meaning that the control parameter values can range over all of $A=\mathbb{R}^{m}$.
@@ -733,7 +733,7 @@ $$
 Note also $u(\boldsymbol{x}(0), 0)=u\left(x^{0}, 0\right)=g\left(x^{0}\right)$. Integrate, to compute $u$ along the curve $\boldsymbol{x}(\cdot)$ :
 
 $$
-u(\boldsymbol{x}(t), t)=\int_{0}^{\top}-H+\nabla_{p} H \cdot \boldsymbol{p} \mathrm{d} s+g\left(x^{0}\right)
+u(\boldsymbol{x}(t), t)=\int_{0}^{T}-H+\nabla_{p} H \cdot \boldsymbol{p} \mathrm{d} s+g\left(x^{0}\right)
 $$
 
 This gives us the solution, once we have calculated $\boldsymbol{x}(\cdot)$ and $\boldsymbol{p}(\cdot)$.
@@ -752,7 +752,7 @@ $$
 and payoff
 
 $$
-P_{x, t}[\boldsymbol{\alpha}(\cdot)]=\int_{t}^{\top} r(\boldsymbol{x}(s), \boldsymbol{\alpha}(s)) \mathrm{d} s+g(\boldsymbol{x}(T)). \tag{P}
+P_{x, t}[\boldsymbol{\alpha}(\cdot)]=\int_{t}^{T} r(\boldsymbol{x}(s), \boldsymbol{\alpha}(s)) \mathrm{d} s+g(\boldsymbol{x}(T)). \tag{P}
 $$
 
 As above, the value function is
