@@ -318,9 +318,7 @@ $$
 
 As our first illustration of dynamic programming, we will compute the value function $v(x, t)$ and confirm that it does indeed solve the appropriate Hamilton-Jacobi-Bellman equation. To do this, we first introduce the three regions:
 
-![](https://cdn.mathpix.com/cropped/2025_09_25_8a6c39bb1ba95c821761g-05.jpg?height=464&width=947&top_left_y=1664&top_left_x=531)
-
-<img src="/control_om5_2_1_region.JPG" alt="3 regions" width="50%" align="middle">
+<img src="/control_om5_2_1_region.JPG" alt="3 regions" width="80%" align="middle">
 
 - Region $I=\{(x, t) \mid x<t-1,0 \leq t \leq 1\}$.
 - Region $I I=\{(x, t) \mid t-1<x<1-t, 0 \leq t \leq 1\}$.
@@ -330,7 +328,7 @@ We will consider the three cases as to which region the initial data ( $x, t$ ) 
 
 - **Region III**
 
-<img src="/control_om5_2_2_region3.JPG" alt="optimal path in region3" width="50%" align="middle">
+<img src="/control_om5_2_2_region3.JPG" alt="optimal path in region3" width="80%" align="middle">
 
 In this case we should take $\alpha \equiv-1$, to steer as close to the origin 0 as quickly as possible. Then
 
@@ -521,13 +519,13 @@ $$
 for which we want to **minimize** the quadratic cost functional
 
 $$
-\int_{t}^{T} x(s)^{\top} B \boldsymbol{x}(s)+\boldsymbol{\alpha}(s)^{\top} C \boldsymbol{\alpha}(s) \mathrm{d} s+\boldsymbol{x}(T)^{\top} D \boldsymbol{x}(T).
+\int_{t}^{T} \boldsymbol{x}(s)^{\top} B \boldsymbol{x}(s)+\boldsymbol{\alpha}(s)^{\top} C \boldsymbol{\alpha}(s) \mathrm{d} s+\boldsymbol{x}(T)^{\top} D \boldsymbol{x}(T).
 $$
 
 So we must **maximize** the payoff
 
 $$
-P_{x, t}[\boldsymbol{\alpha}(\cdot)]=-\int_{t}^{T} x(s)^{\top} B \boldsymbol{x}(s)+\boldsymbol{\alpha}(s)^{\top} C \boldsymbol{\alpha}(s) \mathrm{d} s-\boldsymbol{x}(T)^{\top} \mathrm{d} \boldsymbol{x}(T). \tag{P}
+P_{\boldsymbol{x}, t}[\boldsymbol{\alpha}(\cdot)]=-\int_{t}^{T} \boldsymbol{x}(s)^{\top} B \boldsymbol{x}(s)+\boldsymbol{\alpha}(s)^{\top} C \boldsymbol{\alpha}(s) \mathrm{d} s-\boldsymbol{x}(T)^{\top} \mathrm{d} \boldsymbol{x}(T). \tag{P}
 $$
 
 The control values are unconstrained, meaning that the control parameter values can range over all of $A=\mathbb{R}^{m}$.
@@ -535,53 +533,53 @@ The control values are unconstrained, meaning that the control parameter values 
 We will solve by dynamic programming the problem of designing an optimal control. To carry out this plan, we first compute the Hamilton-Jacobi-Bellman equation
 
 $$
-v_{t}+\max _{a \in \mathbb{R}^{m}}\left\{\boldsymbol{f} \cdot \nabla_{x} v+r\right\}=0,
+v_{t}+\max _{a \in \mathbb{R}^{m}}\left\{\boldsymbol{f} \cdot \nabla_{\boldsymbol{x}} v+r\right\}=0,
 $$
 
 where
 
 $$
 \left\{\begin{array}{l}
-\boldsymbol{f}=M x+N a \\
-r=-x^{\top} B x-a^{\top} C a \\
-g=-x^{\top} D x
+\boldsymbol{f}=M \boldsymbol{x}+N \boldsymbol{a} \\
+r=-\boldsymbol{x}^{\top} B \boldsymbol{x}-\boldsymbol{a}^{\top} C \boldsymbol{a} \\
+g=-\boldsymbol{x}^{\top} D \boldsymbol{x}
 \end{array}\right.
 $$
 
 Rewrite:
 
 $$
-v_{t}+\max _{a \in \mathbb{R}^{m}}\left\{(\nabla v)^{\top} N a-a^{\top} C a\right\}+(\nabla v)^{\top} M x-x^{\top} B x=0. \tag{HJB}
+v_{t}+\max _{\boldsymbol{a} \in \mathbb{R}^{m}}\left\{(\nabla v)^{\top} N \boldsymbol{a}-\boldsymbol{a}^{\top} C \boldsymbol{a}\right\}+(\nabla v)^{\top} M \boldsymbol{x}-\boldsymbol{x}^{\top} B \boldsymbol{x}=0. \tag{HJB}
 $$
 
 We also have the terminal condition
 
 $$
-v(x, T)=-x^{\top} \mathrm{d} x
+v(\boldsymbold{x}, T)=-\boldsymbold{x}^{\top} D x
 $$
 
 #### Maximization
-For what value of the control parameter $a$ is the minimum in the original problem attained? To understand this, we define $Q(a):=(\nabla v)^{\top} N a- a^{\top} C a$, and determine where $Q$ has a **maximum** by computing the partial derivatives $Q_{a_{j}}$ for $j=1, \ldots, m$ and setting them equal to 0 . This gives the identitites
+For what value of the control parameter $a$ is the minimum in the original problem attained? To understand this, we define $Q(\boldsymbol{a}):=(\nabla v)^{\top} N \boldsymbol{a}- \boldsymbol{a}^{\top} C \boldsymbol{a}$, and determine where $Q$ has a **maximum** by computing the partial derivatives $Q_{a_{j}}$ for $j=1, \ldots, m$ and setting them equal to $0$ . This gives the identitites
 
 $$
 Q_{a_{j}}=\sum_{i=1}^{n} v_{x_{i}} n_{i j}-2 a_{i} c_{i j}=0.
 $$
 
-Therefore $(\nabla v)^{\top} N=2 a^{\top} C$, and then $2 C^{\top} a=N^{\top} \nabla v$. But $C^{\top}=C$. Therefore
+Therefore $(\nabla v)^{\top} N=2 \boldsymbol{a}^{\top} C$, and then $2 C^{\top} \boldsymbol{a}=N^{\top} \nabla v$. But $C^{\top}=C$. Therefore
 
 $$
-a=\frac{1}{2} C^{-1} N^{\top} \nabla_{x} v.
+\boldsymbol{a}=\frac{1}{2} C^{-1} N^{\top} \nabla_{\boldsymbol{x}} v.
 $$
 
 This is the formula for the optimal feedback control: It will be very useful **once we compute the value function** $v$.
 
 #### Finding the value function
-We insert our formula $a=\frac{1}{2} C^{-1} N^{\top} \nabla v$ into $\mathrm{(HJB)}$, and this PDE then reads
+We insert our formula $\boldsymbol{a}=\frac{1}{2} C^{-1} N^{\top} \nabla v$ into $\mathrm{(HJB)}$, and this PDE then reads
 
 $$
 \left\{\begin{array}{l}
 v_{t}+\frac{1}{4}(\nabla v)^{\top} N C^{-1} N^{\top} \nabla v+(\nabla v)^{\top} M x-x^{\top} B x=0 \\
-v(x, T)=-x^{\top} \mathrm{d} x .
+v(x, T)=-\boldsymbol{x}^{\top} D \boldsymbol{x} .
 \end{array}\right. \tag{HJB}
 $$
 
@@ -593,7 +591,7 @@ $$
 
 provided the **symmetric** $n \times n$-matrix valued function $K(\cdot)$ is properly selected. Will this guess work?
 
-Now, since $-x^{\top} K(T) x=-v(x, T)=x^{\top} \mathrm{d} x$, we must have the terminal condition that
+Now, since $-\boldsymbol{x}^{\top} K(T) \boldsymbol{x}=-v(\boldsymbol{x}, T)=x^{\top} D\boldsymbol{x}$, we must have the terminal condition that
 
 $$
 K(T)=-D.
@@ -602,28 +600,28 @@ $$
 Next, compute that
 
 $$
-v_{t}=x^{\top} \dot{K}(t) x, \quad \nabla_{x} v=2 K(t) x .
+v_{t}=\boldsymbol{x}^{\top} \dot{K}(t) \boldsymbol{x}, \quad \nabla_{\boldsymbol{x}} v=2 K(t) \boldsymbol{x} .
 $$
 
-We insert our guess $v=x^{\top} K(t) x$ into $\mathrm{(HJB)}$, and discover that
+We insert our guess $v=\boldsymbol{x}^{\top} K(t) \boldsymbol{x}$ into $\mathrm{(HJB)}$, and discover that
 
 $$
-x^{\top}\left\{\dot{K}(t)+K(t) N C^{-1} N^{\top} K(t)+2 K(t) M-B\right\} x=0 .
+\boldsymbol{x}^{\top}\left\{\dot{K}(t)+K(t) N C^{-1} N^{\top} K(t)+2 K(t) M-B\right\} \boldsymbol{x}=0 .
 $$
 
 Look at the expression
 
 $$
 \begin{aligned}
-2 x^{\top} K M x & =x^{\top} K M x+\left[x^{\top} K M x\right]^{\top} \\
-& =x^{\top} K M x+x^{\top} M^{\top} K x .
+2 \boldsymbol{x}^{\top} K M \boldsymbol{x} & =\boldsymbol{x}^{\top} K M \boldsymbol{x}+\left[\boldsymbol{x}^{\top} K M \boldsymbol{x}\right]^{\top} \\
+& =\boldsymbol{x}^{\top} K M \boldsymbol{x}+\boldsymbol{x}^{\top} M^{\top} K \boldsymbol{x} .
 \end{aligned}
 $$
 
 Then
 
 $$
-x^{\top}\left\{\dot{K}+K N C^{-1} N^{\top} K+K M+M^{\top} K-B\right\} x=0 .
+\boldsymbol{x}^{\top}\left\{\dot{K}+K N C^{-1} N^{\top} K+K M+M^{\top} K-B\right\} \boldsymbol{x}=0 .
 $$
 
 This identity will hold if $K(\cdot)$ satisfies the **matrix Riccati equation**
@@ -648,12 +646,12 @@ Assume $H: \mathbb{R}^{n} \times \mathbb{R}^{n} \rightarrow \mathbb{R}$ and cons
 
 $$
 \left\{\begin{array}{l}
-u_{t}(x, t)+H\left(x, \nabla_{x} u(x, t)\right)=0 \quad\left(x \in \mathbb{R}^{n}, 0<t<T\right) \\
-u(x, 0)=g(x)
+u_{t}(\boldsymbol{x}, t)+H\left(\boldsymbol{x}, \nabla_{\boldsymbol{x}} u(\boldsymbol{x}, t)\right)=0 \quad\left(\boldsymbol{x} \in \mathbb{R}^{n}, 0<t<T\right) \\
+u(\boldsymbol{x}, 0)=g(\boldsymbol{x})
 \end{array}\right. \tag{HJ}
 $$
 
-A basic idea in PDE theory is to **introduce some ordinary differential equations**, the solution of which lets us compute the solution $u$. In particular, we want to find a curve $\boldsymbol{x}(\cdot)$ along which we can, in principle at least, compute $u(x, t)$.
+A basic idea in PDE theory is to **introduce some ordinary differential equations**, the solution of which lets us compute the solution $u$. In particular, we want to find a curve $\boldsymbol{x}(\cdot)$ along which we can, in principle at least, compute $u(\boldsymbol{x}, t)$.
 
 This section discusses this **method of characteristics**, to make clearer the connections between **PDE theory and the Pontryagin Maximum Principle**.
 
