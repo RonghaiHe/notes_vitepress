@@ -47,6 +47,7 @@ export default defineConfig({
               { text: 'Linear Time-Optimal Control', link: '/docs/Control/Optimal_Control/3linearTimeOptimalControl'},
               { text: 'Pontryagin Maximum Principle', link: '/docs/Control/Optimal_Control/4pontryagin'},
               { text: 'Dynamic Programming', link: '/docs/Control/Optimal_Control/5dynamicProgramming'},
+              { text: 'Direct Methods', link: '/docs/Control/Optimal_Control/7DirectMethods'},
             ]
           }
         ]
@@ -89,6 +90,7 @@ export default defineConfig({
               { text: 'Linear Time-Optimal Control', link: '/docs/Control/Optimal_Control/3linearTimeOptimalControl'},
               { text: 'Pontryagin Maximum Principle', link: '/docs/Control/Optimal_Control/4pontryagin'},
               { text: 'Dynamic Programming', link: '/docs/Control/Optimal_Control/5dynamicProgramming'},
+              { text: 'Direct Methods', link: '/docs/Control/Optimal_Control/7DirectMethods'},
             ]
         }
       ],
