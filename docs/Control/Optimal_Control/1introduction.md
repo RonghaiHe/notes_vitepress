@@ -2,7 +2,7 @@
 
 # 1 Introduction
 
-> This fist 5 parts refers this e-book: [An Introduction to Mathematical Optimal Control Theory](https://www.math.berkeley.edu/~evans/control.course.pdf) by Lawrence C. Evans in 2024. The Chapter 6 (differential game) and 7 (stochastic control) of this e-book are not contained
+> This first 5 parts refers this e-book: [An Introduction to Mathematical Optimal Control Theory](https://www.math.berkeley.edu/~evans/control.course.pdf) by Lawrence C. Evans in 2024. The Chapter 6 (differential game) and 7 (stochastic control) of this e-book are not contained
 > This 6th part is the note from various notes online
 
 ## 1.1 basic problem
@@ -332,3 +332,37 @@ Then
 Now we can design an optimal control $\alpha^*(\cdot)$, which causes the trajectory to jump between the families of right– and left–pointing parabolas, as drawn. Say we **start at the black dot**, and wish to **steer to the origin**. This we accomplish by first setting the control to the value $\alpha = −1$, causing us to move down along the second family of parabolas. We then switch to the control $\alpha = 1$, and thereupon move to a parabola from the first family, along which we move up and to the left, ending up at the origin. See the picture.
 
 <img src="/control_om1_3_3_control.JPG" alt="control" width="50%" align="center">
+
+## 1.4 Optimal Control Solutions
+> [3-Direct method (Single/Multiple shooting, collocation method) - Zhuanlan in Zhihu](https://zhuanlan.zhihu.com/p/396056002)
+> including [Numerical Optimal Control](https://www.syscop.de/files/2024ws/NOC/book-NOCSE.pdf) by Moritz Diehl and Sebastien Gros, which is the reference e-book in 1.4.
+
+There are 3 basic families of approaches to address continuous-time optimal control problems (OCP):
+1. **State-space approaches**: Hamilton-Jacobian-Bellman (`HJB`) Equation (`Dynamic Programming` for discrete);
+   - Core: states that **each subarc** of an optimal trajectory must be optimal
+     - Use the principle of optimality: 
+   - A **PDE** in the state space
+   - Methods to **numerically** compute solution approximations **exist**
+     - but the approach severely suffers from **Bellman’s “curse of dimensionality”**, thus restricted to **small state dimensions**
+2. **Indirect Methods**: Pontryagin Maximum Principle (`PMP`);
+   - Core: derive a **Boundary Value Problem** (BVP) in ODE
+     - Use the necessary conditions of optimality of the infinite dimensional problem: 
+   - This BVP must numerically be solved
+   - **first optimize, then discretize**
+     - the conditions of optimality are first written in continuous time for the given problem, and then discretized in one way or another in order for computing a numerical solution
+   - numerical solution of the BVP: **shooting techniques** or by **collocation**
+     - 2 major drawbacks: 
+       - the underlying differential equations are often **difficult to solve** due to **strong nonlinearity and instability**, and that changes in the control structure, i.e. the sequence of arcs where different constraints are active, are difficult to handle: they usually require a completely new problem setup
+       - on so-called singular arcs, higher index differential-algebraic equations (DAE) arise which necessitate specialized solution techniques
+3. **Direct Methods**: 
+   - Core: Transform the original infinite-dimensional OCP into a finite-dimensional NonLinear Program (NLP)
+   - solved by structure-exploiting numerical optimization methods
+   - **first discretize, then optimize**
+     - the problem is first converted into a discrete one, on which optimization techniques are then deployed
+   - Advantages over indirect ones: they can easily treat all sorts of constraints, such as e.g. the inequality path constraints in one formulation
+     - the activation and de-activation of the inequality constraints, i.e. structural changes in active constraints, occurring during the optimization procedure are treated by **well-developed NLP methods** that can efficiently deal with such active set changes
+   - All direct methods are based on one form or another of finite-dimensional parameterization of the control trajectory, but differ significantly in the way **the state trajectory** is handled
+   - For solution of **constrained optimal control problems** in real world applications, direct methods are nowadays by far the most widespread and successfully used techniques
+   1. Direct Single Shooting
+   2. Direct Multiple Shooting
+   3. Direct Collocation

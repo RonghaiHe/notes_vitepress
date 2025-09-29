@@ -1710,6 +1710,14 @@ We have confirmed that our guess for the optimal strategy was right.
 
 > Reference: Chapter 12.6 in [Numerical Optimal Control](https://www.syscop.de/files/2024ws/NOC/book-NOCSE.pdf) by Moritz Diehl and Sebastien Gros
 
+At first, give the main drawbacks of the indirect approach: 
+1. it must be possible to eliminate the controls from the problem by algebraic manipulations, which is **not always straightforward** or **might even be impossible**;
+2. the optimal controls might be a **discontinuous function** of $x$ and $p$, such that the BVP is possibly given by a non-smooth differential equation;
+3. the differential equation might become very
+**nonlinear and unstable** and not suitable for a **forward simulation**.
+
+All these issues of the indirect approach can partially be addressed, and most importantly, it offers an exact and elegant characterization of the solution of optimal control problems in continuous time.
+
 In this section we address the question of how we can compute a solution of the boundary value problem (BVP) in the indirect approach. The remarkable observation is that the only non-trivial unknown is the initial value for the adjoints, $\boldsymbol{p}(0)$. Once this value has been found, the complete optimal trajectory can in principle be recovered by a forward simulation of the combined differential equation. Let us first recall that the BVP that we want to solve is given as
 
 $$

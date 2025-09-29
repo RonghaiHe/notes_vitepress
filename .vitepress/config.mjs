@@ -48,6 +48,7 @@ export default defineConfig({
               { text: 'Pontryagin Maximum Principle', link: '/docs/Control/Optimal_Control/4pontryagin'},
               { text: 'Dynamic Programming', link: '/docs/Control/Optimal_Control/5dynamicProgramming'},
               { text: 'Direct Methods', link: '/docs/Control/Optimal_Control/7DirectMethods'},
+              { text: 'DAE', link: '/docs/Control/Optimal_Control/8DAE'},
             ]
           }
         ]
@@ -91,6 +92,7 @@ export default defineConfig({
               { text: 'Pontryagin Maximum Principle', link: '/docs/Control/Optimal_Control/4pontryagin'},
               { text: 'Dynamic Programming', link: '/docs/Control/Optimal_Control/5dynamicProgramming'},
               { text: 'Direct Methods', link: '/docs/Control/Optimal_Control/7DirectMethods'},
+              { text: 'DAE', link: '/docs/Control/Optimal_Control/8DAE'},
             ]
         }
       ],

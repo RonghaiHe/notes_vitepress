@@ -555,7 +555,7 @@ $$
 We also have the terminal condition
 
 $$
-v(\boldsymbold{x}, T)=-\boldsymbold{x}^{\top} D x
+v(\boldsymbol{x}, T)=-\boldsymbol{x}^{\top} D \boldsymbol{x}
 $$
 
 #### Maximization
@@ -638,6 +638,152 @@ $$
 
 Furthermore, $\mathrm{(R)}$ in fact does have a solution, as explained for instance in the book of Fleming-Rishel.
 
+### 5.2.4 Example 4: More General Linear-Quadratic Regulator with Cross-Term and time-variant
+> Chapter 11, part 2 in [Numerical Optimal Control](https://www.syscop.de/files/2024ws/NOC/book-NOCSE.pdf) by Moritz Diehl and Sebastien Gros.
+
+For this important problem, we are given matrices $M, B, D \in \mathbb{M}^{n \times n}, N,Q \in \mathbb{M}^{n \times m}, C \in \mathbb{M}^{m \times m}$; and assume
+
+$$
+B, C, D \text { are symmetric and nonnegative definite, }
+$$
+
+and
+
+$$
+C \text { is invertible. }
+$$
+
+We take the linear dynamics
+
+$$
+\left\{\begin{array}{l}
+\dot{\boldsymbol{x}}(s)=M(s) \boldsymbol{x}(s)+N(s) \boldsymbol{\alpha}(s) \quad(0 \leq s \leq T) \\
+\boldsymbol{x}(0)=x^0,
+\end{array}\right. \tag{ODE}
+$$
+
+for which we want to **minimize** the quadratic cost functional
+
+$$
+\int_{t}^{T} 
+\begin{bmatrix}
+    \boldsymbol{x}(s)\\
+    \boldsymbol{\alpha}(s)\\
+\end{bmatrix}^{\top}
+\begin{bmatrix}
+    B(s) & Q(s)^\top\\
+    Q(s) & C(s)\\
+\end{bmatrix}
+\begin{bmatrix}
+    \boldsymbol{x}(s)\\
+    \boldsymbol{\alpha}(s)\\
+\end{bmatrix}
+\mathrm{d} s+\boldsymbol{x}(T)^{\top} D \boldsymbol{x}(T).
+$$
+
+So we must **maximize** the payoff
+
+$$
+P_{\boldsymbol{x}, t}[\boldsymbol{\alpha}(\cdot)]=-\int_{t}^{T} 
+\begin{bmatrix}
+    \boldsymbol{x}(s)\\
+    \boldsymbol{\alpha}(s)\\
+\end{bmatrix}^{\top}
+\begin{bmatrix}
+    B(s) & Q(s)^\top\\
+    Q(s) & C(s)\\
+\end{bmatrix}
+\begin{bmatrix}
+    \boldsymbol{x}(s)\\
+    \boldsymbol{\alpha}(s)\\
+\end{bmatrix}
+\mathrm{d} s+\boldsymbol{x}(T)^{\top} D \boldsymbol{x}(T). \tag{P}
+$$
+
+as
+
+$$v(x,t) = \sup P_{\boldsymbol{x}, t}[\boldsymbol{\alpha}(\cdot)]$$
+
+Also, we start from the assumption that the value function is quadratic. In order to verify this statement, let us first observe that $v(x,T)=\boldsymbol{x}^{\top} D \boldsymbol{x}$ is quadratic. Thus, let us assume for now that $v(x, t)$ is quadratic for all time, i.e. $v(x,t)=\boldsymbol{x}^{\top} K(t) \boldsymbol{x}$ for some symmetric matrix $K(t)$. Under this assumption, the HJB equation reads as
+
+$$
+  \begin{aligned}
+    -v_t &= \max_{a\in\mathbb{R}^m}\{\boldsymbol{f}\cdot\nabla_x v + r\}\\
+    &= \max_{a\in\mathbb{R}^m}\left\{2\boldsymbol{x}(t)^\top K(t)(M(t)\boldsymbol{x}(t)+N(t)\boldsymbol{a}(t)) - 
+    \begin{bmatrix}
+        \boldsymbol{x}(t)\\
+        \boldsymbol{a}(t)\\
+    \end{bmatrix}^{\top}
+    \begin{bmatrix}
+        B(t) & Q(t)^\top\\
+        Q(t) & C(t)\\
+    \end{bmatrix}
+    \begin{bmatrix}
+        \boldsymbol{x}(t)\\
+        \boldsymbol{a}(t)\\
+    \end{bmatrix}
+    \right\} \\
+    &= \max_{a\in\mathbb{R}^m}\left\{ - 
+    \begin{bmatrix}
+        \boldsymbol{x}\\
+        \boldsymbol{a}\\
+    \end{bmatrix}^{\top}
+    \begin{bmatrix}
+        B - KM - M^\top K  & Q^\top - KN\\
+        Q - N^\top K & C\\
+    \end{bmatrix}
+    \begin{bmatrix}
+        \boldsymbol{x}\\
+        \boldsymbol{a}\\
+    \end{bmatrix}
+    \right\}.
+  \end{aligned}
+$$
+
+Introduce Schur complement lemma below:
+
+::: tip Lemma: Schur Complement
+If a matrix $R$ is positive definitem then
+$$
+\min_u 
+\begin{bmatrix}
+    x\\
+    u
+\end{bmatrix}^\top
+\begin{bmatrix}
+    Q & S^\top\\
+    S & R
+\end{bmatrix}
+\begin{bmatrix}
+    x\\
+    u
+\end{bmatrix} = x^\top(Q-S^\top R^{-1}S)x
+$$
+
+and the minimizer $u^*(x) = -R^{-1}Sx$
+:::
+
+By Schur Complement Lemma, the above HJB eqatio yields
+
+$$
+-v_t = \boldsymbol{x}^\top(B-KM-M^\top K - (Q^\top - KN)C^{-1}(Q-N^\top K))\boldsymbol{x},
+$$
+
+which is again a quadratic term. Thus, as $v$ is quadratic at a time $T$, it remains quadratic throughout the backwards evolution. The resulting matrix differential equation
+$$
+-\dot{K}=B-K M-M^{\top} K-\left(Q^{\top}-KN\right) C^{-1}\left(Q-N^{\top} K\right)
+$$
+
+with terminal condition
+$$
+K(T)=D
+$$
+
+is called the **differential Riccati equation**. Integrating it backwards allows us to compute the cost-to-go function for the above optimal control problem. The corresponding feedback law is by the Schur complement lemma given as:
+$$
+\boldsymbol{\alpha}^{*}(\boldsymbol{x}, t)=-C(t)^{-1}\left(Q(t)-N(t)^{\top} K(t)\right) \boldsymbol{x} .
+$$
+
 ## 5.3 Dynamic Programming and the Pontryagin Maximum Principle
 
 ### 5.3.1 The Method of Characteristics.
@@ -648,7 +794,7 @@ $$
 \left\{\begin{array}{l}
 u_{t}(\boldsymbol{x}, t)+H\left(\boldsymbol{x}, \nabla_{\boldsymbol{x}} u(\boldsymbol{x}, t)\right)=0 \quad\left(\boldsymbol{x} \in \mathbb{R}^{n}, 0<t<T\right) \\
 u(\boldsymbol{x}, 0)=g(\boldsymbol{x})
-\end{array}\right. \tag{HJ}
+\end{array}\right. \tag{HJB}
 $$
 
 A basic idea in PDE theory is to **introduce some ordinary differential equations**, the solution of which lets us compute the solution $u$. In particular, we want to find a curve $\boldsymbol{x}(\cdot)$ along which we can, in principle at least, compute $u(\boldsymbol{x}, t)$.
@@ -898,4 +1044,42 @@ $$
 \boldsymbol{p}^{*} \text { is perpendicular to } \partial X_{0} \text { at } t=0 \\
 \boldsymbol{p}^{*} \text { is perpendicular to } \partial X_{1} \text { at } t=\tau^{*}
 \end{array}\right.
+$$
+
+## 5.4 Infinite Time Optimal Control
+
+Let us now regard an infinite time optimal control problem, as follows:
+$$
+\begin{cases}\dot{\boldsymbol{x}}(s) =\boldsymbol{f}(\boldsymbol{x}(s), \boldsymbol{\alpha}(s)), \quad s\in[0,\infty] \\ \boldsymbol{x}(0) =x^0,\end{cases} \tag{ODE}
+$$
+
+with the associated payoff functional
+
+$$
+P[\boldsymbol{\alpha}(\cdot)]=\int_{t}^{\infty} r(\boldsymbol{x}(s), \boldsymbol{\alpha}(s)) \mathrm{d} s. \tag{P}
+$$
+
+The principle of optimality states that the value function of this problem, if it is **finite** and it exists, must be stationary, i.e. **independent of time**. Setting $v_t(x, t)=0$ leads to the stationary HJB equation
+$$
+0=\max _{a \in A}\left\{\boldsymbol{f}(x, a) \cdot \nabla_{x} v(x, t)+r(x, a)\right\}
+$$
+
+with stationary optimal feedback control law
+$$
+\boldsymbol{\alpha}^{*}(x)=\underset{\boldsymbol{\alpha}}{\arg \max } \left\{\boldsymbol{f}(\boldsymbol{x}, \boldsymbol{\alpha}) \cdot \nabla_{\boldsymbol{x}} v(\boldsymbol{x}, t)+r(\boldsymbol{x}, \boldsymbol{\alpha})\right\}
+$$
+
+This equation is easily solvable in the **linear quadratic case**, i.e., in the case of an infinite horizon linear quadratic optimal control with time independent cost and system matrices. The solution is again quadratic and obtained by setting
+$$
+\dot{K}=0
+$$
+
+and solving
+$$
+0=B-K M-M^{\top} K-\left(Q^{\top}-KN\right) C^{-1}\left(Q-N^{\top} K\right) .
+$$
+
+This equation is called the **algebraic Riccati equation** in continuous time. Its feedback law is a **static** linear gain:
+$$
+\boldsymbol{\alpha}^*(\boldsymbol{x}) = -C^{-1}\left(Q-N^{\top} K\right) \boldsymbol{x}.
 $$

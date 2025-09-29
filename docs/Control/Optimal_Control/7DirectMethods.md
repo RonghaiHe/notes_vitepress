@@ -66,7 +66,7 @@ $$
 \text { subject to } \quad & \dot{x}_{1}(t)={x}_{1}(t) {x}_{2}(t)+{\alpha}(t), && {x}_{1}(0)=0 \\
 & \dot{x}_{2}(t)={x}_{1}(t), && {x}_{2}(0)=1, \\
 & {\alpha}(t) \geq-1, \quad {x}_{1}(t) \geq-0.6, && t \in[0, T],
-\end{align*}
+\end{align*} \tag{13.1}
 $$
 
 <!-- which we used already in Example 12.9 of Section 12.6.4. -->
@@ -149,7 +149,7 @@ $$
 \end{align*}
 $$
 
-It is visualized in [Figure 13.3](#fig13-3). Let us illustrate the multiple shooting method using the OCP (13.1). Here the **ordering of the equality constraints and variables** is important in order to get structured sparsity patterns. In this example, the variables are ordered in time as:
+It is visualized in [Figure 13.3](#fig13-3). Let us illustrate the multiple shooting method using the OCP [$(13.1)$](#example-7-1). Here the **ordering of the equality constraints and variables** is important in order to get structured sparsity patterns. In this example, the variables are ordered in time as:
 
 $$
 \boldsymbol{\beta}_{1,0}, \quad \boldsymbol{\beta}_{2,0}, \quad \boldsymbol{q}_{0}, \quad \boldsymbol{\beta}_{1,1}, \quad \boldsymbol{\beta}_{2,1}, \quad \boldsymbol{q}_{1}, \ldots, \boldsymbol{q}_{N-1}, \quad \boldsymbol{\beta}_{1, N}, \quad \boldsymbol{\beta}_{2, N}
@@ -173,7 +173,7 @@ and the shooting constraints are also imposed time-wise.
 <img src="/control_om7_2_2_example1.JPG" alt="example using multishooting" id="fig13-4" width="80%" align="middle">
 
 
-Figure 13.4: Solution to OCP (13.1) using a discretization based on multiple shooting, with $N=20$ and using a 4-steps Runge-Kutta integrator of order 4. The upper graph reports the states and input trajectories at the solution, where the continuity condition holds. The lower graphs report the sparsity pattern of the Jacobian of the equality constraints in the resulting NLP and the sparsity pattern of the Hessian of the Lagrange function. The Hessian of the Lagrange function arising from multiple-shooting is block-diagonal, due to the separability of the Lagrange function. The Jacobian of the inequality constraints is diagonal in this example, and block-diagonal in general.
+Figure 13.4: Solution to OCP [$(13.1)$](#example-7-1) using a discretization based on multiple shooting, with $N=20$ and using a 4-steps Runge-Kutta integrator of order 4. The upper graph reports the states and input trajectories at the solution, where the continuity condition holds. The lower graphs report the sparsity pattern of the Jacobian of the equality constraints in the resulting NLP and the sparsity pattern of the Hessian of the Lagrange function. The Hessian of the Lagrange function arising from multiple-shooting is block-diagonal, due to the separability of the Lagrange function. The Jacobian of the inequality constraints is diagonal in this example, and block-diagonal in general.
 
 The resulting solution is displayed in [Figure 13.4](#fig13-4), where one can observe the discrete state trajectories (black dots) at the discrete time instants $t_{0, \ldots, N}$ together with the simulations delivered by the integrators at the solution. One can also observe the very specific sparsity patterns of the Jacobian of the equality constraints and of the Hessian of the Lagrange function that arise from the direct multiple-shooting approach.
 
@@ -258,7 +258,7 @@ One ought to observe here that discretizing an OCP using direct collocation allo
 
 ### Example 13.3
 
-Let us tackle the OCP (13.1) of Example 13.1 via direct collocation. The direct collocation is implemented using a Gauss-Legendre direct collocation scheme with $d=3$. Here again, the ordering of the equality constraints and variables is important in order to get structured sparsity patterns.
+Let us tackle the OCP (13.1) of [Example 13.1](#example-7-1) via direct collocation. The direct collocation is implemented using a Gauss-Legendre direct collocation scheme with $d=3$. Here again, the ordering of the equality constraints and variables is important in order to get structured sparsity patterns.
 
 In this example, the variables are ordered in time as:
 
@@ -270,7 +270,7 @@ where $\boldsymbol{v}_{k, i} \in \mathbb{R}^{2}$, and the constraints are also o
 
 <img src="/control_om7_3_2_example1.JPG" alt="example using collocation" id="fig13-6" width="80%" align="middle">
 
-Figure 13.6: Solution to OCP (13.1) using a Gauss-Legendre direct collocation discretization scheme with $d=3$, and $N=20$. The upper graph reports the states and input trajectories. The collocated states $\boldsymbol{v}_{k, i}$ are reported as the dots. The lower graphs report the sparsity pattern of the Jacobian of the equality constraints in the resulting NLP and the sparsity pattern of the Hessian of the Lagrange function. Observe that the Hessian is block diagonal, while the Jacobian has a block-diagonal pattern with some elements off the blocks corresponding to the continuity conditions. The Jacobian of the inequality constraints is diagonal in this example, and block-diagonal in general.
+Figure 13.6: Solution to OCP [$(13.1)$](#example-7-1) using a Gauss-Legendre direct collocation discretization scheme with $d=3$, and $N=20$. The upper graph reports the states and input trajectories. The collocated states $\boldsymbol{v}_{k, i}$ are reported as the dots. The lower graphs report the sparsity pattern of the Jacobian of the equality constraints in the resulting NLP and the sparsity pattern of the Hessian of the Lagrange function. Observe that the Hessian is block diagonal, while the Jacobian has a block-diagonal pattern with some elements off the blocks corresponding to the continuity conditions. The Jacobian of the inequality constraints is diagonal in this example, and block-diagonal in general.
 
 The large NLP resulting from direct collocation need to be solved by **structure exploiting solvers**, and due to the fact that the problem functions are typically relatively cheap to evaluate compared to the cost of the linear algebra, **nonlinear interior point methods** are often the most efficient approach here. A widespread combination is to use collocation with IPOPT using the AMPL interface, or the casADi tool. It is interesting to note that, like in direct multiple shooting, the multipliers associated to the continuity conditions are again an approximation of the adjoint variables.
 
