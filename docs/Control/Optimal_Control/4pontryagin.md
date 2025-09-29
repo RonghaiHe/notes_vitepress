@@ -1705,3 +1705,317 @@ $$
 
 and so $x(t)=0$ for all times $t \geq s_{0}$.
 We have confirmed that our guess for the optimal strategy was right.
+
+## 4.9 Numerical Solution of the Two Point Boundary Value Problem (TPBVP)
+
+> Reference: Chapter 12.6 in [Numerical Optimal Control](https://www.syscop.de/files/2024ws/NOC/book-NOCSE.pdf) by Moritz Diehl and Sebastien Gros
+
+In this section we address the question of how we can compute a solution of the boundary value problem (BVP) in the indirect approach. The remarkable observation is that the only non-trivial unknown is the initial value for the adjoints, $\boldsymbol{p}(0)$. Once this value has been found, the complete optimal trajectory can in principle be recovered by a forward simulation of the combined differential equation. Let us first recall that the BVP that we want to solve is given as
+
+$$
+\begin{align*}
+b_{0}=\boldsymbol{x}(0)-{\boldsymbol{x}}^{0}&=0, \tag{4.1a} \\
+b_{T}=\boldsymbol{p}(T)-\nabla g(\boldsymbol{x}(T))&=0, \tag{4.1b} \\
+\dot{\boldsymbol{x}}(t)-\nabla_{\boldsymbol{p}} H^{*}(\boldsymbol{x}(t), \boldsymbol{p}(t))&=0, \, t \in[0, T], \tag{4.1c}\\
+\dot{\boldsymbol{p}}(t)+\nabla_{\boldsymbol{x}} H^{*}(\boldsymbol{x}(t), \boldsymbol{p}(t))&=0, \, t \in[0, T] .\tag{4.1d}
+\end{align*}
+$$
+
+Using the shorthands 
+
+$$
+\boldsymbol{y} = 
+\begin{bmatrix}
+  \boldsymbol{x} \\
+  \boldsymbol{p}
+\end{bmatrix}, \quad
+\boldsymbol{\varphi}(\boldsymbol{y}) = 
+\begin{bmatrix}
+  \nabla_{\boldsymbol{p}} H^{*}(\boldsymbol{x}(t), \boldsymbol{p}(t)) \\
+  -\nabla_{\boldsymbol{x}} H^{*}(\boldsymbol{x}(t), \boldsymbol{p}(t))
+\end{bmatrix}
+$$
+
+and
+
+$$
+\boldsymbol{b}\left(\boldsymbol{y}(0), \boldsymbol{y}(T), {\boldsymbol{x}}^{0}\right)=\left[\begin{array}{c}
+b_{0}\left(\boldsymbol{y}(0), {\boldsymbol{x}}^{0}\right) \\
+b_{T}(\boldsymbol{y}(T))
+\end{array}\right]
+$$
+
+the system of equations can be summarized as:
+
+$$
+\begin{align*}
+\boldsymbol{b}\left(\boldsymbol{y}(0), \boldsymbol{y}(T), {\boldsymbol{x}}^{0}\right) & =0, \tag{4.2a}\\
+\dot{\boldsymbol{y}}(t)-\boldsymbol{\varphi}(\boldsymbol{y}(t)) & =0, \quad t \in[0, T] .\tag{4.2b}
+\end{align*}
+$$
+
+This BVP has the $2 n_{\boldsymbol{x}}$ differential equations $\dot{\boldsymbol{y}}=\varphi$, and the $2 n_{\boldsymbol{x}}$ boundary conditions $\boldsymbol{b}$ and is therefore usually well-defined. We detail here **three approaches** to solve this TPBVP numerically, single shooting, collocation, and multiple shooting.
+
+### 4.9.1 Single shooting
+
+**Single shooting** starts with the following idea: for **any guess** of the initial value $\boldsymbol{p}_{0}$, we can use a **numerical integration routine** in order to obtain the state-costate trajectory as a function of $\boldsymbol{p}_{0}, {\boldsymbol{x}}^{0}$, i.e. $\boldsymbol{y}\left(t, \boldsymbol{p}_{0}, {\boldsymbol{x}}^{0}\right)$ for all $t \in[0, T]$. This is visualized in [Figure 4.9.1](#fig-491). The result is that the differential equation $(4.2b)$ is by construction already satisfied, as well as the initial boundary condition $(4.1a)$. Thus, we only need to enforce the boundary condition $(4.1b)$, which we can do using the terminal trajectory value $\boldsymbol{y}\left(T, \boldsymbol{p}_{0}, {\boldsymbol{x}}^{0}\right)$ :
+
+$$
+\underbrace{b_{T}\left(\boldsymbol{y}\left(T, \boldsymbol{p}_{0}, {\boldsymbol{x}}^{0}\right)\right)}_{=: R_{T}\left(\boldsymbol{p}_{0}\right)}=0 .
+$$
+
+For nonlinear dynamics $\boldsymbol{\varphi}$, this equation can generally not be solved explicitly. We then use the Newton's method, starting from an initial guess $\boldsymbol{p}_{0}$, and iterating to the solution, i.e. we iterate
+
+$$
+\boldsymbol{p}_{0}^{k+1}=\boldsymbol{p}_{0}^{k}-t_{k}\left(\frac{\partial R_{T}}{\partial \boldsymbol{p}_{0}}\left(\boldsymbol{p}_{0}^{k}\right)\right)^{-1} R_{T}\left(\boldsymbol{p}_{0}^{k}\right). \tag{4.3}
+$$
+
+for some adequate step-size $\left.\left.t_{k} \in\right] 0,1\right]$. It is important to note that in order to evaluate $\frac{\partial R}{\partial \boldsymbol{p}_{0}}\left(\boldsymbol{p}_{0}^{k}\right)$ we have to compute the ODE sensitivities $\frac{\partial \boldsymbol{y}\left(T, y_{0}\right)}{\partial \boldsymbol{p}_{0}}$.
+
+In some cases, as said above, the forward simulation of the combined ODE might be an **ill-conditioned problem** so that single shooting cannot be employed. Even if the forward simulation problem is well-defined, the region of attraction of the Newton iteration on $R_{T}\left(\boldsymbol{p}_{0}\right)=0$ can be very small, such that a **good guess** for $\boldsymbol{p}_{0}$ is often required. However, such a guess is **typically unavailable**. In the following example, we illustrate these observation on a simple optimal control problem.
+
+#### Example 4.9.1
+We consider the optimal control problem:
+
+$$
+\begin{align*}
+\underset{\boldsymbol{x}(.), {u}(.)}{\operatorname{min}} \quad & \int_{0}^{T} x_{1}(t)^{2}+10 x_{2}(t)^{2}+{u}(t)^{2} \mathrm{d} t \\
+\text { subject to } \quad & \dot{{x}}_{1}(t)=x_{1}(t) x_{2}(t)+{u}(t), & x_{1}(0)=0 \\
+& \dot{{x}}_{2}(t)=x_{1}(t), & x_{2}(0)=1
+\end{align*} \tag{4.4}
+$$
+
+with $T=5$. This example does not hold a terminal cost or constraints, such that the terminal condition reads as $R_{T}\left(\boldsymbol{p}_{0}\right)=\boldsymbol{p}\left(T, \boldsymbol{p}_{0}, {\boldsymbol{x}}^{0}\right)=0$. The state-costate trajectory at the solution is displayed in [Figure 4.9.1](#fig-491). It is then interesting to build the function $\boldsymbol{p}_{0} \mapsto \boldsymbol{p}\left(T, \boldsymbol{p}_{0}, {\boldsymbol{x}}^{0}\right)$ for various values of $\boldsymbol{p}_{0}$, see [Figure 4.9.2](#fig-492). This function is very **nonlinear**, making it difficult for the Newton iteration to find the co-states' initial value $\boldsymbol{p}_{0}$ resulting in $\boldsymbol{p}\left(T, \boldsymbol{p}_{0}, {\boldsymbol{x}}^{0}\right)=0$. More specifically, the Newton iteration (full steps or reduced steps) converges only for a specific set of initial guesses $\boldsymbol{p}_{0}^{0}$ provided to the iteration (4.3), see [Figure 4.9.3](#fig-493).
+
+<img src="/control_om4_9_1_example1_traj.JPG" id="fig-491" alt="traj" width="80%" align="center">
+
+Figure 4.9.1: Illustration of the state and co-state trajectories for example 4.9.1 at the solution delivering $\boldsymbol{p}\left(T, \boldsymbol{p}_{0}, {\boldsymbol{x}}^{0}\right)=0$ for $T=5$, note that $\lambda_*$ in the image is actually $p_*$.
+
+<img src="/control_om4_9_2_example1_costate.JPG" id="fig-492" alt="costate" width="80%" align="center">
+
+Figure 4.9.2: Illustration of the map $\boldsymbol{p}_{0} \mapsto \boldsymbol{p}\left(T, \boldsymbol{p}_{0}, {\boldsymbol{x}}^{0}\right)$, in the form of level curves for $T=5$. The black dot represents the solution of the TPBVP problem, where $R_{T}\left(\boldsymbol{p}_{0}\right)=\boldsymbol{p}\left(T, \boldsymbol{p}_{0}, {\boldsymbol{x}}^{0}\right)=0$. One can observe that the map is very nonlinear, such that the Newton method can struggle to converge to the solution $\boldsymbol{p}_{0}$ of the TPBVP, unless a very good initial guess is provided. Note that $\lambda_*$ in the image is actually $p_*$
+
+<img src="/control_om4_9_3_example1_convergence.JPG" id="fig-493" alt="region of convergence" width="80%" align="center">
+
+Figure 4.9.3: Illustration of the region of convergence of the Newton iteration $(4.3)$ for problem $(4.4)$ (in black, with full Newton steps on the left-hand side graph and with reduced steps on the right-hand side graph). Here we note $\boldsymbol{p}_{0,1}, \boldsymbol{p}_{0,2}$ the initial guess provided to the Newton iteration. The grey dots (at $(3.22, 8.48)$) depict the solution to the TPBVP. Only a fairly small, disconnected and highly convoluted set of initial guess for the co-states initial conditions leads to a convergence of the Newton iteration. Note that $\lambda_*$ in the image is actually $p_*$
+
+A crucial observation that will motivate an alternative to the single-shooting approach is illustrated in Figure 4.9.4, where the map $\boldsymbol{p}_{0} \mapsto \boldsymbol{p}\left(t, \boldsymbol{p}_{0}, {\boldsymbol{x}}^{0}\right)$ is displayed for the integration times $t=3$ and $t=4$. The crucial observation here is that the map is fairly **linear** up to $t=3$, and becomes increasingly nonlinear for larger integration times. This observation is general and motivates the core idea behind the alternatives to single shooting, namely that integration shall **never** be performed over **long time intervals**, so as to avoid creating strongly nonlinear functions in the TPBVP.
+
+<img src="/control_om4_9_4_example1_nonlinear.JPG" id="fig-494" alt="linear and nonlinear" width="80%" align="center">
+
+Figure 4.9.4: Illustration of the map $\boldsymbol{p}_{0} \mapsto \boldsymbol{p}\left(t, \boldsymbol{p}_{0}, {\boldsymbol{x}}^{0}\right)$, in the form of level curves for different times $t$. The black dot represents the solution of the TPBVP problem, where $\boldsymbol{p}\left(T, \boldsymbol{p}_{0}, {\boldsymbol{x}}^{0}\right)=0$. One can observe that the map is close to linear for "small" integration times $t$ (upper graphs, where $t=3$ ), and becomes increasingly nonlinear as the integration time increases (lower graph, where $t=4$ ), until it reaches the final time $T=5$, see [Figure 4.9.2](#fig-492). This observation is general, and holds for most problems.
+
+### 4.9.2 Multiple shooting
+
+The nonlinearity of the integration map $\boldsymbol{p}_{0} \mapsto \boldsymbol{y}\left(t, \boldsymbol{p}_{0}, {\boldsymbol{x}}^{0}\right)$ for long integration times $t$ motivates the "breaking down" of the full integration in **small pieces**, so as to avoid creating very **nonlinear** map in the TPBVP conditions. The idea is originally due to Osborne, and is based on dividing the time interval $[0, T]$ into (typically uniform) shooting intervals $\left[t_{k}, t_{k+1}\right] \subset[0, T]$, where the most common choice is $t_{k}=k \frac{T}{N}$. Let us then frame the integration over a short time interval $\left[t_{k}, t_{k+1}\right]$ with initial value $\boldsymbol{\beta}_{k}$ as the function $\Phi_{k}\left(\boldsymbol{\beta}_{k}\right)$, defined as:
+
+$$
+\begin{gather*}
+\Phi_{k}\left(\boldsymbol{\beta}_{k}\right)=\boldsymbol{y}\left(t_{k+1}\right) \quad \text { where } \tag{4.5a}\\
+\dot{\boldsymbol{y}}(t)-\boldsymbol{\varphi}(\boldsymbol{y}(t))=0, \quad t \in\left[t_{k}, t_{k+1}\right] \quad \text { and } \quad \boldsymbol{y}\left(t_{k}\right)=\boldsymbol{\beta}_{k}\tag{4.5b}
+\end{gather*}
+$$
+
+for $k=0, \ldots, N-1$. We then rewrite the TPBVP conditions (4.2) as:
+
+$$
+\begin{align*}
+b\left(\boldsymbol{\beta}_{0}, \boldsymbol{\beta}_{N}, {\boldsymbol{x}}^{0}\right) & =0, &&&& \text { (boundary conditions) } \tag{4.6a}\\
+\Phi_{k}\left(\boldsymbol{\beta}_{k}\right)-\boldsymbol{\beta}_{k+1} & =0, && k=0, \ldots, N-1 . && \text{(continuity conditions)} \tag{4.6b}\\
+\end{align*}
+$$
+
+One can then rewrite the conditions (4.6) altogether as the function:
+
+$$
+R_{\mathrm{MS}}\left(\boldsymbol{\beta}, {\boldsymbol{x}}^{0}\right)=0 \tag{4.7}
+$$
+
+where we note $\boldsymbol{\beta}=\left(\boldsymbol{\beta}_{0}, \ldots, \boldsymbol{\beta}_{N}\right)$. A Newton iteration can be then deployed on $(4.7)$ to find the variables $\boldsymbol{\beta}$, it reads as:
+
+$$
+\boldsymbol{\beta}^{k+1}=\boldsymbol{\beta}^{k}-t_{k}\left(\frac{\partial R_{\mathrm{MS}}}{\partial \boldsymbol{\beta}}\left(\boldsymbol{\beta}^{k}, {\boldsymbol{x}}^{0}\right)\right)^{-1} R_{\mathrm{MS}}\left(\boldsymbol{\beta}^{k}, {\boldsymbol{x}}^{0}\right) . \tag{4.8}
+$$
+
+for some step-size $\left.\left.t_{k} \in\right] 0,1\right]$. We illustrate the Multiple-Shooting approach in the following example.
+
+#### Example 4.9.2
+We consider the optimal control problem $(4.4)$ from [Example 4.9.1](#example-4-9-1) with $T=5$. If we denote $\boldsymbol{\beta}_{k}=\left(\boldsymbol{x}_{k}, \boldsymbol{p}_{k}\right)$, the boundary conditions for this example then become:
+
+$$
+x_{0}=\left[\begin{array}{l}
+0 \\
+1
+\end{array}\right], \quad \boldsymbol{p}_{N}=0 .
+$$
+
+We illustrate the Multiple-Shooting procedure (12.14) in Figure 4.9.5 for $N=5$.
+
+<img src="/control_om4_9_5_example1_multishooting.JPG" id="fig-495" alt="multishooting" width="80%" align="center">
+
+Figure 4.9.5: Illustration of the state and co-state trajectories for problem $(4.4)$ during the multiple-shooting iterations $(4.8)$, such that the conditions $\Phi_{k}\left(\boldsymbol{\beta}_{k}\right)- \boldsymbol{\beta}_{k+1}=0$ are not yet fulfilled. Here, the discrete times $t_{k}$ are depicted as grey dashed lines, the discrete state-costates $\boldsymbol{\beta}_{k}=\left(x_{k, 1}, x_{k, 2}, \boldsymbol{p}_{k, 1}, \boldsymbol{p}_{k, 2}\right)$ are depicted as black dots, and the resulting integrations $\Phi_{k}=\left(\Phi_{k, 1}^{\boldsymbol{x}}, \Phi_{k, 2}^{\boldsymbol{x}}, \Phi_{k, 1}^{\boldsymbol{p}}, \Phi_{k, 2}^{\boldsymbol{p}}\right)$ are depicted as white dots. The black curves represent the state-costate trajectories on the various time intervals $\left[t_{k}, t_{k+1}\right]$. At the solution (12.14), the conditions $\Phi_{k}\left(\boldsymbol{\beta}_{k}\right)=\boldsymbol{\beta}_{k+1}$ are enforced for $k=1, \ldots, N-1$, such that the black and white dots coincide on each discrete time $t_{k}$.
+
+One ought to observe that the time intervals $\left[t_{k}, t_{k+1}\right]$ are of size $\frac{T}{N}$, and hence get shorter as $N$ increases. Because one can "control" the length of the time interval over which the integration is performed via $N$, and because the functions $\Phi_{k}\left(\boldsymbol{\beta}_{k}\right)-\boldsymbol{\beta}_{k+1}$ become **less nonlinear** as the length of the time interval decreases, one can make them "arbitrarily" linear by increasing $N$. It follows that a sufficiently large $N$ typically allows one to solve the Multiple-Shooting conditions $(4.6)$ using a Newton iteration even if no good initial guess is available.
+
+<img src="/control_om4_9_6_example1_jacobi_multishooting.JPG" id="fig-496" alt="jacobi of multishooting" width="80%" align="center">
+
+Figure 4.9.6: Illustration of sparsity pattern of the Jacobian matrix $\frac{\partial R_{\mathrm{MS}}}{\partial \boldsymbol{\beta}}$ in the Newton iteration $(4.8)$ for the optimal control problem $(4.4)$ approached via indirect multiple-shooting, for [Example 4.9.2](#example-4-9-2). Here we use $N=5$. One can readily observe that the Jacobian matrix is sparse and highly structured. This structure arises via organising the algebraic conditions $(4.7)$ and the variables $\boldsymbol{\beta}$ in time (i.e. in the order $k=0, \ldots, N$ ). Note that here the last variables $\boldsymbol{\beta}_{N}$ where eliminated using the equality $\boldsymbol{\beta}_{N}=\Phi_{N-1}\left(\boldsymbol{\beta}_{k-1}\right)$. In the specific case of [Example 4.9.2](#example-4-9-2), the elimination has no impact on the Newton iteration because the boundary conditions $b\left(\boldsymbol{\beta}_{0}, \boldsymbol{\beta}_{N}, {\boldsymbol{x}}^{0}\right)$ are linear.
+
+It is important to observe that the set of algebraic conditions $(4.7)$ holds a large number of variables $\boldsymbol{\beta}$, such that the Newton iteration $(4.8)$ is deployed using large Jacobian matrices $\frac{\partial R_{\mathrm{MS}}}{\partial \boldsymbol{\beta}}$. However, these matrices are **sparse**, and if the algebraic conditions and variables are adequately organised, they are highly structured (see Figure 4.9.6), such that their factorization can be performed efficiently.
+
+The second alternative to single-shooting is the object of the next section, and can be construed as an extreme case of Multiple-Shooting. We detail this next.
+
+### 4.9.3 Collocation & Pseudo-spectral methods
+
+The second alternative approach to single shooting is to use **simultaneous collocation** or Pseudo-spectral methods. As we will see next, the two approaches are fairly similar. The key idea behind these methods is to introduce **all the variables involved** in processing the integration of the dynamics, and the related algebraic conditions into the set of algebraic equations to be processed.
+
+The most common implementation of this idea is based on the Orthogonal Collocation method.
+
+We consider the collocation-based integration of the state-costate dynamics on a time interval $\left[t_{k}, t_{k+1}\right]$ starting from the initial value $\boldsymbol{\beta}_{k}$, as described in equation
+
+$$
+  \boldsymbol{c}_k(\boldsymbol{v}_k,t_{k,i},\boldsymbol{\beta}_k) = 
+  \begin{bmatrix}
+    v_{k,0} - \boldsymbol{\beta}_k \\
+    \dot{\boldsymbol{p}}_k(t_{k,1},\boldsymbol{v}_k) - \boldsymbol{f}(\boldsymbol{v}_{k,1}, t_{k,i}) \\
+    \vdots\\
+    \dot{\boldsymbol{p}}_k(t_{k,d},\boldsymbol{v}_k) - \boldsymbol{f}(\boldsymbol{v}_{k,d}, t_{k,i})
+  \end{bmatrix} = 0.
+$$
+
+where $\boldsymbol{v}$ is the coefficients of polynominal.
+
+The integration is then based on solving a set of collocation equations:
+
+$$
+\begin{align*}
+\boldsymbol{v}_{k, 0} & =\boldsymbol{\beta}_{k} \tag{4.10a}\\
+\dot{p}\left(t_{k, i}, \boldsymbol{v}_{k}\right) & =\boldsymbol{\varphi}\left(\boldsymbol{v}_{k, i}, t_{k, i}\right), \quad i=1, \ldots, d\tag{4.10b}
+\end{align*}
+$$
+
+for $k=0, \ldots, N-1$, where $t_{k, i} \in\left[t_{k}, t_{k+1}\right]$ for $i=0, \ldots, d$, and the variables $\boldsymbol{v}_{k} \in \mathbb{R}^{2 n_{\boldsymbol{x}} \cdot(d+1)}$ hold the discretisation of the continuous state-costates dynamics. The TPBVP discretised using orthogonal collocation then holds the variables $\boldsymbol{v}_{k, i}$ and $\boldsymbol{\beta}_{k}$ for $k=0, \ldots, N-1$ and $i=1, \ldots, d$, and the following constraints:
+
+$$
+\begin{align*}
+\boldsymbol{b}\left(\boldsymbol{\beta}_{0}, \boldsymbol{\beta}_{N}, {\boldsymbol{x}}^{0}\right)=0, & & \text { (boundary condition), } \tag{4.11a}\\
+\boldsymbol{p}\left(t_{k+1}, \boldsymbol{v}_{k}\right)-\boldsymbol{\beta}_{k+1}=0, & & \text { (continuity condition), } \tag{4.11b}\\
+\boldsymbol{v}_{k, 0}-\boldsymbol{\beta}_{k}=0, & & \text { (initial values), } \tag{4.11c}\\
+\dot{\boldsymbol{p}}\left(t_{k, i}, \boldsymbol{v}_{k}\right)-\boldsymbol{\varphi}\left(\boldsymbol{v}_{k, i}, t_{k, i}\right)=0, & & \text { (dynamics). }\tag{4.11d}
+\end{align*}
+$$
+
+One can observe that equations $(4.11b)$ and $(4.11c)$ are linear, while equation $(4.11d)$ is nonlinear when the dynamics are nonlinear. One can also observe that the variables $\boldsymbol{\beta}_{0, \ldots, N-1}$ can actually be eliminated from (4.11), to yield a slightly more compact set of equation, with $k=0, \ldots, N-1$ and $i=1, \ldots, d$ :
+
+$$
+\begin{align*}
+\boldsymbol{b}\left(\boldsymbol{v}_{k, 0}, \boldsymbol{v}_{N, 0}, {\boldsymbol{x}}_{0}\right) & =0, & & \text { (boundary condition), } \tag{4.12a}\\
+\boldsymbol{p}\left(t_{k+1}, \boldsymbol{v}_{k}\right)-\boldsymbol{v}_{k+1,0} & =0, & & \text { (continuity condition), } \tag{4.12b}\\
+\dot{\boldsymbol{p}}\left(t_{k, i}, \boldsymbol{v}_{k}\right)-\boldsymbol{\varphi}\left(\boldsymbol{v}_{k, i}, t_{k, i}\right) & =0, & & \text { (dynamics). }\tag{4.12c}
+\end{align*}
+$$
+
+This elimination does not modify the behavior of the Newton iteration. We can gather the algebraic conditions $(4.12)$ and the variables $\boldsymbol{\beta}_{k}, \boldsymbol{v}_{k}$ in the compact form
+
+$$
+R_{\mathrm{IC}}\left(\boldsymbol{w}, {\boldsymbol{x}}^{0}\right)=0, \tag{4.13}
+$$
+
+where $\boldsymbol{w}=\left\{\boldsymbol{v}_{0,0}, \ldots, \boldsymbol{v}_{0, d}, \ldots, \boldsymbol{v}_{N-1,0}, \ldots, \boldsymbol{v}_{N-1, d}, \boldsymbol{v}_{N, 0}\right\}$. A Newton iteration can be then deployed on $(4.13)$ to find the variables $\boldsymbol{w}$, it reads as
+
+$$
+\boldsymbol{w}^{k+1}=\boldsymbol{w}^{k}-t_{k}\left(\frac{\partial R_{\mathrm{IC}}}{\partial w}\left(\boldsymbol{w}^{k}, {\boldsymbol{x}}^{0}\right)\right)^{-1} R_{\mathrm{IC}}\left(\boldsymbol{w}^{k}, {\boldsymbol{x}}^{0}\right), \tag{4.14}
+$$
+
+for some step-size $t_{k} \in \left[0,1\right]$. We illustrate the indirect collocation approach in the following example.
+
+<img src="/control_om4_9_7_example1_collocation.JPG" id="fig-497" alt="collocation" width="80%" align="center">
+
+Figure 4.9.7: Illustration of the state and co-state trajectories for [example 4.9.1](#example-4-9-1) using the orthogonal collocation approach with $N=20$. The grey curves display the state-costate trajectories after the first full Newton step of $(4.14)$, while the black curves report the state-costate trajectories at convergence. The discrete times $t_{k}$ are depicted as grey dashed lines, the discrete state-costates on the time grid $t_{k, i}$ are depicted as dots. Note that the continuity conditions $(4.11b)$ in the collocation method are linear in the variables $\boldsymbol{w}$, such that the trajectories are continuous after the first full Newton step (hence the grey curves are continuous, even though the problem is not solved yet).
+
+#### Example 4.9.3
+We consider the optimal control problem from [Example 4.9.1](#example-4-9-1) with $T=5$. We illustrate the Orthogonal Collocation procedure $(4.11)$ in Figure 4.9.7 for $N=10$. The sparsity pattern of the Jacobian matrix $\frac{\partial R_{\text {IC }}}{\partial \boldsymbol{w}}$ from the Newton iteration $(4.14)$ is illustrated in [Figure 4.9.8](#fig-498). The variables and constraints were ordered with respect to time. Even though it is large, the complexity of forming factorisations of the Jacobian matrix $\frac{\partial R_{I C}}{\partial \boldsymbol{w}}$ is limited as it is sparse and highly structured.
+
+<img src="/control_om4_9_8_example1_jacobi_collocation.JPG" id="fig-498" alt="jacobi of collocation" width="80%" align="center">
+
+Figure 4.9.8: Illustration of the sparsity structure for the Jacobian $\frac{\partial R_{\mathrm{IC}}}{\partial w}$ in the Newton iteration $(4.14)$
+
+#### Pseudo-spectral methods
+**Pseudo-spectral methods** deploy a very similar approach to the one described here, to the exception that they **skip the division of the time interval** $[0, T]$ into subintervals $\left[t_{k}, t_{k+1}\right]$, and use a single set of basis functions spanning the **entire time interval** $[0, T]$. Pseudo-spectral methods for the TPBVP problem $(4.2)$ can then be framed as:
+
+$$
+\begin{align*}
+\boldsymbol{b}\left(p(0, \boldsymbol{v}), \boldsymbol{p}(T, \boldsymbol{v}), {\boldsymbol{x}}^{0}\right) & =0, \tag{4.15a}\\
+\dot{\boldsymbol{p}}\left(t_{k}, \boldsymbol{v}\right)-\boldsymbol{\varphi}\left(\boldsymbol{p}\left(t_{k}, \boldsymbol{v}\right), t_{k}\right) & =0, \quad i=k, \ldots, n\tag{4.15b}
+\end{align*}
+$$
+
+where $t_{k} \in[0, T]$, and the variables $v \in \mathbb{R}^{n_{\boldsymbol{x}} \cdot n}$ hold the discretization of the continuous dynamics. Because they attempt to capture the state trajectories in a single function $p(t, v)$, with $t \in[0, T]$, the Newton iteration solving constraints $(4.15)$ generally holds a **dense Jacobian matrix**, for which structure-exploiting linear algebra is generally inefficient.
+
+<!-- ### 4.9.4 Numerical solution of TPBVP with Path Constraints
+
+In order to provide a fairly complete discussion on numerical solutions of the TPBVP problem for optimal control, we ought to consider the case of mixed path constraints, resulting in a TPBVP of the form (12.4). As hinted in Section 12.3, the treatment of mixed path constraints in the context of indirect methods can be fairly involved.
+
+The difficulty when solving the TPBVP (12.4) is very similar to the difficulty of solving the KKT conditions in the presence of inequality constraints, and stems from the non-smooth complementarity slackness condition (12.4e). Similarly to solving the non-smooth KKT conditions, we can consider here an approach similar to the Primal-Dual Interior-Point approach already detailed to solve the KKT conditions in the presence of inequality constraints, see Section 4.3.1. The Interior-point idea deployed on (12.4) yields the relaxation of the complementarity condition (12.4e) and the introduction of slack variables
+$\boldsymbol{\beta}(t)$ such that the following relaxed PMP conditions are numerically solved:
+
+$$
+\begin{array}{rlr}
+\boldsymbol{x}(0)-{\boldsymbol{x}}^{0}=0, & & \\
+\boldsymbol{p}(T)-\nabla g(\boldsymbol{x}(T))=0, & & \\
+\dot{\boldsymbol{x}}(t)-\nabla_{\boldsymbol{p}} H^{*}(\boldsymbol{x}(t), \boldsymbol{p}(t), \mu(t))=0, & t \in[0, T], & \\
+\dot{\boldsymbol{p}}(t)+\nabla_{\boldsymbol{x}} H^{*}(\boldsymbol{x}(t), \boldsymbol{p}(t), \mu(t))=0, & t \in[0, T], & \\
+h\left(\boldsymbol{x}(t), u_{\exp }^{\star}\right)+\boldsymbol{\beta}(t)=0, & t \in[0, T], & \\
+\boldsymbol{\beta}_{i}(t) \mu_{i}(t)-\tau=0, & t \in[0, T], \quad i=1, \ldots, n_{h}
+\end{array}
+$$
+
+with the addition of the positivity conditions:
+
+$$
+\boldsymbol{\beta}(t) \geq 0, \quad \mu(t) \geq 0 \quad t \in[0, T]
+$$
+
+One can observe that (12.24c)-(12.24f) is in fact an index-1 DAE (see Chapter 14), as the algebraic variables $\boldsymbol{\beta}(t)$ and $\mu(t)$ can be eliminated using (12.24e) and (12.24f). In practice, problem (12.24) is best suited as it is for a numerical approach, as it allows to handle the positivity constraints (12.25) easily via taking the adequate step lengths in the Newton iterations.
+
+The differential-algebraic conditions (12.24c)-(12.24f) can then be handled via a collocation method, yielding a large and sparse set of algebraic conditions that are simply added to the boundary conditions (12.24a)-(12.24b) to yield an algebraic system that we note as:
+
+$$
+R_{\tau}(w)=0
+$$
+
+where $w=(\boldsymbol{x}, \boldsymbol{p}, \mu, \boldsymbol{\beta})$ gathers the discrete states $\boldsymbol{x}$, costates $\boldsymbol{p}$, slack variables $\boldsymbol{\beta}$ and multipliers $\mu$, discretized on the collocation time grid $t_{k, i}$ for $k=0, \ldots, N-$ 1 and $i=0, \ldots, d$. A prototype of interior-point algorithm then reads as follows.
+
+Algorithm 12.8 (IP method for TPBVP with path constraints).
+Input: guess $w$, algorithmic parameters $\tau>0, \gamma \in] 0,1[, \epsilon \in] 0,1[$, Tol $>0$
+while $\left\|R_{\tau}(w)\right\| \geq$ Tol do
+$\Delta w=-\frac{\partial R_{\tau}(w)}{\partial w} R_{\tau}(w)$
+Update $w=w+t \Delta w$, where $t \in] 0,1]$ ensures
+
+$$
+\boldsymbol{\beta}+t \Delta \boldsymbol{\beta} \geq \epsilon \boldsymbol{\beta}, \quad \mu+t \Delta \mu \geq \epsilon \mu
+$$
+
+if $\quad\left\|R_{\tau}(w)\right\|_{X} \leq 1 \quad$ then $\quad \tau=\gamma \tau$
+end while
+where $X$ is an ad-hoc norm on the residual $R_{\tau}$. Let us consider the deployment of this Algorithm on the following example.
+Example 12.9. We consider the optimal control problem (12.12) with the addition of simple mixed constraints in the form of state and input bounds:
+
+$$
+\begin{array}{cll}
+\underset{\boldsymbol{x}(.), \boldsymbol{u}(.)}{\operatorname{minimize}} & \int_{0}^{5} x_{1}(t)^{2}+10 x_{2}(t)^{2}+\boldsymbol{u}(t)^{2} d t & \\
+\text { subject to } & \dot{\boldsymbol{x}}_{1}(t)=x_{1}(t) x_{2}(t)+\boldsymbol{u}(t), & x_{1}(0)=0 \\
+& \dot{\boldsymbol{x}}_{2}(t)=x_{1}(t), & x_{2}(0)=1 \\
+& \boldsymbol{u}(t) \geq-1, \quad x_{1}(t) \geq-0.6, & t \in[0, T]
+\end{array}
+$$
+
+with $T=5$, which is similar to the optimal control problem treated in the previous examples, to the addition of the path constraint $x_{1}(t) \geq-0.6$ and $\boldsymbol{u}(t) \geq-1$. We treat this problem using Algorithm 12.8. The resulting state-costate trajectory at the solution is displayed in Figure 12.10. The resulting optimal control input $u_{\exp }^{\star}(\boldsymbol{x}, \boldsymbol{p}, \mu)$, the slack variables $\boldsymbol{\beta}$ and the adjoint variables $\mu$ are displayed in Figure 12.11. The sparsity pattern of the Jacobian matrix $\frac{\partial R_{T}(w)}{\partial w}$ used in the Newton iterations in Algorithm 12.8 is illustrated in Figure 12.12.
+
+Remark on Indirect Multiple-Shooting vs. Indirect Collocation At first sight multiple shooting seems to combine the disadvantages of both singleshooting and collocation. Like single shooting, it cannot handle strongly unstable systems as it relies on a forward integration, and like collocation, it leads to a large scale equation system and needs sparse treatment of the linear algebra. On the other hand, it also inherits the advantages of these two methods: like single shooting, it can rely on existing forward solvers with inbuilt adaptivity so that it avoids the question of numerical discretization errors: the choice $N$ is much less important than in collocation and typically, one chooses an $N$ between 5 and 50 in multiple shooting. Also, multiple shooting can be implemented in a way that allows one to perform in each Newton iteration basically the same computational effort as in single shooting, by using a condensing technique. Finally, like collocation, it allows one to deal better with unstable and nonlinear systems than single shooting. These last facts, namely that a lifted Newton method can solve the large "lifted" equation system (e.g. of multiple shooting) at the same cost per Newton iteration as the small scale nonlinear equation system (e.g. of single shooting) to which it is equivalent, but with faster local convergence rates, is in detail investigated in [2] where also a literature review on such lifted methods is given.
+
+![](https://cdn.mathpix.com/cropped/2025_09_29_dc7f567232ac8f80edfcg-13.jpg?height=869&width=1091&top_left_y=459&top_left_x=434)
+Figure 12.10 Illustration of the state and co-state trajectories for problem (12.12) using the orthogonal collocation approach with $N=20$. The black curves report the state-costate trajectories at convergence. The discrete times $t_{k}$ are depicted as grey dashed lines, the discrete state-costates on the time grid $t_{k, i}$ are depicted as dots.
+
+![](https://cdn.mathpix.com/cropped/2025_09_29_dc7f567232ac8f80edfcg-13.jpg?height=484&width=1103&top_left_y=1610&top_left_x=422)
+Figure 12.11 Illustration of the input $u_{\text {exp }}^{\star}(\boldsymbol{x}, \boldsymbol{p}, \mu)$, slack $\boldsymbol{\beta}$ and adjoint variable $\mu$ at the solution of problem (12.12) using indirect collocation with an interior-point approach. -->
