@@ -301,7 +301,7 @@ $$
 
 Before stating this theorem, let us consider a simple case. Suppose that $\{w_1, w_2\}$ is a linearly independent subset of an inner product space (and hence a basis for some two-dimensional subspace). We want to construct an orthogonal set from $\{w_1, w_2\}$ that spans the same subspace. 
 
-<img src="/math_em6_1_gs.png" alt="gram-schmidt" width="50%" align="middle">
+<img src="/math_em6_1_gs.png" alt="gram-schmidt" width="100%" align="middle">
 
 Figure 6.1 suggests that the set $\{v_1, v_2\}$, where $v_1 = w_1$ and $v_2 = w_2 - c w_1$, has this property if $c$ is chosen so that $v_2$ is orthogonal to $w_1$. To find $c$, we solve
 
@@ -495,7 +495,7 @@ Consider the problem in $\mathbb{R}^3$ of finding the distance from a point $P$ 
 
 Determine the vector $\boldsymbol{u}$ in $\mathsf{W}$ that is "**closest**" to $y$. The desired distance is clearly given by $\|\boldsymbol{y} - \boldsymbol{u}\|$. Notice from the figure that the vector $\boldsymbol{z} = \boldsymbol{y} - \boldsymbol{u}$ is orthogonal to every vector in $\mathsf{W}$, so $\boldsymbol{z} \in \mathsf{W}^\perp$.
 
-<img src="/math_em6_2_perp_plane.png" alt="perp_plane" width="50%" align="middle">
+<img src="/math_em6_2_perp_plane.png" alt="perp_plane" width="100%" align="middle">
 
 ### Orthogonal projection
 ::: danger Theorem 6.6

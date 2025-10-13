@@ -23,7 +23,7 @@ $$
 
 <img src="/fluid_tf4_1_average_v.png" alt="average speed" width="100%" align="center">
 
-Average velocity $V_{\mathrm{avg}}$ is defined as the average speed through a cross section. For fully developed laminar pipe flow, $V_{\mathrm{avg}}$ is half of the maximum velocity: 
+Average velocity $V_{\mathrm{avg}}$ is defined as the average speed through a cross section. For **fully developed laminar** pipe flow, $V_{\mathrm{avg}}$ is half of the maximum velocity: 
 
 $$V_{\mathrm{avg}} = \frac12 V_{\mathrm{max}}$$
 
@@ -71,7 +71,7 @@ $$
 
 Critical Reynolds number, $\operatorname{Re}_{\mathrm{cr}}$: the Reynolds number at which the flow **becomes turbulent**
 - The value of critical Reynolds number is different for different geometries and flow conditions
-- For flow in circular pipe:
+- For **flow in circular pipe**:
   $$\begin{array}{rlr}&\operatorname{Re}  \lesssim 2300 & \text { laminar flow } \\ 2300 \lesssim & \operatorname{Re} \lesssim 10,000 & \text { transitional flow } \\ &\operatorname{Re}  \gtrsim 10,000 & \text { turbulent flow }\end{array}$$
 
 About the calculation of $D$: For flow through noncircular pipes, the Reynolds number is based on the **hydraulic diameter** $D_H$:
@@ -155,7 +155,7 @@ $$
 
 For the laminar flow:
 $$
-  \Delta P = P_1 - P_2 = \frac{\mu LV_{8\mathrm{avg}}}{R^2} = \frac{32\mu LV_{\mathrm{avg}}}{D^2}.
+  \Delta P = P_1 - P_2 = \frac{8\mu LV_{\mathrm{avg}}}{R^2} = \frac{32\mu LV_{\mathrm{avg}}}{D^2}.
 $$
 
 ::: warning Definition: pressure loss
@@ -190,7 +190,7 @@ The relation for pressure loss (and head loss)is one of the most general relatio
 
 For horizonal pipe:
 $$
-  \dot{W}_{\mathrm{pump},L} = \dot{V}\Delta P_L=\dot{V}_{\rho}gh_L=\dot{m}gh_L
+  \dot{W}_{\mathrm{pump},L} = \dot{V}\Delta P_L=\dot{V}{\rho}gh_L=\dot{m}gh_L
 $$
 
 where:
@@ -391,7 +391,7 @@ $$
 - The friction factor is minimum for a smooth pipe $(\varepsilon/D=0)$ and increases with roughness
 - The Colebrook equation is implicit in $f$ since $f$ appears on both sides of the equation. It must be solved iteratively.
 
-Here is the **Moody Chart**. It presents the Darcy friction factor for pipe flow as a function of Reynolds number and e/D over a wide range.
+Here is the **Moody Chart**. It presents the Darcy friction factor for pipe flow as a function of Reynolds number and $\varepsilon/D$ over a wide range.
 
 <img src="/fluid_tf4_14_moody.png" alt="Moody Chart" width="100%" align="center">
 
@@ -468,7 +468,7 @@ Therefore, power input in the amount of $579 \mathrm{~W}$ is needed to overcome 
 **Discussion**: It is common practice to write our final answers to three signififrictional digits, even though we know that the results are accurate to at most two significant digits because of inherent inaccuracies in the Colebrook equation, as discussed previously. 
 
 
-### Example4: Determining the Diameter of an Air Duct
+### Example4: Determining the Diameter of an Air Duct [core]
 
 Heated air at 1 atm and $35^{\circ} \mathrm{C}$ is to be transported in a $150-\mathrm{m}$-long circular plastic duct at a rate of $0.35 \mathrm{~m}^{3} / \mathrm{s}$ (Fig. 8-33). If the head loss in the pipe is not to exceed 20 m , determine the minimum diameter of the duct.
 

@@ -114,7 +114,7 @@ $$
 \end{aligned}
 $$
 
-It can be divided as 
+It can be divided as [core]
 - **local acceleration** $(\partial * / \partial t)$: it's the change in velocity w.r.t. time in a fluid flow
   - Local acceleration results when the flow is **unsteady**, because it is associated with temporal gradients of velocity in the flow field.
 
@@ -122,7 +122,7 @@ It can be divided as
   - The acceleration variable can be **nonzero** even for **steady flows** due to the **advective term**.
   - Convective acceleration results when the flow is **non-uniform**, that is, if the velocity changes along a streamline.
 
-#### Example1
+#### Example1 [core]
 A girl is washing her car using a nozzle, which is $9.91 \mathrm{~cm}$ long, with an inlet diameter of $1.07 \mathrm{~cm}$ and an outlet diameter of $0.460 \mathrm{~cm}$. The volume flow rate $\dot{V}$ through the garden hose (and through the nozzle) is $0.0530 \mathrm{~L/s}$, and the flow is steady. 
 
 Estimate the magnitude of the acceleration of the water jet at the outlet of the nozzle.
