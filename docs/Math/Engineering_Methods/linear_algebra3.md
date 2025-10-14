@@ -761,7 +761,9 @@ Then perform **elementary row operations** to transform it into an upper triangu
 ::: warning Definition: Reduced row echelon form
 A matrix is said to be in **reduced row echelon form** if it satisfies:
 (a) Any row containing a nonzero entry precedes any row with all zero entries.
+
 (b) The first nonzero entry in each row is the only nonzero entry in its column.
+
 (c) The first nonzero entry in each row is 1 and it occurs to the right of the first nonzero entry in the preceding row.
 :::
 
@@ -815,8 +817,7 @@ B=\left(\begin{array}{cccc}
 1 & 2 & 0 & 4 & 0\\
 0 & 0 & 1 & -1 & 0\\
 0 & 0 & 0 & 0 & 1\\
-0 & 0 & 0 & 0 & 0\\
-0
+0 & 0 & 0 & 0 & 0
 \end{array}\right) .
 $$
 
@@ -844,7 +845,7 @@ $$ \{2 + x + 2x^2 + 3x^3, 6 + 3x + 8x^2 + 7x^3, 4 + x + 9x^3\} $$
 
 is a basis for the subspace $\mathsf{V}$ of $\mathsf{P}_3(\mathbb{R})$.
 
-#### Example 3.4.4
+#### Example 3.4.4 [mid-term]
 Let
 $$ V = \{(x_1, x_2, x_3, x_4, x_5) \in \mathbb{R}^5 : x_1 + 7x_2 + 5x_3 - 4x_4 + 2x_5 = 0\}. $$
 
