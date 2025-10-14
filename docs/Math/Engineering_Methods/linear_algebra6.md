@@ -200,7 +200,7 @@ $$
 
 ### Orthogonal [core]
 ::: warning Definitions: orthogonal & orthonormal
-Let $\mathsf{V}$ be an inner product space. Vectors $x$ and $y$ in $\mathsf{V}$ are **orthogonal** (**perpendicular**) if $(x, y) = 0$. 
+Let $\mathsf{V}$ be an inner product space. Vectors $x$ and $y$ in $\mathsf{V}$ are **orthogonal** (**perpendicular**) if $\langle x, y\rangle = 0$. 
 
 A subset $S$ of $\mathsf{V}$ is **orthogonal** if any two distinct vectors in $S$ are **orthogonal**. A vector $x$ in $\mathsf{V}$ is a **unit vector** if $\|x\| = 1$. Finally, a subset $S$ of $\mathsf{V}$ is **orthonormal** if $S$ is orthogonal and consists entirely of unit vectors.
 :::
@@ -473,7 +473,7 @@ $$
 Let $S$ be a nonempty subset of an inner product space $\mathsf{V}$. We define $S^\perp$ (read "S perp") to be the set of all vectors in $\mathsf{V}$ that are **orthogonal to every vector** in $S$; that is,
 
 $$
-S^\perp = \{ x \in \mathsf{V} : (x, y) = 0 \text{ for all } y \in S \}.
+S^\perp = \{ x \in \mathsf{V} : \langle x, y\rangle = 0 \text{ for all } y \in S \}.
 $$
 
 The set $S^\perp$ is called the **orthogonal complement** of $S$. It is easily seen that $S^\perp$ is a subspace of $\mathsf{V}$ for any subset $S$ of $\mathsf{V}$.
@@ -543,7 +543,7 @@ $$
 Hence
 
 $$
-f_1(x) = \sum_{i=1}^3 \langle f(x), u_i\rangle = \frac{3}{5}x.
+f_1(x) = \sum_{i=1}^3 \langle f(x), u_i\rangle u_i = \frac{3}{5}x.
 $$
 
 ### Theorem 6.7

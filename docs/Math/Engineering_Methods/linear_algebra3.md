@@ -180,7 +180,7 @@ where $I_r$ is the $r \times r$ identity matrix and the other blocks are zero ma
 :::
 
 #### Example 3.2.3
-<img src="/math_em_3_1_example.png" alt="control" width="50%" align="center">
+<img src="/math_em_3_1_example.png" alt="control" width="100%" align="center">
 
 ### Conclusion about rank
 ::: tip Corollary 1
@@ -215,7 +215,7 @@ Let $\mathsf{T:V\to W}$ and $\mathsf{U:W\to Z}$ be linear transformations on fin
 
 #### Example 3.2.4
 
-<img src="/math_em_3_2_example4.png" alt="control" width="50%" align="center">
+<img src="/math_em_3_2_example4.png" alt="control" width="100%" align="center">
 
 ### The Inverse of a Matrix
 ::: warning Definition: augented matrix
@@ -237,7 +237,7 @@ Letting $M = E_p E_{p-1} \cdots E_1$, we have from (2) that $(M A | M I_n) = (I_
 If, on the other hand, $A$ is an $n \times n$ matrix that is **not invertible**, then $\operatorname{rank}(A) < n$. Hence any attempt to transform $(A|I_n)$ into a matrix of the form $(I_n | B)$ by means of elementary row operations must fail because otherwise $A$ can be transformed into $I_n$ using the same row operations. This is impossible, however, because elementary row operations **preserve rank**. In fact, $A$ can be transformed into a matrix with a row containing only zero entries, yielding the following result: If $A$ is an $n \times n$ matrix that is not invertible, then any attempt to transform $(A|I_n)$ into a matrix of the form $(I_n | B)$ produces a row whose first $n$ entries are zeros.
 
 #### Example 3.2.5
-<img src="/math_em_3_3_example5.png" alt="control" width="50%" align="center">
+<img src="/math_em_3_3_example5.png" alt="control" width="100%" align="center">
 
 #### Example 3.2.6
 
@@ -483,7 +483,6 @@ is a solution to the given system, it is a basis for $K.$ Thus any vector in $K$
 
 $$
 \begin{pmatrix}
-1 \\
 t \\
 -2t \\
 3t

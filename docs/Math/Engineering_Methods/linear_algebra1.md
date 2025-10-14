@@ -47,7 +47,7 @@ collection of objects, called **elements** of the set<br>
 
 For infinite sets:
 
-- Countable sets: aleph zero: $\mathbb{N},\mathbb{Z},\mathbb{Q}$
+- Countable sets: $\alef_0$: $\mathbb{N},\mathbb{Z},\mathbb{Q}$
 - Uncountable sets: beth one: $\mathbb{R},\mathbb{C}$
 
 ### operations
@@ -129,7 +129,7 @@ Example of group:
     - $f$: reflection
     - $r\cdot f \neq f\cdot r$
   
-  <img src="/math_em1_dihedral.png" alt="plae" width="50%">
+  <img src="/math_em1_dihedral.png" alt="plae" width="100%">
 
 ### Ring
 Given:
@@ -484,7 +484,7 @@ Let $\mathsf{V}$ be a vector space having a finite basis. Then every basis for $
 
 ### dimension
 ::: warning Definitions: dimension [core]
-A vector space is called **finite-dimensional** if it has a basis consisting of a finite number of vectors. The unique number of vectors in each basis for $\mathsf{V}$ is called the dimension of $\mathsf{V}$ and is denoted by $\operatorname{dim}(\mathsf{V})$. A vector space that is not finite-dimensional is called **infinite-dimensional**. 
+A vector space is called **finite-dimensional** if it has a basis consisting of a finite number of vectors. The unique number of vectors in each basis for $\mathsf{V}$ is called the **dimension** of $\mathsf{V}$ and is denoted by $\operatorname{dim}(\mathsf{V})$. A vector space that is not finite-dimensional is called **infinite-dimensional**. 
 :::
 
 #### Examples

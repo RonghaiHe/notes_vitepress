@@ -49,7 +49,7 @@ Nevertheless, the determinant does possess an important linearity property.
 
 
 ### Meaning of determinant of order 2
-<img src="/math_em_4_1_determinant.png" alt="determinant" width="50%" align="center">
+<img src="/math_em_4_1_determinant.png" alt="determinant" width="100%" align="center">
 
 The vectors represented by a 2-by-2 matrix correspond to the sides of a unit square transformed into a parallelogram. The matrix $A$ is said to represent the linear map $f$, and $A$ is called the transformation matrix of $f$.
 
@@ -504,7 +504,7 @@ $$
 \end{array}\right)\right|=6
 $$
 
-<img src="/math_em_4_2_example.png" alt="example" width="50%" align="center">
+<img src="/math_em_4_2_example.png" alt="example" width="100%" align="center">
 
 Note that the object in question is a rectangular parallelepiped (see Figure 4.6 ) with sides of lengths $\sqrt{6}, \sqrt{2}$, and $\sqrt{3}$. Hence by the familiar formula for volume, its volume should be $\sqrt{6} \cdot \sqrt{2} \cdot \sqrt{3}=6$, as the determinant calculation shows.
 

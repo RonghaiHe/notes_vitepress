@@ -133,7 +133,7 @@ $T_0: \mathsf{V}\to \mathsf{W}$ by $\mathsf{T}_0(x) = 0$ for all $x \in \mathsf{
 
 We now turn our attention to two very important sets associated with linear transformations: the *range* and *null space*. The determination of these sets allows us to examine more closely the intrinsic properties of a linear transformation.
 
-::: warning Definitions: null space/kerne; range / image [core]
+::: warning Definitions: null space/kernel; range / image [core]
 Let $\mathsf{V,W}$ be vector spaces, and let $\mathsf{T}:\mathsf{V}\to\mathsf{W}$ be linear. We define the **null space** (or **kernel**) $\mathsf{N(T)}$ of $\mathsf{T}$ to be the set of all vectors $x$ in $\mathsf{V}$ s.t. $\mathsf{T}(x) = 0$; i.e., $\mathsf{N(T)} = \{x\in\mathsf{V}: \mathsf{T}(x) = 0\}$.
 
 We define the **range** (or **image**) $\mathsf{R(T)}$ of $\mathsf{T}$ to be the subset of $\mathsf{W}$ consisting of all images (under $\mathsf{T}$) of vectors in $\mathsf{V}$; i.e., $\mathsf{R(T)} = \{\mathsf{T}(x): x \in \mathsf{V}\}$.
@@ -217,13 +217,13 @@ Thus, we have found a basis for $\mathsf{R(T)}$, so $\dim(\mathsf{R(T)}) = 2$.
 
 #### Definition and Theorem
 
-As in [§1.4](./linear_algebra1#1-4-linear-combination-and-systems-of-linear-equations), we measure the "size" of a subspace by its dimension. The null space and range are so important that we attach special names to their respective dimensions.
+As in [§1.6](./linear_algebra1#1-6-bases-and-dimension "bases and dimension"), we measure the "size" of a subspace by its dimension. The null space and range are so important that we attach special names to their respective dimensions.
 
 ::: warning Definition: nulity; rank [core]
 Let $\mathsf{V}$ and $\mathsf{W}$ be vector spaces, and let $T: \mathsf{V} \to \mathsf{W}$ be linear. If $\mathsf{N(T)}$ and $\mathsf{R(T)}$ are **finite-dimensional**, then we define:
 
-- **Nullity** of $\mathsf{T}$, denoted $\operatorname{nullity}(\mathsf{T})$, as the dimension of $\mathsf{N(T)}$.
-- **Rank** of $\mathsf{T}$, denoted $\operatorname{rank}(\mathsf{T})$, as the dimension of $\mathsf{R(T)}$.
+- **Nullity** of $\mathsf{T}$, denoted $\operatorname{nullity}(\mathsf{T})$, as the **dimension** of $\mathsf{N(T)}$.
+- **Rank** of $\mathsf{T}$, denoted $\operatorname{rank}(\mathsf{T})$, as the **dimension** of $\mathsf{R(T)}$.
 :::
 
 ::: danger Theorem 2.3: Dimension Theorem [core]
@@ -274,7 +274,7 @@ $$ \mathsf{T}(a_1, a_2) = (a_1 + a_2, a_1) $$
 It's easy to see that $\mathsf{N(T)}=\{0\}$; so $\mathsf{T}$ is one-to-one. And Theorem 2.5 tells us that $\mathsf{T}$ must be onto.
 
 #### Example 12
-Let $T: \mathsf{P}_2(\mathbb{R}) \to \mathbb{R}^3$ be the linear transformation defined by
+Let $\mathsf{T}: \mathsf{P}_2(\mathbb{R}) \to \mathbb{R}^3$ be the linear transformation defined by
 
 $$ \mathsf{T}(a_0 + a_1 x + a_2 x^2) = (a_0, a_1, a_2) $$
 
@@ -310,27 +310,27 @@ and suppose that $\mathsf{U}:\mathbb{R}^2\to \mathbb{R}^2$ is linear. If we know
 Let $\mathsf{V}$ be a finite-dimensional vector space. An **ordered basis** for $\mathsf{V}$ is a basis for $\mathsf{V}$ endowed with a specific order; that is, an ordered basis for $\mathsf{V}$ is a finite sequence of linearly independent vectors in $\mathsf{V}$ that generates $\mathsf{V}$.
 :::
 
-#### Example 1
+#### Example 2.2.1
 
 In $\mathsf{F}^3, \beta=\{e_1,e_2,e_3\}$ can be considered as ordered basis. Also $\gamma=\{e_2,e_1,e_3\}$ is an ordered basis, but $\beta\neq\gamma$ as ordered bases
 
 For the vector space $\mathsf{F}^n$, we call $\{e_1,e_2,\cdots,e_n\}$ the **standard ordered basis** for $\mathsf{F}^n$. Similarly, for the vector space $\mathsf{P}_n(F)$, we call $\{1,x,\cdots,x^n\}$ the **standard ordered basis** for $\mathsf{P}_n(F)$.
 
-::: warning Definition: coordinate vector
+::: warning Definition: coordinate vector [core]
 Let $\beta = \{v_1, v_2, ···, v_n\}$ be an ordered basis for a finite-dimensional vector space $\mathsf{V}$. For $x\in\mathsf{V}$, let $a_1,a_2,\cdots,a_n$ be the unique scalars s.t.
 
 $$
   x = \sum_{i=1}^na_iu_i
 $$
 
-We define the **coordinate vecotr** of $x$ relative to $\beta$, denoted $[x]_\beta$ [core]. by
+We define the **coordinate vecotr** of $x$ relative to $\beta$, denoted $[x]_\beta$. by
 
 $$
   [x]_\beta = (a_1,a_2,\cdots,a_n)^\top.
 $$
 :::
 
-#### Example 2: coordinate vector for polynominal
+#### Example 2.2.2: coordinate vector for polynominal
 Let $\mathsf{V}=\mathsf{P}_2(\mathbb{R})$, an let $\beta=\{1,x,x^2\}$ be the standard ordered basis for $\mathsf{V}$. If $f(x)=4+6x-7x^2$, then
 
 $$
@@ -347,7 +347,7 @@ T]_\beta$.
 
 Notice that the jth column of $A$ is simply $[\mathsf{T}(v_j)]_\gamma$. Also observe that if $\mathsf{U:V}\to\mathsf{W}$ is a linear transformation s.t. $[\mathsf{U}]_\beta^\gamma = [\mathsf{T}]_\beta^\gamma$, then $\mathsf{U=T}$ by the corollary to [theorem 2.6](#theorem-2-6).
 
-#### Example 3: matrix representation for tuples
+#### Example 2.2.3: matrix representation for tuples
 
 Let $\mathsf{T}: \mathbb{R}^2 \to \mathbb{R}^3$ be defined by
 
@@ -378,7 +378,7 @@ $$
   \begin{pmatrix} 2 & -4 \\ 0 & 0 \\ 1 & 3 \end{pmatrix}
 $$
 
-#### Example 4: matrix representation for polynominal
+#### Example 2.2.4: matrix representation for polynominal
 Let $\mathsf{T:P}_3(\mathbb{R})\to\mathsf{P}_2(\mathbb{R})$ be the linear transformation defined by $\mathsf{T}(f(x)) = f'(x)$.Let $\beta,\gamma$ be the standard ordered bases for $\mathsf{P}_3(\mathbb{R})$ and $\mathsf{P}_2(\mathbb{R})$, respectively. Then
 
 $$
@@ -455,7 +455,7 @@ Let $\mathsf{V,W}$ be finite-dimensional vector spaces with ordered bases $\beta
 - $[a\mathsf{T}]_\beta^\gamma = a[\mathsf{T}]_\beta^\gamma$ for all scalars $a$.
 :::
 
-#### Example 5
+#### Example 2.2.5
 Let $\mathsf{T}:\mathbb{R}^2\to\mathbb{R}^3$ and $\mathsf{U}:\mathbb{R}^2\to\mathbb{R}^3$ be the linear transformations respectively defined by
 
 $$
@@ -476,7 +476,7 @@ $$
   \end{pmatrix}
 $$
 
-(as completed in [Example 3](#example-3)), and
+(as completed in [Example 2.2.3](#example-2-2-3-matrix-representation-for-tuples)), and
 
 $$
   [\mathsf{U}]_\beta^\gamma = 
@@ -713,8 +713,8 @@ $$
 $$
 :::
 
-#### Example 3
-Let $\mathrm{T}: \mathrm{P}_3(\mathbb{R}) \rightarrow \mathrm{P}_2(\mathbb{R})$ be the linear transformation defined by $\mathrm{T}(f(x))= f^{\prime}(x)$, and let $\beta$ and $\gamma$ be the standard ordered bases for $\mathrm{P}_3(\mathbb{R})$ and $\mathrm{P}_2(\mathbb{R})$, respectively. If $A=[\mathrm{T}]_\beta^\gamma$, then, from Example 4 of Section 2.2, we have
+#### Example 2.3.3
+Let $\mathrm{T}: \mathrm{P}_3(\mathbb{R}) \rightarrow \mathrm{P}_2(\mathbb{R})$ be the linear transformation defined by $\mathrm{T}(f(x))= f^{\prime}(x)$, and let $\beta$ and $\gamma$ be the standard ordered bases for $\mathrm{P}_3(\mathbb{R})$ and $\mathrm{P}_2(\mathbb{R})$, respectively. If $A=[\mathrm{T}]_\beta^\gamma$, then, from [Example 2.2.4](#example-2-2-4-matrix-representation-for-polynominal), we have
 
 $$
 A=\left(\begin{array}{llll}
@@ -761,7 +761,7 @@ $$
 Let $A$ be an $m \times n$ matrix with entries from a field $F$. We denote by $\mathsf{L}_a$ the mapping $\mathsf{L}_A: \mathsf{F}^n \to \mathsf{F}^m$ defined by $\mathsf{L}_A(x) = Ax$ (the matrix product of $A$ and $x$) for each column vector $x \in \mathsf{F}^n$. We call $\mathsf{L}_A$ a **left-multiplication transformation**.
 :::
 
-#### Example 4  
+#### Example 2.3.4  
 Let  
 $$A =  
 \begin{pmatrix}
@@ -823,7 +823,7 @@ We often use the fact that a function is **invertible if and only if it is both 
 3. Let $\mathsf{T: V \to W}$ be a linear transformation, where $\mathsf{V}$ and $\mathsf{W}$ are finite-dimensional spaces of **equal dimension**. Then $\mathsf{T}$ is invertible if and only if $\operatorname{rank}(\mathsf{T}) = \dim(\mathsf{V})$.
 :::
 
-#### Example 1  
+#### Example 2.4.1  
 Let $\mathsf{T}: \mathsf{P}_1(\mathbb{R}) \to \mathbb{R}^2$ be the linear transformation defined by $\mathsf{T}(a + bx) = (a, a + b)$. The reader can verify directly that $\mathsf{T}^{-1}: \mathbb{R}^2 \to \mathsf{P}_1(\mathbb{R})$ is defined by $\mathsf{T}^{-1}(c, d) = c + (d – c)x$. Observe that $\mathsf{T}^{-1}$ is also linear. As Theorem 2.17 demonstrates, this is true in general.
 
 ### Theorem
@@ -837,7 +837,7 @@ Let $A$ be an $n \times n$ matrix. Then $A$ is invertible if there exists an $n 
 
 If A is invertible, then the matrix B such that $AB = BA = I$ is **unique**. The matrix $B$ is called the inverse of $A$ and is denoted by $A^{-1}$.
 
-#### Example 2  
+#### Example 2.4.2  
 The reader should verify that the inverse of 
 
 $$
@@ -871,10 +871,10 @@ $$
 \end{aligned}
 $$
 
-For $\mathsf{T}$ as in Example 1, we have  
+For $\mathsf{T}$ as in [Example 2.4.1](#example-2-4-1), we have  
 
 $$
-[\mathsf{T}] = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}, \quad [\mathsf{T}^{-1}] = \begin{pmatrix} 1 & -1 \\ 0 & 1 \end{pmatrix}
+[\mathsf{T}]_{\beta}^{\gamma} = \begin{pmatrix} 1 & 0 \\ 1 & 1 \end{pmatrix}, \quad [\mathsf{T}^{-1}]^{\beta}_{\gamma} = \begin{pmatrix} 1 & 0 \\ -1 & 1 \end{pmatrix}
 $$  
 
 It can be verified by matrix multiplication that each matrix is the inverse of the other.
@@ -964,7 +964,7 @@ Consider the following two composites of linear transformations that map $\maths
 
 2. Map $\mathsf{V}$ into $\mathsf{W}$ with $\mathsf{T}$ and follow it by $\phi_\gamma$ to obtain the composite $\phi_\gamma \mathsf{T}$.
 
-<img src="/math_em_2_1_diagram.png" alt="diagram" width="50%" align="middle">
+<img src="/math_em_2_1_diagram.png" alt="diagram" width="100%" align="middle">
 
 These 2 composites are depictedby the dashed arrows in the diagram. By a simple reformulation of Theorem 2.14, we may conclude that 
 
@@ -1028,7 +1028,7 @@ $$
 \mathsf{L}_A \phi_\beta(p(x)) = \phi_\gamma \mathsf{T}(p(x))
 $$
 
-<img src="/math_em_2_2_diagram_example.png" alt="diagram" width="50%" align="middle">
+<img src="/math_em_2_2_diagram_example.png" alt="diagram" width="100%" align="middle">
 
 ## 2.5 The Change of Coordinate Matrix
 
@@ -1073,12 +1073,12 @@ $$
 
 For the remainder of this section, we consider only linear transformations that map a vector space $\mathsf{V}$ into itself. Such a linear transformation is called a linear operator on $\mathsf{V}$
 
-### Theorem 2.23
+### Theorem 2.23 [core]
 :::danger Theorem 2.23
 Let $\mathsf{T}$ be a linear operator on a finite-dimensional vector space $\mathsf{V}$, and let $\beta$ and $\beta'$ be ordered bases for $\mathsf{V}$. Suppose $Q$ is the change of coordinate matrix that changes $\beta'$-coordinates into $\beta$-coordinates. Then  
 
 $$
-  [\mathsf{T}]_{\beta'} = Q^{-1} [\mathsf{T}]_\beta Q
+  [\mathsf{T}]_{\beta'} = {Q_{\beta'}^{\beta}}^{-1} [\mathsf{T}]_\beta Q_{\beta}^{\beta'}
 $$
 :::
 
@@ -1141,7 +1141,6 @@ $$
 So
 
 $$
-  \begin{aligned}
     [\mathsf{T}]_\beta &= 
     \frac12 
     \begin{pmatrix}
@@ -1156,11 +1155,10 @@ $$
       1 & 1\\
       1 & -1
     \end{pmatrix}
-      &= \begin{pmatrix}
+    = \begin{pmatrix}
       3 & 1\\
       -1 & 3
     \end{pmatrix}
-  \end{aligned}
 $$
 
 The change of coordinate matrix that changes $\beta'$-coordinate into $\beta$-coordinate is  
@@ -1213,12 +1211,12 @@ $$
 
 Note that the coeffficients of the linear combination are the entries of the 2nd column of $[\mathsf{T}]_{\beta'}$
 
-#### Example 2.5.3： Application about coordination change
+#### Example 2.5.3： Application about coordination change [core]
 
 Recall the reflection about the x-axis in Example 3 in Section 2.1. The rule $(x,y)\to(x,-y)$ is easy to obtain. Let $\mathsf{T}$ be the reflection about the line $y = 2x$. We wish to find an expression for $\mathsf{T}(a,b)$ for any $(a,b)\in\mathbb{R}^2$. Since $\mathsf{T}$ is linear, it is determined by its values on a basis for $\mathbb{R}^2$. For basis vectors,  
 
 $$
-\mathsf{T}(1, 2) = (1, 2), \quad \mathsf{T}(-2, 1) = (2, -1)
+\mathsf{T}(1, 2) = (1, 2), \quad \mathsf{T}(-2, 1) = (2, -1) = -1\times(-2, 1)
 $$
 
 Therefore if we let
@@ -1240,13 +1238,19 @@ $$
 Then the matrix representing $\mathsf{T}$ in the basis $\beta' = \{(1, 2), (-2, 1)\}$ is 
 
 $$
-[\mathsf{T}]_{\beta'} = \begin{pmatrix}1 & 0 \\ 0 & -1\end{pmatrix}
+\begin{gather*}
+  [\mathsf{T}]_{\beta'} = \begin{pmatrix}1 & 0 \\ 0 & -1\end{pmatrix} \\
+  (1,0)^\top \text{ for } \mathsf{T}(1,2)=(1,2)=1\times (1,2) + 0\times(2,-1)\\
+  (0,-1)^\top \text{ for } \mathsf{T}(-2,1)=(2,-1)=0\times (1,2) + -1\times (2,-1)
+\end{gather*}
 $$
+
+
 
 Let $\beta$ be the standard ordered basis for $\mathbb{R}^2$, and let $Q$ be the matrix that changes $\beta'$-coordinates into $\beta$-coordinates. Then
 
 $$
-  Q = 
+  Q_{\beta'}^{\beta} = 
   \begin{pmatrix}
     1 & -2\\
     2 & 1
@@ -1256,7 +1260,7 @@ $$
 and $Q^{-1} [\mathsf{T}]_\beta Q = [\mathsf{T}]_{\beta'}$. We can solve this equation for $[\mathsf{T}]_\beta$ to obtain that $[\mathsf{T}]_\beta = Q [\mathsf{T}]_{\beta'} Q^{-1}$. Because
 
 $$
-  Q^{-1} = \frac15
+  {Q_{\beta'}^{\beta}}^{-1} = \frac15
   \begin{pmatrix}
     1 & 2\\
     -2 & 1
@@ -1266,7 +1270,7 @@ $$
 Then it can be verified that
 
 $$
-  [\mathsf{T}]_\beta = \frac15
+  [\mathsf{T}]_\beta = {Q_{\beta}^{\beta'}}^{-1}[\mathsf{T}]_{\beta}{Q_{\beta}^{\beta'}} = {Q_{\beta'}^{\beta}}[\mathsf{T}]_{\beta'}{Q_{\beta'}^{\beta}}^{-1} = \frac15
   \begin{pmatrix}
     -3 & 4\\
     4 & 3
@@ -1303,7 +1307,7 @@ $$
   [\mathsf{L}_A]_\gamma = Q^{-1} A Q
 $$
 
-where $Q$ is the $n \\times n$ matrix whose jth column is the jth vector of $\gamma$.
+where $Q$ is the $n \times n$ matrix whose jth column is the jth vector of $\gamma$.
 :::
 
 #### Example 2.5.4

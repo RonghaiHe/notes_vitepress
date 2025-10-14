@@ -629,7 +629,7 @@ $$
 
 is linearly independent and hence is a basis for $\mathbb{R}^3$ consisting of eigenvectors of $\mathsf{T}$. Consequently, $\mathsf{T}$ is diagonalizable.
 
-<img src="/math_em5_1_eigen.png" alt="diagram" width="80%" align="middle">
+<img src="/math_em5_1_eigen.png" alt="diagram" width="100%" align="middle">
 
 ::: tip Lemma
 Let $\mathsf{T}$ be a linear operator, and let $\lambda_1, \lambda_2, \dots, \lambda_k$ be **distinct** eigenvalues of $\mathsf{T}$. For each $i = 1, 2, \dots, k$, let $v_i \in \mathsf{E}_{\lambda_i}$, the eigenspace corresponding to $\lambda_i$. If
