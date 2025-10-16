@@ -318,7 +318,7 @@ $$
 
 As our first illustration of dynamic programming, we will compute the value function $v(x, t)$ and confirm that it does indeed solve the appropriate Hamilton-Jacobi-Bellman equation. To do this, we first introduce the three regions:
 
-<img src="/control_om5_2_1_region.JPG" alt="3 regions" width="80%" align="middle">
+<img src="/control_om5_2_1_region.JPG" alt="3 regions" width="100%" align="middle">
 
 - Region $I=\{(x, t) \mid x<t-1,0 \leq t \leq 1\}$.
 - Region $I I=\{(x, t) \mid t-1<x<1-t, 0 \leq t \leq 1\}$.
@@ -328,7 +328,7 @@ We will consider the three cases as to which region the initial data ( $x, t$ ) 
 
 - **Region III**
 
-<img src="/control_om5_2_2_region3.JPG" alt="optimal path in region3" width="80%" align="middle">
+<img src="/control_om5_2_2_region3.JPG" alt="optimal path in region3" width="100%" align="middle">
 
 In this case we should take $\alpha \equiv-1$, to steer as close to the origin 0 as quickly as possible. Then
 

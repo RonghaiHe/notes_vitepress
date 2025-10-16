@@ -32,7 +32,7 @@ $$
 \left\{\begin{aligned} \dot{\boldsymbol{x}}(t) & =\boldsymbol{f}(\boldsymbol{x}(t), \boldsymbol{\alpha}(t)) \quad(t>0) \\ \boldsymbol{x}(0) & =x^0\end{aligned}\right.
 $$
 
-<img src="/control_om1_1_1_evolve_as_time.JPG" alt="contolled dynamics" width="50%" align="center">
+<img src="/control_om1_1_1_evolve_as_time.JPG" alt="contolled dynamics" width="100%" align="center">
 
 We call a function $\boldsymbol{\alpha}: [0, \infty)\to A$ a *control* and regard the trajectory $\boldsymbol{x}(t)$ as te corresponding *response* of the system.
 
@@ -304,7 +304,7 @@ First of all, let us guess that to find an optimal solution we will need only to
 
   In other words, so long as the control is set for $\alpha\equiv 1$, the trajectory stays on the curve $v^2 = 2q + b$ for some constant $b$.
 
-  <img src="/control_om1_3_1_curve1.JPG" alt="curve1" width="50%" align="center">
+  <img src="/control_om1_3_1_curve1.JPG" alt="curve1" width="100%" align="center">
 
 - **CASE 2**: $\alpha \equiv -1$
   $$
@@ -326,12 +326,12 @@ Then
   
   As long as the control is set for $\alpha\equiv -1$, the trajectory stays on the curve $v^2 = -2q + c$ for some constant $c$.
 
-  <img src="/control_om1_3_2_curve2.JPG" alt="curve2" width="50%" align="center">
+  <img src="/control_om1_3_2_curve2.JPG" alt="curve2" width="100%" align="center">
 
 ### Geometric interpretation
 Now we can design an optimal control $\alpha^*(\cdot)$, which causes the trajectory to jump between the families of right– and left–pointing parabolas, as drawn. Say we **start at the black dot**, and wish to **steer to the origin**. This we accomplish by first setting the control to the value $\alpha = −1$, causing us to move down along the second family of parabolas. We then switch to the control $\alpha = 1$, and thereupon move to a parabola from the first family, along which we move up and to the left, ending up at the origin. See the picture.
 
-<img src="/control_om1_3_3_control.JPG" alt="control" width="50%" align="center">
+<img src="/control_om1_3_3_control.JPG" alt="control" width="100%" align="center">
 
 ## 1.4 Optimal Control Solutions
 > [3-Direct method (Single/Multiple shooting, collocation method) - Zhuanlan in Zhihu](https://zhuanlan.zhihu.com/p/396056002)

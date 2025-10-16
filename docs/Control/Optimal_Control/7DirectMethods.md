@@ -78,7 +78,7 @@ $$
 
 and the one of the Hessian of the Lagrange function.
 
-<img src="/control_om7_1_1_example1.JPG" alt="single shooting" id="fig13-1" width="80%" align="middle">
+<img src="/control_om7_1_1_example1.JPG" alt="single shooting" id="fig13-1" width="100%" align="middle">
 
 Figure 13.1: Solution to OCP (13.1) using a discretization based on **single shooting**, with $N=20$ and using a $4$-steps **Runge-Kutta integrator** of order $4$. The upper graph reports the states and input trajectories. The lower graphs report the sparsity pattern of the Jacobian of the inequality constraints in the resulting NLP and the sparsity pattern of the Hessian of the Lagrange function.
 
@@ -96,7 +96,7 @@ $$
 
 where $\boldsymbol{x}=\left({x}_{1}, {x}_{2}, {x}_{3}\right) \in \mathbb{R}^{3}$ and ${q} \in \mathbb{R}$ is a constant control input. Note that the **nonlinearities** in this ODE result from apparently innocuous bilinear expressions. We are then interested in the relationship ${q} \rightarrow \boldsymbol{x}(t, {q})$ for different values of $t$. The initial conditions of the simulation were selected as $\boldsymbol{x}(t)|_{t=0}=(0,0,0)$ and ${q} \in[18,38]$. The resulting relationship is displayed in [Fig. 13.2](#fig13-2). One can observe that while the relationship is not very nonlinear for small integration times $t$, it becomes **extremely nonlinear** for large times $t$, even though the ODE under consideration here appears simple and mildly nonlinear.
 
-<img src="/control_om7_1_2_nonlinear.JPG" alt="nonlinear" id="fig13-2" width="80%" align="middle">
+<img src="/control_om7_1_2_nonlinear.JPG" alt="nonlinear" id="fig13-2" width="100%" align="middle">
 
 Figure 13.2: Illustration of the propagation of nonlinearities in the simple dynamic system (13.2). One can observe that for a short integration time $t=0.25$ (first row), the relationship ${q} \rightarrow \boldsymbol{x}(t, {q})$ is close to linear. However, as the integration time increases to $t=1.33,2.41,3.5$, the relationship ${q} \rightarrow \boldsymbol{x}(t, {q})$ becomes extremely nonlinear. While the effect of integration time is not necessarily as dramatic as for this specific example, large integration times yield strong nonlinear relationship ${q} \rightarrow \boldsymbol{x}(t, {q})$ for many nonlinear dynamics.
 
@@ -123,7 +123,7 @@ $$
 \end{aligned}
 $$
 
-<img src="/control_om7_2_1_multishooting.JPG" alt="Multishooting" id="fig13-3" width="80%" align="middle">
+<img src="/control_om7_2_1_multishooting.JPG" alt="Multishooting" id="fig13-3" width="100%" align="middle">
 
 Figure 13.3: Illustration of the direct multiple shooting method. A piecewiseconstant input profile parametrized by $\boldsymbol{q}_{0, \ldots, N-1}$ is deployed on the time grid $t_{0, \ldots, N}$. The discrete states $\boldsymbol{\beta}_{0, \ldots, N}$ act as "checkpoints" on the continuous state trajectories $\boldsymbol{x}(t)$ at all discrete time points $t_{0, \ldots, N}$. Numerical integrators build the simulations $\boldsymbol{x}_{i}\left(t, \boldsymbol{\beta}_{i}, \boldsymbol{q}_{i}\right)$ over each time interval $\left[t_{i}, t_{i+1}\right]$. The state trajectory held in the NLP solver becomes continuous only when the solution of the NLP is reached, where the continuity conditions $\boldsymbol{x}_{i}\left(t_{i+1}, \boldsymbol{\beta}_{i}, \boldsymbol{q}_{i}\right)-\boldsymbol{\beta}_{i+1}$ are enforced.
 
@@ -170,7 +170,7 @@ $$
 
 and the shooting constraints are also imposed time-wise.
 
-<img src="/control_om7_2_2_example1.JPG" alt="example using multishooting" id="fig13-4" width="80%" align="middle">
+<img src="/control_om7_2_2_example1.JPG" alt="example using multishooting" id="fig13-4" width="100%" align="middle">
 
 
 Figure 13.4: Solution to OCP [$(13.1)$](#example-7-1) using a discretization based on multiple shooting, with $N=20$ and using a 4-steps Runge-Kutta integrator of order 4. The upper graph reports the states and input trajectories at the solution, where the continuity condition holds. The lower graphs report the sparsity pattern of the Jacobian of the equality constraints in the resulting NLP and the sparsity pattern of the Hessian of the Lagrange function. The Hessian of the Lagrange function arising from multiple-shooting is block-diagonal, due to the separability of the Lagrange function. The Jacobian of the inequality constraints is diagonal in this example, and block-diagonal in general.
@@ -248,7 +248,7 @@ $$
 
 We illustrate the variables and constraints of NLP (13.5) in Figure 13.5. 
 
-<img src="/control_om7_3_1_collocation.JPG" alt="collocation" id="fig13-5" width="80%" align="middle">
+<img src="/control_om7_3_1_collocation.JPG" alt="collocation" id="fig13-5" width="100%" align="middle">
 
 Figure 13.5: Illustration of the variables and constraints of NLP (13.5) for $d=3$, and for one specific time interval $\left[t_{k}, t_{k+1}\right]$ before the constraints are fulfilled (early iteration). One can observe that the continuity conditions $p_{k}\left(t_{k+1}, \boldsymbol{v}_{k}\right)-\boldsymbol{v}_{k+1,0}=0$ are not (yet) satisfied.
 
@@ -268,7 +268,7 @@ $$
 
 where $\boldsymbol{v}_{k, i} \in \mathbb{R}^{2}$, and the constraints are also ordered in time. The resulting solution is illustrated in Figure 13.6, together with the sparsity patterns of the Jacobian of the equality constraint function, and the one of the Hessian of the Lagrange function.
 
-<img src="/control_om7_3_2_example1.JPG" alt="example using collocation" id="fig13-6" width="80%" align="middle">
+<img src="/control_om7_3_2_example1.JPG" alt="example using collocation" id="fig13-6" width="100%" align="middle">
 
 Figure 13.6: Solution to OCP [$(13.1)$](#example-7-1) using a Gauss-Legendre direct collocation discretization scheme with $d=3$, and $N=20$. The upper graph reports the states and input trajectories. The collocated states $\boldsymbol{v}_{k, i}$ are reported as the dots. The lower graphs report the sparsity pattern of the Jacobian of the equality constraints in the resulting NLP and the sparsity pattern of the Hessian of the Lagrange function. Observe that the Hessian is block diagonal, while the Jacobian has a block-diagonal pattern with some elements off the blocks corresponding to the continuity conditions. The Jacobian of the inequality constraints is diagonal in this example, and block-diagonal in general.
 

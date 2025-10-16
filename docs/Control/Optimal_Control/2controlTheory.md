@@ -423,7 +423,7 @@ Proof:
 
 Indeed, in the picture we see that $b\cdot(x^0-z^0)\le 0$; and this implies that $\mu:=b\cdot z^0$.
 
-<img src="/control_om2_3_1_set.JPG" alt="plane" width="50%" align="middle">
+<img src="/control_om2_3_1_set.JPG" alt="plane" width="100%" align="middle">
 
 We will derive a contradiction.
 

@@ -369,7 +369,7 @@ $$
 
 where we interpret the control as an exterior force acting on an **oscillating weight (of unit mass)** hanging from a **spring**. Our goal is to design an optimal exterior forcing $\alpha^*(\cdot)$ that brings the motion to **a stop in minimum time**.
 
-<img src="/control_om3_3_1_spring.JPG" alt="spring model" width="50%" align="middle">
+<img src="/control_om3_3_1_spring.JPG" alt="spring model" width="100%" align="middle">
 
 We have $n = 2, m = 1$. The individual dynamical equations read:
 
@@ -524,7 +524,7 @@ Next, we figure out the geometric consequences.
     \end{aligned}
   $$
   Consequently, the motion satisfies $(x^1(t) - 1)^2 + (x^2(t))^2\equiv r_1^2$, for some radius $r_1$, and therefore the trajectory lies on a circle with center $(1, 0)$, as illustrated.
-  <img src="/control_om3_3_2_traj1.JPG" alt="traj when alpha=1" width="50%" align="center">
+  <img src="/control_om3_3_2_traj1.JPG" alt="traj when alpha=1" width="100%" align="center">
 
 - If $\alpha\equiv -1$, our (ODE) instead becomes
   $$
@@ -538,8 +538,8 @@ Next, we figure out the geometric consequences.
     \frac{\mathrm{d}}{\mathrm{d}t}[(x^1(t) + 1)^2 + (x^2(t))^2] = 0.
   $$
   Thus $(x^1(t) + 1)^2 + (x^2(t))^2\equiv r_2^2$, for some radius $r_2$, and motion lies on a circle with center $(-1, 0)$, as illustrated.
-  <img src="/control_om3_3_3_traj_1.JPG" alt="traj when alpha=-1" width="50%" align="center">
+  <img src="/control_om3_3_3_traj_1.JPG" alt="traj when alpha=-1" width="100%" align="center">
 
 In summary, to get to the origin we must switch our control $\alpha(\cdot)$ back and forth between the values $\pm 1$, causing the trajectory to switch between lying on circles centered at $(\pm 1, 0)$. The switches occur each π units of time.
 
-<img src="/control_om3_3_4_control.JPG" alt="contolled dynamics" width="50%" align="center">
+<img src="/control_om3_3_4_control.JPG" alt="contolled dynamics" width="100%" align="center">

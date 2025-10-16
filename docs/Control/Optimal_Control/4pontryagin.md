@@ -303,7 +303,7 @@ determined by some given function $g:\mathbb{R}^n\to \mathbb{R}$. Suppose $x*\in
   $$
     \nabla f(x*)=0.
   $$
-  <img src="/control_om4_2_1_in.JPG" alt="interior" width="50%" align="center">
+  <img src="/control_om4_2_1_in.JPG" alt="interior" width="100%" align="center">
 
 - Case 2: **$x*$ lies on $\partial R$**
   We look at the direction of the vector $\nabla f(x*)$. A geometric picture like Figure above is impossible; for if it were so, then $f(y*)$ would be greater that $f(x*)$ for some other point $y*\in\partial R$. So it must be $\nabla f(x*)$ is perpendicular to $\partial R$ at $x*$
@@ -313,7 +313,7 @@ determined by some given function $g:\mathbb{R}^n\to \mathbb{R}$. Suppose $x*\in
     \nabla f(x*)=\lambda\nabla g(x*) \tag{4.4}
   $$
   for some real number $\lambda$, called a *Lagrange multiplier*.
-  <img src="/control_om4_2_2_bound.JPG" alt="boundary" width="50%" align="center">
+  <img src="/control_om4_2_2_bound.JPG" alt="boundary" width="100%" align="center">
 
 ### Critique
 The foregoing argument is in fact incomplete, since we **implicitly assumed** that $\nabla g(x^*)\neq 0$, in which case the Implicit Function Theorem implies that the set $\{g=0\}$ is an $(n-1)$ -dimension surface near $x^*$ (as illustrated).
@@ -978,7 +978,7 @@ $$
 \end{array}\right.
 $$
 
-<img src="/control_om4_4_1_vh.JPG" alt="v-h curve" width="50%" align="middle">
+<img src="/control_om4_4_1_vh.JPG" alt="v-h curve" width="100%" align="middle">
 
 and thus
 
@@ -1002,13 +1002,13 @@ $$
 h=h_{0}-\frac{1}{2 g}\left(v^{2}-v_{0}^{2}\right) .
 $$
 
-<img src="/control_om4_4_2_full_vh.JPG" alt="full v-h curve" width="50%" align="middle">
+<img src="/control_om4_4_2_full_vh.JPG" alt="full v-h curve" width="100%" align="middle">
 
 If we then move along this parabola until we hit the soft-landing curve from the previous picture, we can then turn on the rocket engine and land safely.
 
 In the second case illustrated below, we miss switching curve, and hence cannot land safely on the moon switching once.
 
-<img src="/control_om4_4_3_full_vh_fail.JPG" alt="full v-h curve but failed" width="50%" align="middle">
+<img src="/control_om4_4_3_full_vh_fail.JPG" alt="full v-h curve but failed" width="100%" align="middle">
 
 To justify our guess about the structure of the optimal control, let us now find the costate $\boldsymbol{p}(\cdot)$ so that $\alpha(\cdot)$ and $\boldsymbol{x}(\cdot)$ described above satisfy $(\mathrm{ODE}), (\mathrm{ADJ}), (\mathrm{M})$. To do this, we will have to figure out appropriate initial conditions
 
@@ -1067,7 +1067,7 @@ $$
 
 In this section we discuss another variant problem, one for which the **initial position** is constrained to lie in a given set $X_{0} \subset \mathbb{R}^{n}$ and the **final position** is also constrained to lie within a given set $X_{1} \subset \mathbb{R}^{n}$.
 
-<img src="/control_om4_4_4_transversality.JPG" alt="full v-h curve but failed" width="50%" align="middle">
+<img src="/control_om4_4_4_transversality.JPG" alt="full v-h curve but failed" width="100%" align="middle">
 
 So in this model we get to choose the starting point $x^{0} \in X_{0}$ in order to maximize
 
@@ -1177,7 +1177,7 @@ $$
 
 In other words, $p^{0} \perp T_{0}$ and $p^{0} \perp T_{1}$; and this means that the tangent planes $T_{0}$ and $T_{1}$ are parallel.
 
-<img src="/control_om4_6_1_dist.JPG" alt="distance between sets" width="50%" align="middle">
+<img src="/control_om4_6_1_dist.JPG" alt="distance between sets" width="100%" align="middle">
 
 Now all of this is pretty obvious from the picture, but it is reassuring that the general theory predicts the proper answer. <div style="text-align: right;">$\square$</div>
 
@@ -1370,7 +1370,7 @@ this says there is (possibly) a jump in $\boldsymbol{p}^{*}(\cdot)$ when we leav
 
 ### 4.8.1 Example 1: Shortest Distance between Two Points, Avoiding An Obstacle.
 
-<img src="/control_om4_8_1_dist_obs.JPG" alt="distance between sets with obstacle" width="50%" align="middle">
+<img src="/control_om4_8_1_dist_obs.JPG" alt="distance between sets with obstacle" width="100%" align="middle">
 
 What is the shortest path between two points that avoids the disk $B=B(0, r)$, as drawn?
 
@@ -1520,7 +1520,7 @@ $$
 
 for some constant $k$.
 
-<img src="/control_om4_8_2_case2.JPG" alt="case 2" width="50%" align="middle">
+<img src="/control_om4_8_2_case2.JPG" alt="case 2" width="100%" align="middle">
 
 #### Case 3: approaching and leaving the obstacle
 In general, we must piece together the results from Case 1 and Case 2. So suppose now $\boldsymbol{x}(t) \in R=\mathbb{R}^{2}-B$ for $0 \leq t<s_{0}$ and $\boldsymbol{x}(t) \in \partial B$ for $s_{0} \leq t \leq s_{1}$.
@@ -1556,7 +1556,7 @@ $$
 
 The second equality says that the optimal trajectory is tangent to the disk $B$ when it hits $\partial B$.
 
-<img src="/control_om4_8_3_case3.JPG" alt="case 3" width="50%" align="middle">
+<img src="/control_om4_8_3_case3.JPG" alt="case 3" width="100%" align="middle">
 
 We turn next to the trajectory as it **leaves** $\partial B$ : see the next picture. We then have
 
@@ -1579,7 +1579,7 @@ $$
 \lambda\left(\theta_{1}\right) \nabla g\left(\boldsymbol{x}\left(\theta_{1}\right)\right)=\left(\theta_{1}-\theta_{0}\right)\binom{\cos \theta_{1}}{\sin \theta_{1}} .
 $$
 
-<img src="/control_om4_8_4_case32.JPG" alt="case 3 leave" width="50%" align="middle">
+<img src="/control_om4_8_4_case32.JPG" alt="case 3 leave" width="100%" align="middle">
 
 Therefore
 
@@ -1644,7 +1644,7 @@ $$
 #### Guessing the optimal strategy
 Let us just guess the optimal control strategy: we should at first not order anything ( $\alpha=0$ ) and let the inventory in our warehouse **fall off to zero as we fill demands**; thereafter we should order just enough to meet our demands ( $\alpha=d$ ).
 
-<img src="/control_om4_8_5_inventory.JPG" alt="inventory curve" width="50%" align="middle">
+<img src="/control_om4_8_5_inventory.JPG" alt="inventory curve" width="100%" align="middle">
 
 #### Using the maximum principle
 We will prove this guess is right, using the Maximum Principle. Assume first that $x(t)>0$ on some interval $\left[0, s_{0}\right]$. We then have
@@ -1795,21 +1795,21 @@ $$
 
 with $T=5$. This example does not hold a terminal cost or constraints, such that the terminal condition reads as $R_{T}\left(\boldsymbol{p}_{0}\right)=\boldsymbol{p}\left(T, \boldsymbol{p}_{0}, {\boldsymbol{x}}^{0}\right)=0$. The state-costate trajectory at the solution is displayed in [Figure 4.9.1](#fig-491). It is then interesting to build the function $\boldsymbol{p}_{0} \mapsto \boldsymbol{p}\left(T, \boldsymbol{p}_{0}, {\boldsymbol{x}}^{0}\right)$ for various values of $\boldsymbol{p}_{0}$, see [Figure 4.9.2](#fig-492). This function is very **nonlinear**, making it difficult for the Newton iteration to find the co-states' initial value $\boldsymbol{p}_{0}$ resulting in $\boldsymbol{p}\left(T, \boldsymbol{p}_{0}, {\boldsymbol{x}}^{0}\right)=0$. More specifically, the Newton iteration (full steps or reduced steps) converges only for a specific set of initial guesses $\boldsymbol{p}_{0}^{0}$ provided to the iteration (4.3), see [Figure 4.9.3](#fig-493).
 
-<img src="/control_om4_9_1_example1_traj.JPG" id="fig-491" alt="traj" width="80%" align="center">
+<img src="/control_om4_9_1_example1_traj.JPG" id="fig-491" alt="traj" width="100%" align="center">
 
 Figure 4.9.1: Illustration of the state and co-state trajectories for example 4.9.1 at the solution delivering $\boldsymbol{p}\left(T, \boldsymbol{p}_{0}, {\boldsymbol{x}}^{0}\right)=0$ for $T=5$, note that $\lambda_*$ in the image is actually $p_*$.
 
-<img src="/control_om4_9_2_example1_costate.JPG" id="fig-492" alt="costate" width="80%" align="center">
+<img src="/control_om4_9_2_example1_costate.JPG" id="fig-492" alt="costate" width="100%" align="center">
 
 Figure 4.9.2: Illustration of the map $\boldsymbol{p}_{0} \mapsto \boldsymbol{p}\left(T, \boldsymbol{p}_{0}, {\boldsymbol{x}}^{0}\right)$, in the form of level curves for $T=5$. The black dot represents the solution of the TPBVP problem, where $R_{T}\left(\boldsymbol{p}_{0}\right)=\boldsymbol{p}\left(T, \boldsymbol{p}_{0}, {\boldsymbol{x}}^{0}\right)=0$. One can observe that the map is very nonlinear, such that the Newton method can struggle to converge to the solution $\boldsymbol{p}_{0}$ of the TPBVP, unless a very good initial guess is provided. Note that $\lambda_*$ in the image is actually $p_*$
 
-<img src="/control_om4_9_3_example1_convergence.JPG" id="fig-493" alt="region of convergence" width="80%" align="center">
+<img src="/control_om4_9_3_example1_convergence.JPG" id="fig-493" alt="region of convergence" width="100%" align="center">
 
 Figure 4.9.3: Illustration of the region of convergence of the Newton iteration $(4.3)$ for problem $(4.4)$ (in black, with full Newton steps on the left-hand side graph and with reduced steps on the right-hand side graph). Here we note $\boldsymbol{p}_{0,1}, \boldsymbol{p}_{0,2}$ the initial guess provided to the Newton iteration. The grey dots (at $(3.22, 8.48)$) depict the solution to the TPBVP. Only a fairly small, disconnected and highly convoluted set of initial guess for the co-states initial conditions leads to a convergence of the Newton iteration. Note that $\lambda_*$ in the image is actually $p_*$
 
 A crucial observation that will motivate an alternative to the single-shooting approach is illustrated in Figure 4.9.4, where the map $\boldsymbol{p}_{0} \mapsto \boldsymbol{p}\left(t, \boldsymbol{p}_{0}, {\boldsymbol{x}}^{0}\right)$ is displayed for the integration times $t=3$ and $t=4$. The crucial observation here is that the map is fairly **linear** up to $t=3$, and becomes increasingly nonlinear for larger integration times. This observation is general and motivates the core idea behind the alternatives to single shooting, namely that integration shall **never** be performed over **long time intervals**, so as to avoid creating strongly nonlinear functions in the TPBVP.
 
-<img src="/control_om4_9_4_example1_nonlinear.JPG" id="fig-494" alt="linear and nonlinear" width="80%" align="center">
+<img src="/control_om4_9_4_example1_nonlinear.JPG" id="fig-494" alt="linear and nonlinear" width="100%" align="center">
 
 Figure 4.9.4: Illustration of the map $\boldsymbol{p}_{0} \mapsto \boldsymbol{p}\left(t, \boldsymbol{p}_{0}, {\boldsymbol{x}}^{0}\right)$, in the form of level curves for different times $t$. The black dot represents the solution of the TPBVP problem, where $\boldsymbol{p}\left(T, \boldsymbol{p}_{0}, {\boldsymbol{x}}^{0}\right)=0$. One can observe that the map is close to linear for "small" integration times $t$ (upper graphs, where $t=3$ ), and becomes increasingly nonlinear as the integration time increases (lower graph, where $t=4$ ), until it reaches the final time $T=5$, see [Figure 4.9.2](#fig-492). This observation is general, and holds for most problems.
 
@@ -1859,13 +1859,13 @@ $$
 
 We illustrate the Multiple-Shooting procedure (12.14) in Figure 4.9.5 for $N=5$.
 
-<img src="/control_om4_9_5_example1_multishooting.JPG" id="fig-495" alt="multishooting" width="80%" align="center">
+<img src="/control_om4_9_5_example1_multishooting.JPG" id="fig-495" alt="multishooting" width="100%" align="center">
 
 Figure 4.9.5: Illustration of the state and co-state trajectories for problem $(4.4)$ during the multiple-shooting iterations $(4.8)$, such that the conditions $\Phi_{k}\left(\boldsymbol{\beta}_{k}\right)- \boldsymbol{\beta}_{k+1}=0$ are not yet fulfilled. Here, the discrete times $t_{k}$ are depicted as grey dashed lines, the discrete state-costates $\boldsymbol{\beta}_{k}=\left(x_{k, 1}, x_{k, 2}, \boldsymbol{p}_{k, 1}, \boldsymbol{p}_{k, 2}\right)$ are depicted as black dots, and the resulting integrations $\Phi_{k}=\left(\Phi_{k, 1}^{\boldsymbol{x}}, \Phi_{k, 2}^{\boldsymbol{x}}, \Phi_{k, 1}^{\boldsymbol{p}}, \Phi_{k, 2}^{\boldsymbol{p}}\right)$ are depicted as white dots. The black curves represent the state-costate trajectories on the various time intervals $\left[t_{k}, t_{k+1}\right]$. At the solution (12.14), the conditions $\Phi_{k}\left(\boldsymbol{\beta}_{k}\right)=\boldsymbol{\beta}_{k+1}$ are enforced for $k=1, \ldots, N-1$, such that the black and white dots coincide on each discrete time $t_{k}$.
 
 One ought to observe that the time intervals $\left[t_{k}, t_{k+1}\right]$ are of size $\frac{T}{N}$, and hence get shorter as $N$ increases. Because one can "control" the length of the time interval over which the integration is performed via $N$, and because the functions $\Phi_{k}\left(\boldsymbol{\beta}_{k}\right)-\boldsymbol{\beta}_{k+1}$ become **less nonlinear** as the length of the time interval decreases, one can make them "arbitrarily" linear by increasing $N$. It follows that a sufficiently large $N$ typically allows one to solve the Multiple-Shooting conditions $(4.6)$ using a Newton iteration even if no good initial guess is available.
 
-<img src="/control_om4_9_6_example1_jacobi_multishooting.JPG" id="fig-496" alt="jacobi of multishooting" width="80%" align="center">
+<img src="/control_om4_9_6_example1_jacobi_multishooting.JPG" id="fig-496" alt="jacobi of multishooting" width="100%" align="center">
 
 Figure 4.9.6: Illustration of sparsity pattern of the Jacobian matrix $\frac{\partial R_{\mathrm{MS}}}{\partial \boldsymbol{\beta}}$ in the Newton iteration $(4.8)$ for the optimal control problem $(4.4)$ approached via indirect multiple-shooting, for [Example 4.9.2](#example-4-9-2). Here we use $N=5$. One can readily observe that the Jacobian matrix is sparse and highly structured. This structure arises via organising the algebraic conditions $(4.7)$ and the variables $\boldsymbol{\beta}$ in time (i.e. in the order $k=0, \ldots, N$ ). Note that here the last variables $\boldsymbol{\beta}_{N}$ where eliminated using the equality $\boldsymbol{\beta}_{N}=\Phi_{N-1}\left(\boldsymbol{\beta}_{k-1}\right)$. In the specific case of [Example 4.9.2](#example-4-9-2), the elimination has no impact on the Newton iteration because the boundary conditions $b\left(\boldsymbol{\beta}_{0}, \boldsymbol{\beta}_{N}, {\boldsymbol{x}}^{0}\right)$ are linear.
 
@@ -1937,14 +1937,14 @@ $$
 
 for some step-size $t_{k} \in \left[0,1\right]$. We illustrate the indirect collocation approach in the following example.
 
-<img src="/control_om4_9_7_example1_collocation.JPG" id="fig-497" alt="collocation" width="80%" align="center">
+<img src="/control_om4_9_7_example1_collocation.JPG" id="fig-497" alt="collocation" width="100%" align="center">
 
 Figure 4.9.7: Illustration of the state and co-state trajectories for [example 4.9.1](#example-4-9-1) using the orthogonal collocation approach with $N=20$. The grey curves display the state-costate trajectories after the first full Newton step of $(4.14)$, while the black curves report the state-costate trajectories at convergence. The discrete times $t_{k}$ are depicted as grey dashed lines, the discrete state-costates on the time grid $t_{k, i}$ are depicted as dots. Note that the continuity conditions $(4.11b)$ in the collocation method are linear in the variables $\boldsymbol{w}$, such that the trajectories are continuous after the first full Newton step (hence the grey curves are continuous, even though the problem is not solved yet).
 
 #### Example 4.9.3
 We consider the optimal control problem from [Example 4.9.1](#example-4-9-1) with $T=5$. We illustrate the Orthogonal Collocation procedure $(4.11)$ in Figure 4.9.7 for $N=10$. The sparsity pattern of the Jacobian matrix $\frac{\partial R_{\text {IC }}}{\partial \boldsymbol{w}}$ from the Newton iteration $(4.14)$ is illustrated in [Figure 4.9.8](#fig-498). The variables and constraints were ordered with respect to time. Even though it is large, the complexity of forming factorisations of the Jacobian matrix $\frac{\partial R_{I C}}{\partial \boldsymbol{w}}$ is limited as it is sparse and highly structured.
 
-<img src="/control_om4_9_8_example1_jacobi_collocation.JPG" id="fig-498" alt="jacobi of collocation" width="80%" align="center">
+<img src="/control_om4_9_8_example1_jacobi_collocation.JPG" id="fig-498" alt="jacobi of collocation" width="100%" align="center">
 
 Figure 4.9.8: Illustration of the sparsity structure for the Jacobian $\frac{\partial R_{\mathrm{IC}}}{\partial w}$ in the Newton iteration $(4.14)$
 

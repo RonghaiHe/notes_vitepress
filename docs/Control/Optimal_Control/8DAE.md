@@ -11,7 +11,7 @@ This form of model for dynamic systems tend to arise naturally from the first-pr
 ## Example 8.1
 Consider a mass $m$ attached to a fixed point via a rigid link of length $L$ for which one wants to develop a dynamic model. A classic modelling approach is to describe the mass via two angles (azimuth and elevation of the mass), which yields an explicit ODE. The alternative model construction we will consider here describes the system via the cartesian coordinates $\boldsymbol{p} \in \mathbb{R}^{3}$ of the mass in a fixed, inertial reference frame $E$ positioned at the attachment point of the mass, see [Figure 8.1](#fig-81).
 
-<img src="/control_om8_1_1_example1.JPG" id="fig-81" alt="example1" width="50%" align="center">
+<img src="/control_om8_1_1_example1.JPG" id="fig-81" alt="example1" width="100%" align="center">
 
 Figure 8.1: Illustration of the example considered in this chapter. The system is described via the cartesian position of the mass $\boldsymbol{p} \in \mathbb{R}^{3}$ in the fixed frame $E$. The mass is subject to the gravity force $-m g \boldsymbol{E}_{3}$ and to a force $-z \boldsymbol{p}$ from the rod, which ensures that the mass remains at a distance $L$ from its attachment point. Here the scalar $z$ is a variable in the dynamics that scales this force adequately.
 
@@ -763,7 +763,7 @@ We can now turn to the deployment of Multiple-Shooting on DAE-based optimal cont
 
 ### 8.4.2 Direct Multiple-Shooting with Differential-Algebraic Equations
 
-<img src="/control_om8_4_1_diagram.JPG" alt="diagram" id="fig-841" width="80%" align="middle">
+<img src="/control_om8_4_1_diagram.JPG" alt="diagram" id="fig-841" width="100%" align="middle">
 
 Figure 8.4.1: The diagram
 
