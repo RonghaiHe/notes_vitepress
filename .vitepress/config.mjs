@@ -63,6 +63,7 @@ export default defineConfig({
               { text: 'Boundary Layer', link: '/docs/Fluid/Thermal_Fluid/3boundaryLayer'},
               { text: 'Internal Flow', link: '/docs/Fluid/Thermal_Fluid/4internalFlow'},
               { text: 'Kinematics', link: '/docs/Fluid/Thermal_Fluid/5fluidKinematics'},
+              { text: 'Two Phase Flow: Intro', link: '/docs/Fluid/Thermal_Fluid/6twoPhase'},
             ]
           }
         ]
@@ -107,6 +108,7 @@ export default defineConfig({
               { text: 'Boundary Layer', link: '/docs/Fluid/Thermal_Fluid/3boundaryLayer'},
               { text: 'Internal Flow', link: '/docs/Fluid/Thermal_Fluid/4internalFlow'},
               { text: 'Kinematics', link: '/docs/Fluid/Thermal_Fluid/5fluidKinematics'},
+              { text: 'Two Phase Flow: Intro', link: '/docs/Fluid/Thermal_Fluid/6twoPhase'},
             ]
         }
       ],
