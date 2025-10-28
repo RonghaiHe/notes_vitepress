@@ -32,6 +32,7 @@ export default defineConfig({
               { text: 'Determinant', link: '/docs/Math/Engineering_Methods/linear_algebra4' },
               { text: 'Eigen-values&vectors', link: '/docs/Math/Engineering_Methods/linear_algebra5' },
               { text: 'Inner Product', link: '/docs/Math/Engineering_Methods/linear_algebra6' },
+              { text: 'Linear ODE', link: '/docs/Math/Engineering_Methods/linear_ODE' },
             ]
           }
         ]
@@ -64,6 +65,7 @@ export default defineConfig({
               { text: 'Internal Flow', link: '/docs/Fluid/Thermal_Fluid/4internalFlow'},
               { text: 'Kinematics', link: '/docs/Fluid/Thermal_Fluid/5fluidKinematics'},
               { text: 'Two Phase Flow: Intro', link: '/docs/Fluid/Thermal_Fluid/6twoPhase'},
+              { text: 'Two Phase Flow: thermo-fluid', link: '/docs/Fluid/Thermal_Fluid/7thermoFluid'},
             ]
           }
         ]
@@ -81,6 +83,7 @@ export default defineConfig({
                 { text: 'Determinant', link: '/docs/Math/Engineering_Methods/linear_algebra4' },
                 { text: 'Eigen-values&vectors', link: '/docs/Math/Engineering_Methods/linear_algebra5' },
                 { text: 'Inner Product', link: '/docs/Math/Engineering_Methods/linear_algebra6' },
+                { text: 'Linear ODE', link: '/docs/Math/Engineering_Methods/linear_ODE' },
               ]
         }
       ],
@@ -109,6 +112,7 @@ export default defineConfig({
               { text: 'Internal Flow', link: '/docs/Fluid/Thermal_Fluid/4internalFlow'},
               { text: 'Kinematics', link: '/docs/Fluid/Thermal_Fluid/5fluidKinematics'},
               { text: 'Two Phase Flow: Intro', link: '/docs/Fluid/Thermal_Fluid/6twoPhase'},
+              { text: 'Two Phase Flow: thermo-fluid', link: '/docs/Fluid/Thermal_Fluid/7thermoFluid'},
             ]
         }
       ],
