@@ -11,11 +11,11 @@ Fundamental technical terms
 Basic equations in integral form for a control volume:
 - **Conservation of Mass**:
     $$
-        \frac{\partial}{\partial t}\int_{\mathrm{CV}}\rho\mathrm{d}V + \int_{\mathrm{CS}}\rho\vec{V}\cdot\mathrm{d}\vec{A} = 0
+        \frac{\partial}{\partial t}\int_{\mathrm{CV}}\rho\mathrm{~d}V + \int_{\mathrm{CS}}\rho\vec{V}\cdot\mathrm{~d}\vec{A} = 0
     $$
 - **Momentum Equation** for Inertial Control Volume (External force = Surface force + Volume force):
     $$
-        \vec{F} = \vec{F}_S + \vec{F}_B = \frac{\partial}{\partial t}\int_{\mathrm{CV}}\rho\mathrm{d}V + \int_{\mathrm{CS}}\rho\vec{V}\cdot\mathrm{d}\vec{A}
+        \vec{F} = \vec{F}_S + \vec{F}_B = \frac{\partial}{\partial t}\int_{\mathrm{CV}}\rho\mathrm{~d}V + \int_{\mathrm{CS}}\rho\vec{V}\cdot\mathrm{~d}\vec{A}
     $$
     
     For steady flow with no friction, flow along a streamline and incompressible flow (Bernoulli’s equation):
@@ -24,9 +24,9 @@ Basic equations in integral form for a control volume:
     $$
 - The First and Second Laws of Thermodynamics:
     $$
-        \dot{Q} - \dot{W} = \frac{\partial}{\partial t}\int_{\mathrm{CV}}e\rho\mathrm{d}V + \int_{\mathrm{CS}}e\rho\vec{V}\cdot\mathrm{d}\vec{A} \\
+        \dot{Q} - \dot{W} = \frac{\partial}{\partial t}\int_{\mathrm{CV}}e\rho\mathrm{~d}V + \int_{\mathrm{CS}}e\rho\vec{V}\cdot\mathrm{~d}\vec{A} \\
         \dot{W} = \dot{W}_s + \dot{W}_{\mathrm{normal}} + \dot{W}_{\mathrm{shear}} + \dot{W}_{\mathrm{other}} \\
-        \dot{Q} - \dot{W}_s - \dot{W}_{\mathrm{shear}} - \dot{W}_{\mathrm{other}} = \frac{\partial}{\partial t}\int_{\mathrm{CV}}e\rho\mathrm{d}V + \int_{\mathrm{CS}}\left(u+pv+\frac{V^2}{2}+gz\right)\rho\vec{V}\cdot\mathrm{d}\vec{A}
+        \dot{Q} - \dot{W}_s - \dot{W}_{\mathrm{shear}} - \dot{W}_{\mathrm{other}} = \frac{\partial}{\partial t}\int_{\mathrm{CV}}e\rho\mathrm{~d}V + \int_{\mathrm{CS}}\left(u+pv+\frac{V^2}{2}+gz\right)\rho\vec{V}\cdot\mathrm{~d}\vec{A}
     $$
 
     Energy = Heat + Work
@@ -36,7 +36,7 @@ Inflow + Local change + External source = Outflow
 ### Derivation of Bernoulli’s equation
 1. From the continuous equation:
 $$
-    \frac{\partial}{\partial t}\int_{\mathrm{CV}}\rho\mathrm{d}V + \int_{\mathrm{CS}}\rho\vec{V}\cdot\mathrm{d}\vec{A} = 0
+    \frac{\partial}{\partial t}\int_{\mathrm{CV}}\rho\mathrm{~d}V + \int_{\mathrm{CS}}\rho\vec{V}\cdot\mathrm{~d}\vec{A} = 0
 $$
 
 with conditions:
@@ -46,62 +46,62 @@ with conditions:
 
 $$
 \begin{align*}
-    &\int_{\mathrm{CS}}\rho\vec{V}\cdot\mathrm{d}\vec{A} = 0\\
-    \implies& (-\rho V_sA)+[\rho(Vs+\mathrm{d}V_s)(A+\mathrm{d}A)] = 0\\
-    \implies& \rho(Vs+\mathrm{d}V_s)(A+\mathrm{d}A) = \rho V_sA\\
-    \implies& V_s\mathrm{d}A + A\mathrm{d}V_s + \mathrm{d}A\mathrm{d}V_s = 0\\
+    &\int_{\mathrm{CS}}\rho\vec{V}\cdot\mathrm{~d}\vec{A} = 0\\
+    \implies& (-\rho V_sA)+[\rho(Vs+\mathrm{~d}V_s)(A+\mathrm{~d}A)] = 0\\
+    \implies& \rho(Vs+\mathrm{~d}V_s)(A+\mathrm{~d}A) = \rho V_sA\\
+    \implies& V_s\mathrm{~d}A + A\mathrm{~d}V_s + \mathrm{~d}A\mathrm{~d}V_s = 0\\
     \implies&
-    V_s\mathrm{d}A + A\mathrm{d}V_s = 0
+    V_s\mathrm{~d}A + A\mathrm{~d}V_s = 0
 \end{align*}
 $$
 
 2. For Momentum equation:
 $$
-    \vec{F}_{S_S} + \vec{F}_{B_S} = \not{\frac{\partial}{\partial t}}\int_{\mathrm{CV}}\rho\mathrm{d}V + \int_{\mathrm{CS}}\rho\vec{V}\cdot\mathrm{d}\vec{A}
+    \vec{F}_{S_S} + \vec{F}_{B_S} = \not{\frac{\partial}{\partial t}}\int_{\mathrm{CV}}\rho\mathrm{~d}V + \int_{\mathrm{CS}}\rho\vec{V}\cdot\mathrm{~d}\vec{A}
 $$
 
 with condition: No friction, so $F_{S_b}$ is due to **pressure force only** and the surface force $F_{S_s}$ will have 3 terms:
 $$
-    F_{S_S} = pA - (p+\mathrm{d}p)(A+\mathrm{d}A) + \left(p+\frac{\mathrm{d}p}{2}\right)\mathrm{d}A
+    F_{S_S} = pA - (p+\mathrm{~d}p)(A+\mathrm{~d}A) + \left(p+\frac{\mathrm{~d}p}{2}\right)\mathrm{~d}A
 $$
 
 The 1st and 2nd terms are pressure forces on the end faces of the control surface. The 3rd term is $F_{S_b}$, the pressure force acting in the $s$ direction on the bounding stream surface of the control volume: average pressure acting on the stream surface, times the area component of the stream surface in the $s$ direction, hen simplified to:
 
 $$
-    F_{S_b} = -A\mathrm{d}p - \frac12\mathrm{d}p\mathrm{d}A.
+    F_{S_b} = -A\mathrm{~d}p - \frac12\mathrm{~d}p\mathrm{~d}A.
 $$
 
 The body force component in the $s$ direction is
 $$
-    F_{B_S} = \rho g_s\mathrm{d}V = \rho(-g\sin\theta)\left(A+\frac{\mathrm{d}A}{2}\right)\mathrm{d}s
+    F_{B_S} = \rho g_s\mathrm{~d}V = \rho(-g\sin\theta)\left(A+\frac{\mathrm{~d}A}{2}\right)\mathrm{~d}s
 $$
 
-But $\sin\theta\mathrm{d}s = \mathrm{d}z$, s.t.
+But $\sin\theta\mathrm{~d}s = \mathrm{~d}z$, s.t.
 $$
-F_{B_s}=-\rho g\left(A+\frac{\mathrm{d} A}{2}\right) \mathrm{d} z
+F_{B_s}=-\rho g\left(A+\frac{\mathrm{~d} A}{2}\right) \mathrm{~d} z
 $$
 
 The momentum flux will be
 $$
-\int_{\mathrm{CS}} u_{\mathrm{s}} \rho \vec{V} \cdot \mathrm{d} \vec{A}=V_s\left(-\rho V_s A\right)+\left(V_s+\mathrm{d} V_s\right)\left\{\rho\left(V_s+\mathrm{d} V_s\right)(A+\mathrm{d} A)\right\}
+\int_{\mathrm{CS}} u_{\mathrm{s}} \rho \vec{V} \cdot \mathrm{~d} \vec{A}=V_s\left(-\rho V_s A\right)+\left(V_s+\mathrm{~d} V_s\right)\left\{\rho\left(V_s+\mathrm{~d} V_s\right)(A+\mathrm{~d} A)\right\}
 $$
 since there is no mass flux across the bounding stream surfaces. The mass flux factors in parentheses and braces are equal from continuity, so
 $$
-\int_{\mathrm{CS}} u_{\mathrm{s}} \rho \vec{V} \cdot \mathrm{d} \vec{A}=V_s\left(-\rho V_{\mathrm{s}} A\right)+\left(V_s+\mathrm{d} V_{\mathrm{s}}\right)\left(\rho V_s A\right)=\rho V_s A \mathrm{d} V_{\mathrm{s}}
+\int_{\mathrm{CS}} u_{\mathrm{s}} \rho \vec{V} \cdot \mathrm{~d} \vec{A}=V_s\left(-\rho V_{\mathrm{s}} A\right)+\left(V_s+\mathrm{~d} V_{\mathrm{s}}\right)\left(\rho V_s A\right)=\rho V_s A \mathrm{~d} V_{\mathrm{s}}
 $$
 
 Substituting Equations into the momentum equation gives
 $$
--A \mathrm{d} p-\frac{1}{2} \mathrm{d} p \mathrm{d} A-\rho g A \mathrm{d} z-\frac{1}{2} \rho g \mathrm{d} A \mathrm{d} z=\rho V_s A \mathrm{d} V_{\mathrm{s}}
+-A \mathrm{~d} p-\frac{1}{2} \mathrm{~d} p \mathrm{~d} A-\rho g A \mathrm{~d} z-\frac{1}{2} \rho g \mathrm{~d} A \mathrm{~d} z=\rho V_s A \mathrm{~d} V_{\mathrm{s}}
 $$
 
 Dividing by $\rho A$ and noting that products of differentials are negligible compared with the remaining terms, we obtain
 $$
--\frac{\mathrm{d} p}{\rho}-g \mathrm{d} z=V s \mathrm{d} V_s=\mathrm{d}\left(\frac{V_s^2}{2}\right)
+-\frac{\mathrm{~d} p}{\rho}-g \mathrm{~d} z=V s \mathrm{~d} V_s=\mathrm{~d}\left(\frac{V_s^2}{2}\right)
 $$
 or
 $$
-\frac{\mathrm{d} p}{\rho}+\mathrm{d}\left(\frac{V_s^2}{2}\right)+g \mathrm{d} z=0
+\frac{\mathrm{~d} p}{\rho}+\mathrm{~d}\left(\frac{V_s^2}{2}\right)+g \mathrm{~d} z=0
 $$
 
 ### Introduction to differential analysis of fluid motion
@@ -175,8 +175,8 @@ $$
 Fully Developed Laminar Flow in a Pipe, see [Internal Flow](./4internalFlow#laminar-and-turbulent-flows) for more details
 $$
 \begin{aligned}
-u & =-\frac{R^2}{4 \mu}\left(\frac{\mathrm{d} p}{\mathrm{d} x}\right)\left[1-\left(\frac{r}{R}\right)^2\right], \quad&& \frac{u}{U}=1-\left(\frac{r}{R}\right)^2 \\
-u &= u_{\max} = U = -\frac{R^2}{4\mu}\left(\frac{\mathrm{d} p}{\mathrm{d} x}\right) = 2\overline{V} , \quad&& \tau_{r x}  =\mu \frac{\mathrm{d} u}{\mathrm{d} r}=\frac{r}{2}\left(\frac{\mathrm{d} p}{\mathrm{d} x}\right)
+u & =-\frac{R^2}{4 \mu}\left(\frac{\mathrm{~d} p}{\mathrm{~d} x}\right)\left[1-\left(\frac{r}{R}\right)^2\right], \quad&& \frac{u}{U}=1-\left(\frac{r}{R}\right)^2 \\
+u &= u_{\max} = U = -\frac{R^2}{4\mu}\left(\frac{\mathrm{~d} p}{\mathrm{~d} x}\right) = 2\overline{V} , \quad&& \tau_{r x}  =\mu \frac{\mathrm{~d} u}{\mathrm{~d} r}=\frac{r}{2}\left(\frac{\mathrm{~d} p}{\mathrm{~d} x}\right)
 \end{aligned}
 $$
 
@@ -184,7 +184,7 @@ laminar vs. turbulent
 <img src="/fluid_tf6_2_lami_vs_turb.png" alt="laminar vs. turbulent" width="100%" align="center">
 
 $$
-  \tau = \tau_{\mathrm{lam}} + \tau_{\mathrm{tur}} = \mu\frac{\mathrm{d} \bar{u}}{\mathrm{d} y} - \rho \overline{u'v'}
+  \tau = \tau_{\mathrm{lam}} + \tau_{\mathrm{tur}} = \mu\frac{\mathrm{~d} \bar{u}}{\mathrm{~d} y} - \rho \overline{u'v'}
 $$
 
 ### Time-averaged momentum equation for incompressible fluids
@@ -192,7 +192,7 @@ $$
 
 $$
   v_z=\bar{v}_z+v_z^{\prime} \quad \text{(Reynolds decomposition), where}\\
-  \bar{v}_z=\frac{1}{t_0} \int_{t-\frac{1}{2} t_0}^{t+\frac{1}{2} t_0} v_z(s) \mathrm{d} s
+  \bar{v}_z=\frac{1}{t_0} \int_{t-\frac{1}{2} t_0}^{t+\frac{1}{2} t_0} v_z(s) \mathrm{~d} s
 $$
 
 Know that
@@ -224,7 +224,7 @@ $$
 
 Know that **Stress = Viscous Stress + Turbulent Stress** (Reynolds Stress):
 $$
-  \frac{\tau}{\rho}=\nu \frac{\mathrm{d} u}{\mathrm{d} y}+\overline{u^{\prime} v^{\prime}}
+  \frac{\tau}{\rho}=\nu \frac{\mathrm{~d} u}{\mathrm{~d} y}+\overline{u^{\prime} v^{\prime}}
 $$
 
 let:
@@ -251,7 +251,7 @@ $$
 
 The **turbulent shear stress** is then approximated as
 $$
-\frac{\tau_{\text {turb }}}{\rho}=\ell^2\left(\frac{\mathrm{d} \bar{u}}{\mathrm{d} y}\right)^2
+\frac{\tau_{\text {turb }}}{\rho}=\ell^2\left(\frac{\mathrm{~d} \bar{u}}{\mathrm{~d} y}\right)^2
 $$
 
 Further, Prandtl hypothesized that the mixing length $\ell$ increases in proportion to the distance from the wall.
@@ -263,7 +263,7 @@ Although this is all very approximate and intended mainly to provide some insigh
 
 The total shear stress is the sum of the laminar and turbulent shear stresses. Very near the wall the laminar contribution dominates. Further, very near the wall, the shear stress is essentially equal to the value at the wall. In this wall layer, the shear stress is then given by
 $$
-\frac{\tau}{\rho} \approx \frac{\tau_w}{\rho}=\nu \frac{\mathrm{d} \bar{u}}{\mathrm{d} y}
+\frac{\tau}{\rho} \approx \frac{\tau_w}{\rho}=\nu \frac{\mathrm{~d} \bar{u}}{\mathrm{~d} y}
 $$
 
 It is convenient to introduce the **friction velocity**, $u_*$, which is the square root of the wall shear stress divided by the density, and defined as
@@ -279,12 +279,12 @@ $$
 
 The relation for shear stress near the wall can then be written as
 $$
-  1=\frac{\mathrm{d} u^{+}}{\mathrm{d} y^{+}}
+  1=\frac{\mathrm{~d} u^{+}}{\mathrm{~d} y^{+}}
 $$
 
 where
 $$
-  u_*^2=\frac{\tau_w}{\rho} = \nu \frac{\mathrm{d} \bar{u}}{\mathrm{d} y} = \nu \frac{\mathrm{d} (u_*u^+)}{\mathrm{d} (\nu y^+ / u_*)} = u_*^2\frac{\mathrm{d} u^{+}}{\mathrm{d} y^{+}}
+  u_*^2=\frac{\tau_w}{\rho} = \nu \frac{\mathrm{~d} \bar{u}}{\mathrm{~d} y} = \nu \frac{\mathrm{~d} (u_*u^+)}{\mathrm{~d} (\nu y^+ / u_*)} = u_*^2\frac{\mathrm{~d} u^{+}}{\mathrm{~d} y^{+}}
 $$
 
 This is readily integrated to yield a linear velocity profile
@@ -294,17 +294,17 @@ $$
 
 In the flow farther from the wall, but still near enough the wall that the total shear stress equals the wall value, **the laminar stress is much smaller than the turbulent stress**. Neglecting the laminar contribution gives the relation
 $$
-\frac{\tau}{\rho} \approx \frac{\tau_w}{\rho}=k^2 y^2\left(\frac{\mathrm{d} \bar{u}}{\mathrm{d} y}\right)^2
+\frac{\tau}{\rho} \approx \frac{\tau_w}{\rho}=k^2 y^2\left(\frac{\mathrm{~d} \bar{u}}{\mathrm{~d} y}\right)^2
 $$
 
 In wall coordinates $u^{+}$and $y^{+}$, and taking the square root of both sides, the relation becomes
 $$
-1=k y^{+} \frac{\mathrm{d} u^{+}}{\mathrm{d} y^{+}}
+1=k y^{+} \frac{\mathrm{~d} u^{+}}{\mathrm{~d} y^{+}}
 $$
 
 where
 $$
-u_*^2=k^2\left(\frac{y^{+} \nu}{u_*}\right)^2\left\{\frac{\mathrm{d}\left(u_* u^{+}\right)}{\mathrm{d}\left(y^{+} \nu / u_*\right)}\right\}^2
+u_*^2=k^2\left(\frac{y^{+} \nu}{u_*}\right)^2\left\{\frac{\mathrm{~d}\left(u_* u^{+}\right)}{\mathrm{~d}\left(y^{+} \nu / u_*\right)}\right\}^2
 $$
 
 This relationis integrated to yield
@@ -489,11 +489,11 @@ Two-phase flows
 
 Application: air conditioner, nuclear reactor, thermal management, ...
 
-The **boiling curve**:
+The **boiling curve**:[core]
 
 <img src="/fluid_tf6_7_boiling.png" alt="boiling" width="100%" align="center">
 
-First slope: $q'' = h\Delta T$, where $\Delta T = T_w - T_{\mathrm{sat}}$ and $T_{\mathrm{sat}}=100^\circ C$ for water at $P=0.1\mathrm{~MPa}$.
+First slope(single phase flow, Newton laws of cooling): $q'' = h\Delta T$, where $\Delta T = T_w - T_{\mathrm{sat}}$ and $T_{\mathrm{sat}}=100^\circ C$ for water at $P=0.1\mathrm{~MPa}$, $T_w$ is temperatur of water.
 
 ### Nature of multiphase flows and basic concepts
 
@@ -524,20 +524,20 @@ The term **field** is used to denote a topologically distinct or clearly identif
 - Time and space-averaged quantity
 - Space averaging: Line, area, and volume-averaging
 
-### Key parameters in two-phase flow
+### Key parameters in two-phase flow [core]
 #### Void fraction
 - Local instantaneous void fraction (0 or 1)
 - Instantaneous (volume, area, or line)-averaged void fraction (0-to-1)
   $$
-    \langle \alpha\rangle = \frac{1}{A}\int_A \alpha\mathrm{\mathrm{d}}A
+    \langle \alpha\rangle = \frac{1}{A}\int_A \alpha\mathrm{\mathrm{~d}}A
   $$
 - Time-averaged local void fraction (0-to-1)
   $$
-    \bar{\alpha}^t = \frac{1}{\Delta t}\int_{\Delta t}\alpha\mathrm{d}t
+    \bar{\alpha}^t = \frac{1}{\Delta t}\int_{\Delta t}\alpha\mathrm{~d}t
   $$
 - Time and (volume, area, or line)-averaged void fraction (0-to-1)
   $$
-    \langle \bar{\alpha}^t\rangle = \frac{1}{A}\int_A \bar{\alpha}^t \mathrm{d}A
+    \langle \bar{\alpha}^t\rangle = \frac{1}{A}\int_A \bar{\alpha}^t \mathrm{~d}A
   $$
 
 #### Phase velocity
@@ -546,30 +546,37 @@ The term **field** is used to denote a topologically distinct or clearly identif
 - Phase fraction weighted mean gas or liquid velocity
 - Superficial gas or liquid velocity
 
-**Void fraction weighted mean** (time-averaged) gas velocity:
+**Void fraction weighted mean** (time-averaged) actual gas velocity:
 $$
     \langle\langle v_g\rangle\rangle \equiv \frac{\langle \alpha v_g\rangle}{\langle \alpha\rangle} = \frac{\langle j_g\rangle}{\langle \alpha\rangle} = \frac{Q_g}{A_g}
 $$
 
-Area (and time)-averaged superficial gas velocity:
+Area (and time)-averaged **superficial gas velocity** (volume center velocity):
 $$
     \langle j_g\rangle \equiv \langle \alpha v_g\rangle = \frac{Q_g}{A}
 $$
+
+where $A$ is the flow channel area, $A_g$ is the gas flow area.
+> $$v_g \ge j_g$$
 
 <img src="/fluid_tf6_8_phase_velocity.png" alt="phase velocity" width="100%" align="center">
 
 #### Flow quality
 - Mass velocity (or mass flux) of $k$-phase, $G_k\left[\mathrm{~kg} /\left(\mathrm{m}^2 \cdot \mathrm{~s}\right)\right]$ (Mass flow rate, $W_k$ [kg/s])
 $$
-G_g \equiv \frac{W_g}{A}, \quad G_f \equiv \frac{W_f}{A}
+G_g \equiv \frac{W_g}{A}, \quad G_f \equiv \frac{W_f}{A} \\
+G = \rho_g\langle j_g\rangle + \rho_f\langle j_f\rangle = \rho_g\langle j_g\rangle + \rho_f\langle j_f\rangle = \rho_g\langle\alpha\rangle \langle  \langle v_g\rangle \rangle + \rho_f(1-\langle\alpha\rangle) \langle  \langle v_f\rangle \rangle
 $$
 - Mass flowrate quality (or quality), $\langle x\rangle$ [-]
 $$
-\langle x\rangle=\frac{G_g}{G}, \quad 1-\langle x\rangle=\frac{G_f}{G},\quad  G \equiv G_g+G_f
+\begin{gathered}
+\langle x\rangle=\frac{G_g}{G} = \frac{\rho_g\langle j_g\rangle}{G} = \frac{\text{Gas mass flow}}{\text{Two-phase mixture mass flow}}\\
+1-\langle x\rangle=\frac{G_f}{G},\quad  G \equiv G_g+G_f
+\end{gathered}
 $$
 - Superficial gas velocity, $\left\langle j_{{g}}\right\rangle[\mathrm{m} / \mathrm{s}]$
 $$
-\left\langle j_g\right\rangle=\frac{G_g}{\rho_g}=\frac{G\langle x\rangle}{\rho_g},\quad\left\langle j_f\right\rangle=\frac{G_f}{\rho_f}=\frac{G(1-\langle x\rangle)}{\rho_f}
+\left\langle j_g\right\rangle=\frac{G_g}{\rho_g}=\frac{G\langle x\rangle}{\rho_g},\quad\left\langle j_f\right\rangle=\frac{G_f}{\rho_f}=\frac{G(1-\langle x\rangle)}{\rho_f}, \quad \langle j\rangle = \langle j_g\rangle + \langle j_f\rangle
 $$
 
 and
@@ -601,17 +608,24 @@ $$
 
 > With different velocity:
 > $$
-  \langle\langle v_g\rangle\rangle = \frac{G\langle x\rangle}{\rho_g\langle\alpha\rangle}, \quad \langle\langle v_f\rangle\rangle = \frac{G(1-\langle x\rangle)}{\rho_g(1-\langle\alpha\rangle)} 
+  \langle\langle v_g\rangle\rangle = \frac{G\langle x\rangle}{\rho_g\langle\alpha\rangle}, \quad \langle\langle v_f\rangle\rangle = \frac{G(1-\langle x\rangle)}{\rho_f(1-\langle\alpha\rangle)} 
 $$
+> 
 > - Mixture density:
 > $$
   \rho_m = \langle \alpha\rangle\rho_g + (1-\langle \alpha\rangle)\rho_f
-$$
+> $$
+>
+> - Mixture velocity (Mass center velocity)
+> $$
+> v_m = \frac{G}{\rho_m} = \frac{\rho_g\langle\alpha\rangle \langle  \langle v_g\rangle \rangle + \rho_f(1-\langle\alpha\rangle) \langle  \langle v_f\rangle \rangle}{\langle \alpha\rangle\rho_g + (1-\langle \alpha\rangle)\rho_f}
+> $$
+> 
 
 #### Summary
 - Void fraction
 $$
-\alpha[-]=\frac{\text { Total volume of dispersed phase }}{\text { Total volume }}
+\alpha[-]=\frac{\text { Total volume of dispersed phase }}{\text { Total volume }} = \frac{A_g}{A}.
 $$
 
 - Interfacial area concentration
@@ -639,7 +653,7 @@ $$
 \end{align*}$$
 
 - Superficial $k$-phase velocity
-$j_k[\mathrm{~m} / \mathrm{s}]=\frac{\text { Volume flow rate }}{\text { Channel cross-sectional area }}=\frac{Q_k}{A}$
+$$j_k[\mathrm{~m} / \mathrm{s}]=\frac{\text { Volume flow rate }}{\text { Channel cross-sectional area }}=\frac{Q_k}{A}$$
 - Reynolds number
 $$
 R e=\frac{\text{Inertia force}}{\text{Viscous force}} = \frac{\rho_f v_f D}{\mu_f}
@@ -664,50 +678,63 @@ $$
 
 <img src="/fluid_tf6_9_2phase.png" alt="2 phase" width="100%" align="center">
 
+**Objective**: Derive area-averaged (1D) mass and momentum balance equations
+
 **Assumptions**: Constant flow area, heated wall, two phases flowing separately
-- Mass flow rates [kg/s]
+- Mass flow rates $[\mathrm{kg/s}]\to$ phase velocity $[\mathrm{m/s}]$ x Density $[\mathrm{kg/m^3}]$ x Flow area $[\mathrm{m^2}]$
 $$
 W_g=A_g \rho_g u_g, \quad W_l=A_l \rho_l u_l
 $$
 - 1D Mass conservation equation (Continuity equation)
+  - Physical meaning: Phase change may change $W_g,W_l$. However, total mass flow ratte at the elevation is **unchanged** by the phase change
 $$
-W_g+W_l=W=\mathrm{const} \quad \mathrm{d} W_g+\mathrm{d} W_l=0
+W_g+W_l=W=\mathrm{const} \quad \mathrm{~d} W_g+\mathrm{~d} W_l=0
 $$
-- 1D Momentum conservation equation
+- 1D Momentum $[N]$ conservation equation
 
   - For gas phase
 $$
-\mathrm{d} M_g-u_{l} \mathrm{d} W_g=-A_{g} \mathrm{d} p-\rho_{g} g A_{g} \mathrm{d} z-2 \pi r_{l} \tau_{l} \mathrm{d} z
+\mathrm{~d} M_g-\underbrace{u_{l} \mathrm{~d} W_g}_{\text{Phase change}}=-\underbrace{A_{g} \mathrm{~d} p}_{\text{Pressure}}-\underbrace{\rho_{g} g A_{g} \mathrm{~d} z}_{\text{Gravity}}-\underbrace{2 \pi r_{l} \tau_{l} \mathrm{~d} z}_{\text{Shear b/w gas \& liquid}}
 $$
-
   - For liquid phase
 $$
-\mathrm{d} M_l+u_l \mathrm{d} W_g=-A_l \mathrm{d} p-\rho_l g A_l \mathrm{d} z-2 \pi r_w \tau_w \mathrm{d} z+2 \pi r_{l} \tau_{l} \mathrm{d} z
+\mathrm{~d} M_l+u_l \mathrm{~d} W_g=-A_l \mathrm{~d} p-\rho_l g A_l \mathrm{~d} z-2 \pi r_w \tau_w \mathrm{~d} z+\underbrace{2 \pi r_{l} \tau_{l} \mathrm{~d} z}_{\text{Wall shear}}
 $$
 
 $$
-\implies -\left(\frac{\mathrm{d} p}{\mathrm{d} z}\right)=\underbrace{\left[\alpha \rho_g+(1-\alpha) \rho_l\right] g}_{\text{Hydrostatic pressure loss}}+\underbrace{\frac{2 \pi r_w}{A} \tau_w}_{\text{Frictional pressure loss}}+\underbrace{\frac{1}{A} \frac{\mathrm{d}}{\mathrm{d} z}\left(M_g+M_l\right)}_{Acceleration loss}
+\implies -\left(\frac{\mathrm{~d} p}{\mathrm{~d} z}\right)=\underbrace{\left[\alpha \rho_g+(1-\alpha) \rho_l\right] g}_{\text{Hydrostatic pressure loss}}+\underbrace{\frac{2 \pi r_w}{A} \tau_w}_{\text{Frictional pressure loss}}+\underbrace{\frac{1}{A} \frac{\mathrm{~d}}{\mathrm{~d} z}\left(M_g+M_l\right)}_{\text{Acceleration loss}}
 $$
 
 **Further assumption**: Uniform gas and liquid velocities over flow channel
 $$
 \begin{aligned}
-& M=\int \rho u^2 \mathrm{d} A \\
+& M=\int \rho u^2 \mathrm{~d} A \\
 & M_g=\rho_g u_g{ }^2 A_g=W_g u_g, \quad M_l=\rho_lu_l{ }^2 A_l=W_l u_l \\
-& W_g u_g+W_l u_l=\frac{W^2}{A}\left[\frac{x^2}{\alpha \rho_g}+\frac{(1-x)^2}{(1-\alpha) \rho_l}\right] \quad x=W_g / W \\
-& -\left(\frac{\mathrm{d} p}{\mathrm{d} z}\right)=\left[\alpha \rho_g+(1-\alpha) \rho_l\right] g+2 \frac{\tau_w}{r_w}+G^2 \frac{\mathrm{d}}{\mathrm{d} z}\left[\frac{x^2}{\alpha \rho_g}+\frac{(1-x)^2}{(1-\alpha) \rho_l}\right]
+& W_g u_g+W_l u_l=\frac{W^2}{A}\left[\frac{x^2}{\alpha \rho_g}+\frac{(1-x)^2}{(1-\alpha) \rho_l}\right], \quad x=W_g / W
 \end{aligned}
 $$
 
-Pressure change for total length $L$ (Initial condition, $\alpha=0$ at $x=0$ )
 $$
 \begin{aligned}
--\Delta p=&\int_0^L\left[\alpha \rho_g+(1-\alpha) \rho_l\right] g \mathrm{d} z+\frac{2}{r_w} \int_0^L \tau_w \mathrm{d} z \quad \begin{aligned}
+  \frac{1}{A}\frac{\mathrm{d}}{\mathrm{d}z}(M_g+M_l) =& \frac{1}{A}\frac{\mathrm{d}}{\mathrm{d}z}\left\{\frac{W^2}{A}\left[\frac{x^2}{\alpha \rho_g}+\frac{(1-x)^2}{(1-\alpha) \rho_l}\right]\right\}\\
+  =& G^2 \frac{\mathrm{d}}{\mathrm{d}z}\left[\frac{x^2}{\alpha \rho_g}+\frac{(1-x)^2}{(1-\alpha) \rho_l}\right].
+\end{aligned}
+$$
+
+Thus, Pressure change for total length $L$ (Initial condition, $\alpha=0$ at $x=0$ )
+
+$$
+-\left(\frac{\mathrm{~d} p}{\mathrm{~d} z}\right)=\left[\alpha \rho_g+(1-\alpha) \rho_l\right] g+2 \frac{\tau_w}{r_w}+G^2 \frac{\mathrm{~d}}{\mathrm{~d} z}\left[\frac{x^2}{\alpha \rho_g}+\frac{(1-x)^2}{(1-\alpha) \rho_l}\right]
+$$
+
+$$
+\begin{aligned}
+-\Delta p=&\int_0^L\left[\alpha \rho_g+(1-\alpha) \rho_l\right] g \mathrm{~d} z+\frac{2}{r_w} \int_0^L \tau_w \mathrm{~d} z \quad \begin{aligned}
 & \alpha_{\mathrm{e}}: \text { exit void fraction } \\
 & x_{\mathrm{e}}: \text { exit quality }
 \end{aligned}  \\
 &+\frac{G^2}{\rho_l}\left[\frac{x_e^2}{\alpha_e}\left(\frac{\rho_l}{\rho_g}\right)+\frac{(1-x_e)^2}{1-\alpha_e}-1\right]\\
-=& \frac{\mathrm{d}p}{\mathrm{d}z} = \underbrace{\mathrm{HP}}_{\alpha} + \underbrace{\mathrm{FP}}_{\Phi_f^2} + \underbrace{\mathrm{AL}}_{=0}.
+\implies& -\frac{\mathrm{~d}p}{\mathrm{~d}z} = \underbrace{\mathrm{HP}}_{\alpha} + \underbrace{\mathrm{FP}}_{\Phi_f^2} + \underbrace{\mathrm{AL}}_{=0}.
 \end{aligned}
 $$
 
