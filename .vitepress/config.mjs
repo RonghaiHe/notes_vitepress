@@ -33,6 +33,8 @@ export default defineConfig({
               { text: 'Eigen-values&vectors', link: '/docs/Math/Engineering_Methods/linear_algebra5' },
               { text: 'Inner Product', link: '/docs/Math/Engineering_Methods/linear_algebra6' },
               { text: 'Linear ODE', link: '/docs/Math/Engineering_Methods/linear_ODE' },
+              { text: 'Laplace Transform', link: '/docs/Math/Engineering_Methods/laplace_transform' },
+              { text: 'Numerical Methods for ODE', link: '/docs/Math/Engineering_Methods/numerical_methods_ODE' },
             ]
           }
         ]
@@ -84,6 +86,8 @@ export default defineConfig({
                 { text: 'Eigen-values&vectors', link: '/docs/Math/Engineering_Methods/linear_algebra5' },
                 { text: 'Inner Product', link: '/docs/Math/Engineering_Methods/linear_algebra6' },
                 { text: 'Linear ODE', link: '/docs/Math/Engineering_Methods/linear_ODE' },
+                { text: 'Laplace Transform', link: '/docs/Math/Engineering_Methods/laplace_transform' },
+                { text: 'Numerical Methods for ODE', link: '/docs/Math/Engineering_Methods/numerical_methods_ODE' },
               ]
         }
       ],
