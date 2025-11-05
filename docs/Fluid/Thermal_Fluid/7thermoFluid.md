@@ -265,7 +265,7 @@ $$
 \left\langle\left\langle v_g\right\rangle\right\rangle \equiv \frac{\left\langle j_g\right\rangle}{\langle\alpha\rangle}=C_0\langle j\rangle+\left\langle\left\langle v_{g j}\right\rangle\right\rangle
 $$
 
-where
+where $C_0$ is **distribution parameter** and $\left\langle\left\langle v_{g j}\right\rangle\right\rangle$ is the drift velocity:
 $$
 C_0 \equiv \frac{\langle\alpha j\rangle}{\langle\alpha\rangle\langle j\rangle}, \quad\left\langle\left\langle v_{g j}\right\rangle\right\rangle \equiv \frac{\left\langle\alpha v_{g j}\right\rangle}{\langle\alpha\rangle}
 $$

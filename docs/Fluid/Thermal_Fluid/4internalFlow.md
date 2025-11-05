@@ -74,7 +74,7 @@ Critical Reynolds number, $\operatorname{Re}_{\mathrm{cr}}$: the Reynolds number
 - For **flow in circular pipe**:
   $$\begin{array}{rlr}&\operatorname{Re}  \lesssim 2300 & \text { laminar flow } \\ 2300 \lesssim & \operatorname{Re} \lesssim 10,000 & \text { transitional flow } \\ &\operatorname{Re}  \gtrsim 10,000 & \text { turbulent flow }\end{array}$$
 
-About the calculation of $D$: For flow through noncircular pipes, the Reynolds number is based on the **hydraulic diameter** $D_H$:
+About the calculation of $D$: For flow through noncircular pipes, the Reynolds number is based on the **hydraulic diameter** $D_H$ (水力直径):
 
 $$
   D_H = \frac{4A_c}{p}.

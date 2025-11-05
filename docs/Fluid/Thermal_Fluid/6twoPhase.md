@@ -525,7 +525,7 @@ The term **field** is used to denote a topologically distinct or clearly identif
 - Space averaging: Line, area, and volume-averaging
 
 ### Key parameters in two-phase flow [core]
-#### Void fraction
+#### Void fraction 空隙率
 - Local instantaneous void fraction (0 or 1)
 - Instantaneous (volume, area, or line)-averaged void fraction (0-to-1)
   $$
@@ -546,12 +546,12 @@ The term **field** is used to denote a topologically distinct or clearly identif
 - Phase fraction weighted mean gas or liquid velocity
 - Superficial gas or liquid velocity
 
-**Void fraction weighted mean** (time-averaged) actual gas velocity:
+**Void fraction weighted mean** (time-averaged) actual gas velocity (气相速度):
 $$
     \langle\langle v_g\rangle\rangle \equiv \frac{\langle \alpha v_g\rangle}{\langle \alpha\rangle} = \frac{\langle j_g\rangle}{\langle \alpha\rangle} = \frac{Q_g}{A_g}
 $$
 
-Area (and time)-averaged **superficial gas velocity** (volume center velocity):
+Area (and time)-averaged **superficial gas velocity** (表观气相速度) (volume center velocity):
 $$
     \langle j_g\rangle \equiv \langle \alpha v_g\rangle = \frac{Q_g}{A}
 $$
@@ -562,12 +562,13 @@ where $A$ is the flow channel area, $A_g$ is the gas flow area.
 <img src="/fluid_tf6_8_phase_velocity.png" alt="phase velocity" width="100%" align="center">
 
 #### Flow quality
-- Mass velocity (or mass flux) of $k$-phase, $G_k\left[\mathrm{~kg} /\left(\mathrm{m}^2 \cdot \mathrm{~s}\right)\right]$ (Mass flow rate, $W_k$ [kg/s])
+- Mass velocity (or mass flux 质量通量) of $k$-phase, $G_k\left[\mathrm{~kg} /\left(\mathrm{m}^2 \cdot \mathrm{~s}\right)\right]$ (Mass flow rate, $W_k$ [kg/s])
 $$
 G_g \equiv \frac{W_g}{A}, \quad G_f \equiv \frac{W_f}{A} \\
-G = \rho_g\langle j_g\rangle + \rho_f\langle j_f\rangle = \rho_g\langle j_g\rangle + \rho_f\langle j_f\rangle = \rho_g\langle\alpha\rangle \langle  \langle v_g\rangle \rangle + \rho_f(1-\langle\alpha\rangle) \langle  \langle v_f\rangle \rangle
+G = \rho_g\langle j_g\rangle + \rho_f\langle j_f\rangle = \rho_g\langle\alpha\rangle \langle  \langle v_g\rangle \rangle + \rho_f(1-\langle\alpha\rangle) \langle  \langle v_f\rangle \rangle
+\end{gathered}
 $$
-- Mass flowrate quality (or quality), $\langle x\rangle$ [-]
+- Mass flowrate quality (or quality 流动干度), $\langle x\rangle$ [-]
 $$
 \begin{gathered}
 \langle x\rangle=\frac{G_g}{G} = \frac{\rho_g\langle j_g\rangle}{G} = \frac{\text{Gas mass flow}}{\text{Two-phase mixture mass flow}}\\
@@ -592,7 +593,7 @@ $$
 
 When **HEM**(homogeneous) is assumed, $\rho = \rho_m, \quad \langle\beta\rangle = \langle\alpha\rangle$
 
-#### Mixture density
+#### Mixture density (两相混合物密度)
 - Assumption: Perfectly mixed gas and liquid phases with the same velocity (**homogeneous** flow), $v_m$ ($\nu$: specific volume, $\rho$: density)
 $$
   v_m = G\nu_m = \frac{G}{\rho_m} = j = v_g = v_f
@@ -628,7 +629,7 @@ $$
 \alpha[-]=\frac{\text { Total volume of dispersed phase }}{\text { Total volume }} = \frac{A_g}{A}.
 $$
 
-- Interfacial area concentration
+- Interfacial area concentration (界面面积浓度)
 $$
 a_i\left[\mathrm{~m}^{-1}\right]=\frac{\text { Total interfacial area of dispersed phase }}{\text { Total volume }}
 $$
