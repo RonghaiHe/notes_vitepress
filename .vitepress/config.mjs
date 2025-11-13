@@ -68,6 +68,7 @@ export default defineConfig({
               { text: 'Kinematics', link: '/docs/Fluid/Thermal_Fluid/5fluidKinematics'},
               { text: 'Two Phase Flow: Intro', link: '/docs/Fluid/Thermal_Fluid/6twoPhase'},
               { text: 'Two Phase Flow: thermo-fluid', link: '/docs/Fluid/Thermal_Fluid/7thermoFluid'},
+              { text: 'Two Phase Flow: Heat Transfer', link: '/docs/Fluid/Thermal_Fluid/8twoPhaseHeatTransfer'},
             ]
           }
         ]
@@ -117,6 +118,7 @@ export default defineConfig({
               { text: 'Kinematics', link: '/docs/Fluid/Thermal_Fluid/5fluidKinematics'},
               { text: 'Two Phase Flow: Intro', link: '/docs/Fluid/Thermal_Fluid/6twoPhase'},
               { text: 'Two Phase Flow: thermo-fluid', link: '/docs/Fluid/Thermal_Fluid/7thermoFluid'},
+              { text: 'Two Phase Flow: Heat Transfer', link: '/docs/Fluid/Thermal_Fluid/8twoPhaseHeatTransfer'},
             ]
         }
       ],

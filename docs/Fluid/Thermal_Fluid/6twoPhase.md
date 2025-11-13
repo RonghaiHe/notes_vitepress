@@ -43,6 +43,7 @@ with conditions:
 1. Steady flow $\to \frac{\partial}{\partial t}* = 0$
 2. No flow across bounding streamlines
 3. Incompressible flow $\to \rho=\mathrm{constant}$
+4. Inviscous flow
 
 $$
 \begin{align*}
@@ -152,6 +153,19 @@ $$
   u^* \frac{\partial v^*}{\partial x^*}+v^* \frac{\partial v^*}{\partial y^*}=-\frac{g L}{V_{\infty}^2}-\frac{\partial p^*}{\partial y^*}+\frac{\mu}{\rho V_{\infty} L}\left(\frac{\partial^2 v^*}{\partial x^{* 2}}+\frac{\partial^2 v^*}{\partial y^{* 2}}\right)
 $$
 
+Usual dimensionless number for **heat transfer**:
+| Dimensionless Number in heat transfer | Value |
+| :--- | :--- |
+| Biot number | $\mathrm{Bi}=\frac{h L_C}{k_b}$ |
+| Graetz number | $\mathrm{Gz}=\frac{D_H}{L} \operatorname{Re} \operatorname{Pr}$ |
+| Grashof number | $\operatorname{Gr}_L=\frac{g \beta\left(T_s-T_{\infty}\right) L^3}{\nu^2}$ |
+| Jakob number | $\mathrm{Ja}=\frac{c_{p_t f}\left(T_w-T_{s a t}\right)}{h_{f g}}$ |
+| Nusselt number | $\mathrm{Nu}=\frac{h d}{k}$ |
+| Prandtl number | $\operatorname{Pr}=\frac{\nu}{\alpha}=\frac{c_p \mu}{k}$ |
+| Rayleigh number | $\operatorname{Ra}_x=\frac{g \beta}{\nu \alpha}\left(T_s-T_{\infty}\right) x^3$ |
+| Stanton number | $\mathrm{St}=\frac{h}{c_p \rho V}=\frac{\mathrm{Nu}}{\operatorname{Re} \operatorname{Pr}}$ |
+
+Usual dimensionless number for **fluid mechanics**:
 | Dimensionless Number in Fluid Mechanics | Value |
 | :--- | :--- |
 | Reynolds number (inertia to viscous): | $R e=\frac{\rho V L}{\mu}=\frac{V L}{\mathrm{v}}$ |
@@ -564,6 +578,7 @@ where $A$ is the flow channel area, $A_g$ is the gas flow area.
 #### Flow quality
 - Mass velocity (or mass flux 质量通量) of $k$-phase, $G_k\left[\mathrm{~kg} /\left(\mathrm{m}^2 \cdot \mathrm{~s}\right)\right]$ (Mass flow rate, $W_k$ [kg/s])
 $$
+\begin{gathered}
 G_g \equiv \frac{W_g}{A}, \quad G_f \equiv \frac{W_f}{A} \\
 G = \rho_g\langle j_g\rangle + \rho_f\langle j_f\rangle = \rho_g\langle\alpha\rangle \langle  \langle v_g\rangle \rangle + \rho_f(1-\langle\alpha\rangle) \langle  \langle v_f\rangle \rangle
 \end{gathered}
