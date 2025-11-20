@@ -507,7 +507,7 @@ The **boiling curve**:[core]
 
 <img src="/fluid_tf6_7_boiling.png" alt="boiling" width="100%" align="center">
 
-First slope(single phase flow, Newton laws of cooling): $q'' = h\Delta T$, where $\Delta T = T_w - T_{\mathrm{sat}}$ and $T_{\mathrm{sat}}=100^\circ C$ for water at $P=0.1\mathrm{~MPa}$, $T_w$ is temperatur of water.
+First slope(single phase flow, Newton laws of cooling): $q'' = h\Delta T$, where $\Delta T = T_w - T_{\mathrm{sat}}$ and $T_{\mathrm{sat}}=100^\circ C$ for water at $P=0.1\mathrm{~MPa}$, $T_w$ is temperatur of water. $h$ is the liquid convective heat transfer coefficient (对流换热系数)
 
 ### Nature of multiphase flows and basic concepts
 
@@ -773,3 +773,114 @@ Axial changes of void fraction and wall shear stress should be known to calculat
   - Void fraction
   - Two-phase frictional pressure drop
   - Heat transfer coefficient
+
+## Quiz1
+1. Which of the following is a key parameter in thermal-hydraulic analysis?
+  - Pressure
+  - **All of the above**
+  - Velocity
+  - Temperature
+2. In multiphase flow, what is considered a two-phase flow?
+  - **All of the above**
+  - Solid-liquid
+  - Gas-solid
+  - Gas-liquid
+3. Which of the following types of flow is characterized by both phases moving in the same direction?
+  - **Co-current flow**
+  - Circular flow
+  - Counter-current flow
+  - Parallel flow
+4. What does "void fraction" measure in a two-phase flow system?
+  - Volume of gas
+  - Density of the mixture
+  - **Ratio of gas volume to total volume**
+  - Volume of liquid
+5. Which phenomenon describes vaporization due to pressure changes?
+  - Boiling
+  - Condensation
+  - Freezing
+  - **Flashing**
+6. What is the primary goal of a flow regime map?
+  - To calculate pressure drop
+  - **To identify flow patterns**
+  - To measure temperature
+  - To analyze velocity
+7. What does the term "superficial velocity" refer to?
+  - Velocity at which phase changes occur
+  - Actual velocity of the phase
+  - Average velocity of the mixture
+  - **Velocity based on cross-sectional area**
+8. What unique phenomenon can occur during multiphase flow?
+  - **Critical heat flux**
+  - Steady flow
+  - Laminar flow
+  - Turbulent flow
+9. In multiphase flow, what does "quality" represent?
+  - Density of the mixture
+  - Temperature difference
+  - **Ratio of vapor mass velocity to total mixture mass velocity**
+  - ~~Ratio of vapor to liquid~~
+10. Which of the following is NOT a type of two-component two-phase flow?
+  - Air-water
+  - None of the above
+  - **Steam-water**
+  - Nitrogen-liquid metal
+11. What is a typical characteristic of two-phase flow pressure drop?
+  - **More complicated than single-phase flow**
+  - Simple compared to single-phase flow
+  - Constant across all conditions
+  - Irrelevant in multiphase systems
+12. Which factor significantly influences the void fraction in a two-phase flow?
+  - Temperature
+  - **All of the above**
+  - Flow rate
+  - Phase densities
+13. What is the typical outcome of using a homogeneous flow assumption?
+  - Increased pressure drop
+  - Reduced flow rate
+  - **Same velocity for gas and liquid phases**
+  - Different velocities for phases
+14. What type of pressure loss is associated with the liquid phase in a two-phase flow?
+  - Hydrostatic pressure loss
+  - Acceleration loss
+  - Frictional pressure loss
+  - **All of the above**
+15. What does the term "bubble Reynolds number" measure?
+  - Pressure drop in the system
+  - Viscosity of the liquid
+  - Velocity of the gas phase
+  - **Drag coefficient**
+16. Which of the following flow regimes is characterized as separated flow?
+  - Slug flow
+  - Bubbly flow
+  - **Annular flow**
+  - Churn flow
+17. What does void fraction=1 mean?
+  - Liquid single-phase flow
+  - Same velocity for gas and liquid phases
+  - Same volume fraction for gas and liquid phases
+  - **Gas single-phase flow**
+18. What is the volume flowrate quality value for superficial gas velocity=1 m/s and superficial liquid velocity 0.5 m/s?
+  - **0.67**
+  - 2
+  - 0.5
+  - 1
+::: details Why:
+$$
+  \langle \beta\rangle = \frac{\langle j_g\rangle}{\langle j_g\rangle + \langle j_f\rangle}
+$$
+:::
+
+19. What is the void fraction value for gas velocity=1 m/s and superficial gas velocity 0.5 m/s?
+  - 1
+  - 2
+  - 0.67
+  - **0.5**
+20. What does the term "interfacial area concentration" refer to?
+  - Volume of dispersed phase
+  - **Ratio of interfacial area to total volume**
+  - Total surface area of the phases
+  - Density of gas and liquid
+
+
+

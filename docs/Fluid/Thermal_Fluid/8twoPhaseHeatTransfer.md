@@ -175,7 +175,7 @@ How to determine $Z_\mathrm{D}$: Profile-fit method
 Heat transfer:
 - $1\phi: q'' = h_{1\phi}(T_w-T_{\mathrm{bulk}})$
   - $\mathrm{Nu} = \frac{h_{1\phi} D}{k_f}$ where $k_f$ is the thermal conductivity
-  - Dittus-Boelton equation for $1\phi$ convective heat transfer:
+  - Dittus-Boelton equation for $1\phi$ convective heat transfer (Turbulent flow):
     $$\mathrm{Nu} = 0.023\mathrm{Re}^{0.8}\mathrm{Pr}^m, \quad m=0.3 (\text{cooling}), 0.4(\text{heating})$$
   - $\mathrm{Re} = \rho_fj_fD/\mu_f$ where $j_f=G(1-x)/\rho_f$
 - $2\phi: q'' = h_{2\phi}(T_w-T_{\mathrm{sat}})$ (Saturated boiling flow)
@@ -196,3 +196,152 @@ Thus
 $$
 q'' = \frac{k_lh_{fg}}{8\sigma T_{\mathrm{sat}v_{fg}}}(T_w-T_{\mathrm{sat}})^2.
 $$
+
+## Quiz3
+Water is injected with a **velocity** of $1.5 \mathrm{~m} / \mathrm{s}$ into a **uniformly** heated vertical pipe with a **diameter** of $0.05 \mathrm{~m}$ and **length** of $10 \mathrm{~m}$ receiving a **heat flux** of $5 \times 10^6 \mathrm{~W} / \mathrm{m}^2$. Inlet pressure and temperature of water are $4.64 \mathrm{~MPa}$ and $25^{\circ} \mathrm{C}$. **Saturation temperature**, $T_{\mathrm{sat}}$, at $4.64 \mathrm{~MPa}$ is $259^{\circ} \mathrm{C}$. **Saturated liquid enthalpy**, $h_{l, s a t}$, and **enthalpy of vaporization**, $h_{f g}$, are $1132 \mathrm{~kJ} / \mathrm{kg}$ and $1665 \mathrm{~kJ} / \mathrm{kg}$. Saturated **liquid density** and saturated **steam density** are $785 \mathrm{~kg} / \mathrm{m}^3$ and $23.4 \mathrm{~kg} / \mathrm{m}^3$. **Enthalpy** of water at $4.64 \mathrm{~MPa}$ and $25^{\circ} \mathrm{C}$ is $123 \mathrm{~kJ} / \mathrm{kg}$. **Density** of the saturated liquid can be used as a good estimation of density of subcooled water. Other average fluid properties are $C_{p l}=4980 \mathrm{~J} / \mathrm{kg} \cdot K, k_l=0.570 \mathrm{~W} / \mathrm{m} \cdot K$, $\mu_l=9.4 \times 10^{-5} \mathrm{~kg} /(m \cdot \mathrm{~s})$. **Surface tension** at the saturation pressure can be used approximately for the calculation $(\sigma=0.0329 \mathrm{~N} / \mathrm{m})$.
+
+1. Calculate the **mixture mass flux** (unit in $\mathrm{kg/m^2s}$).
+In thr uniformly heated pipe:
+$$
+G = \rho_fv_f = 785\times 1.5\mathrm{~kg/m^2s} = 1177.5\mathrm{~kg/m^2s}.
+$$
+
+2. Calculate the **enthalpy** at $4 \mathrm{~m}$ from the pipe inlet (unit in $\mathrm{kJ/kg}$).
+$$
+h = h_{l,in} + \frac{4q_w''z}{DG} = \left(123 + \frac{4\times 5\times 10^3\times 4}{0.05\times 1177.5}\right)\mathrm{~kJ/kg}\approx 1481.811\mathrm{~kJ/kg}.
+$$
+
+3. Calculate the **thermal equilibrium quality** located at the $4 \mathrm{~m}$ from the pipe inlet.
+Thermal equilibrium quality is calculated as
+$$
+x_e(z)|_{z=4} = \frac{h(z)|_{z=4} - h_{l,\mathrm{sat}}}{h_{fg}} = \frac{1481.811 - 1132}{1665}\approx 0.210.
+$$
+
+4. Calculate the **Peclet number** for the inlet liquid.
+$$
+\mathrm{Pe} = \frac{GC_{pl}D}{k_l} = \frac{1177.5\times 4980\times 0.05}{0.570}\approx 5.143816\times 10^5
+$$
+
+5. Calculate the **temperature for onset of significant void**, $T_D$, (unit in $\mathrm{K}$).
+According to Saha-Zuber correlation, when $\mathrm{Pe}>70000$:
+$$
+T_{\mathrm{sat}} - T_D = 153.85\frac{q''}{GC_{pl}} = 153.85\times\frac{5\times 10^6}{1177.5\times 4980}\mathrm{~K}\approx 131.183\mathrm{~K}
+$$
+
+Thus $T_D \approx T_{\mathrm{sat}} - 131.3\mathrm{~K}\approx (259 + 273.15 - 131.183)\mathrm{~K}\approx 400.967\mathrm{~K}$
+
+6. Calculate the length at which **onset of significant void** occurs, $Z_D$, (unit in $\mathrm{m}$).
+
+$$
+Z_D=\frac{\frac{\pi D_h^2}{4} G C_{pl}\left(T_D-T_{i n}\right)}{\pi D_h q_w^{\prime \prime}} = \frac{D_h G C_{pl}\left(T_D-T_{i n}\right)}{4 q_w^{\prime \prime}}\approx 1.507\mathrm{~m}.
+$$
+
+7. Calculate the **equilibrium quality** at $Z_D,x_e(Z_D)$.
+
+::: details Based on Saha-Zuber correlation, when $\mathrm{Pe}>70000$: (**Not right while using this formula**)
+$$
+x_e(Z_D) = -153.85\frac{q''}{Gh_{fg}} = -153.85\times\frac{5\times 10^6}{1177.5\times 1665\times 10^3}\approx -0.392.
+$$
+
+:::
+
+$$
+\begin{gathered}
+  h|_{z=Z_D} = h_{l,in} + \frac{4q_w''Z_D}{DG} \approx \left(123 + \frac{4\times 5\times 10^3\times 1.507}{0.05\times 1177.5}\right)\mathrm{~kJ/kg}\approx 634.392\mathrm{~kJ/kg} \\
+  x_e(Z_D) = \frac{h|_{z=Z_D} - h_{l,\text{sat}}}{h_{fg}}\approx -0.299.
+\end{gathered}
+$$
+
+8. Calculate the **quality** at $Z=2\mathrm{~m}, x(Z=2\mathrm{~m})$.
+The quality is calculated based on the **profile-fit** approach:
+$$
+x(z)|_{z=2\mathrm{~m}} = x_{e}(z)|_{z=2\mathrm{~m}} - x_{e}(Z_{\mathrm{D}})\exp\left[\frac{x_{e}(z)|_{z=2\mathrm{~m}}}{x_{e}(Z_{\mathrm{D}})} - 1\right]
+$$
+
+where
+$$
+x_e(z)|_{z=2\mathrm{~m}} = \frac{h_{l,\mathrm{in}} + \frac{4q''z|_{z=2\mathrm{~m}}}{GD} - h_{l,\mathrm{sat}}}{h_{fg}}\approx -0.198
+$$
+
+**Thus**
+::: details(Wrong answer in 7th leads to wrong answer here)
+$$
+x(z)|_{z=2\mathrm{~m}} \approx -0.198 - (-0.392)\times\exp\left[\frac{-0.198}{-0.392} - 1\right] \approx 0.0411
+$$
+
+:::
+
+$$
+x(z)|_{z=2\mathrm{~m}} \approx -0.198 - (-0.299)\times\exp\left[\frac{-0.198}{-0.299} - 1\right] \approx 0.0153.
+$$
+
+9.  Calculate the **distribution parameter**, $C_0$, at $Z=2\mathrm{~m}$.
+Given:
+$$
+\begin{aligned}
+  &C_0 = \beta[1+(1/\beta-1)^b]\\
+  &b = (\rho_g/\rho_f)^{0.1}\\
+  &\beta = (x/\rho_g)/(x/\rho_g + (1-x)/\rho_f)
+\end{aligned}
+$$
+
+According to the given formula:
+::: details Wrong answer
+$$
+\begin{aligned}
+  &\beta \approx \left.\frac{0.0411}{23.4}\right/\left(\frac{0.0411}{23.4} + \frac{1-0.0411}{785}\right)\approx 0.590 \\
+  &b = (23.4/785)^{0.1}\approx 0.704\\
+  &C_0 \approx 0.590\times[1+(1/0.590-1)^{0.704}]\approx 1.047
+\end{aligned}
+$$
+
+:::
+
+$$
+\begin{aligned}
+  &\beta \approx \left.\frac{0.0153}{23.4}\right/\left(\frac{0.0153}{23.4} + \frac{1-0.0153}{785}\right)\approx 0.342 \\
+  &b = (23.4/785)^{0.1}\approx 0.704\\
+  &C_0 \approx 0.342\times[1+(1/0.342-1)^{0.704}]\approx 0.884
+\end{aligned}
+$$
+
+10.  Calculate the **void fraction** at $Z=2\mathrm{~m}, \alpha(Z=2\mathrm{~m})$.
+The void fraction is calculated by
+$$
+\langle \alpha\rangle = \frac{\langle j_g\rangle}{C_0\langle j\rangle + \langle  \langle v_{gj}\rangle\rangle}
+$$
+
+where
+
+::: details Wrong answer
+$$
+\begin{aligned}
+  &j_g = \frac{Gx}{\rho_g}\approx \frac{1177.5\times 0.0411}{23.4}\mathrm{~m/s}\approx 2.068\mathrm{~m/s}\\
+  &j_f = \frac{G(1-x)}{\rho_f}\approx \frac{1177.5\times (1-0.0411)}{785}\mathrm{~m/s}\approx 1.438\mathrm{~m/s}\\
+  &j = j_g + j_f \approx (2.068+1.438)\mathrm{~m/s}\approx 3.507\mathrm{~m/s}.
+\end{aligned}
+$$
+
+:::
+
+$$
+\begin{aligned}
+  &j_g = \frac{Gx}{\rho_g}\approx \frac{1177.5\times 0.153}{23.4}\mathrm{~m/s}\approx 0.769\mathrm{~m/s}\\
+  &j_f = \frac{G(1-x)}{\rho_f}\approx \frac{1177.5\times (1-0.153)}{785}\mathrm{~m/s}\approx 1.477\mathrm{~m/s}\\
+  &j = j_g + j_f \approx (0.769+1.477)\mathrm{~m/s}\approx 2.246\mathrm{~m/s}\\
+  &\langle  \langle v_{gj}\rangle\rangle = 2.9\left(\frac{\Delta \rho g\sigma}{\rho_f^2}\right)^{0.25} = 2.9\times \left[\frac{(785-23.4)\times 9.8\times 0.0329}{785^2}\right]^{0.25}\mathrm{~m/s}\approx 0.410\mathrm{~m/s}.
+\end{aligned}
+$$
+
+**Thus**
+::: details Wrong answer
+$$
+\langle \alpha\rangle \approx \frac{0.769}{0.884\times 2.246+0.410}\approx 0.507.
+$$
+
+:::
+
+$$
+\langle \alpha\rangle \approx \frac{2.068}{1.047\times3.507+0.410}\approx 0.321.
+$$
+

@@ -71,6 +71,7 @@ export default defineConfig({
               { text: 'Two Phase Flow: Intro', link: '/docs/Fluid/Thermal_Fluid/6twoPhase'},
               { text: 'Two Phase Flow: thermo-fluid', link: '/docs/Fluid/Thermal_Fluid/7thermoFluid'},
               { text: 'Two Phase Flow: Heat Transfer', link: '/docs/Fluid/Thermal_Fluid/8twoPhaseHeatTransfer'},
+              { text: 'Two Phase Flow: Practice', link: '/docs/Fluid/Thermal_Fluid/9practice'},
             ]
           }
         ]
@@ -89,10 +90,10 @@ export default defineConfig({
                 { text: 'Eigen-values&vectors', link: '/docs/Math/Engineering_Methods/linear_algebra5' },
                 { text: 'Inner Product', link: '/docs/Math/Engineering_Methods/linear_algebra6' },
                 { text: 'Linear ODE', link: '/docs/Math/Engineering_Methods/linear_ODE7' },
-              { text: 'Laplace Transform', link: '/docs/Math/Engineering_Methods/laplace_transform8' },
-              { text: 'Numerical Methods for ODE', link: '/docs/Math/Engineering_Methods/numerical_methods_ODE9' },
-              { text: 'Series solutions for ODE', link: '/docs/Math/Engineering_Methods/series_solutions10' },
-              { text: 'Boundary Value Problems', link: '/docs/Math/Engineering_Methods/BVP11' },
+                { text: 'Laplace Transform', link: '/docs/Math/Engineering_Methods/laplace_transform8' },
+                { text: 'Numerical Methods for ODE', link: '/docs/Math/Engineering_Methods/numerical_methods_ODE9' },
+                { text: 'Series solutions for ODE', link: '/docs/Math/Engineering_Methods/series_solutions10' },
+                { text: 'Boundary Value Problems', link: '/docs/Math/Engineering_Methods/BVP11' },
               ]
         }
       ],
@@ -123,6 +124,7 @@ export default defineConfig({
               { text: 'Two Phase Flow: Intro', link: '/docs/Fluid/Thermal_Fluid/6twoPhase'},
               { text: 'Two Phase Flow: thermo-fluid', link: '/docs/Fluid/Thermal_Fluid/7thermoFluid'},
               { text: 'Two Phase Flow: Heat Transfer', link: '/docs/Fluid/Thermal_Fluid/8twoPhaseHeatTransfer'},
+              { text: 'Two Phase Flow: Practice', link: '/docs/Fluid/Thermal_Fluid/9practice'},
             ]
         }
       ],

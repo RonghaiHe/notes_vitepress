@@ -551,3 +551,66 @@ $$
 
 
 ## Two-phase flow modeling -->
+
+## Quiz2
+A saturated steam-water mixture at $290^{\circ} \mathrm{C}$ vertically flows in a rectangular channel with a width of $40 \mathrm{~mm}$ and a gap length of $2.4 \mathrm{~mm}$ . The **volumetric gas and liquid flow rates** are $5.0 \times 10^{-5} \mathrm{~m}^3 / \mathrm{s}$ and $3.0 \times 10^{-5} \mathrm{~m}^3 / \mathrm{s}$, respectively. The **distribution parameter** is calculated by $C_0=1.35-0.35\left(\rho_g / \rho_f\right)^{0.5}$, whereas the **drift velocity** is calculated by $\left\langle\left\langle v_{g j}\right\rangle\right\rangle=0.35\left[\frac{\left(\rho_f-\rho_g\right) g D_h}{\rho_f}\right]^{0.5}$. The **bubble Sauter mean diameter** is calculated by $\left\langle D_{S m}\right\rangle=2 L a$. Laplace length $L a$ is given by $\left[\frac{\sigma}{\left(\rho_f-\rho_g\right) g}\right]^{0.5}$.
+
+Here, $\rho_g\left(=39.2 \mathrm{~kg} / \mathrm{m}^3\right)$ and $\rho_f\left(=732 \mathrm{~kg} / \mathrm{m}^3\right)$ are the densities of gas and liquid, respectively. $g\left(=9.8 \mathrm{~m} / \mathrm{s}^2\right)$ is the gravitational acceleration. $D_h$ is the hydraulic equivalent diameter. $\sigma(0.0167 \mathrm{~N} / \mathrm{m})$ is the surface tension. Use three digits for significant digits.
+
+1. What is the value of the **distribution parameter**?
+$$
+C_0 = 1.35 - 0.35\left(\frac{\rho_g}{\rho_f}\right)^{0.5} = 1.27.
+$$
+
+2. What is the value of the **drift velocity** in $\mathrm{~m/s}$?
+$$
+\begin{gathered}
+D_h= \frac{4A}{p} = \frac{2\times 0.04\times 0.0024}{0.04+0.0024}\mathrm{~m} \approx 0.00453\mathrm{~m}\\
+\left\langle\left\langle v_{g j}\right\rangle\right\rangle=0.35\left[\frac{\left(\rho_f-\rho_g\right) g D_h}{\rho_f}\right]^{0.5}\approx 0.0717\mathrm{~m/s}.
+\end{gathered}
+$$
+
+3. What is the value of **superficial gas velocity** in $\mathrm{~m/s}$?
+$$
+\langle j_g\rangle = \frac{Q_g}{A} = \frac{5.0\times 10^{-5}}{0.04\times 0.0024}\mathrm{~m/s} = 0.521\mathrm{~m/s}.
+$$
+4. What is the value of **gas velocity** in $\mathrm{~m/s}$?
+$$
+\begin{gathered}
+  \langle j_f\rangle = \frac{Q_f}{A} = \frac{3.0\times 10^{-5}}{0.04\times 0.0024}\mathrm{~m/s} = 0.3125\mathrm{~m/s} \\
+   \begin{aligned}
+   \langle\langle v_g \rangle\rangle =& C_0\langle j\rangle + \left\langle\left\langle v_{g j}\right\rangle\right\rangle = C_0(\langle j_g\rangle + \langle j_f\rangle) + \left\langle\left\langle v_{g j}\right\rangle\right\rangle \\
+   \approx& 1.27\times(0.521+0.3125)+0.0717\approx 1.13\mathrm{~m/s}.
+   \end{aligned}
+\end{gathered}
+$$
+5. What is the value of the **void fraction**?
+$$
+\langle\alpha\rangle = \frac{\langle j_g\rangle}{\langle\langle v_g\rangle\rangle} \approx \frac{0.521}{1.13}\approx 0.461.
+$$
+6. What is the value of the **bubble Sauter mean diameter** in $\mathrm{~m}$?
+$$
+\begin{aligned}
+  \left\langle D_{S m}\right\rangle=&2 L a = 2\left[\frac{\sigma}{\left(\rho_f-\rho_g\right) g}\right]^{0.5}\\
+  =& 2\times \sqrt{\frac{0.0167}{(732-39.2)\times 9.8}}\mathrm{~m}\approx 0.00314\mathrm{~m}.
+\end{aligned}
+$$
+7. What is the value of the **interfacial area concentration** in $1/\mathrm{m}$?
+$$
+a_i = \frac{6\langle\alpha\rangle}{D_{Sm}}\approx 882\mathrm{~m^{-1}}.
+$$
+8. What is the value of the **two-phase mixture density** in $\mathrm{~kg/m}^3$?
+$$
+\begin{aligned}
+  \rho_m =& \langle\alpha\rangle \rho_g + (1-\langle\alpha\rangle) \rho_f \\
+  =& 0.461\times 39.2 + (1-0.461)\times 732 \mathrm{~kg/m^3} \approx 412\mathrm{~kg/m^3}.
+\end{aligned}
+$$
+9.  What is the value of the **two-phase mass flux** in $\mathrm{~kg/m^2s}$?
+$$
+G = \rho_g\langle j_g\rangle + \rho_f\langle j_f\rangle \approx 39.2\times 0.521 + 732\times 0.3125\approx 249\mathrm{~kg/m^2s}.
+$$
+10.  What is the value of the **flow quality**?
+$$
+\langle x\rangle = \frac{G_g}{G} = \frac{\rho_g\langle j_g\rangle}{G}\approx \frac{39.2\times 0.521}{249}\approx 0.0819.
+$$
