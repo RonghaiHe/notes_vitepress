@@ -451,3 +451,63 @@ $$
 
 ## Laplace Transform: Beyond solving ODEs
 The physical significance of Laplace Transform (LT): from time domain $s(t)$ to frequency domain $S(\omega)$
+
+## HW
+### Question 1
+**Q1**: Find the Laplace transform of the following functions (10 marks)
+$$
+1.1 \quad t^3, \qquad 1.2 \quad \frac{\mathrm{d}^3f}{\mathrm{d}t^3}
+$$
+	
+**Answer**: 
+
+$1.1$	At first, it's known that with L 'Hopital's Law:
+$$
+\lim_{t\to \infty}\frac{t^n}{e^{st}}\to \lim_{t\to \infty}\frac{nt^{n-1}}{se^{st}} \to\cdots\to \lim_{t\to\infty}\frac{n!}{s^ne^{st}} = 0
+$$
+
+$$
+\begin{align*}
+\mathscr{L}\{t^3\} =& \int_0^\infty t^3e^{-st}\mathrm{~d}t = -\frac{1}{s}\int_0^\infty t^3\mathrm{~d}(e^{-st}) = -\frac{1}{s}\left(t^3e^{-st}|_0^\infty - \int_0^\infty 3t^2e^{-st}\mathrm{~d}t\right) \\
+=& \frac{1}{s}\int_0^\infty 3t^2e^{-st}\mathrm{~d}t = -\frac{1}{s^2}\int_0^\infty 3t^2\mathrm{~d}(e^{-st}) = -\frac{1}{s^2}\left(3t^2e^{-st}|_0^\infty - \int_0^\infty 6te^{-st}\mathrm{~d}t\right)\\
+=& \frac{1}{s^2} \int_0^\infty 6te^{-st}\mathrm{~d}t = -\frac{1}{s^3}\int_0^\infty 6t\mathrm{~d}(e^{-st}) = -\frac{1}{s^3}\left(6te^{-st}|_0^\infty - \int_0^\infty 6e^{-st}\mathrm{~d}t\right)\\
+=& \frac{1}{s^3}\int_0^\infty 6e^{-st}\mathrm{~d}t = -\frac{6}{s^4}\int_0^\infty e^{-st}\mathrm{~d}(-st) = -\left.\frac{6}{s^4}e^{-st}\right|_0^\infty = \frac{6}{s^4}, \quad s>0.
+\end{align*}
+$$
+
+$1.2$: Assume the function $f(t), \frac{\mathrm{d}f}{\mathrm{d}t}, \frac{\mathrm{d}^2f}{\mathrm{d}t^2}$ is of exponential order, $\frac{\mathrm{d}f}{\mathrm{d}t}, \frac{\mathrm{d}^2f}{\mathrm{d}t^2},\frac{\mathrm{d}^3f}{\mathrm{d}t^3}$. Then as $t\to\infty, e^{-st}f(t), e^{-st}\frac{\mathrm{d}f}{\mathrm{d}t}, e^{-st}\frac{\mathrm{d}^2f}{\mathrm{d}t^2}$ vanishes.
+$$
+\begin{align*}
+\mathscr{L}\left\{\frac{\mathrm{d}^3f}{\mathrm{d}t^3}\right\} =& \int_0^\infty e^{-st}\frac{\mathrm{d}^3f}{\mathrm{d}t^3}\mathrm{~d}t = \int_0^\infty e^{-st}\frac{\mathrm{d}}{\mathrm{d}t}\left(\frac{\mathrm{d}^2f}{\mathrm{d}t^2}\right)\mathrm{~d}t \\
+=& e^{-st}\left.\frac{\mathrm{d}^2f}{\mathrm{d}t^2}\right|_0^\infty + s\int_0^\infty \frac{\mathrm{d}^2f}{\mathrm{d}t^2}e^{-st}\mathrm{~d}t = -\frac{\mathrm{d}^2f(0+)}{\mathrm{d}t^2} + s\int_0^\infty e^{-st}\frac{\mathrm{d}}{\mathrm{d}t}\left(\frac{\mathrm{d}f}{\mathrm{d}t}\right)\mathrm{~d}t\\
+=& -\frac{\mathrm{d}^2f(0+)}{\mathrm{d}t^2} + s\left(e^{-st}\left.\frac{\mathrm{d}f}{\mathrm{d}t}\right|_0^\infty + s\int_0^\infty \frac{\mathrm{d}f}{\mathrm{d}t}e^{-st}\mathrm{~d}t\right) \\
+=& -\frac{\mathrm{d}^2f(0+)}{\mathrm{d}t^2} -s\frac{\mathrm{d}f(0+)}{\mathrm{d}t} + s^2\int_0^\infty e^{-st}\frac{\mathrm{d}f}{\mathrm{d}t}\mathrm{~d}t\\
+=& -\frac{\mathrm{d}^2f(0+)}{\mathrm{d}t^2} -s\frac{\mathrm{d}f(0+)}{\mathrm{d}t} + s^2\left(e^{-st}f(t)|_0^\infty + s\int_0^\infty f(t)e^{-st}\mathrm{~d}t\right)\\
+=& -\frac{\mathrm{d}^2f(0+)}{\mathrm{d}t^2} -s\frac{\mathrm{d}f(0+)}{\mathrm{d}t} - s^2 f(0+) + s^3\mathscr{L}\{f(t)\}.
+\end{align*}
+$$
+
+### Question2
+Q2: Solve the following problem using Laplace transform (10 marks)
+$$
+\frac{\mathrm{d}y}{\mathrm{d}x} + ky = 0, \quad y(0)=1.
+$$
+
+**Answer**: Assume $y$ is of exponential order. Then using Laplace transform at both sides, then
+$$
+\begin{align*}
+\frac{\mathrm{d}y}{\mathrm{d}x} =&- ky\\
+\implies \mathscr{L}\left\{\frac{\mathrm{d}y}{\mathrm{d}x}\right\} =& \mathscr{L}\left\{-ky\right\} \\
+\int_0^\infty e^{-sx}\frac{\mathrm{d}y}{\mathrm{d}x}\mathrm{~d}x =& -k\int_0^\infty e^{-sx}y(x)\mathrm{~d}x \\
+e^{-sx}y(x)|_0^\infty + s\int_0^\infty e^{-sx}y(x)\mathrm{~d}t =& -k\int_0^\infty e^{-sx}y(x)\mathrm{~d}x \\
+(s+k)\int_0^\infty e^{-sx}y(x)\mathrm{~d}x =& -e^{-sx}y(x)|_0^\infty = y(0) = 1\\
+\implies \int_0^\infty e^{-sx}y(x)\mathrm{~d}x =& \frac{1}{s+k}, \quad s\neq -k.
+\end{align*}
+$$
+
+Since $\mathscr{L}\{e^{-ax}\} = 1/(s+a)$, then using inverse of laplace transform:
+$$
+y(x) = \mathscr{L}^{-1}\left\{\frac{1}{s+k}\right\} = e^{-kx}
+$$
+
+And $e^{-kx}$ is exactly of exponential order, then problem solved.

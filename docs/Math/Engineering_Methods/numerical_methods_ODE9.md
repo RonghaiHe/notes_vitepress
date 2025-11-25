@@ -401,4 +401,102 @@ with $h=0.25$ gives
 
 <img src="/math_em9_11_plot4.png" alt="curve of examples in RK4's method" width="100%" align="center">
 
+## HW
+### Question 1
+**Q1**: Numerically solve differential equation using Euler method:
 
+$$
+\frac{\mathrm{d} w}{\mathrm{d} t}=0.04 w-100
+$$
+
+Suppose three initial conditions: (1) $w_{1}(0)=1500$; (2) $w_{2}(0)=2500$; (3) $w_{3}(0)=3500$. Select the iteration step ${h}=1$, and calculate at least 4 iteration steps. (12 points)
+
+**Answer**: For Euler method:
+$$
+w(t+h) = w(t) + (0.04w(t) - 100)h.
+$$
+
+(1) $w_1(0) = 1500$:
+$$
+\begin{align*}
+	w(1) =& w(0) + (0.04w(0)-100) = 1500 + (0.04\times 1500 - 100) = 1460 \\
+	w(2) =& w(1) + (0.04w(1)-100) = 1460 + (0.04\times 1460 - 100) = 1418.4 \\
+	w(3) =& w(2) + (0.04w(2)-100) = 1418.4 + (0.04\times 1418.4 - 100) = 1375.136 \\
+	w(4) =& w(3) + (0.04w(3)-100) = 1375.136 + (0.04\times 1375.136 - 100) = 1330.14144.
+\end{align*}
+$$
+
+(2) $w_2(0) = 2500$:
+$$
+\begin{align*}
+	w(1) =& w(0) + (0.04w(0)-100) = 2500 + (0.04\times 2500 - 100) = 2500 \\
+	w(2) =& w(1) + (0.04w(1)-100) = 2500 + (0.04\times 2500 - 100) = 2500 \\
+	w(3) =& w(2) + (0.04w(2)-100) = 2500 + (0.04\times 2500 - 100) = 2500 \\
+	w(4) =& w(3) + (0.04w(3)-100) = 2500 + (0.04\times 2500 - 100) = 2500.
+\end{align*}
+$$
+
+(3) $w_1(0) = 3500$:
+$$
+\begin{align*}
+	w(1) =& w(0) + (0.04w(0)-100) = 3500 + (0.04\times 3500 - 100) = 3540 \\
+	w(2) =& w(1) + (0.04w(1)-100) = 3540 + (0.04\times 3540 - 100) = 3581.6 \\
+	w(3) =& w(2) + (0.04w(2)-100) = 1418.4 + (0.04\times 1418.4 - 100) = 3624.864 \\
+	w(4) =& w(3) + (0.04w(3)-100) = 3624.864 + (0.04\times 3624.864 - 100) = 3669.85856.
+\end{align*}
+$$
+
+### Question 2
+**Q2**: Numerically solve differential equation using 4th-Order Runge-Kutta Method:
+
+$$
+\frac{\mathrm{d} y}{\mathrm{d} x}=y^{2} \cos (x)
+$$
+
+Suppose the initial condition: ${y}(0)=1$. Select the iteration step ${h}=0.2$, and calculate at least 3 iteration steps. (8 points)
+
+**Answer**: For 4th-Order Runge-Kutta Method:
+$$
+\begin{align*}
+& y_{i+1}=y_i+\frac{(k_1+2k_2+2k_3+k_4)}{6} h\\
+& k_1 = f(x_i,y_i) {\color{red}=y_n^2\cos x_n}\\
+& k_2 = f(x_i+0.5h,y_i + 0.5 k_1h) {\color{red}=(y_n+0.1k_1)^2\cos (x_n+0.1)}\\
+& k_3 = f(x_i+0.5h,y_i + 0.5 k_2h) {\color{red}=(y_n+0.1k_2)^2\cos (x_n+0.1)}\\
+& k_4 = f(x_i+h,y_i +k_3h) {\color{red}=(y_n+0.2k_3)^2\cos (x_n+0.2)}
+\end{align*}
+$$
+
+where $f(x,y) = y^2\cos(x)$. With $y(0)=1$ and $h=0.2$:
+
+- 1st iteration: ($x_0 = 0, y_0 = y|_{x=0} = 1, y_1=y|_{x=0.2}$)
+$$
+\begin{align*}
+	& k_1 = f(x_0,y_0) = 1\\
+	& k_2 = f(x_0+0.1, y_0+0.5\times k_1\times 0.2) = f(0.1,1.1) = 1.21\cos(0.1)\approx 1.204\\
+	& k_3 = f(x_0+0.1, y_0+0.5\times k_2\times 0.2) = f(0.1,1.120) \approx 1.249\\
+	& k_4 = f(x_0+0.2, y_0+k_3\times 0.2) = f(0.2,1.249) \approx 1.531\\
+	&y_1 = y_0 + \frac{1}{6}\times 0.2\times (k_1+2\times k_2 + 2\times k_3+k_4)\approx 1.248.
+\end{align*}
+$$
+
+- 2nd iteration: ($x_1 = 0.2, y_1 = y|_{x=0.2} \approx 1.248, y_2=y|_{x=0.4}$)
+$$
+\begin{align*}
+	& k_1 = f(x_1,y_1) \approx f(0.2,1.248) \approx 1.526\\
+	& k_2 = f(x_1+0.1, y_1+0.5\times k_1\times 0.2) \approx f(0.3,1.400) \approx 1.874\\
+	& k_3 = f(x_1+0.1, y_1+0.5\times k_2\times 0.2) \approx f(0.3,1.435) \approx 1.968\\
+	& k_4 = f(x_1+0.2, y_1+k_3\times 0.2) \approx f(0.4,1.642) \approx 2.482\\
+	&y_2 = y_1 + \frac{1}{6}\times 0.2\times (k_1+2\times k_2 + 2\times k_3+k_4)\approx 1.638.
+\end{align*}
+$$
+
+- 3rd iteration: ($x_2 = 0.4, y_2 = y|_{x=0.4} \approx 1.638, y_3=y|_{x=0.6}$)
+$$
+\begin{align*}
+	& k_1 = f(x_2,y_2) \approx f(0.4,1.638) \approx 2.470\\
+	& k_2 = f(x_2+0.1, y_2+0.5\times k_1\times 0.2) \approx f(0.5,1.885) \approx 3.117\\
+	& k_3 = f(x_2+0.1, y_2+0.5\times k_2\times 0.2) \approx f(0.5,1.950) \approx 3.335\\
+	& k_4 = f(x_2+0.2, y_2+k_3\times 0.2) \approx f(0.6,2.305) \approx 4.383\\
+	&y_3 = y_2 + \frac{1}{6}\times 0.2\times (k_1+2\times k_2 + 2\times k_3+k_4)\approx 2.296.
+\end{align*}
+$$

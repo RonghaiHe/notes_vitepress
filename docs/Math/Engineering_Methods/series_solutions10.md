@@ -478,3 +478,202 @@ $$
 $$
 x(1-x) \frac{\mathrm{d}^2 y}{\mathrm{d} x^2}+[\gamma-(\alpha+\beta+1) x] \frac{\mathrm{d} y}{\mathrm{d} x}-\alpha \beta y=0
 $$
+
+## HW
+### Question 1
+**Q1**. Determine the interval of convergence (10 marks)
+$$
+\begin{aligned}
+& 1.1 \quad \sum_{n=1}^{\infty} \frac{k(k+1) \cdots(k+n-1)}{n!} x^n \\
+& 1.2 \quad \sum_{n=0}^{\infty}\left(\frac{x}{x+2}\right)^n
+\end{aligned}
+$$
+
+
+**Answer**:
+(1) The ratio is
+$$
+\begin{aligned}
+	\rho =& \lim_{n\to\infty} \left| \left.\frac{k(k+1) \cdots(k+n)}{(n+1)!}x^{n+1} \right/ \left(\frac{k(k+1) \cdots(k+n-1)}{n!}x^{n}\right) \right| \\
+	=& \lim_{n\to\infty} \left|\frac{k+n}{n+1}x\right| = \lim_{n\to\infty} \left|\frac{\frac{k}{n}+1}{\frac{1}{n}+1}x\right| = |x|.
+\end{aligned}
+$$
+
+The power series converges if $\rho<1\implies |x|<1$.
+
+Thus the interval of convergence is $(-1, 1)$.
+
+(2) The ratio is
+$$
+	\rho = \lim_{n\to\infty} \left| \left.\left(\frac{x}{x+2}\right)^{n+1} \right/ \left(\frac{x}{x+2}\right)^{n} \right| = \lim_{n\to\infty} \left|\frac{x}{x+2}\right| = \left|\frac{x}{x+2}\right|.
+$$
+
+The power series converges if $\rho<1\implies \left|\frac{x}{x+2}\right|<1\implies |x|<|x+2|, (x\neq -2)$.
+- $x>0\implies |x|<|x+2|\implies x<x+2$, it's satisfied;
+- $-2<x\le 0, |x+2| - |x| = x+2-(-x)>0\implies x>-1$, thus $|x|<|x+2|$ satisfies for $-1<x\le 0$;
+- $x\le -2, |x|<|x+2|\implies -x<-x-2$, it's not satisfied.
+
+Thus the interval of convergence is $(-1,+\infty)$.
+
+$$
+\color{blue}
+\left|\frac{x}{x+2}\right| = \left| 1- \frac{2}{x+2}\right| < 1 \implies -1 < 1- \frac{2}{x+2} < 1 \implies x>-1.
+$$
+
+### Question 2
+**Q2**. Use the method of Frobenius to obtain the general solution of valid near $x=$ 0: (10 marks)
+$$
+2 x \frac{\mathrm{d}^2 y}{\mathrm{d} x^2}+(1-2 x) \frac{\mathrm{d} y}{\mathrm{d} x}-y=0
+$$
+
+**Answer**: Assume a solution of the form
+$$
+y = x^s\sum_{k=0}^\infty A_kx^k = \sum_{k=0}^\infty A_kx^{k+s}.
+$$
+
+Then
+$$
+\begin{align*}
+&\frac{\mathrm{d} y}{\mathrm{d} x} = \sum_{k=0}^\infty (k+s)A_kx^{k+s-1}\\
+&\frac{\mathrm{d}^2 y}{\mathrm{d} x^2} = \sum_{k=0}^\infty (k+s)(k+s-1)A_kx^{k+s-2}.
+\end{align*}
+$$
+
+Thus
+$$
+\begin{align*}
+&2 x \frac{\mathrm{d}^2 y}{\mathrm{d} x^2}+(1-2 x) \frac{\mathrm{d} y}{\mathrm{d} x}-y\\
+=&2x\left(\sum_{k=0}^\infty (k+s)(k+s-1)A_kx^{k+s-2}\right) + \sum_{k=0}^\infty (k+s)A_kx^{k+s-1} \\
+&- 2x\left(\sum_{k=0}^\infty (k+s)A_kx^{k+s-1}\right) - \sum_{k=0}^\infty A_kx^{k+s} \\
+=& \sum_{k=0}^\infty (k+s)(2k+2s-1)A_kx^{k+s-1} - \sum_{k=0}^\infty (2k+2s+1)A_kx^{k+s} \\
+=& s(2s-1)A_0x^{s-1} + \sum_{k=1}^\infty (k+s)(2k+2s-1)A_kx^{k+s-1} - \sum_{k=1}^\infty (2(k-1)+2s+1)A_{k-1}x^{(k-1)+s} \\
+=& s(2s-1)A_0x^{s-1} + \sum_{k=1}^\infty [(k+s)(2k+2s-1)A_k - (2k+2s-1)A_{k-1}]x^{k+s-1} = 0
+\end{align*}
+$$
+
+The indicial equation is
+$$
+s(2s-1)=0 \implies s_1=\frac12, \quad s_2 = 0.
+$$
+
+And the recurrence formula is
+$$
+(k+s)(2k+2s-1)A_k - (2k+2s-1)A_{k-1} = 0, \quad k\ge 1.
+$$
+
+- $s_1=\frac12$:
+$$
+\begin{align*}
+	&2k\left(k+\frac12\right)A_k - 2kA_{k-1} = 0, \quad k\ge 1\\
+	\implies& A_k = \frac{A_{k-1}}{k+1/2}
+\end{align*}
+$$
+
+Hence, the solution corresponding to $s=\frac12$ is:
+$$
+\begin{align*}
+y =& \sum_{k=0}^\infty A_kx^{k+s} = A_0x^{1/2} + A_1x^{3/2} + A_2x^{5/2} + \cdots\\
+=& A_0x^{1/2} + \frac{A_0}{3/2}x^{3/2} + \frac{A_0}{3/2\cdot5/2}x^{5/2} + \cdots \\
+=& A_0\sum_{k=0}^\infty \frac{2^k}{(2k+1)!!}x^{k+1/2}, \quad A_0 \text{ arbitary.}
+\end{align*}
+$$
+
+- $s_2 = 0$:
+$$
+\begin{align*}
+&k(2k-1)A_k - (2k-1)A_{k-1} = 0, \quad k\ge 1 \\
+\implies& A_k = \frac{A_{k-1}}{k}
+\end{align*}
+$$
+
+Hence, the solution corresponding to $s=0$ is:
+$$
+\begin{align*}
+y =& \sum_{k=0}^\infty A_kx^{k+s} = A_0 + A_1x + A_2x^{2} + \cdots\\
+=& A_0 + \frac{A_0}{1}x + \frac{A_0}{1\cdot 2}x^{2} + \cdots \\
+=& A_0\sum_{k=0}^\infty \frac{x^k}{k!} = A_0e^{x}, \quad A_0 \text{ arbitary.}
+\end{align*}
+$$
+
+Thus, the general solution is:
+$$
+y = c_1e^x + c_2\sum_{k=0}^\infty \frac{2^k}{(2k+1)!!}x^{k+1/2}, \quad c_1,c_2\in\mathbb{R}.
+$$
+
+(**Option**) The exact solution for $s_1=\frac12$. 
+
+Below is the procession from DeepSeek:
+The main task is to use an exact function to represent the power series:
+$$
+\sum_{k=0}^\infty \frac{2^k}{(2k+1)!!}x^{k+1/2}
+$$
+
+Known that
+$$
+(2k+1)!! = \frac{(2k+1)!}{2^kk!}.
+$$
+
+Then
+$$
+\sum_{k=0}^\infty \frac{2^k}{(2k+1)!!}x^{k+1/2} = \sum_{k=0}^\infty \frac{4^k\cdot k!}{(2k+1)!}x^{k+1/2} = \sqrt{x}\sum_{k=0}^\infty \frac{(4x)^k\cdot k!}{(2k+1)!}.
+$$
+
+Also known that
+$$
+\sinh(x) = \sum_{k=0}^\infty \frac{x^{2k+1}}{(2k+1)!} = x\sum_{k=0}^\infty \frac{(x^{2})^k}{(2k+1)!}.
+$$
+
+Thus
+$$
+\frac12\sinh(2\sqrt{x}) = \sqrt{x}\sum_{k=0}^\infty \frac{(4x)^k}{(2k+1)!}
+$$
+
+which is similar to the goal, but missing $k!$.
+
+Known that the Gamma function:
+$$
+k! = \int_0^\infty e^{-t}t^k\mathrm{~d}t.
+$$
+
+Then
+$$
+\sqrt{x}\sum_{k=0}^\infty \frac{(4x)^k\cdot k!}{(2k+1)!} = \sum_{k=0}^\infty \sqrt{x}\frac{(4x)^k}{(2k+1)!}k! = \sum_{k=0}^\infty \sqrt{x}\frac{(4x)^k}{(2k+1)!}\int_0^\infty e^{-t}t^k\mathrm{~d}t.
+$$
+
+Based on Tonelli's theorem, the given function is non-negative, then we can swap the order of infinite series and integral:
+$$
+\begin{align*}
+&\sum_{k=0}^\infty \sqrt{x}\frac{(4x)^k}{(2k+1)!}\int_0^\infty e^{-t}t^k\mathrm{~d}t = \int_0^\infty e^{-t} \sum_{k=0}^\infty \sqrt{x}\frac{(4xt)^k}{(2k+1)!}\mathrm{~d}t\\
+=& \int_0^\infty \frac{1}{e^{t}\sqrt{t}} \sum_{k=0}^\infty \sqrt{xt}\frac{(4xt)^k}{(2k+1)!}\mathrm{~d}t = \frac12\int_0^\infty \frac{1}{e^{t}\sqrt{t}} \sinh(2\sqrt{xt})\mathrm{~d}t
+\end{align*}
+$$
+
+Let
+$$
+u = \sqrt{t}\implies t=u^2,\quad \mathrm{d}t = 2u\mathrm{~d}u.
+$$
+
+Then
+$$
+\frac12\int_0^\infty \frac{1}{e^{t}\sqrt{t}} \sinh(2\sqrt{xt})\mathrm{~d}t = \frac12\int_0^\infty \frac{1}{e^{u^2}u} \sinh(2\sqrt{x}u)2u\mathrm{~d}u = \int_0^\infty e^{-u^2}\sinh(2\sqrt{x}u)\mathrm{~d}u.
+$$
+
+Since
+$$
+\sinh(x) = \frac{e^x-e^{-x}}{2}
+$$
+
+then
+$$
+\begin{align*}
+&\int_0^\infty e^{-u^2}\sinh(2\sqrt{x}u)\mathrm{~d}u = \frac12\int_0^\infty e^{-u^2}\left(e^{2\sqrt{x}u} - e^{-2\sqrt{x}u}\right)\mathrm{~d}u \\
+=& \frac12e^x \int_0^\infty e^{-u^2}e^{2\sqrt{x}u}e^{-x} - e^{-u^2}e^{-2\sqrt{x}u}e^{-x}\mathrm{~d}u \\
+=& \frac12e^x \left[\int_0^\infty e^{-(u-\sqrt{x})^2}\mathrm{~d}u - \int_0^\infty e^{-(u+\sqrt{x})^2}\mathrm{~d}u\right] = \frac14\sqrt{\pi}e^x[ \operatorname{erfc}(-\sqrt{x})-\operatorname{erfc}(\sqrt{x})]\\
+=&\frac14\sqrt{\pi}e^x[ 1-\operatorname{erf}(-\sqrt{x})-(1-\operatorname{erf}(\sqrt{x}))] = \frac12\sqrt{\pi}e^x\operatorname{erf}(\sqrt{x})
+\end{align*}
+$$
+
+Thus, the general solution is:
+$$
+y = e^x(c_1 + c_2\operatorname{erf}(\sqrt{x})), \quad c_1,c_2\in\mathbb{R}.
+$$

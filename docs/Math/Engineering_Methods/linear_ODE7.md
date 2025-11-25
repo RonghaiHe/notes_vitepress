@@ -924,3 +924,158 @@ $$
 y= \pm \sin ^{-1} \frac{x}{c_1}+c_2 \quad \text { or } \quad x=c_1^{\prime} \sin \left(y-c_2\right),
 $$
 where $c_1^{\prime}= \pm c_1$.
+
+## HW
+### Question 1
+
+**Q1**: Prove that $e^{r_1 x}$ and $e^{r_2 x}$ are linearly independent over any finite interval if $r_1 \neq r_2$ (6 points)
+
+**Answer**: Let $u_1(x)=e^{r_1x}$ and $u_2(x)=e^{r_2x}$, then
+
+$$
+\frac{\mathrm{d}u_1}{\mathrm{d}x} = r_1e^{r_1x},\quad \frac{\mathrm{d}u_2}{\mathrm{d}x} = r_2e^{r_2x}.
+$$
+
+And according to Wronskian:
+
+$$
+W(u_1,u_2) = 
+\begin{vmatrix}
+u_1 & u_2\\
+\frac{\mathrm{d}u_1}{\mathrm{d}x} & \frac{\mathrm{d}u_2}{\mathrm{d}x}
+\end{vmatrix} = 
+\begin{vmatrix}
+e^{r_1x} & e^{r_2x} \\
+r_1e^{r_1x} & r_2e^{r_2x}
+\end{vmatrix} = (r_2-r_1)e^{(r_1+r_2)x}.
+$$
+
+Since $r_1\neq r_2$, and the exponential function is always larger than $0$ over any finite interval, then $W(u_1,u_2)\neq 0$, that means $e^{r_1 x}$ and $e^{r_2 x}$ are linearly independent over any finite interval if $r_1 \neq r_2$.
+
+### Question 2
+
+**Q2**: Solving the homogeneous linear ordinary differential equation (6 points)
+
+$$
+\frac{\mathrm{d}^3 y}{\mathrm{d} x^3}-y=0.
+$$
+
+**Answer**: 
+
+Let $y=e^{sx}\implies (r^3-1)e^{sx}=0\implies r^3-1=0$
+
+The characteristic equation is:
+
+$$
+\begin{align*}
+&r^3 - 1 = 0 \\
+\implies& (r-1)(r^2+r+1) = 0\\
+\implies& (r-1)\left(r-\frac{-1+\sqrt{3}i}{2}\right)\left(r-\frac{-1-\sqrt{3}i}{2}\right) = 0.
+\end{align*}
+$$
+
+And the solution is: $r_1=1, r_2=\frac{-1+\sqrt{3}i}{2}, r_3=\frac{-1-\sqrt{3}i}{2}$. Then the general solution is:
+
+$$
+y = c_1e^x + e^{-\frac12 x}\left[c_2\cos\left(\frac{\sqrt{3}}{2}x\right) + c_3\sin\left(\frac{\sqrt{3}}{2}x\right)\right]
+$$
+
+where $c_1,c_2,c_3$ are arbitary constant values.
+
+### Question 3
+
+**Q3**: Solving the inhomogeneous linear ordinary differential equation (8 marks)
+
+$$
+\frac{\mathrm{d}^2 y}{\mathrm{d} x^2}-y=\sin (x).
+$$
+
+**Answer**: The characteristic equation of the homogeneous equation is:
+
+$$
+r^2 - 1 = 0 \implies (r-1)(r+1) = 0 \implies r_1=1,r_2=-1.
+$$
+
+Thus the general solution of the homogeneous equation is
+
+$$
+c_1e^x + c_2e^{-x}
+$$
+
+where $c_1,c_2$ are arbitary constant values.
+
+Since RHS is $\sin(x)$, and the family is $\{\sin(x), \cos(x)\}$, then it's assumed that $y_p$ is:
+
+$$
+y_p = A\sin(x) + B\cos(x)
+$$
+
+then
+
+$$
+\begin{align*}
+&\begin{aligned}
+\frac{\mathrm{d}^2 y_p}{\mathrm{d} x^2}-y_p =& -A\sin(x) - B\cos(x) - (A\sin(x) + B\cos(x)) \\
+=& -2A\sin(x) -2B\cos(x) = \sin(x)
+\end{aligned} \\
+\implies& A = -\frac{1}{2}, B=0.
+\end{align*}
+$$
+
+Thus $y_p = -\frac12\sin(x)$, and the general solution is
+
+$$
+y = c_1e^x + c_2e^{-x} -\frac12\sin(x)
+$$
+
+where $c_1,c_2$ are arbitary constant values.
+
+**Method 2**:
+
+Since $u_1=e^x \quad u_2=e^{-x} \quad W\left(u_1, u_2\right)=\left|\begin{array}{ll}e^x & e^{-x} \\ e^x & -e^{-x}\end{array}\right|=-1-1=-2$
+
+$\therefore$ The particular solution
+
+$$
+y_p=c_1(x) u_1(x)+c_2(x) u_2(x)
+$$
+
+where
+
+$$
+\begin{aligned}
+&c'_1(x) = \frac{\left|\begin{matrix}
+0 & e^{-x} \\
+\sin x & -e^{-x}
+\end{matrix}\right|}{W(u_1,u_2)} = \frac{-e^{-x}\sin x}{W(u_1,u_2)}\\
+&c'_2(x) = \frac{\left|\begin{matrix}
+e^{x} & 0 \\
+e^x & \sin x
+\end{matrix}\right|}{W(u_1,u_2)} = \frac{e^{x}\sin x}{W(u_1,u_2)}
+\end{aligned}
+$$
+
+$$
+\implies c_1(x) = \int \frac{-e^{-x}\sin x}{W(u_1,u_2)}\mathrm{~d}x = \frac12\int e^{-x}\sin x\mathrm{~d}x.
+$$
+
+Integration by parts:
+
+$$
+c_1=-\frac{1}{2}(\sin x+\cos x) e^{-x}-c_1 \Rightarrow 2 c_1=-\frac{1}{2}(\sin x+\cos x) e^{-x} \Rightarrow c_1=-\frac{1}{4}(\sin x + \cos x)e^{-x}.
+$$
+
+Similarly 
+
+$$
+c_2=-\frac{1}{4}(\sin x-\cos x) e^x
+$$
+
+Therefore 
+
+$$
+y_p=-\frac{1}{4}(\sin x+\cos x)-\frac{1}{4}(\sin x-\cos x)=-\frac{1}{2} \sin x
+$$
+
+The general solution $y=A_1 e^x+B_2 e^{-x}-\frac{1}{2} \sin x$
+}
