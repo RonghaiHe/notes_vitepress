@@ -503,11 +503,55 @@ Two-phase flows
 
 Application: air conditioner, nuclear reactor, thermal management, ...
 
-The **boiling curve**:[core]
+#### boiling curve [core]
+Boiling is associated with **transformation** of **liquid to vapor** at a **solid/liquid interface** due to **convection** heat transfer from the solid
+
+Agitation of fluid by vapor bubbles provides for **large convection coefficients** and hence **large heat fluxes** at **low-to-moderate surface-to-fluid temperature differences**
+
+- **Pool Boiling**:
+  Liquid motion is due to natural convection and bubble-induced mixing.
+- **Forced Convection Boiling**:
+  Fluid motion is induced by external means, as well as by bubble-induced mixing.
+- **Saturated Boiling**:
+  Liquid temperature is **slightly larger** than saturation temperature.
+- **Subcooled Boiling**:
+  Liquid temperature is **less than** saturation temperature.
+
+Reveals range of conditions associated with saturated pool boiling on a $q_s'' - \Delta T_e$ plot (Water at Atmospheric Pressure) where $q_s''$ is the heat flux, $\Delta T_e = T_s - T_{\text{sat}}$, the **excess temperature** and $T_{\text{sat}}=100^\circ C$ for water at $P=0.1\mathrm{~MPa}$, **saturation temperature** of liquid, $T_s$ is temperatur of water. [core]
 
 <img src="/fluid_tf6_7_boiling.png" alt="boiling" width="100%" align="center">
 
-First slope(single phase flow, Newton laws of cooling): $q'' = h\Delta T$, where $\Delta T = T_w - T_{\mathrm{sat}}$ and $T_{\mathrm{sat}}=100^\circ C$ for water at $P=0.1\mathrm{~MPa}$, $T_w$ is temperatur of water. $h$ is the liquid convective heat transfer coefficient (对流换热系数)
+- **Free Convection Boiling** $(\Delta T_e < 5^\circ \mathrm{C})$
+  - Little vapor formation.
+  - Liquid motion is due principally to **single-phase** natural convection.
+  - First slope(single phase flow, Newton's law of cooling): 
+    $$q_s'' = h\Delta T_e$$
+    
+    where $h$ is the liquid convective heat transfer coefficient (对流换热系数)
+- **Onset of Nucleate Boiling** - ONB $(\Delta T_e \approx 5^\circ \mathrm{C})$
+- **Nucleate Boiling** $(5 < \Delta T_e < 30^\circ \mathrm{C})$
+  - **Isolated Vapor Bubbles** $(5 < \Delta T_e < 10^\circ \mathrm{C})$
+    - Liquid motion is strongly influenced by nucleation of bubbles at the surface.
+    - $h$ and $q_s''$ increase sharply with increasing $\Delta T_e$.
+    - Heat transfer is principally due to **contact of liquid with the surface** (single-phase convection) and not to vaporization.
+- **Jets and Columns** $(10 < \Delta T_e < 30^\circ \mathrm{C})$
+  - Increasing number of **nucleation sites** causes bubble interactions and coalescence into jets and slugs.
+  - Liquid/surface contact is impaired.
+  - $q''_s$ continues to increase with $\Delta T_e$ while $h$ begins to decrease.
+- **Critical Heat Flux** - CHF, $q''_{\max}(\Delta T_e \approx 30^\circ\mathrm{C})$ [core]
+  - Maximum attainable heat flux in **nucleate boiling**.
+  - $q''_{\max} ≈ 1 \mathrm{~MW/m}$ for water at atmospheric pressure.
+- **Potential Burnout for Power-Controlled Heating**
+  - An increase in $q_s''$ beyond $q''_{\max}$ causes the surface to be blanketed by vapor, and the surface temperature can spontaneously achieve a value that potentially **exceeds** its **melting point** $(\Delta T_s > 1000^\circ\mathrm{C})$
+  - If the surface survives the temperature shock, conditions are characterized by **film boiling**.
+- **Film Boiling**
+  - Heat transfer is by **conduction and radiation** across the vapor blanket.
+  - A reduction in follows the cooling curve continuously to the **Leidenfrost point** corresponding to the **minimum heat flux** $q''_{\min}$ for **film boiling**.
+  - A reduction in $q_s''$ below $q''_{\min}$ causes an **abrupt reduction** in surface temperature to the **nucleate boiling regime**.
+- Transition Boiling for Temperature-Controlled Heating
+  - Characterized by a continuous decay of with increasing $q_s''$(from $q''_{\max}$ to $q''_{\min}$).
+  - Surface conditions oscillate between **nucleate and film boiling**, but portion of surface experiencing film boiling increases with $\Delta T_e$.
+  - Also termed **unstable** or **partial film boiling**
 
 ### Nature of multiphase flows and basic concepts
 
@@ -519,11 +563,11 @@ A **phase** is a thermodynamic definition for the state of the matter, which can
 
 ::: warning Definition: mixture
 The term **mixture** is most of the time used to denote the two (or more) phases flowing together and does not necessarily imply that these are intimately mixed. For example, in the case of annular flow that we will introduce below, we may still refer to the flow as the **two-phase mixture** in spite of the fact that the liquid film on the wall and the gaseous core are not at all “mixed”. The term “**separated flow”** is often
-used loosely to denote two-phase flows where the two phases have **different average velocities**. This distinguishes such flows from the **homogeneous** ones, where the phases have the **same average velocity**; again, such flows may strictly speaking not be homogeneous at all. For example, bubbly flow with fairly large bubbles can be considered as homogeneous.
+used loosely to denote two-phase flows where the two phases have **different average velocities**. This distinguishes such flows from the **homogeneous** ones, where **the phases have the same average velocity** [core]; again, such flows may strictly speaking not be homogeneous at all. For example, bubbly flow with fairly large bubbles can be considered as homogeneous.
 :::
 
 ::: warning Definition: component
-A **component**, is a chemical species. So, the term two-component is used to describe the flow of **two chemical species**. A water–steam mixture is **two-phase, one-component**, while a **water–air** mixture is **two-phase, two-component flow**; a water–oil mixture is one-phase, two-component, etc. The approach in modelling of the two alternative two-phase configurations—with one or two components—is often the same or very similar, though the physical behaviour of different mixtures
+A **component**, is a chemical species. So, the term two-component is used to describe the flow of **two chemical species**. A water-steam mixture is **two-phase, one-component**, while a **water-air** mixture is **two-phase, two-component flow**; a water-oil mixture is one-phase, two-component, etc. The approach in modelling of the two alternative two-phase configurations—with one or two components—is often the same or very similar, though the physical behaviour of different mixtures
 may be quite different.
 :::
 
@@ -606,10 +650,10 @@ $$
 \langle\beta\rangle \equiv \frac{\left\langle j_g\right\rangle}{\left\langle j_g\right\rangle+\left\langle j_f\right\rangle}=\frac{\left\langle j_g\right\rangle}{\langle j\rangle}
 $$
 
-When **HEM**(homogeneous) is assumed, $\rho = \rho_m, \quad \langle\beta\rangle = \langle\alpha\rangle$
+When **HEM**(Homogeneous Equilibrium Mixture Model) is assumed, $\rho = \rho_m, \quad \langle\beta\rangle = \langle\alpha\rangle$ [core]
 
 #### Mixture density (两相混合物密度)
-- Assumption: Perfectly mixed gas and liquid phases with the same velocity (**homogeneous** flow), $v_m$ ($\nu$: specific volume, $\rho$: density)
+- Assumption: Perfectly mixed gas and liquid phases with the same velocity (**HEM**), $v_m$ ($\nu$: specific volume, $\rho$: density)
 $$
   v_m = G\nu_m = \frac{G}{\rho_m} = j = v_g = v_f
 $$

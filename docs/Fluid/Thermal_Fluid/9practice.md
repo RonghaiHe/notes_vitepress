@@ -1,4 +1,56 @@
 # Test in the class
+## Hints for Final Exam
+1. Master HW & Exercise Problem & Class note
+2. Understand [flow parameter definition](./6twoPhase#key-parameters-in-two-phase-flow-core)
+   - e.g. $\langle j_g\rangle = \frac{G x_f}{\rho_g}, \quad \langle j_f\rangle = \frac{G (1-x_f)}{\rho_f}, \quad \text{etc. } \rho_m=\rho_g\alpha+\rho_f(1-\alpha).$
+3. Understand the assumption for [HEM](./6twoPhase#nature-of-multiphase-flows-and-basic-concepts)
+4. Understand the [drift-flux model](./7thermoFluid#void-fraction)
+   - $v_{gj}=v_g-j$, after area-averaging: $\langle\langle v_{g}\rangle\rangle = C_0\langle j\rangle + \langle\langle v_{gj}\rangle\rangle, \quad \langle\langle v_{g}\rangle\rangle = \frac{\langle j\rangle}{\langle\alpha\rangle}\implies \langle\alpha\rangle=C_0\langle j\rangle + \langle\langle v_{gj}\rangle\rangle$ where $C_0 = \frac{\langle\alpha j\rangle}{\langle\alpha\rangle\langle j\rangle}. C_0=1$ when HEM
+5. Understand [Lockhart-Martinelli method](./7thermoFluid#frictional-pressure-drop)
+   - $1\phi: \Delta p = f\frac{L}{D}\frac12 \rho v^2, \quad \left(-\frac{\mathrm{d}}{\mathrm{d}}\right)_{2\phi} = \Phi^2_f\left(-\frac{\mathrm{d}}{\mathrm{d}}\right)_{1\phi}$
+6. Understand [boiling curve](./6twoPhase#boiling-curve-core)
+7. Understand [thermal-equilibrium quality](./8twoPhaseHeatTransfer#flow-boiling)
+
+$$
+a_i = \frac{\sum A_i}{V} \quad [1/\mathrm{m}]
+$$
+
+where $A_i$ is the intersectional area of each bubble
+
+$$
+x_f = \frac{\text{vapor mass velocity}}{\text{total mixture mass velocity}} = \frac{G_g}{G_g+G_f}
+$$
+
+- vaporization due to phase change: boiling(liquid become gas)
+- different flow: churn, annular
+- assumption about drift-flux model:
+  - Continuum Assumption
+  - Mixture Momentum Equation
+  - Existence of Interfacial Slip (Relative Velocity)
+  - Thermodynamic Equilibrium Assumption
+  - Steam and water fluid compressibility is negligible.
+  - Void fraction change along the flow direction is negligible.
+- neglect which pressure drop: **Acceleration loss**
+- Chemical reactor utilize **bubbly flow**. Reason is mass transfer is important. $a_i$ is high at around $\alpha=0.3$:
+  - $N_A=k_fa_i\Delta C$
+- How many equations HEM consider: 3 equations (combine gas and liquid)
+- $a_i=\frac{6\alpha}{D_b}, \quad \alpha = m\frac16 \pi D_b^3$ same diameter, where $m$ is the number of bubbles
+
+Problem2: Drift-flux model
+
+$$
+\langle\langle v_{g}\rangle\rangle = \frac{\langle j\rangle}{\langle\alpha\rangle}=C_0\langle j\rangle + \langle\langle v_{gj}\rangle\rangle
+$$
+
+Use data to **fit the line** to obtain $C_0, \langle\langle v_{gj}\rangle\rangle$, then
+$$
+\langle\alpha\rangle = \frac{\langle j_g\rangle}{C_0\langle j\rangle + \langle\langle v_{gj}\rangle\rangle}
+$$
+
+and with certain $(\langle j_g\rangle, \langle j\rangle)$, we can obtain $\langle \alpha\rangle$ 
+
+Problem 3: L-M Method
+
 ## Test1: Flow Loop Design
 It has been decided to conduct a two-phase flow experiment at the given void fraction and mass flux. During the experiment, there will be a pressure drop in the system due to the liquid single-phase flow and two-phase flow. Estimation of the pressure drop is essential to select right equipment such as pump. To select the pump, liquid flow rate and total head loss are required. In the current simplified example, the procedure for pump selection is reviewed.
 
@@ -60,11 +112,12 @@ $$
 Use results of question 1 and drift-flux model to write the quality $\langle x\rangle$ as an explicit function of distribution parameter $C_0$, drift velocity $\langle \langle v_{gj}\rangle\rangle$, void fraction $\langle \alpha\rangle$, mass flux $G$ ans phase densities $\rho_g,\rho_f$.
 
 **Answer**:
-> $$
+::: details **not right**
+$$
 \langle x\rangle = \frac{\rho_g \langle \alpha\rangle}{G}(C_0\langle j\rangle + \langle \langle v_{gj}\rangle\rangle)
-> $$
-> 
-> not right
+$$
+
+:::
 
 $$
 \begin{aligned}
@@ -324,6 +377,7 @@ $$
 ### Q1-11
 
 <img src="/fluid_tf9_2_pump.png" alt="How to pick pump" width="100%" align="center">
+
 > https://sppump.com/files/Superpower_In-Line_Pump_SPI_Series_.pdf#page=4.00
 
 Assume that the total pressure loss from pump to the top of the test section consists of a pressure loss due to the **horizontal single-phase liquid flow** and a pressure loss due to **the upward two-phase flow in the vertical test section**. Use the values calculated in Questions 4 to 6 to obtain a total pressure loss. Then use the below chart to select a suitable pump. Hint: For pump selection, it is preferable to multiply the total estimated pressure loss by a factor $1.2$ can be used as a typical factor.

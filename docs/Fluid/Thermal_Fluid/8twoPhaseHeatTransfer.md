@@ -345,3 +345,214 @@ $$
 \langle \alpha\rangle \approx \frac{2.068}{1.047\times3.507+0.410}\approx 0.321.
 $$
 
+## Quiz4
+Liquid water with the **mass flux** $(G)$ of $2000 \mathrm{~kg} / \mathrm{m}^2 / \mathrm{s}$ is injected into a **uniformly** heated vertical **pipe** at pressure ( $P$ ) condition of $15.5 \mathrm{~MPa}$ and **inlet** temperature ( $T$ ) of $300^{\circ} \mathrm{C}$. The pipe has the **diameter** $\left(D_h\right)$ of $0.05 \mathrm{~m}$ and height of $15 \mathrm{~m}$ . It is heated by the heat source through the outside wall with a **heat flux** $\left(q_w^{\prime \prime}\right)$ of $8 \times 10^5 \mathrm{~W} / \mathrm{m}^2$.
+
+Key information are given below:
+- Mass flux: $G=2000 \mathrm{~kg} /\left(\mathrm{m}^2 \cdot \mathrm{s}\right)$; 
+- Pressure condition: $P=15.5 \mathrm{MPa}$; 
+- Inlet temperature condition: $T_{\text {in }}=300^{\circ} \mathrm{C}$; 
+- Saturation temperature: $T_{\text {sat }}=345^{\circ} \mathrm{C}$; 
+- Liquid enthalpy at inlet: $h_{\mathrm{i n}}=1338 \mathrm{~kJ} / \mathrm{kg}$; 
+- Saturated liquid enthalpy: $h_{\mathrm{s a t}, f}=1623 \mathrm{~kJ} / \mathrm{kg}$; 
+- Saturated gas enthalpy: $h_{\mathrm{s a t}, g}=2599 \mathrm{~kJ} / \mathrm{kg}$; 
+- Latent heat: $h_{f g}=976 \mathrm{~kJ} / \mathrm{kg}$; 
+- Saturated liquid density: $\rho_f=598 \mathrm{~kg} / \mathrm{m}^3$; 
+- Saturated liquid dynamic viscosity: $\mu_f=6.88 \times 10^{-5} \mathrm{~Pa} \cdot \mathrm{~s}$; 
+- Saturated liquid thermal conductivity: $k_f=0.452 \mathrm{~W} / \mathrm{m} / \mathrm{K}$; 
+- Saturated liquid isobaric heat capacity: $C_{p f}=8.74 \mathrm{~kJ} / \mathrm{kg} / \mathrm{K}$; 
+- Saturated gas density: $\rho_g=101 \mathrm{~kg} / \mathrm{m}^3$; 
+- Saturated gas dynamic viscosity: $\mu_g=2.31 \times 10^{-5} \mathrm{~Pa} \cdot \mathrm{~s}$; 
+- Steam-water surface tension: $\sigma=0.0047 \mathrm{N} / \mathrm{m}$; 
+- Steel-water contact angle: $\phi_s=38^{\circ}$.
+
+Assumptions: (1) Ignore the pressure loss in two-phase mixing section. (2) Air and water fluid compressibility is negligible. (3) Water properties change with temperature is negligible.
+
+1. Assume that water properties do not vary significantly in **single-phase** flow section. Calculate the **liquid convective heat transfer coefficient** using the Dittus-Boelter equation.
+$$
+\begin{aligned} 
+& \mathrm{N u}_f=0.023 \mathrm{R e}_f^{0.8} \mathrm{P r}_f^{0.4} \\ 
+& \mathrm{R e}_f=\left(G D_h\right) / \mu_f \\ 
+& \mathrm{P r}_f=\left(C_{p f} \mu_f\right) / k_f \\ 
+& \mathrm{N u}_f=\left(h_f D_h\right) / k_f
+\end{aligned}
+$$
+
+The answer of $h_f$ should be given in $\mathrm{W/(m^2K)}$.
+
+**Answer**: 
+$$
+\begin{aligned}
+  &\mathrm{Nu}_f=0.023 \mathrm{R e}_f^{0.8} \mathrm{Pr}_f^{0.4} = 0.023 \left(\frac{G D_h}{\mu_f}\right)^{0.8} \left(\frac{C_{pf}\mu_f}{k_f}\right)^{0.4} = \frac{h_fD_h}{k_f}\\
+  \implies & h_f = 0.023\frac{k_f}{D_h}\left(\frac{G D_h}{\mu_f}\right)^{0.8} \left(\frac{C_{pf}\mu_f}{k_f}\right)^{0.4}\approx 1.98340\times 10^4\mathrm{~W/(m^2\cdot K)}.
+\end{aligned}
+$$
+
+2. What is the **temperature difference** between the wall temperature and mean bulk liquid temperature (wall super heat [$^{\circ} \mathrm{C}$])?
+$$
+q''_x = h\Delta T
+$$
+
+The answer of $\Delta T$ should be given in $^{\circ} \mathrm{C}$.
+
+**Answer**: 
+$$
+q''_w = h_f\Delta T\implies \Delta T = \frac{q''_w}{h_f}\approx 40.335^{\circ} \mathrm{C}.
+$$
+
+3. Determine the **temperature** for the **onset of nucleate boiling**, $T_{\mathrm{ONB}}$, using Basu et al. (2004) correlation. 
+$$
+\Delta T_{\mathrm{ONB}} = \frac{\sqrt{2}}{F(\phi_s)}\left(\frac{\sigma T_{\mathrm{sat}}q''_w}{\rho_g h_{fg}k_f}\right)^{0.5}
+$$
+
+where
+$$
+F(\phi_s) = 1-\exp\left[-\left(\frac{\pi\phi_s}{180}\right)^3 - 0.5\left(\frac{\pi\phi_s}{180}\right)\right], \quad \phi_s = 38^{\circ}
+$$
+
+$T_{\text{sat}}$ in the correlation should be used in the unit $\mathrm{K}$. The answer of $T_{\text{ONB}}$ should be given in $^{\circ} \mathrm{C}$.
+
+**Answer**: 
+$$
+\begin{aligned}
+  &\Delta T_{\text{ONB}} = T_\text{ONB} - T_\text{sat} = \frac{\sqrt{2}}{F(\phi_s)}\left(\frac{\sigma T_{\text{sat}}q''_w}{\rho_g h_{fg}k_f}\right)^{0.5} \\
+  \implies &T_\text{ONB} = T_\text{sat} + \frac{\sqrt{2}}{F(\phi_s)}\left(\frac{\sigma T_{\text{sat}}q''_w}{\rho_g h_{fg}k_f}\right)^{0.5}
+\end{aligned}
+$$
+
+where
+$$
+F(\phi_s)|_{\phi_s = 38^\circ} = 1-\exp\left[-\left(\frac{\pi\phi_s}{180}\right)^3 - 0.5\left(\frac{\pi\phi_s}{180}\right)\right]\approx 0.464.
+$$
+
+**Thus**
+$$
+T_\text{ONB}\approx 345.696^{\circ} \mathrm{C}.
+$$
+
+4. Calculate the **temperature of significant void**, $T_D$.
+$$
+\begin{aligned}
+& \operatorname{P e}=\left(G D_h C_{p f}\right) / k_f \\
+& T_\text{sat}-T_D=0.0022\left(\left(q_w^{\prime \prime} D_h\right) / k_f\right), \operatorname{P e}<7 \times 10^4 \\
+& T_\text{sat}-T_D=154\left(\frac{q_w^{\prime \prime}}{G C_{p f}}\right), \operatorname{P e}>7 \times 10^4
+\end{aligned}
+$$
+
+The answer of $T_D$ should be given in ${ }^{\circ} \mathrm{C}$.
+
+**Answer**:
+$$
+\operatorname{P e}=\left(G D_h C_{p f}\right) / k_f\approx 1.9336283\times 10^6.
+$$
+
+**Thus**
+$$
+T_\mathrm{s a t}-T_D=154\left(\frac{q_w^{\prime \prime}}{G C_{p f}}\right) \implies T_D = T_\mathrm{s a t}-154\left(\frac{q_w^{\prime \prime}}{G C_{p f}}\right) \approx 337.952^{\circ} \mathrm{C}.
+$$
+
+5. Calculate the length for the **onset of significant void**, $Z_D$.
+$$
+Z_D=\frac{\frac{\pi D_h^2}{4} G C_{p f}\left(T_D-T_{i n}\right)}{\pi D_h q_w^{\prime \prime}}
+$$
+
+The answer of $Z_D$ should be given in $\mathrm{m}$ .
+
+**Answer**: 
+$$
+Z_D=\frac{\frac{\pi D_h^2}{4} G C_{p f}\left(T_D-T_{i n}\right)}{\pi D_h q_w^{\prime \prime}} = \frac{D_h G C_{p f}\left(T_D-T_{i n}\right)}{4 q_w^{\prime \prime}}\approx 10.366\mathrm{~m}.
+$$
+
+6. In another scenario, assume that the **heat flux** is **unknown** and the **wall temperature is fixed** at $370^{\circ} \mathrm{C}$. **Chen's correlation** is used to calculate two-phase heat transfer coefficient and heat flux at $x =0.2$. Saturation pressure at $370^{\circ} \mathrm{C}$ is $21.0 \mathrm{~MPa}$ . Calculate the **nucleate boiling heat transfer coefficient** in Chen's correlation $h_{N B}$.
+$$
+h_{N B}=S \times 0.00122\left[\frac{\left(k^{0.79} C_p^{0.45} \rho^{0.49}\right)_f}{\sigma^{0.5} \mu_f^{0.29} h_{f g}^{0.24} \rho_g^{0.24}}\right] \Delta T_\mathrm{s a t}^{0.24} \Delta P^{0.75}
+$$
+
+where
+
+$$
+\begin{aligned}
+& S=\frac{1}{1+2.53 \times 10^{-6} \mathrm{R e}^{1.17}} \\
+& \mathrm{R e}=\mathrm{R e}_f F^{1.25} \\
+& \mathrm{R e}_f=\frac{G(1-x) D_h}{\mu_f} \\
+& F=1 \text { for } \frac{1}{X_{t t}}<0.1 \\
+& F=2.35\left(0.213+\frac{1}{X_{t t}}\right)^{0.736} \text { for } \frac{1}{X_{t t}}>0.1 \\
+& X_{t t}=\left(\frac{1-x}{x}\right)^{0.9}\left(\frac{\rho_g}{\rho_f}\right)^{0.5}\left(\frac{\mu_f}{\mu_g}\right)^{0.1} \\
+& \Delta T_\mathrm{s a t}=T_w-T_\mathrm{s a t} \\
+& \Delta P=P\left(T_w\right)-P\left(T_\mathrm{s a t}\right)
+\end{aligned}
+$$
+
+The answer of $h_{N B}$ should be given in $\mathrm{W} /\left(\mathrm{m}^2 \mathrm{~K}\right)$.
+
+**Answer**:
+$$
+\begin{aligned}
+  &\Delta T_\mathrm{s a t}=T_w-T_\mathrm{s a t} = (370 - 345)^\circ\mathrm{C} = 25^\circ\mathrm{C}\\
+  &\Delta P=P\left(T_w\right)-P(T_\mathrm{s a t}) = (21.0 - 15.5)\mathrm{~MPa} = 5.5\times 10^6\mathrm{~Pa}\\
+  & X_{t t}|_{x=0.2}=\left.\left(\frac{1-x}{x}\right)^{0.9}\left(\frac{\rho_g}{\rho_f}\right)^{0.5}\left(\frac{\mu_f}{\mu_g}\right)^{0.1}\right|_{x=0.2} \approx 1.596 \implies \frac{1}{X_{tt}} \approx 0.617 > 0.1\\
+  \implies & F=2.35\left(0.213+\frac{1}{X_{t t}}\right)^{0.736}\approx 2.066\\
+  &\mathrm{R e}_f=\frac{G(1-x) D_h}{\mu_f}\approx 1.163\times 10^6\\
+  \implies &\mathrm{R e} = \mathrm{Re}_fF^{1.25}\approx 2.880\times 10^6\\
+  \implies & S=\frac{1}{1+2.53 \times 10^{-6} \mathrm{R e}^{1.17}}\approx 0.0108\\
+  \implies & h_{NB} = S\times 0.00122\left[\frac{\left(k^{0.79} C_p^{0.45} \rho^{0.49}\right)_f}{\sigma^{0.5} \mu_f^{0.29} h_{f g}^{0.24} \rho_g^{0.24}}\right] \Delta T_\mathrm{s a t}^{0.24} \Delta P^{0.75}\approx 6700.441 \mathrm{~W} /\left(\mathrm{m}^2 \cdot\mathrm{K}\right).
+\end{aligned}
+$$
+
+7. Calculate the **convective boiling heat transfer coefficient** in Chen's correlation $h_c$. Flow conditions are the same as in Question 6.
+$$
+h_c=0.023 \mathrm{R e}_f^{0.8} \operatorname{Pr}_f^{0.4} \frac{k_f}{D_h} F
+$$
+
+The answer of $h_c$ should be given in $\mathrm{W} /\left(\mathrm{m}^2 \mathrm{~K}\right)$.
+
+**Answer**:
+$$
+h_c=0.023 \mathrm{R e}_f^{0.8} \operatorname{Pr}_f^{0.4} \frac{k_f}{D_h} F\approx 34279.827 \mathrm{~W} /\left(\mathrm{m}^2 \cdot\mathrm{K}\right).
+$$
+
+8. Calculate the **total boiling heat transfer coefficient** in Chen's correlation $h_{2 \phi}$.
+$$
+h_{2 \phi}=h_{N B}+h_c
+$$
+
+The answer of $h_{2 \phi}$ should be given in $\mathrm{W} /\left(\mathrm{m}^2 \mathrm{~K}\right)$.
+
+**Answer**:
+$$
+h_{2 \phi}=h_{N B}+h_c\approx 40980.268 \mathrm{~W} /\left(\mathrm{m}^2 \cdot\mathrm{K}\right).
+$$
+
+
+9. Calculate the **saturation boiling heat flux** using Chen's correlation and temperature given in Question 6.
+$$
+q_w^{\prime \prime}=h_{2 \Phi}\left(T_w-T_\text{sat}\right)
+$$
+
+The answer of $q_w^{\prime \prime}$ should be given in $\mathrm{W} / \mathrm{m}^2$.
+
+**Answer**:
+$$
+q_w^{\prime \prime}=h_{2 \Phi}\left(T_w-T_\mathrm{s a t}\right) = h_{2 \Phi}(370 - 345)\mathrm{~K}\approx 1024506.694 \mathrm{~W} / \mathrm{m}^2.
+$$
+
+
+10. Assume that the liquid velocity is zero (pool conditions), calculate the critical heat flux using Zuber's correlation:
+$$
+q_\text{cr}^{\prime \prime}=\rho_g j_g h_{f g}
+$$
+
+where the vapor velocity leading to the onset of fluidization $j_g$ is given by:
+$$
+j_g=0.13\left[\frac{\sigma\left(\rho_f-\rho_g\right) g}{\rho_g^2}\right]^{1 / 4}
+$$
+
+The answer of $q_\text{cr}^{\prime \prime}$ should be given in $\mathrm{W} / \mathrm{m}^2$.
+
+**Answer**:
+$$
+\begin{aligned}
+  &j_g=0.13\left[\frac{\sigma\left(\rho_f-\rho_g\right) g}{\rho_g^2}\right]^{1 / 4}\approx 0.0283 \mathrm{~m/s}\\
+  \implies & q_\text{cr}^{\prime \prime}=\rho_g j_g h_{f g}\approx 2789163.270 \mathrm{~W} / \mathrm{m}^2.
+\end{aligned}
+$$

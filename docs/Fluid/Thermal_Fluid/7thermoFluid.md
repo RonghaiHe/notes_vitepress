@@ -265,7 +265,7 @@ $$
 - $\langle\cdot\rangle$:  × (void fraction)
 - $\langle\langle\cdot\rangle\rangle$: Area-averaging
 
-One-dimensional (or area-averaged) drift-flux model:
+One-dimensional (or area-averaged) **drift-flux model**[core] :
 $$
 \left\langle\left\langle v_g\right\rangle\right\rangle \equiv \frac{\left\langle j_g\right\rangle}{\langle\alpha\rangle}=C_0\langle j\rangle+\left\langle\left\langle v_{g j}\right\rangle\right\rangle
 $$
@@ -405,7 +405,7 @@ a_i = \frac{6\alpha}{D_{\mathrm{sm}}}
 $$
 
 #### Frictional pressure drop
-Lockhart-Martinelli method:
+**Lockhart-Martinelli method**[core] :
 $$
 \left(-\frac{\Delta p}{\Delta z}\right)_{2\phi, \text {fric }}=\Phi_f^2\left(-\frac{\Delta p}{\Delta z}\right)_{1\phi, \mathrm{fric},f} \quad \text { Darcy friction factor }
 $$
