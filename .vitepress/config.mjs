@@ -37,6 +37,7 @@ export default defineConfig({
               { text: 'Numerical Methods for ODE', link: '/docs/Math/Engineering_Methods/numerical_methods_ODE9' },
               { text: 'Series solutions for ODE', link: '/docs/Math/Engineering_Methods/series_solutions10' },
               { text: 'Boundary Value Problems', link: '/docs/Math/Engineering_Methods/BVP11' },
+              { text: 'Linear PDE', link: '/docs/Math/Engineering_Methods/linearPDE12' },
             ]
           }
         ]
@@ -94,6 +95,7 @@ export default defineConfig({
                 { text: 'Numerical Methods for ODE', link: '/docs/Math/Engineering_Methods/numerical_methods_ODE9' },
                 { text: 'Series solutions for ODE', link: '/docs/Math/Engineering_Methods/series_solutions10' },
                 { text: 'Boundary Value Problems', link: '/docs/Math/Engineering_Methods/BVP11' },
+                { text: 'Linear PDE', link: '/docs/Math/Engineering_Methods/linearPDE12' },
               ]
         }
       ],
