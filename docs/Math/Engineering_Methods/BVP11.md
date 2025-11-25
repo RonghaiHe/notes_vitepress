@@ -310,7 +310,7 @@ $$
 \end{gathered}
 $$
 
-What happens to $\lambda$ if ${F}(\mathrm{x})$ exists?
+What happens to $\lambda$ if ${F}(x)$ exists?
 
 Substitute the homogeneous solution into question
 

@@ -160,7 +160,7 @@ $$
 
 if the functions $u_1, u_2,\cdots, u_n$ are linearly dependent, then the determinant The following determinant vanishes if the functions are linearly dependent; otherwise, they are linearly independent
 
-::: tip Lemma: Wronskian determinant
+::: tip Lemma: Wronskian determinant [core]
 The vanishing of the Wronskian determinant is necessary but not sufficient for linear dependence.
 The functions are **linearly independent** if this determinant does not **vanish**, i.e.:
 $$
@@ -365,7 +365,7 @@ $$
 $$
 
 - The second family is **contained in the first**, and is **discarded**. 
-- Since the first family has the representative $1$ in the **homogeneous solution**($r_1=0\to e^{0}=1$), it is replaced by the family $\left\{x^2, x\right\}$. Similarly, the last family is replaced by $\left\{x e^x\right\}$ ($r_2=1\to e^{1x}$). (?)
+- Since the first family has the representative $1$ in the **homogeneous solution**($r_1=0\to e^{0}=1$), it is replaced by the family $\left\{x^2, x\right\}$. Similarly, the last family is replaced by $\left\{x e^x\right\}$ ($r_2=1\to e^{1x}$).
 
 A particular solution is then assumed in the form
 $$

@@ -91,7 +91,7 @@ $$
 \phi = f(x_i,y_i).
 $$
 
-where $f(x_i,y_i)$ is the differential equation evaluated at $x_i$ and $y_i$. This estimate can be substituted into the equation:
+where $f(x_i,y_i)$ is the differential equation evaluated at $x_i$ and $y_i$. This estimate can be substituted into the equation: [core]
 $$
 y_{i+1} = y_i + f(x_i,y_i)h
 $$
@@ -254,7 +254,7 @@ $$
 \end{aligned}
 $$
 
-### Classical 4th-Order RK
+### Classical 4th-Order RK [core]
 For $n=4$:
 $$
 \begin{aligned}

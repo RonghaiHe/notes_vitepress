@@ -15,7 +15,7 @@ $$
 for those values of $x$ for which the limit exists
 :::
 
-### Ratio Test for the Convergence of Power Series
+### Ratio Test for the Convergence of Power Series [core]
 To determine for what values of $x$ the series **converges**, we may make use of the ratio test, which states that if the absolute value of the **ratio** of the $(n + 1)^{\text{th}}$ term to the $n^{\text{th}}$ term in any infinite series approaches a limit $\rho$ as $n$ goes to infinity, then the series converges when $\rho < 1$ and diverges when $\rho > 1$.
 
 In the case of the power series
@@ -359,7 +359,7 @@ $$
 y=c_1y_1(x)+c_2y_2(x).
 $$
 
-#### Rethinking [Example II](#example-ii-solving-ode-with-power-series)
+#### Rethinking [Example II](#example-ii-solving-ode-with-power-series) [core]
 $$
 Ly \equiv x^2\frac{\mathrm{d}^2y}{\mathrm{d}x^2} + (x^2+x)\frac{\mathrm{d}y}{\mathrm{d}x} - y = 0.
 $$

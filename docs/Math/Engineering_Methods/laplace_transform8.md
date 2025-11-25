@@ -135,11 +135,11 @@ the Laplace transform of $f(t)$ exists, when $s$ is sufficiently large, if $f(t)
 ### Examples for Laplace Transforms
 $$
 \begin{aligned}
-\mathscr{L}\{1\}&=\int_0^{\infty} e^{-s t} d t=-\left.\frac{e^{-s t}}{s}\right|_0 ^{\infty}=\frac{1}{s} \quad(s>0) . \\ \mathscr{L}\left\{e^{a t}\right\}&=\int_0^{\infty} e^{-(s-a) t} d t=-\left.\frac{e^{-(s-a) t}}{s-a}\right|_0 ^{\infty}=\frac{1}{s-a} \quad(s>a) . \\ \mathscr{L}\{\sin a t\}&=\int_0^{\infty} e^{-s t} \sin a t d t=-\left.\frac{e^{-s t}}{s^2+a^2}(s \sin a t+a \cos a t)\right|_0 ^{\infty} \\ &=\frac{a}{s^2+a^2} \quad(s>0) .
+\mathscr{L}\{1\}&=\int_0^{\infty} e^{-s t} \mathrm{~d} t=-\left.\frac{e^{-s t}}{s}\right|_0 ^{\infty}=\frac{1}{s} \quad(s>0) . \\ \mathscr{L}\left\{e^{a t}\right\}&=\int_0^{\infty} e^{-(s-a) t} \mathrm{~d} t=-\left.\frac{e^{-(s-a) t}}{s-a}\right|_0 ^{\infty}=\frac{1}{s-a} \quad(s>a) . \\ \mathscr{L}\{\sin a t\}&=\int_0^{\infty} e^{-s t} \sin a t \mathrm{~d} t=-\left.\frac{e^{-s t}}{s^2+a^2}(s \sin a t+a \cos a t)\right|_0 ^{\infty} \\ &=\frac{a}{s^2+a^2} \quad(s>0) .
 \end{aligned}
 $$
 
-## Properties
+## Properties [core]
 ### Properties of Laplace Transform
 Some most useful properties of Laplace transforms:
 $$
@@ -259,7 +259,7 @@ $$
 
 is $f(t)=1$; that is, $\mathscr{L}^{-1}\left\{s^{-1}\right\}=1$. However, it is clear that if we take $f(t)$ to be, say, zero at $t=1$ and **unity** elsewhere, or otherwise redefine the function $f(t)$ at a finite number of points, the value of the integral is not changed. Hence the new function is also a solution. Such artificialities are, however, generally of no significance in applications.
 
-Table: Laplace Transform
+Table: Laplace Transform [core]
 |  | Transform | Function |
 | :--- | :--- | :--- |
 | T1 | $\bar{f}(s)=\mathscr{L}\{f(t)\}=\int_0^{\infty} e^{-s t} f(t) \mathrm{~d} t$ | $f(t)$ |
@@ -331,7 +331,7 @@ $$
 \end{aligned}
 $$
 
-> (Heaviside cover-up method / Residue Method)Let
+> (Heaviside cover-up method / Residue Method) Let
 > $$
     \begin{aligned}
       &\frac{N(s)}{D(s)} = \sum_{m=1}^n\frac{A_m}{s-a_m} \\
@@ -375,7 +375,7 @@ $$
 e^{-2 t}(\cos t-2 \sin t) .
 $$
 
-#### Example3: Solving the following ODE with Laplace Transform
+#### Example3: Solving the following ODE with Laplace Transform [core]
 <img src="/math_em8_3_vibration.png" alt="vibration model" width="100%" align="center">
 
 Forced vibration:
