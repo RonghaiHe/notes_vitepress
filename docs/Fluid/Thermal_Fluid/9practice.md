@@ -657,3 +657,229 @@ $$
   \implies & q_\text{cr}^{\prime \prime}=\rho_g j_g h_{f g}\approx 3.95\times 10^6 \mathrm{~W} / \mathrm{m}^2.
 \end{aligned}
 $$
+
+## Quiz5
+It has been decided to conduct a two-phase flow experiment at the given void fraction and mass flux. During the experiment, there will be a pressure drop in the system due to the liquid single-phase flow and two-phase flow. Estimation of the pressure drop is essential to select right equipment such as pump. To select the pump, liquid flow rate and total head loss are required. In the current simplified example, the procedure for pump selection is reviewed.
+
+Given Key Information
+
+- Void fraction：$\langle\alpha\rangle=0.70$
+- Mass flux $\left.G=900 \mathrm{~kg} /(\mathrm{m\cdot s}\right)$
+- Pressure condition： ${P}=0.1 \mathrm{MPa}$
+- Temperature condition：$T=T_\text{sat}=180^{\circ} \mathrm{C}$
+- Diameter of the vertical pipe test section：$D_h=0.06 \mathrm{~m}$
+- Height of the vertical pipe test section：$H=4.0 \mathrm{~m}$
+- Diameter of the horizontal water piping system：$D=0.12\mathrm{~m}$
+- Length of the horizontal water piping system：$L=12 \mathrm{~m}$
+- Liquid density：$\rho_f=887 \mathrm{~kg} / \mathrm{m}^3$
+- Gas density：$\rho_{{g}}=5.16 \mathrm{~kg} / \mathrm{m}^3$
+- Liquid dynamic viscosity $\mu_f=1.50 \times 10^{-4} \mathrm{~Pa\cdot s}$
+- Gas dynamic viscosity：$\mu_g=1.50 \times 10^{-5} \mathrm{~Pa\cdot s}$
+- Gravity acceleration：$g=9.8 \mathrm{~m} / \mathrm{s}^2$
+- Air－water surface tension：$\sigma=0.0422 \mathrm{~N} / \mathrm{m}$
+
+### Q5-1
+Calculate the chum drift velocity value given by
+$$
+\left\langle\left\langle v_{{gj}}\right\rangle\right\rangle=\sqrt{2}\left(\frac{\Delta \rho g \sigma}{\rho_{{f}}^2}\right)^{0.25} .
+$$
+at the atmospheric flow condition. Fluid properties at the atmospheric condition: air and water densities are $1.17 \mathrm{~kg} / \mathrm{m}^3$ and $998 \mathrm{~kg} / \mathrm{m}^3$, and the surface tension and gravity acceleration are $0.0727 \mathrm{~N} / \mathrm{m}$ and $9.8 \mathrm{~m} / \mathrm{s}^2$.
+
+**Answer**:
+$$
+\langle\langle v_{gj}\rangle\rangle = \sqrt{2}\left(\frac{\Delta \rho g\sigma}{\rho_f^2}\right)^{0.25} \approx 0.208 \mathrm{~m/s}.
+$$
+
+### Q5-2
+Calculate the quality for steam-water flow at void fraction of $0.70(\langle\alpha\rangle=0.70)$ at $1.0\mathrm{~MPa}$. Mass flux is $900 \mathrm{~kg} /\left(\mathrm{m}^2 \cdot \mathrm{s}\right)$. Use the values of drift velocity and distribution parameter($=1.2$) in Questions 1.
+Fluid properties at the $1.0\mathrm{~MPa}$: steam and water densities are $5.16 \mathrm{~kg} / \mathrm{m}^3$ and $887 \mathrm{~kg} / \mathrm{m}^3$. Use the following equation.
+$$
+\langle x\rangle=\frac{\frac{C_0}{\rho_{{f}}}+\frac{\left\langle\left(v_{\mathrm{gi}}\right)\right\rangle}{G}}{\frac{1}{\langle\alpha\rangle \rho_{{g}}}-\frac{C_0}{\rho_{{g}}}+\frac{C_0}{\rho_{{f}}}}
+$$
+
+**Answer**:
+$$
+\langle x\rangle = \frac{\frac{C_0}{\rho_f} + \frac{\langle\langle v_{gj}\rangle\rangle}{G}}{\frac{1}{\langle \alpha\rangle\rho_g} - \frac{C_0}{\rho_g} + \frac{C_0}{\rho_f}}\approx 0.0347.
+$$
+
+### Q5-3
+Use the calculated quality ($\langle x\rangle=0.0347$) to obtain the mixture volumetric flux at mass flux of $900 \mathrm{kg/(m^2\cdot s)}$.
+The answer should be given using $\mathrm{m/s}$.
+
+**Answer**:
+$$
+\begin{aligned}
+  &\langle j_g\rangle = \frac{G\langle x\rangle}{\rho_g} \approx 6.05\mathrm{~m/s}\\
+  &\langle j_f\rangle = \frac{G(1-\langle x\rangle)}{\rho_f}\approx 0.979\mathrm{~m/s}\\
+  \implies& \langle j\rangle = \langle j_g\rangle + \langle j_f\rangle\approx 7.03\mathrm{~m/s}
+\end{aligned}
+$$
+
+### Q5-4
+<img src="/fluid_tf9_3_quiz.png" alt="two-phase flow experiment" width="100%" align="center">
+
+The figure shows the flow loop for the two-phase flow experiment in pipes. Water is driven by a pump and air is driven by an air compressor. They are mixed in the air-water injector, and then injected into the vertical pipe test section.
+
+Assume that two phases flow in the vertical pipe with a **diameter** $\left(D_{{h}}\right)$ of $0.06 \mathrm{~m}$ at **mass flux** $(G)$ of $900 \mathrm{~kg}/\left(\mathrm{~m}^2\cdot\mathrm{s}\right)$ and **void fraction** $(\langle\alpha\rangle)$ of $0.70$ at the atmospheric condition. Calculate the hydrostatic pressure gradient. If the **total height of the pipe section** $({H})$ is $4 \mathrm{~m}$ , then what is the hydrostatic pressure loss? For simplicity, assume that the air and water fluid compressibility is negligible at the flow condition.
+The valve head loss in the horizontal pipe is $1 \mathrm{~m}$.
+
+Assume that the void fraction change along the flow direction is negligible.
+
+Fluid properties are given by:
+$$
+\begin{aligned}
+& \rho_{{f}}=887 \mathrm{~kg} / \mathrm{m}^3, \rho_{{g}}=5.16 \mathrm{~kg} / \mathrm{m}^3 \\
+& \mu_{{f}}=1.50 \times 10^{-4} \mathrm{~Pa} \cdot \mathrm{~s}, \mu_{{g}}=1.50 \times 10^{-5} \mathrm{~Pa} \cdot \mathrm{~s} \\
+& g=9.8 \mathrm{~m} / \mathrm{s}^2
+\end{aligned}
+$$
+
+The answer should be given using $\mathrm{Pa}$.
+
+**Answer**:
+The two-phase hydrostatic pressure gradient is given by:
+$$
+\left(\frac{\mathrm{d}P}{\mathrm{d}x}\right)_\text{hydro} = \rho_mg = [\langle\alpha\rangle\rho_g + (1-\langle\alpha\rangle)\rho_f]g.
+$$
+
+If the pipe height is $5\mathrm{~m}$, then:
+$$
+\Delta P_{\mathrm{hyd}} = \left(\frac{\mathrm{d}P}{\mathrm{d}x}\right)_\text{hydro}H = \rho_m gH = [\langle\alpha\rangle\rho_g + (1-\langle\alpha\rangle)\rho_f]gH \approx 10573\mathrm{~Pa}.
+$$
+
+### Q5-5
+Following Question 4, calculate the two-phase frictional pressure gradient using the Lockhart-Martinelli method. What is the two-phase frictional pressure loss in the vertical pipe if the pipe length is $4 \mathrm{~m}$ ?
+The following friction factors can be used:
+- Laminar flow:
+$$
+{f}_{\text {fric }}=\frac{64}{\operatorname{R e}} .
+$$
+
+- Turbulent flow:
+$$
+{f}_{\text {fric }}=\frac{0.316}{\operatorname{R e}^{0.25}}
+$$
+
+Two-phase multiplier is given by:
+$$
+\Phi_{{f}}^{2}=1+\frac{C}{X}+\frac{1}{X^{2}} .
+$$
+
+where
+
+| Liquid | Gas | C |
+| :---: | :---: | :---: |
+| Turbulent  | Turbulent  | 20 |
+| Laminar  | Turbulent  | 12 |
+| Turbulent  | Laminar  | 10 |
+| Laminar  | Laminar  | 5 |
+
+The answer should be given using $\mathrm{Pa}$.
+
+**Answer**: The relevant formulas:
+$$
+\begin{gathered}
+  \left(-\frac{\mathrm{d}P}{\mathrm{d}z}\right)_{\mathrm{fric},2\Phi} = \Phi_f^2\left(-\frac{\mathrm{d}P}{\mathrm{d}z}\right)_{\mathrm{fric},f}, \text{ where } \left(-\frac{\mathrm{d}P}{\mathrm{d}z}\right)_{\mathrm{fric},f} = \frac{f}{D}\frac{\rho_f \langle j_f\rangle^2}{2} \\
+  X = \sqrt{\frac{\left(-\frac{\mathrm{d}P}{\mathrm{d}z}\right)_{\mathrm{fric},f}}{\left(-\frac{\mathrm{d}P}{\mathrm{d}z}\right)_{\mathrm{fric},g}}}\quad \text{(Lockhart-Martinelli coefficient)}
+\end{gathered}
+$$
+
+The reynolds number about the liquid and gas are calculated by:
+$$
+\begin{aligned}
+  &\operatorname{Re}_f = \frac{\rho_f\langle j_f\rangle D_h}{\mu_f} = 347508\\ 
+  &\operatorname{Re}_g = \frac{\rho_g\langle j_g\rangle D_h}{\mu_g} = 124920.
+\end{aligned}
+$$
+
+Both gas and liquid flows are **turbulent**. Thus, liquid and gas friction factors are calculated by:
+$$
+\begin{aligned}
+  &f_{\mathrm{fric},f} = \frac{0.316}{\operatorname{Re}_f^{0.25}} \approx 0.0130 \\
+  &f_{\mathrm{fric},g} = \frac{0.316}{\operatorname{Re}_g^{0.25}} \approx 0.0168
+\end{aligned}
+$$
+
+Then, liuquid and gas pressure gradients are calculated by:
+$$
+\begin{aligned}
+  &\left(-\frac{\mathrm{d}P}{\mathrm{d}z}\right)_{\mathrm{fric},f} = \frac{f_{\mathrm{fric},f}}{D_h}\frac{\rho_f \langle j_f\rangle^2}{2}\approx 92.3\mathrm{~Pa/m}\\
+  &\left(-\frac{\mathrm{d}P}{\mathrm{d}z}\right)_{\mathrm{fric},g} = \frac{f_{\mathrm{fric},g}}{D_h}\frac{\rho_g \langle j_g\rangle^2}{2}\approx 26.5\mathrm{~Pa/m}.
+\end{aligned}
+$$
+
+Then, the Lockhart-Martinelli coefficient is given by:
+$$
+X = \sqrt{\frac{\left(-\frac{\mathrm{d}P}{\mathrm{d}z}\right)_{\mathrm{fric},f}}{\left(-\frac{\mathrm{d}P}{\mathrm{d}z}\right)_{\mathrm{fric},g}}}\approx 1.87.
+$$
+
+$C=20$ for both gas and liquid are turbulent. The two-phase multiplier is calculated by:
+$$
+\Phi_{{f}}^{2}=1+\frac{C}{X}+\frac{1}{X^{2}} \approx 12.0.
+$$
+
+Eventually, we have
+$$
+\begin{aligned}
+  &\left(-\frac{\mathrm{d}P}{\mathrm{d}z}\right)_{\mathrm{fric},2\Phi} = \Phi_f^2\left(-\frac{\mathrm{d}P}{\mathrm{d}z}\right)_{\mathrm{fric},f}\approx 1107\mathrm{~Pa/m} \\
+  \implies& \Delta P_{\mathrm{fric},2\Phi} = \left(-\frac{\mathrm{d}P}{\mathrm{d}z}\right)_{\mathrm{fric},2\Phi}H \approx 4430\mathrm{~Pa}.
+\end{aligned}
+$$
+
+### Q5-6
+Assume that pipes for transporting water has the **diameter** ($D$) of $0.12 \mathrm{~m}$. Calculate the **liquid velocity** in the water pipe if the liquid compressibility is negligible. What is the **frictional pressure gradient** in water pipe? If the water pipe has the length of $12 \mathrm{~m}$. what is the **frictional pressure loss** of water?
+The answer should be given using $\mathrm{Pa}$.
+
+**Answer**: 
+
+According to Question 7, the liquid velocity in the **pipe test section** is:
+$$
+\left\langle j_{{f}}\right\rangle\approx 0.979 \mathrm{~m} / \mathrm{s} .
+$$
+
+Then, the liquid volumetric flow rate is:
+$$
+Q_f=\frac{\langle j_f\rangle \pi D_h^2}{4}\approx 0.979 \times \frac{\pi}{4} \times 0.06^2=0.00277 \mathrm{~m}^3 / \mathrm{s} .
+$$
+
+Then, the liquid velocity in the **water pipe** is:
+$$
+\left\langle j_{f, 1 \Phi}\right\rangle=\frac{4 Q_f}{\pi D^2}\approx \frac{4 \times 0.00277}{\pi \times 0.12^2}=0.245 \mathrm{~m} / \mathrm{s} .
+$$
+
+Then, the liquid single-phase Reynolds number is:
+$$
+\operatorname{R e}_{{f}, 1 \Phi}=\frac{\rho_{{f}}\langle j_{{f}, 1 \Phi}\rangle D}{\mu_{{f}}}\approx\frac{887 \times 0.245 \times 0.12}{1.50 \times 10^{-4}}=173754.
+$$
+
+The liquid single-phase flow is **turbulent**. Thus, the single-phase friction factor is:
+$$
+f_{\mathrm{fric}, 1 \Phi}=\frac{0.316}{\operatorname{R e}_{f, 1 \Phi}^{0.25}}\approx\frac{0.316}{24689^{0.25}}=0.0155
+$$
+
+Then, the liquid single-phase frictional pressure gradient is:
+$$
+\begin{aligned}
+& \left(-\frac{\mathrm{d} p}{\mathrm{d} x}\right)_{\mathrm{fric}, 1 \Phi}=\frac{f_{\mathrm{fric}, 1 \Phi}}{D}\frac{\rho_f \langle j_{f, 1 \Phi}\rangle^2}{2} \\
+\approx&\frac{0.0155 \times 887 \times 0.245^2}{0.12 \times 2}\approx 3.43 \mathrm{~Pa} / \mathrm{m}
+\end{aligned}
+$$
+
+Then, the liquid single-phase frictional pressure loss is:
+$$
+\Delta P_{\text {fric }, 1 \Phi}=\left(-\frac{\mathrm{d} p}{\mathrm{d} x}\right)_{\mathrm{fric}, 1 \Phi} L\approx 3.43 \times 12\approx 41.2 \mathrm{~Pa}.
+$$
+
+### Q5-7
+Assume that the total pressure loss from pump to the top of the test section consists of a pressure loss due to the **horizontal single-phase liquid flow** and a pressure loss due to **the upward two-phase flow in the vertical test section**. Use the values calculated in Questions 4 to 6 to obtain a total pressure loss. 
+The answer should be given using $\mathrm{Pa}$.
+
+**Answer**:
+
+The total pressure loss is equal to:
+$$
+\begin{aligned}
+  \Delta P_{\text {total}}&=\Delta P_{\text {fric}, 1 \Phi}+\Delta P_{\text {fric}, 2 \Phi}+\Delta P_{\text{hydro}} + \Delta P_\text{valve}\\
+  &\approx 41.2+4430+10573 + 1\times 887\times 9.8\approx 23736 \mathrm{~Pa}
+\end{aligned}
+$$
