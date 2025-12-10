@@ -19,7 +19,7 @@ $$
 - $r^*$: radius of bubble
 - $\sigma$: coefficient of surface tension 表面张力
 
-[core] Clausius-Clapeyron relation b/w $p_{\mathrm{sat}}$ \& $T_{\mathrm{sat}}$ (where $h_{\mathrm{fg}}$ is Latent heat of phase change 相变潜热 / enthalpy of vaporization): 
+Clausius-Clapeyron relation b/w $p_{\text{sat}}$ \& $T_{\text{sat}}$ (where $h_{\mathrm{fg}}$ is Latent heat of phase change 相变潜热 / enthalpy of vaporization): 
 
 The Clausius-Clapeyron equation specifies the temperature dependencies of pressure, most importantly, vapor pressure, at a discontinuous phase transition b/w two phase of matter of a single contituent
 
@@ -34,7 +34,7 @@ Superheat ($=T_{\mathrm{b}}-T_{\text {sat }}$ ) required to maintain a bubble
 
 when  $2 \sigma / p_{l} r^* \ll 1, p_{\mathrm{b}} \simeq p_{l} . R T_{\mathrm{b}} / p_{\mathrm{b}}=\nu_{\mathrm{b}} \simeq \nu_{\mathrm{fg}}$ . 
 $$
-T_{\mathrm{b}}-T_{\text {sat }} \simeq \frac{R T_{\mathrm{b}} T_{\mathrm{sat}} 2 \sigma}{h_{\mathrm{fg}} p_{\mathrm{b}} r^*} \simeq \frac{2 \sigma T_{\text {sat }} \nu_{\mathrm{fg}}}{h_{\mathrm{fg}}}\left(\frac{1}{r^*}\right) \quad p_{l} \ll p_{\mathrm{c}}
+T_{\mathrm{b}}-T_{\text {sat }} \simeq \frac{R T_{\mathrm{b}} T_{\text{sat}} 2 \sigma}{h_{\mathrm{fg}} p_{\mathrm{b}} r^*} \simeq \frac{2 \sigma T_{\text {sat }} \nu_{\mathrm{fg}}}{h_{\mathrm{fg}}}\left(\frac{1}{r^*}\right) \quad p_{l} \ll p_{\mathrm{c}}
 $$
 
 where $p_c$ is Critical pressure.
@@ -62,34 +62,50 @@ where $C_1=0.13$.
 - **Dry-out type CHF**: High quality
 - **DNB (departure from nucleate boiling) type CHF (similar to CHF in pool boiling)**: Low quality
 
-Enthalpy 焓 [$\mathrm{J/kg}$] at $z$ from inlet:
+Enthalpy 焓 [$\mathrm{J/kg}$] at $z$ from inlet [core]:
 $$
-h = h_{l,in} + \frac{4q_w''z}{DG}
+h = h_\text{l,in} + \frac{4q_w''z}{DG}
 $$
+
+where:
+- $q_w''$: heat flux
+- $z$: height w.r.t. the inlet
+- $D$: diameter of pipe
+- $G = \rho_g\langle j_g\rangle + \rho_f\langle j_f\rangle = \rho_mv_m$: mass flux
 
 > $\frac{4q_w''z}{DG}$ comes from
 > 1. The area of pipe wall: $z\pi D$
 > 2. The whole heat: $\Delta Q = q''_w\cdot z\pi D$
 > 3. The enthalpy increase: $\Delta Q/W = \Delta Q/(G\cdot \pi D^2/4) = \frac{4q_w''z}{DG}$
 
-Thermal equilibrium quality at $z$ from inlet:
+::: warning definition: Thermal equilibrium
+Two physical systems are in thermal equilibrium if there is **no net flow of thermal energy** between them when they are connected by a path permeable to heat
+(From wikipedia)
+:::
+
+::: warning definition: Thermal equilibrium quality
+Thermal equilibrium quality: ratio of the **actual enthalpy of a fluid mixture** to the **enthalpy if it were completely vaporized**, assuming the mixture is in **thermal equilibrium** at the local pressure.
+
+**Thermal equilibrium quality** at $z$ from inlet [core]:
 $$
-x_{eq} = \frac{h - h_{l,\mathrm{sat}}}{h_{fg}} = \frac{h_{l,in} + \frac{4q_w''z}{DG} - h_{l,\mathrm{sat}}}{h_{fg}}
+x_{eq} = \frac{h - h_{l,\text{sat}}}{h_{fg}} = \frac{h_\text{l,in} + \frac{4q_w''z}{DG} - h_{l,\text{sat}}}{h_{fg}}
 $$
 
-- $h_{l,\mathrm{sat}}$: Saturated enthalpy
-- When $h = h_{fg} + h_{l,\mathrm{sat}}, x_{eq} = 1$
+- $h_{l,\text{sat}}$: Saturated enthalpy
+- $h_{fg}$: enthalpy of vaporization
+- When $h = h_{fg} + h_{l,\text{sat}}, x_{eq} = 1$
+:::
 
 For boiling curve:
-- single-phase flow: $q'' = h(T_w-T_{\mathrm{sat}})$
-- The corner: $(T_w-T_{\mathrm{sat}})^{m-1}$
-- 2-phase flow: $q'' = h(T_w-T_{\mathrm{sat}})^m, \quad m\simeq 3$
+- single-phase flow: $q'' = h(T_w-T_{\text{sat}})$
+- The corner: $(T_w-T_{\text{sat}})^{m-1}$
+- 2-phase flow: $q'' = h(T_w-T_{\text{sat}})^m, \quad m\simeq 3$
 
 ## Subcooled boiling
 <img src="/fluid_tf8_3_void_fraction.png" alt="Stages of void fraction" width="100%" align="center">
 
-1. Region I: Subcooled nucleate boiling (**Onset of nucleate boiling**, $Z_{\mathrm{NB}}$: mean or bulk temperature below Tsat)
-2. Region II: Subcooled nucleate boiling (**Onset of significant void**, $Z_\mathrm{D}$)
+1. Region I: Subcooled nucleate boiling (**Onset of nucleate boiling** (核态沸腾起始点), $Z_{\mathrm{NB}}$: mean or bulk temperature below $T_\text{sat}$)
+2. Region II: Subcooled nucleate boiling (**Onset of significant void** (显着空洞), $Z_\mathrm{D}$)
 3. Region III: Saturated boiling ($x_{eq}=0$: since liquid does not reach saturation
 condition due to the bubble presence and non-equilibrium)
 4. Region IV: Saturated boiling (thermal equilibrium condition at $Z_\mathrm{E}$)
@@ -103,8 +119,21 @@ Net vapor generation: The point at which bubbles can depart from the wall before
 - Thermally controlled departure: The wall heat flux is balanced by heat removal due to liquid subcooling at $Z_\mathrm{D}$.
 - Hydrodynamically controlled departure: The bubble detachment is primarily the result of drag (or shear) force overcoming the surface tension force
 
-**Saha-Zuber correlation**: (empirical) $\mathrm{St} = \frac{\mathrm{Nu}}{\mathrm{Re}\mathrm{Pr}} \sim \mathrm{Pe} = \frac{\mathrm{Nu}}{\mathrm{St}} = \frac{GD_nc_{pf}}{k_f}$
+**Saha-Zuber correlation**: (empirical)
 
+At first, introduce **Peclet number** [core]:
+$$
+\begin{aligned}
+  \mathrm{St} = \frac{\mathrm{Nu}}{\mathrm{Re}\mathrm{Pr}} \sim \mathrm{Pe} &= \frac{\mathrm{Nu}}{\mathrm{St}} \\
+  \implies &= \frac{GD_nC_{pf}}{k_f}
+\end{aligned}
+$$
+
+where:
+- $C_{pf}$: Saturated liquid isobaric heat capacity
+- $k_f$: Saturated liquid thermal conductivity
+
+::: details no use
 $$
 x_{eq}(Z_D) = 
 \begin{cases}
@@ -113,19 +142,29 @@ x_{eq}(Z_D) =
 \end{cases}
 $$
 
+:::
+
 For temperature:
 $$
-T_{\mathrm{sat}} - T_{\mathrm{bulk}} = 
+T_{\text{sat}} - T_{D} = 
 \begin{cases}
   0.0022\frac{q''D_n}{k_f} & \mathrm{Pe}\le 70000\\
   153.85\frac{q''}{Gc_{pl}} & \mathrm{Pe}\ge 70000\\
 \end{cases}
 $$
 
+and $Z_D$ is calculated as:
+$$
+Z_D=\frac{\frac{\pi D_h^2}{4} G C_{pl}\left(T_D-T_{i n}\right)}{\pi D_h q_w^{\prime \prime}} = \frac{D_h G C_{pl}\left(T_D-T_{i n}\right)}{4 q_w^{\prime \prime}}
+$$
+
+- 分子：将总质量流量的流体从 $T_{in}$ 显热加热到 $T_D$ 所需要的总功率
+- 分母：单位长度加热功率
+
 <img src="/fluid_tf8_4_correlation.png" alt="Saha-Zuber correlation" width="100%" align="center">
 
 ### Subcooled flow quality and void fraction
-**Profile-fit approach**: Currently accepted approach for determining the flow quality in subcooled region
+**Profile-fit approach**: Currently accepted approach for determining the flow quality in subcooled region [core]
 $$
 x(z) = x_{eq}(z) - x_{eq}(Z_{\mathrm{D}})\exp\left[\frac{x_{eq}(z)}{x_{eq}(Z_{\mathrm{D}})} - 1\right]
 $$
@@ -178,63 +217,75 @@ Heat transfer:
   - Dittus-Boelton equation for $1\phi$ convective heat transfer (Turbulent flow):
     $$\mathrm{Nu} = 0.023\mathrm{Re}^{0.8}\mathrm{Pr}^m, \quad m=0.3 (\text{cooling}), 0.4(\text{heating})$$
   - $\mathrm{Re} = \rho_fj_fD/\mu_f$ where $j_f=G(1-x)/\rho_f$
-- $2\phi: q'' = h_{2\phi}(T_w-T_{\mathrm{sat}})$ (Saturated boiling flow)
+- $2\phi: q'' = h_{2\phi}(T_w-T_{\text{sat}})$ (Saturated boiling flow)
   - $h_{2\phi} = \underbrace{h_{\mathrm{NB}}}_{\text{nucleate boiling}} + \underbrace{h_{C}}_{\text{forced convective flow}}\quad (\text{Chen correlation})$
 
 ## Boling incipience
 Fourier's law:
 $$
-q'' = -k_l\frac{\partial T}{\partial r}\sim k_l\frac{T_b-T_{\mathrm{sat}}}{r^{*}}
+q'' = -k_l\frac{\partial T}{\partial r}\sim k_l\frac{T_b-T_{\text{sat}}}{r^{*}}
 $$
 
 [Clausius-Clapeyron relation](#clausius-clapeyron-relation):
 $$
-T_w = T_{\mathrm{sat}} + \frac{2\sigma T_{\mathrm{sat}}v_{fg}}{h_{fg}}\frac{1}{r^{*}}.
+T_w = T_{\text{sat}} + \frac{2\sigma T_{\text{sat}}v_{fg}}{h_{fg}}\frac{1}{r^{*}}.
 $$
 
 Thus
 $$
-q'' = \frac{k_lh_{fg}}{8\sigma T_{\mathrm{sat}v_{fg}}}(T_w-T_{\mathrm{sat}})^2.
+q'' = \frac{k_lh_{fg}}{8\sigma T_{\text{sat}}v_{fg}}(T_w-T_{\text{sat}})^2.
 $$
 
 ## Quiz3
-Water is injected with a **velocity** of $1.5 \mathrm{~m} / \mathrm{s}$ into a **uniformly** heated vertical pipe with a **diameter** of $0.05 \mathrm{~m}$ and **length** of $10 \mathrm{~m}$ receiving a **heat flux** of $5 \times 10^6 \mathrm{~W} / \mathrm{m}^2$. Inlet pressure and temperature of water are $4.64 \mathrm{~MPa}$ and $25^{\circ} \mathrm{C}$. **Saturation temperature**, $T_{\mathrm{sat}}$, at $4.64 \mathrm{~MPa}$ is $259^{\circ} \mathrm{C}$. **Saturated liquid enthalpy**, $h_{l, s a t}$, and **enthalpy of vaporization**, $h_{f g}$, are $1132 \mathrm{~kJ} / \mathrm{kg}$ and $1665 \mathrm{~kJ} / \mathrm{kg}$. Saturated **liquid density** and saturated **steam density** are $785 \mathrm{~kg} / \mathrm{m}^3$ and $23.4 \mathrm{~kg} / \mathrm{m}^3$. **Enthalpy** of water at $4.64 \mathrm{~MPa}$ and $25^{\circ} \mathrm{C}$ is $123 \mathrm{~kJ} / \mathrm{kg}$. **Density** of the saturated liquid can be used as a good estimation of density of subcooled water. Other average fluid properties are $C_{p l}=4980 \mathrm{~J} / \mathrm{kg} \cdot K, k_l=0.570 \mathrm{~W} / \mathrm{m} \cdot K$, $\mu_l=9.4 \times 10^{-5} \mathrm{~kg} /(m \cdot \mathrm{~s})$. **Surface tension** at the saturation pressure can be used approximately for the calculation $(\sigma=0.0329 \mathrm{~N} / \mathrm{m})$.
+Water is injected with a **velocity** of $1.5 \mathrm{~m} / \mathrm{s}$ into a **uniformly** heated vertical pipe with a **diameter** of $0.05 \mathrm{~m}$ and **length** of $10 \mathrm{~m}$ receiving a **heat flux** of $5 \times 10^6 \mathrm{~W} / \mathrm{m}^2$. Inlet pressure and temperature of water are $4.64 \mathrm{~MPa}$ and $25^{\circ} \mathrm{C}$. **Saturation temperature**, $T_{\text{sat}}$, at $4.64 \mathrm{~MPa}$ is $259^{\circ} \mathrm{C}$. **Saturated liquid enthalpy**, $h_{l, s a t}$, and **enthalpy of vaporization**, $h_{f g}$, are $1132 \mathrm{~kJ} / \mathrm{kg}$ and $1665 \mathrm{~kJ} / \mathrm{kg}$. Saturated **liquid density** and saturated **steam density** are $785 \mathrm{~kg} / \mathrm{m}^3$ and $23.4 \mathrm{~kg} / \mathrm{m}^3$. **Enthalpy** of water at $4.64 \mathrm{~MPa}$ and $25^{\circ} \mathrm{C}$ is $123 \mathrm{~kJ} / \mathrm{kg}$. **Density** of the saturated liquid can be used as a good estimation of density of subcooled water. Other average fluid properties are $C_{p l}=4980 \mathrm{~J} / \mathrm{kg \cdot K}, k_l=0.570 \mathrm{~W} / \mathrm{m \cdot K}$, $\mu_l=9.4 \times 10^{-5} \mathrm{~kg} /(\mathrm{m \cdot s})$. **Surface tension** at the saturation pressure can be used approximately for the calculation $(\sigma=0.0329 \mathrm{~N} / \mathrm{m})$.
 
 1. Calculate the **mixture mass flux** (unit in $\mathrm{kg/m^2s}$).
-In thr uniformly heated pipe:
+In the uniformly heated pipe:
 $$
-G = \rho_fv_f = 785\times 1.5\mathrm{~kg/m^2s} = 1177.5\mathrm{~kg/m^2s}.
+G = \rho_\text{l,in}v_\text{l,in} = 785\times 1.5\mathrm{~kg/m^2s} = 1177.5\mathrm{~kg/m^2s}.
 $$
+
+> $1119-1236$
 
 2. Calculate the **enthalpy** at $4 \mathrm{~m}$ from the pipe inlet (unit in $\mathrm{kJ/kg}$).
 $$
-h = h_{l,in} + \frac{4q_w''z}{DG} = \left(123 + \frac{4\times 5\times 10^3\times 4}{0.05\times 1177.5}\right)\mathrm{~kJ/kg}\approx 1481.811\mathrm{~kJ/kg}.
+h = h_\text{l,in} + \frac{4q_w''z}{DG} = \left(123 + \frac{4\times 5\times 10^3\times 4}{0.05\times 1177.5}\right)\mathrm{~kJ/kg}\approx 1481.811\mathrm{~kJ/kg}.
 $$
+
+> $1407-1555$
 
 3. Calculate the **thermal equilibrium quality** located at the $4 \mathrm{~m}$ from the pipe inlet.
 Thermal equilibrium quality is calculated as
 $$
-x_e(z)|_{z=4} = \frac{h(z)|_{z=4} - h_{l,\mathrm{sat}}}{h_{fg}} = \frac{1481.811 - 1132}{1665}\approx 0.210.
+x_e(z)|_{z=4} = \frac{h(z)|_{z=4} - h_{l,\text{sat}}}{h_{fg}} = \frac{1481.811 - 1132}{1665}\approx 0.210.
 $$
+
+> $0.2$
 
 4. Calculate the **Peclet number** for the inlet liquid.
 $$
 \mathrm{Pe} = \frac{GC_{pl}D}{k_l} = \frac{1177.5\times 4980\times 0.05}{0.570}\approx 5.143816\times 10^5
 $$
 
+> $488680-540120$
+
 5. Calculate the **temperature for onset of significant void**, $T_D$, (unit in $\mathrm{K}$).
 According to Saha-Zuber correlation, when $\mathrm{Pe}>70000$:
 $$
-T_{\mathrm{sat}} - T_D = 153.85\frac{q''}{GC_{pl}} = 153.85\times\frac{5\times 10^6}{1177.5\times 4980}\mathrm{~K}\approx 131.183\mathrm{~K}
+T_{\text{sat}} - T_D = 153.85\frac{q''}{GC_{pl}} = 153.85\times\frac{5\times 10^6}{1177.5\times 4980}\mathrm{~K}\approx 131.183\mathrm{~K}
 $$
 
-Thus $T_D \approx T_{\mathrm{sat}} - 131.3\mathrm{~K}\approx (259 + 273.15 - 131.183)\mathrm{~K}\approx 400.967\mathrm{~K}$
+Thus $T_D \approx T_{\text{sat}} - 131.3\mathrm{~K}\approx (259 + 273.15 - 131.183)\mathrm{~K}\approx 400.967\mathrm{~K}$
+
+> $381-421$
 
 6. Calculate the length at which **onset of significant void** occurs, $Z_D$, (unit in $\mathrm{m}$).
 
 $$
 Z_D=\frac{\frac{\pi D_h^2}{4} G C_{pl}\left(T_D-T_{i n}\right)}{\pi D_h q_w^{\prime \prime}} = \frac{D_h G C_{pl}\left(T_D-T_{i n}\right)}{4 q_w^{\prime \prime}}\approx 1.507\mathrm{~m}.
 $$
+
+> $1.43-1.59$
 
 7. Calculate the **equilibrium quality** at $Z_D,x_e(Z_D)$.
 
@@ -247,10 +298,12 @@ $$
 
 $$
 \begin{gathered}
-  h|_{z=Z_D} = h_{l,in} + \frac{4q_w''Z_D}{DG} \approx \left(123 + \frac{4\times 5\times 10^3\times 1.507}{0.05\times 1177.5}\right)\mathrm{~kJ/kg}\approx 634.392\mathrm{~kJ/kg} \\
+  h|_{z=Z_D} = h_\text{l,in} + \frac{4q_w''Z_D}{DG} \approx \left(123 + \frac{4\times 5\times 10^3\times 1.507}{0.05\times 1177.5}\right)\mathrm{~kJ/kg}\approx 634.392\mathrm{~kJ/kg} \\
   x_e(Z_D) = \frac{h|_{z=Z_D} - h_{l,\text{sat}}}{h_{fg}}\approx -0.299.
 \end{gathered}
 $$
+
+> $-0.313--0.283$
 
 8. Calculate the **quality** at $Z=2\mathrm{~m}, x(Z=2\mathrm{~m})$.
 The quality is calculated based on the **profile-fit** approach:
@@ -260,11 +313,12 @@ $$
 
 where
 $$
-x_e(z)|_{z=2\mathrm{~m}} = \frac{h_{l,\mathrm{in}} + \frac{4q''z|_{z=2\mathrm{~m}}}{GD} - h_{l,\mathrm{sat}}}{h_{fg}}\approx -0.198
+x_e(z)|_{z=2\mathrm{~m}} = \frac{h_{l,\mathrm{in}} + \frac{4q''z|_{z=2\mathrm{~m}}}{GD} - h_{l,\text{sat}}}{h_{fg}}\approx -0.198
 $$
 
 **Thus**
-::: details(Wrong answer in 7th leads to wrong answer here)
+
+::: details (Wrong answer in 7th leads to wrong answer here)
 $$
 x(z)|_{z=2\mathrm{~m}} \approx -0.198 - (-0.392)\times\exp\left[\frac{-0.198}{-0.392} - 1\right] \approx 0.0411
 $$
@@ -274,6 +328,8 @@ $$
 $$
 x(z)|_{z=2\mathrm{~m}} \approx -0.198 - (-0.299)\times\exp\left[\frac{-0.198}{-0.299} - 1\right] \approx 0.0153.
 $$
+
+> $0.0143-0.0158$
 
 9.  Calculate the **distribution parameter**, $C_0$, at $Z=2\mathrm{~m}$.
 Given:
@@ -305,7 +361,10 @@ $$
 \end{aligned}
 $$
 
+> $0.837-0.925$
+
 10.  Calculate the **void fraction** at $Z=2\mathrm{~m}, \alpha(Z=2\mathrm{~m})$.
+
 The void fraction is calculated by
 $$
 \langle \alpha\rangle = \frac{\langle j_g\rangle}{C_0\langle j\rangle + \langle  \langle v_{gj}\rangle\rangle}
@@ -344,6 +403,8 @@ $$
 $$
 \langle \alpha\rangle \approx \frac{2.068}{1.047\times3.507+0.410}\approx 0.321.
 $$
+
+> $0.302-0.334$
 
 ## Quiz4
 Liquid water with the **mass flux** $(G)$ of $2000 \mathrm{~kg} / \mathrm{m}^2 / \mathrm{s}$ is injected into a **uniformly** heated vertical **pipe** at pressure ( $P$ ) condition of $15.5 \mathrm{~MPa}$ and **inlet** temperature ( $T$ ) of $300^{\circ} \mathrm{C}$. The pipe has the **diameter** $\left(D_h\right)$ of $0.05 \mathrm{~m}$ and height of $15 \mathrm{~m}$ . It is heated by the heat source through the outside wall with a **heat flux** $\left(q_w^{\prime \prime}\right)$ of $8 \times 10^5 \mathrm{~W} / \mathrm{m}^2$.
@@ -388,6 +449,8 @@ $$
 \end{aligned}
 $$
 
+> $18810-20790$
+
 2. What is the **temperature difference** between the wall temperature and mean bulk liquid temperature (wall super heat [$^{\circ} \mathrm{C}$])?
 $$
 q''_x = h\Delta T
@@ -400,9 +463,11 @@ $$
 q''_w = h_f\Delta T\implies \Delta T = \frac{q''_w}{h_f}\approx 40.335^{\circ} \mathrm{C}.
 $$
 
+> $38.4-42.4$
+
 3. Determine the **temperature** for the **onset of nucleate boiling**, $T_{\mathrm{ONB}}$, using Basu et al. (2004) correlation. 
 $$
-\Delta T_{\mathrm{ONB}} = \frac{\sqrt{2}}{F(\phi_s)}\left(\frac{\sigma T_{\mathrm{sat}}q''_w}{\rho_g h_{fg}k_f}\right)^{0.5}
+\Delta T_{\mathrm{ONB}} = \frac{\sqrt{2}}{F(\phi_s)}\left(\frac{\sigma T_{\text{sat}}q''_w}{\rho_g h_{fg}k_f}\right)^{0.5}
 $$
 
 where
@@ -430,6 +495,8 @@ $$
 T_\text{ONB}\approx 345.696^{\circ} \mathrm{C}.
 $$
 
+> $329-363$
+
 4. Calculate the **temperature of significant void**, $T_D$.
 $$
 \begin{aligned}
@@ -451,6 +518,8 @@ $$
 T_\mathrm{s a t}-T_D=154\left(\frac{q_w^{\prime \prime}}{G C_{p f}}\right) \implies T_D = T_\mathrm{s a t}-154\left(\frac{q_w^{\prime \prime}}{G C_{p f}}\right) \approx 337.952^{\circ} \mathrm{C}.
 $$
 
+> $321-355$
+
 5. Calculate the length for the **onset of significant void**, $Z_D$.
 $$
 Z_D=\frac{\frac{\pi D_h^2}{4} G C_{p f}\left(T_D-T_{i n}\right)}{\pi D_h q_w^{\prime \prime}}
@@ -462,6 +531,8 @@ The answer of $Z_D$ should be given in $\mathrm{m}$ .
 $$
 Z_D=\frac{\frac{\pi D_h^2}{4} G C_{p f}\left(T_D-T_{i n}\right)}{\pi D_h q_w^{\prime \prime}} = \frac{D_h G C_{p f}\left(T_D-T_{i n}\right)}{4 q_w^{\prime \prime}}\approx 10.366\mathrm{~m}.
 $$
+
+> $9.88-10.9$
 
 6. In another scenario, assume that the **heat flux** is **unknown** and the **wall temperature is fixed** at $370^{\circ} \mathrm{C}$. **Chen's correlation** is used to calculate two-phase heat transfer coefficient and heat flux at $x =0.2$. Saturation pressure at $370^{\circ} \mathrm{C}$ is $21.0 \mathrm{~MPa}$ . Calculate the **nucleate boiling heat transfer coefficient** in Chen's correlation $h_{N B}$.
 $$
@@ -499,6 +570,8 @@ $$
 \end{aligned}
 $$
 
+> $6407-7081$
+
 7. Calculate the **convective boiling heat transfer coefficient** in Chen's correlation $h_c$. Flow conditions are the same as in Question 6.
 $$
 h_c=0.023 \mathrm{R e}_f^{0.8} \operatorname{Pr}_f^{0.4} \frac{k_f}{D_h} F
@@ -510,6 +583,8 @@ The answer of $h_c$ should be given in $\mathrm{W} /\left(\mathrm{m}^2 \mathrm{~
 $$
 h_c=0.023 \mathrm{R e}_f^{0.8} \operatorname{Pr}_f^{0.4} \frac{k_f}{D_h} F\approx 34279.827 \mathrm{~W} /\left(\mathrm{m}^2 \cdot\mathrm{K}\right).
 $$
+
+> $32395-35805$
 
 8. Calculate the **total boiling heat transfer coefficient** in Chen's correlation $h_{2 \phi}$.
 $$
@@ -523,6 +598,7 @@ $$
 h_{2 \phi}=h_{N B}+h_c\approx 40980.268 \mathrm{~W} /\left(\mathrm{m}^2 \cdot\mathrm{K}\right).
 $$
 
+> $38760-42840$
 
 9. Calculate the **saturation boiling heat flux** using Chen's correlation and temperature given in Question 6.
 $$
@@ -536,6 +612,7 @@ $$
 q_w^{\prime \prime}=h_{2 \Phi}\left(T_w-T_\mathrm{s a t}\right) = h_{2 \Phi}(370 - 345)\mathrm{~K}\approx 1024506.694 \mathrm{~W} / \mathrm{m}^2.
 $$
 
+> $969000-1071000$
 
 10. Assume that the liquid velocity is zero (pool conditions), calculate the critical heat flux using Zuber's correlation:
 $$
@@ -556,3 +633,5 @@ $$
   \implies & q_\text{cr}^{\prime \prime}=\rho_g j_g h_{f g}\approx 2789163.270 \mathrm{~W} / \mathrm{m}^2.
 \end{aligned}
 $$
+
+> $2650500-2929500$

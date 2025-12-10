@@ -562,6 +562,8 @@ $$
 C_0 = 1.35 - 0.35\left(\frac{\rho_g}{\rho_f}\right)^{0.5} = 1.27.
 $$
 
+> $1.21-1.33$
+
 2. What is the value of the **drift velocity** in $\mathrm{~m/s}$?
 $$
 \begin{gathered}
@@ -570,10 +572,15 @@ D_h= \frac{4A}{p} = \frac{2\times 0.04\times 0.0024}{0.04+0.0024}\mathrm{~m} \ap
 \end{gathered}
 $$
 
+> $0.0681-0.0753$
+
 3. What is the value of **superficial gas velocity** in $\mathrm{~m/s}$?
 $$
 \langle j_g\rangle = \frac{Q_g}{A} = \frac{5.0\times 10^{-5}}{0.04\times 0.0024}\mathrm{~m/s} = 0.521\mathrm{~m/s}.
 $$
+
+> $0.495-0.547$
+
 4. What is the value of **gas velocity** in $\mathrm{~m/s}$?
 $$
 \begin{gathered}
@@ -584,10 +591,16 @@ $$
    \end{aligned}
 \end{gathered}
 $$
+
+> $1.07-1.19$
+
 5. What is the value of the **void fraction**?
 $$
 \langle\alpha\rangle = \frac{\langle j_g\rangle}{\langle\langle v_g\rangle\rangle} \approx \frac{0.521}{1.13}\approx 0.461.
 $$
+
+> $0.438-0.484$
+
 6. What is the value of the **bubble Sauter mean diameter** in $\mathrm{~m}$?
 $$
 \begin{aligned}
@@ -595,10 +608,16 @@ $$
   =& 2\times \sqrt{\frac{0.0167}{(732-39.2)\times 9.8}}\mathrm{~m}\approx 0.00314\mathrm{~m}.
 \end{aligned}
 $$
+
+> $0.003-0.0033$
+
 7. What is the value of the **interfacial area concentration** in $1/\mathrm{m}$?
 $$
 a_i = \frac{6\langle\alpha\rangle}{D_{Sm}}\approx 882\mathrm{~m^{-1}}.
 $$
+
+> $838-926$
+
 8. What is the value of the **two-phase mixture density** in $\mathrm{~kg/m}^3$?
 $$
 \begin{aligned}
@@ -606,11 +625,19 @@ $$
   =& 0.461\times 39.2 + (1-0.461)\times 732 \mathrm{~kg/m^3} \approx 412\mathrm{~kg/m^3}.
 \end{aligned}
 $$
+
+> $392-433$
+
 9.  What is the value of the **two-phase mass flux** in $\mathrm{~kg/m^2s}$?
 $$
 G = \rho_g\langle j_g\rangle + \rho_f\langle j_f\rangle \approx 39.2\times 0.521 + 732\times 0.3125\approx 249\mathrm{~kg/m^2s}.
 $$
+
+> $237-262$
+
 10.  What is the value of the **flow quality**?
 $$
 \langle x\rangle = \frac{G_g}{G} = \frac{\rho_g\langle j_g\rangle}{G}\approx \frac{39.2\times 0.521}{249}\approx 0.0819.
 $$
+
+> $0.0778-0.086$

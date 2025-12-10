@@ -7,7 +7,7 @@
 4. Understand the [drift-flux model](./7thermoFluid#void-fraction)
    - $v_{gj}=v_g-j$, after area-averaging: $\langle\langle v_{g}\rangle\rangle = C_0\langle j\rangle + \langle\langle v_{gj}\rangle\rangle, \quad \langle\langle v_{g}\rangle\rangle = \frac{\langle j\rangle}{\langle\alpha\rangle}\implies \langle\alpha\rangle=C_0\langle j\rangle + \langle\langle v_{gj}\rangle\rangle$ where $C_0 = \frac{\langle\alpha j\rangle}{\langle\alpha\rangle\langle j\rangle}. C_0=1$ when HEM
 5. Understand [Lockhart-Martinelli method](./7thermoFluid#frictional-pressure-drop)
-   - $1\phi: \Delta p = f\frac{L}{D}\frac12 \rho v^2, \quad \left(-\frac{\mathrm{d}}{\mathrm{d}}\right)_{2\phi} = \Phi^2_f\left(-\frac{\mathrm{d}}{\mathrm{d}}\right)_{1\phi}$
+   - $1\phi: \Delta p = f\frac{L}{D}\frac12 \rho v^2, \quad \left(-\frac{\mathrm{d}p}{\mathrm{d}z}\right)_{2\phi} = \Phi^2_f\left(-\frac{\mathrm{d}p}{\mathrm{d}z}\right)_{1\phi}$
 6. Understand [boiling curve](./6twoPhase#boiling-curve-core)
 7. Understand [thermal-equilibrium quality](./8twoPhaseHeatTransfer#flow-boiling)
 
@@ -24,17 +24,22 @@ $$
 - vaporization due to phase change: boiling(liquid become gas)
 - different flow: churn, annular
 - assumption about drift-flux model:
-  - Continuum Assumption
-  - Mixture Momentum Equation
+  - Continuum Assumption (continua rather than discrete particles)
+  - Mixture Momentum Equation (does not solve separate momentum conservation equations)
   - Existence of Interfacial Slip (Relative Velocity)
-  - Thermodynamic Equilibrium Assumption
+  - Thermodynamic Equilibrium Assumption (share the same pressure and temperature)
   - Steam and water fluid compressibility is negligible.
   - Void fraction change along the flow direction is negligible.
 - neglect which pressure drop: **Acceleration loss**
 - Chemical reactor utilize **bubbly flow**. Reason is mass transfer is important. $a_i$ is high at around $\alpha=0.3$:
   - $N_A=k_fa_i\Delta C$
 - How many equations HEM consider: 3 equations (combine gas and liquid)
-- $a_i=\frac{6\alpha}{D_b}, \quad \alpha = m\frac16 \pi D_b^3$ same diameter, where $m$ is the number of bubbles
+- $a_i=\frac{6\alpha}{D_\text{sm}}, \quad \alpha = n\frac16 \pi D_b^3$ same diameter, where $n$ is the bubble number density
+- disadvantages about slip model comparing to drift-flux model: 
+  - Definition: $s=v_g/v_f, \quad v_f$ may be zero or negative, not appropriate: counter-current flow, lead to sigularities
+  - highly flow-regime **specific**
+  - Often exhibits **discontinuities** or **unrealistic** predictions at the **boundaries** of its intended use
+  - Often a purely empirical curve-fit with limited connection to first principles. It generally does not scale well with system parameters
 
 Problem2: Drift-flux model
 
@@ -109,7 +114,7 @@ $$
 $$
 
 ### Q1-3
-Use results of question 1 and drift-flux model to write the quality $\langle x\rangle$ as an explicit function of distribution parameter $C_0$, drift velocity $\langle \langle v_{gj}\rangle\rangle$, void fraction $\langle \alpha\rangle$, mass flux $G$ ans phase densities $\rho_g,\rho_f$.
+Use results of question 1 and drift-flux model to write the quality $\langle x\rangle$ as an explicit function of distribution parameter $C_0$, drift velocity $\langle \langle v_{gj}\rangle\rangle$, void fraction $\langle \alpha\rangle$, mass flux $G$ and phase densities $\rho_g,\rho_f$.
 
 **Answer**:
 ::: details **not right**
@@ -690,6 +695,8 @@ $$
 \langle\langle v_{gj}\rangle\rangle = \sqrt{2}\left(\frac{\Delta \rho g\sigma}{\rho_f^2}\right)^{0.25} \approx 0.208 \mathrm{~m/s}.
 $$
 
+> $0.198-0.218$
+
 ### Q5-2
 Calculate the quality for steam-water flow at void fraction of $0.70(\langle\alpha\rangle=0.70)$ at $1.0\mathrm{~MPa}$. Mass flux is $900 \mathrm{~kg} /\left(\mathrm{m}^2 \cdot \mathrm{s}\right)$. Use the values of drift velocity and distribution parameter($=1.2$) in Questions 1.
 Fluid properties at the $1.0\mathrm{~MPa}$: steam and water densities are $5.16 \mathrm{~kg} / \mathrm{m}^3$ and $887 \mathrm{~kg} / \mathrm{m}^3$. Use the following equation.
@@ -701,6 +708,8 @@ $$
 $$
 \langle x\rangle = \frac{\frac{C_0}{\rho_f} + \frac{\langle\langle v_{gj}\rangle\rangle}{G}}{\frac{1}{\langle \alpha\rangle\rho_g} - \frac{C_0}{\rho_g} + \frac{C_0}{\rho_f}}\approx 0.0347.
 $$
+
+> $0.033-0.0364$
 
 ### Q5-3
 Use the calculated quality ($\langle x\rangle=0.0347$) to obtain the mixture volumetric flux at mass flux of $900 \mathrm{kg/(m^2\cdot s)}$.
@@ -714,6 +723,8 @@ $$
   \implies& \langle j\rangle = \langle j_g\rangle + \langle j_f\rangle\approx 7.03\mathrm{~m/s}
 \end{aligned}
 $$
+
+> $6.68-7.38$
 
 ### Q5-4
 <img src="/fluid_tf9_3_quiz.png" alt="two-phase flow experiment" width="100%" align="center">
@@ -746,6 +757,8 @@ If the pipe height is $5\mathrm{~m}$, then:
 $$
 \Delta P_{\mathrm{hyd}} = \left(\frac{\mathrm{d}P}{\mathrm{d}x}\right)_\text{hydro}H = \rho_m gH = [\langle\alpha\rangle\rho_g + (1-\langle\alpha\rangle)\rho_f]gH \approx 10573\mathrm{~Pa}.
 $$
+
+> $10043-11101$
 
 ### Q5-5
 Following Question 4, calculate the two-phase frictional pressure gradient using the Lockhart-Martinelli method. What is the two-phase frictional pressure loss in the vertical pipe if the pipe length is $4 \mathrm{~m}$ ?
@@ -826,6 +839,8 @@ $$
 \end{aligned}
 $$
 
+> $4199-4641$
+
 ### Q5-6
 Assume that pipes for transporting water has the **diameter** ($D$) of $0.12 \mathrm{~m}$. Calculate the **liquid velocity** in the water pipe if the liquid compressibility is negligible. What is the **frictional pressure gradient** in water pipe? If the water pipe has the length of $12 \mathrm{~m}$. what is the **frictional pressure loss** of water?
 The answer should be given using $\mathrm{Pa}$.
@@ -870,6 +885,8 @@ $$
 \Delta P_{\text {fric }, 1 \Phi}=\left(-\frac{\mathrm{d} p}{\mathrm{d} x}\right)_{\mathrm{fric}, 1 \Phi} L\approx 3.43 \times 12\approx 41.2 \mathrm{~Pa}.
 $$
 
+> $39.2-43.4$
+
 ### Q5-7
 Assume that the total pressure loss from pump to the top of the test section consists of a pressure loss due to the **horizontal single-phase liquid flow** and a pressure loss due to **the upward two-phase flow in the vertical test section**. Use the values calculated in Questions 4 to 6 to obtain a total pressure loss. 
 The answer should be given using $\mathrm{Pa}$.
@@ -883,3 +900,5 @@ $$
   &\approx 41.2+4430+10573 + 1\times 887\times 9.8\approx 23736 \mathrm{~Pa}
 \end{aligned}
 $$
+
+> $22540-24912$

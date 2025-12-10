@@ -508,50 +508,51 @@ Boiling is associated with **transformation** of **liquid to vapor** at a **soli
 
 Agitation of fluid by vapor bubbles provides for **large convection coefficients** and hence **large heat fluxes** at **low-to-moderate surface-to-fluid temperature differences**
 
-- **Pool Boiling**:
+- **Pool Boiling** (池内沸腾):
   Liquid motion is due to natural convection and bubble-induced mixing.
-- **Forced Convection Boiling**:
+- **Forced Convection Boiling** (强制对流沸腾):
   Fluid motion is induced by external means, as well as by bubble-induced mixing.
-- **Saturated Boiling**:
+- **Saturated Boiling** (饱和沸腾):
   Liquid temperature is **slightly larger** than saturation temperature.
-- **Subcooled Boiling**:
+- **Subcooled Boiling** (过冷沸腾):
   Liquid temperature is **less than** saturation temperature.
 
-Reveals range of conditions associated with saturated pool boiling on a $q_s'' - \Delta T_e$ plot (Water at Atmospheric Pressure) where $q_s''$ is the heat flux, $\Delta T_e = T_s - T_{\text{sat}}$, the **excess temperature** and $T_{\text{sat}}=100^\circ C$ for water at $P=0.1\mathrm{~MPa}$, **saturation temperature** of liquid, $T_s$ is temperatur of water. [core]
+Reveals range of conditions associated with saturated pool boiling on a $q_s'' - \Delta T_e$ plot (Water at Atmospheric Pressure) where $q_s''$ is the **heat flux**, $\Delta T_e = T_s - T_{\text{sat}}$, the **excess temperature** and $T_{\text{sat}}=100^\circ C$ for water at $P=0.1\mathrm{~MPa}$, **saturation temperature** of liquid, $T_s$ is temperatur of water. [core]
 
 <img src="/fluid_tf6_7_boiling.png" alt="boiling" width="100%" align="center">
 
-- **Free Convection Boiling** $(\Delta T_e < 5^\circ \mathrm{C})$
+- **Free Convection Boiling** (自然对流沸腾) $(\Delta T_e < 5^\circ \mathrm{C})$
   - Little vapor formation.
   - Liquid motion is due principally to **single-phase** natural convection.
   - First slope(single phase flow, Newton's law of cooling): 
     $$q_s'' = h\Delta T_e$$
     
     where $h$ is the liquid convective heat transfer coefficient (对流换热系数)
-- **Onset of Nucleate Boiling** - ONB $(\Delta T_e \approx 5^\circ \mathrm{C})$
-- **Nucleate Boiling** $(5 < \Delta T_e < 30^\circ \mathrm{C})$
-  - **Isolated Vapor Bubbles** $(5 < \Delta T_e < 10^\circ \mathrm{C})$
+- **Onset of Nucleate Boiling** (核态沸腾起始点) - ONB $(\Delta T_e \approx 5^\circ \mathrm{C})$
+- **Nucleate Boiling** (核态沸腾) $(5 < \Delta T_e < 30^\circ \mathrm{C})$
+  - **Isolated Vapor Bubbles** (孤立气泡) $(5 < \Delta T_e < 10^\circ \mathrm{C})$
     - Liquid motion is strongly influenced by nucleation of bubbles at the surface.
     - $h$ and $q_s''$ increase sharply with increasing $\Delta T_e$.
     - Heat transfer is principally due to **contact of liquid with the surface** (single-phase convection) and not to vaporization.
-- **Jets and Columns** $(10 < \Delta T_e < 30^\circ \mathrm{C})$
-  - Increasing number of **nucleation sites** causes bubble interactions and coalescence into jets and slugs.
-  - Liquid/surface contact is impaired.
-  - $q''_s$ continues to increase with $\Delta T_e$ while $h$ begins to decrease.
-- **Critical Heat Flux** - CHF, $q''_{\max}(\Delta T_e \approx 30^\circ\mathrm{C})$ [core]
+  - **Jets and Columns** (射流与汽柱) $(10 < \Delta T_e < 30^\circ \mathrm{C})$
+    - Increasing number of **nucleation sites** causes bubble interactions and coalescence into jets and slugs.
+    - Liquid/surface contact is impaired.
+    - $q''_s$ continues to increase with $\Delta T_e$ while $h$ begins to decrease.
+- **Critical Heat Flux** - CHF (临界热流密度), $q''_{\max}(\Delta T_e \approx 30^\circ\mathrm{C})$ [core]
   - Maximum attainable heat flux in **nucleate boiling**.
   - $q''_{\max} ≈ 1 \mathrm{~MW/m}$ for water at atmospheric pressure.
-- **Potential Burnout for Power-Controlled Heating**
+- **Potential Burnout for Power-Controlled Heating** (功率控制加热下的潜在烧毁)
   - An increase in $q_s''$ beyond $q''_{\max}$ causes the surface to be blanketed by vapor, and the surface temperature can spontaneously achieve a value that potentially **exceeds** its **melting point** $(\Delta T_s > 1000^\circ\mathrm{C})$
   - If the surface survives the temperature shock, conditions are characterized by **film boiling**.
-- **Film Boiling**
-  - Heat transfer is by **conduction and radiation** across the vapor blanket.
-  - A reduction in follows the cooling curve continuously to the **Leidenfrost point** corresponding to the **minimum heat flux** $q''_{\min}$ for **film boiling**.
-  - A reduction in $q_s''$ below $q''_{\min}$ causes an **abrupt reduction** in surface temperature to the **nucleate boiling regime**.
-- Transition Boiling for Temperature-Controlled Heating
+- **Transition Boiling for Temperature-Controlled Heating** (温度控制加热下的过渡沸腾)
   - Characterized by a continuous decay of with increasing $q_s''$(from $q''_{\max}$ to $q''_{\min}$).
   - Surface conditions oscillate between **nucleate and film boiling**, but portion of surface experiencing film boiling increases with $\Delta T_e$.
   - Also termed **unstable** or **partial film boiling**
+- **Film Boiling** (膜态沸腾)
+  - Heat transfer is by **conduction and radiation** across the **vapor blanket**.
+  - A reduction in follows the cooling curve continuously to the **Leidenfrost point** corresponding to the **minimum heat flux** $q''_{\min}$ for **film boiling**.
+  - A reduction in $q_s''$ below $q''_{\min}$ causes an **abrupt reduction** in surface temperature to the **nucleate boiling regime**.
+
 
 ### Nature of multiphase flows and basic concepts
 
@@ -583,7 +584,7 @@ The term **field** is used to denote a topologically distinct or clearly identif
 - Space averaging: Line, area, and volume-averaging
 
 ### Key parameters in two-phase flow [core]
-#### Void fraction 空隙率
+#### Void fraction 空泡率
 - Local instantaneous void fraction (0 or 1)
 - Instantaneous (volume, area, or line)-averaged void fraction (0-to-1)
   $$
@@ -598,7 +599,7 @@ The term **field** is used to denote a topologically distinct or clearly identif
     \langle \bar{\alpha}^t\rangle = \frac{1}{A}\int_A \bar{\alpha}^t \mathrm{~d}A
   $$
 
-#### Phase velocity
+#### Phase velocity 气/液 相速度
 - Instantaneous local gas (or liquid) velocity
 - Phase-averaged local gas (or liquid) velocity
 - Phase fraction weighted mean gas or liquid velocity
@@ -606,12 +607,12 @@ The term **field** is used to denote a topologically distinct or clearly identif
 
 **Void fraction weighted mean** (time-averaged) actual gas velocity (气相速度):
 $$
-    \langle\langle v_g\rangle\rangle \equiv \frac{\langle \alpha v_g\rangle}{\langle \alpha\rangle} = \frac{\langle j_g\rangle}{\langle \alpha\rangle} = \frac{Q_g}{A_g}
+    \langle\langle v_g\rangle\rangle \equiv \frac{\langle \alpha v_g\rangle}{\langle \alpha\rangle} = \frac{\langle j_g\rangle}{\langle \alpha\rangle} = \frac{Q_g}{A_g} = \frac{\dot{V}_g}{A_g}
 $$
 
 Area (and time)-averaged **superficial gas velocity** (表观气相速度) (volume center velocity):
 $$
-    \langle j_g\rangle \equiv \langle \alpha v_g\rangle = \frac{Q_g}{A}
+    \langle j_g\rangle \equiv \langle \alpha v_g\rangle = \frac{Q_g}{A} = \frac{\dot{V}_g}{A}
 $$
 
 where $A$ is the flow channel area, $A_g$ is the gas flow area.
@@ -619,22 +620,22 @@ where $A$ is the flow channel area, $A_g$ is the gas flow area.
 
 <img src="/fluid_tf6_8_phase_velocity.png" alt="phase velocity" width="100%" align="center">
 
-#### Flow quality
-- Mass velocity (or mass flux 质量通量) of $k$-phase, $G_k\left[\mathrm{~kg} /\left(\mathrm{m}^2 \cdot \mathrm{~s}\right)\right]$ (Mass flow rate, $W_k$ [kg/s])
+#### Flow quality 干度
+- Mass velocity (质量流速 or mass flux 质量通量) of $k$-phase, $G_k\left[\mathrm{~kg} /\left(\mathrm{m}^2 \cdot \mathrm{~s}\right)\right]$ (Mass flow rate, 质量流率, $W_k$ or $\dot{m}_k$ [kg/s])
 $$
 \begin{gathered}
-G_g \equiv \frac{W_g}{A}, \quad G_f \equiv \frac{W_f}{A} \\
+G_g \equiv \frac{W_g}{A} = \frac{\dot{m}_g}{A}, \quad G_f \equiv \frac{W_f}{A} = \frac{\dot{m}_f}{A} \\
 G = \rho_g\langle j_g\rangle + \rho_f\langle j_f\rangle = \rho_g\langle\alpha\rangle \langle  \langle v_g\rangle \rangle + \rho_f(1-\langle\alpha\rangle) \langle  \langle v_f\rangle \rangle
 \end{gathered}
 $$
-- Mass flowrate quality (or quality 流动干度), $\langle x\rangle$ [-]
+- Mass flowrate quality (质量流率干度 or quality 流动干度), $\langle x\rangle$ [-]
 $$
 \begin{gathered}
 \langle x\rangle=\frac{G_g}{G} = \frac{\rho_g\langle j_g\rangle}{G} = \frac{\text{Gas mass flow}}{\text{Two-phase mixture mass flow}}\\
 1-\langle x\rangle=\frac{G_f}{G},\quad  G \equiv G_g+G_f
 \end{gathered}
 $$
-- Superficial gas velocity, $\left\langle j_{{g}}\right\rangle[\mathrm{m} / \mathrm{s}]$
+- Superficial gas velocity (表观气相速度), $\left\langle j_{{g}}\right\rangle[\mathrm{m} / \mathrm{s}]$
 $$
 \left\langle j_g\right\rangle=\frac{G_g}{\rho_g}=\frac{G\langle x\rangle}{\rho_g},\quad\left\langle j_f\right\rangle=\frac{G_f}{\rho_f}=\frac{G(1-\langle x\rangle)}{\rho_f}, \quad \langle j\rangle = \langle j_g\rangle + \langle j_f\rangle
 $$
@@ -683,38 +684,54 @@ $$
 > 
 
 #### Summary
-- Void fraction
+- Void fraction (空泡率)
 $$
 \alpha[-]=\frac{\text { Total volume of dispersed phase }}{\text { Total volume }} = \frac{A_g}{A}.
 $$
 
-- Interfacial area concentration (界面面积浓度)
+and
 $$
-a_i\left[\mathrm{~m}^{-1}\right]=\frac{\text { Total interfacial area of dispersed phase }}{\text { Total volume }}
-$$
-
-$$
-\begin{aligned}
-& \alpha=n \frac{1}{6} \pi D_b^3, a_i=\frac{6 \alpha}{D_b} \\
-& n=\frac{1}{36 \pi}\left(\frac{a_i^3}{\alpha^2}\right) = \frac{N}{V_c}
-\end{aligned}
+\alpha=n \frac{1}{6} \pi D_b^3, \quad \text{(All bubbles have same diameter)}
 $$
 
-- Bubble number density
+where $n=N/V_c$ is the Bubble number density(see below)
+
+- Interfacial area concentration (界面面积浓度 / 气液比表面积)
 $$
-n\left[\mathrm{~m}^{-3}\right]=\frac{\text { Total number of fluid particle }}{\text { Total volume }}
+a_i\left[\mathrm{~m}^{-1}\right]=\frac{\text { Total interfacial area of dispersed phase }}{\text { Total volume }} = \frac{\sum A_i}{V}
 $$
 
-- Energy dissipation rate per unit mass
+and
+$$
+\begin{align*}
+&a_i = \frac{6 \alpha}{D_\text{sm}}\\
+&a_i=n\pi D_b^2, \quad \text{(All bubbles have same diameter)}
+\end{align*}
+$$
+
+where $D_\text{sm}$ is the **bubble Sauter mean diameter**.
+
+- Bubble number density (气泡数密度)
+$$
+n\left[\mathrm{~m}^{-3}\right]=\frac{\text { Total number of fluid particle }}{\text { Total volume }} = \frac{N}{V_c}
+$$
+
+and
+$$
+n=\frac{1}{36 \pi}\left(\frac{a_i^3}{\alpha^2}\right) = \frac{N}{V_c}
+$$
+
+- Energy dissipation rate per unit mass (单位质量能量耗散率)
 $$
 \begin{align*}
   \varepsilon\left[\mathrm{m}^2 / \mathrm{s}^3\right]=& \text{Dissipation rate of turbulent energy in flow per unit mass} \\
   =& \text{Energy production rate per unit mass}
 \end{align*}$$
 
-- Superficial $k$-phase velocity
-$$j_k[\mathrm{~m} / \mathrm{s}]=\frac{\text { Volume flow rate }}{\text { Channel cross-sectional area }}=\frac{Q_k}{A}$$
-- Reynolds number
+- Superficial $k$-phase velocity (表观k相速度)
+$$j_k[\mathrm{~m} / \mathrm{s}]=\frac{\text { Volume flow rate }}{\text { Channel cross-sectional area }}=\frac{Q_k}{A} = \frac{\dot{V}_k}{A}$$
+
+- Reynolds number 
 $$
 R e=\frac{\text{Inertia force}}{\text{Viscous force}} = \frac{\rho_f v_f D}{\mu_f}
 $$
@@ -724,14 +741,14 @@ $$
 R e_b=\frac{\rho_m v_r D_b}{\mu_m}
 $$
 
-- Quality
+- Quality (干度)
 $$
 x=\frac{G_g}{G}=\frac{\text { Mass flux of gas phase }}{\text { Total mass flux }}
 $$
 
-- $k$-phase velocity
+- $k$-phase velocity k相实际速度
 $$
-v_k[\mathrm{~m} / \mathrm{s}]=\frac{\text { Volume flow rate }}{k \text {-phase cross-sectional area }}=\frac{Q_k}{A_k} = \frac{j_k}{\alpha_k}
+v_k[\mathrm{~m} / \mathrm{s}]=\frac{\text { Volume flow rate }}{k \text {-phase cross-sectional area }}=\frac{Q_k}{A_k}=\frac{\dot{V}_k}{A_k} = \frac{j_k}{\alpha_k}
 $$
 
 ### Fundamental equations for separated two-phase flow
@@ -819,92 +836,92 @@ Axial changes of void fraction and wall shear stress should be known to calculat
   - Heat transfer coefficient
 
 ## Quiz1
-1. Which of the following is a key parameter in thermal-hydraulic analysis?
+1. Which of the following is a **key parameter** in **thermal-hydraulic analysis**?
   - Pressure
   - **All of the above**
   - Velocity
   - Temperature
-2. In multiphase flow, what is considered a two-phase flow?
+2. In multiphase flow, what is considered a **two-phase flow**?
   - **All of the above**
   - Solid-liquid
   - Gas-solid
   - Gas-liquid
-3. Which of the following types of flow is characterized by both phases moving in the same direction?
+3. Which of the following types of **flow** is characterized by **both phases** moving in the **same direction**?
   - **Co-current flow**
   - Circular flow
   - Counter-current flow
   - Parallel flow
-4. What does "void fraction" measure in a two-phase flow system?
+4. What does "**void fraction**" measure in a **two-phase flow** system?
   - Volume of gas
   - Density of the mixture
   - **Ratio of gas volume to total volume**
   - Volume of liquid
-5. Which phenomenon describes vaporization due to pressure changes?
-  - Boiling
-  - Condensation
-  - Freezing
-  - **Flashing**
-6. What is the primary goal of a flow regime map?
+5. Which phenomenon describes **vaporization** due to **pressure changes**?
+  - Boiling (沸腾)
+  - Condensation (冷凝)
+  - Freezing (凝固)
+  - **Flashing** (闪蒸)
+6. What is the primary **goal** of a **flow regime map**?
   - To calculate pressure drop
   - **To identify flow patterns**
   - To measure temperature
   - To analyze velocity
-7. What does the term "superficial velocity" refer to?
+7. What does the term "**superficial velocity**" refer to?
   - Velocity at which phase changes occur
   - Actual velocity of the phase
   - Average velocity of the mixture
   - **Velocity based on cross-sectional area**
-8. What unique phenomenon can occur during multiphase flow?
+8. What **unique phenomenon** can occur during **multiphase flow**?
   - **Critical heat flux**
   - Steady flow
   - Laminar flow
   - Turbulent flow
-9. In multiphase flow, what does "quality" represent?
+9. In **multiphase flow**, what does "**quality**" represent?
   - Density of the mixture
   - Temperature difference
   - **Ratio of vapor mass velocity to total mixture mass velocity**
   - ~~Ratio of vapor to liquid~~
-10. Which of the following is NOT a type of two-component two-phase flow?
+10. Which of the following is **NOT** a type of **two-component two-phase flow**?
   - Air-water
   - None of the above
   - **Steam-water**
   - Nitrogen-liquid metal
-11. What is a typical characteristic of two-phase flow pressure drop?
+11. What is a typical characteristic of **two-phase flow pressure drop**?
   - **More complicated than single-phase flow**
   - Simple compared to single-phase flow
   - Constant across all conditions
   - Irrelevant in multiphase systems
-12. Which factor significantly influences the void fraction in a two-phase flow?
+12. Which factor significantly influences the **void fraction** in a two-phase flow?
   - Temperature
   - **All of the above**
   - Flow rate
   - Phase densities
-13. What is the typical outcome of using a homogeneous flow assumption?
+13. What is the typical outcome of using a **homogeneous flow assumption**?
   - Increased pressure drop
   - Reduced flow rate
   - **Same velocity for gas and liquid phases**
   - Different velocities for phases
-14. What type of pressure loss is associated with the liquid phase in a two-phase flow?
+14. What type of **pressure loss** is associated with the liquid phase in a **two-phase flow**?
   - Hydrostatic pressure loss
   - Acceleration loss
   - Frictional pressure loss
   - **All of the above**
-15. What does the term "bubble Reynolds number" measure?
+15. What does the term "**bubble Reynolds number**" measure?
   - Pressure drop in the system
   - Viscosity of the liquid
   - Velocity of the gas phase
   - **Drag coefficient**
-16. Which of the following flow regimes is characterized as separated flow?
+16. Which of the following flow regimes is characterized as **separated flow**?
   - Slug flow
   - Bubbly flow
   - **Annular flow**
   - Churn flow
-17. What does void fraction=1 mean?
+17. What does **void fraction=1** mean?
   - Liquid single-phase flow
   - Same velocity for gas and liquid phases
   - Same volume fraction for gas and liquid phases
   - **Gas single-phase flow**
-18. What is the volume flowrate quality value for superficial gas velocity=1 m/s and superficial liquid velocity 0.5 m/s?
+18. What is the **volume flowrate quality** value for **superficial gas velocity=1 m/s** and **superficial liquid velocity 0.5 m/s**?
   - **0.67**
   - 2
   - 0.5
@@ -915,12 +932,12 @@ $$
 $$
 :::
 
-19. What is the void fraction value for gas velocity=1 m/s and superficial gas velocity 0.5 m/s?
+19. What is the **void fraction value** for **gas velocity=1 m/s** and **superficial gas velocity 0.5 m/s**?
   - 1
   - 2
   - 0.67
   - **0.5**
-20. What does the term "interfacial area concentration" refer to?
+20. What does the term "**interfacial area concentration**" refer to?
   - Volume of dispersed phase
   - **Ratio of interfacial area to total volume**
   - Total surface area of the phases
