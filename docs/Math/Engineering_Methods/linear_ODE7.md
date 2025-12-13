@@ -1,4 +1,7 @@
 # 7 Linear Ordinary Differential Equations
+
+> Mostly From *Advanced Calculus for Applications* by Francis Begnaud Hildebrand
+
 ## Introduction
 
 - Q1: Consider the cooling model. Assume there is a cup of boiled water (100°C), environment temperature is 20°C.
@@ -139,10 +142,12 @@ for all values of $x$ in the interval $M$.
 
 these same constants also satisfy the identities
 $$
-c_1\frac{\mathrm{d}u_1}{\mathrm{d}x} + c_2\frac{\mathrm{d}u_2}{\mathrm{d}x} + \cdots + c_n\frac{\mathrm{d}u_n}{\mathrm{d}x} = 0\\
-c_1\frac{\mathrm{d}^2u_1}{\mathrm{d}x^2} + c_2\frac{\mathrm{d}^2u_2}{\mathrm{d}x^2} + \cdots + c_n\frac{\mathrm{d}^2u_n}{\mathrm{d}x^2} = 0\\
-\vdots\\
-c_1\frac{\mathrm{d}^{n-1}u_1}{\mathrm{d}x^{n-1}} + c_2\frac{\mathrm{d}^{n-1}u_2}{\mathrm{d}x^{n-1}} + \cdots + c_n\frac{\mathrm{d}^{n-1}u_n}{\mathrm{d}x^{n-1}} = 0
+\begin{aligned}
+c_1\frac{\mathrm{d}u_1}{\mathrm{d}x} + c_2\frac{\mathrm{d}u_2}{\mathrm{d}x} + \cdots + c_n\frac{\mathrm{d}u_n}{\mathrm{d}x} &= 0\\
+c_1\frac{\mathrm{d}^2u_1}{\mathrm{d}x^2} + c_2\frac{\mathrm{d}^2u_2}{\mathrm{d}x^2} + \cdots + c_n\frac{\mathrm{d}^2u_n}{\mathrm{d}x^2} &= 0\\
+&\vdots\\
+c_1\frac{\mathrm{d}^{n-1}u_1}{\mathrm{d}x^{n-1}} + c_2\frac{\mathrm{d}^{n-1}u_2}{\mathrm{d}x^{n-1}} + \cdots + c_n\frac{\mathrm{d}^{n-1}u_n}{\mathrm{d}x^{n-1}} &= 0    
+\end{aligned}
 $$
 
 Then:
@@ -199,7 +204,10 @@ $$
 $$
 
 - The above equation can be written as $\frac{\mathrm{d}y}{\mathrm{d}x} + \left(\frac{1}{p}\frac{\mathrm{d}p}{\mathrm{d}x}\right)y = h(x)$.
-- Therefore, we have $\frac{1}{p}\frac{\mathrm{d}p}{\mathrm{d}x} = a_1(x)$, which leads to $p = \exp(\int a_1(x)\mathrm{~d}x)$
+- Therefore, we have $\frac{1}{p}\frac{\mathrm{d}p}{\mathrm{d}x} = a_1(x)$, which leads to 
+$$
+p = \exp(\int a_1(x)\mathrm{~d}x)
+$$
 - As a result, we obtain the general solution $py = \int ph\mathrm{~d}x+C$, $C$ is an arbitrary constant, or
     $$
         y = \frac{1}{p}\int ph\mathrm{~d}x + \frac{C}{p}.
@@ -208,11 +216,11 @@ $$
 ### Example1: Integrating factor
 To solve the differential equation
 $$
-x \frac{d y}{d x}+(1-x) y=x e^x
+x \frac{\mathrm{d} y}{\mathrm{d} x}+(1-x) y=x e^x
 $$
 we first rewrite the equation in the standard form,
 $$
-\frac{d y}{d x}+\left(\frac{1}{x}-1\right) y=e^x
+\frac{\mathrm{d} y}{\mathrm{d} x}+\left(\frac{1}{x}-1\right) y=e^x
 $$
 
 An integrating factor is then
@@ -538,14 +546,14 @@ C_1^{\prime}(x) u_1^{\prime}(x)+C_2^{\prime}(x) u_2^{\prime}(x)+\cdots+C_n^{\pri
 \vdots\\
 C_1^{\prime}(x) u_1^{(n-2)}(x)+C_2^{\prime}(x) u_2^{(n-2)}(x)+\cdots \cdots+C_n^{\prime}(x) u_n^{(n-2)}(x)=0 \\
 C_1^{\prime}(x) u_1^{(n-1)}(x)+C_2^{\prime}(x) u_2^{(n-1)}(x)+\cdots+C_n^{\prime}(x) u_n^{(n-1)}(x)=h(x)
-\end{array}\right.
+\end{array}\right. \tag{52}
 $$
 
 If this set of equations is solved for $C_1^{\prime}, C_2^{\prime}, \ldots, C_n^{\prime}$ by **Cramer's rule**, the common-denominator determinant is seen to be the **Wronskian** of $u_1, u_2$, $\ldots, u_n$.
 
 ### Example6:  the general solution to the second order linear differential equation
 $$
-\frac{d^2 y}{d x^2}+a_1(x) \frac{d y}{d x}+a_2(x) y=h(x),
+\frac{\mathrm{d}^2 y}{\mathrm{d} x^2}+a_1(x) \frac{\mathrm{d} y}{\mathrm{d} x}+a_2(x) y=h(x),
 $$
 
 there follows
@@ -579,7 +587,7 @@ $$
 
 ### Example7: 2nd order linear differential equation
 $$
-\frac{d^2 y}{d x^2}+y=f(x)
+\frac{\mathrm{d}^2 y}{\mathrm{d} x^2}+y=f(x)
 $$
 two linearly independent homogeneous solutions are $u_1=\cos x, {u_2}=\sin x$. The Wronskian is
 $$
@@ -606,7 +614,7 @@ $$
 
 ### Example8: 3rd order linear differential equation
 $$
-\frac{d^3 y}{d x^3}-3 \frac{d^2 y}{d x^2}+2 \frac{d y}{d x}=f(x),
+\frac{\mathrm{d}^3 y}{\mathrm{d} x^3}-3 \frac{\mathrm{d}^2 y}{\mathrm{d} x^2}+2 \frac{\mathrm{d} y}{\mathrm{d} x}=f(x),
 $$
 we may take $u_1=1, u_2=e^x, u_3=e^{2 x}$. Equations (52) then become
 $$
@@ -699,9 +707,9 @@ When such conditions are prescribed, the problem is known as an **initial-value 
 
 $$
 \begin{align*}
-  &y=\sum_{k=1}^n c_k u_k(x)+y_p(x) \\
-  &\implies \sum_{k=1}^n c_k u_k^{(m)}(a)=y_0^{(m)}-y_P^{(m)}(a) \quad(m=0,1,2, \ldots, n-1)\\
-  &\implies \begin{pmatrix}
+  &y=\sum_{k=1}^n c_k u_k(x)+y_P(x) \\
+  \implies& \sum_{k=1}^n c_k u_k^{(m)}(a)=y_0^{(m)}-y_P^{(m)}(a) \quad(m=0,1,2, \ldots, n-1)\\
+  \implies& \begin{pmatrix}
     u_1^{(0)} & u_2^{(0)} & \cdots & u_{n}^{(0)} \\
     u_1^{(1)} & u_2^{(1)} & \cdots & u_{n}^{(1)} \\
     \vdots & \vdots & \ddots & \vdots \\
@@ -831,9 +839,10 @@ $$
 f(\lambda x, \lambda y)=\lambda^n f(x, y) .
 $$
 
-The first-order differential equation, ${P}({x}, {y}) {\mathrm{~d}} {x}+{Q}({x}, {y}) {\mathrm{~d}} {y}={0}$, is said to be homogeneous if $P$ and $Q$ are both homogeneous of degree $n$ , for some constant $n$ . Differential equation becomes separable upon the change of variables $y=v x\implies \mathrm{d}y = v \mathrm{~d} x+x \mathrm{~d} v$,
+The first-order differential equation, ${P}({x}, {y}) {\mathrm{~d}} {x}+{Q}({x}, {y}) {\mathrm{~d}} {y}={0}$, is said to be homogeneous if $P$ and $Q$ are both homogeneous of degree $n$ , for some constant $n$ . Differential equation becomes separable upon the change of variables
 $$
 \begin{aligned}
+&y=v x\implies \mathrm{~d}y = v \mathrm{~d} x+x \mathrm{~d} v\\
 &x^n P(1, v) \mathrm{~d} x+x^n Q(1, v)(v \mathrm{~d} x+x \mathrm{~d} v)=0 \\
 \text { or } \quad&[P(1, v)+v Q(1, v)] \mathrm{~d} x+x Q(1, v) \mathrm{~d} v=0
 \end{aligned}
@@ -1062,7 +1071,11 @@ $$
 Integration by parts:
 
 $$
-c_1=-\frac{1}{2}(\sin x+\cos x) e^{-x}-c_1 \Rightarrow 2 c_1=-\frac{1}{2}(\sin x+\cos x) e^{-x} \Rightarrow c_1=-\frac{1}{4}(\sin x + \cos x)e^{-x}.
+\begin{aligned}
+&c_1=-\frac{1}{2}(\sin x+\cos x) e^{-x}-c_1 \\
+\Rightarrow& 2 c_1=-\frac{1}{2}(\sin x+\cos x) e^{-x} \\
+\Rightarrow& c_1=-\frac{1}{4}(\sin x + \cos x)e^{-x}.
+\end{aligned}
 $$
 
 Similarly 

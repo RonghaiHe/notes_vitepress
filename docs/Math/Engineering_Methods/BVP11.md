@@ -88,8 +88,8 @@ $$
 \begin{aligned}
 &r^{2}+\lambda=0 \\
 &r= \pm \sqrt{\lambda} i \\
-\Rightarrow&y=c_{1} e^{\sqrt{\lambda}} x i+c_{2} e^{-\sqrt{\lambda} x i} \\
-\text{Since }&\sin x=\frac{e^{i x}-e^{-i x}}{2 i}, \quad \cos x=\frac{e^{i x}+e^{-i x}}{2} \\
+\Rightarrow&y=c_{1} e^{\sqrt{\lambda} x i}+c_{2} e^{-\sqrt{\lambda} x i} \\
+\text{Since}\quad &\sin x=\frac{e^{i x}-e^{-i x}}{2 i}, \quad \cos x=\frac{e^{i x}+e^{-i x}}{2} \\
 \Rightarrow&y=A_{1} \sin (\sqrt{\lambda} x)+A_{2} \cos (\sqrt{\lambda} x) \\
 &y(0)=0 \Rightarrow A_{2}=0 ; \\
 &y(L)=0 \Rightarrow A_{1} \sin (\sqrt{\lambda} L)+A_{2} \cos (\sqrt{\lambda} L)=0 \\
@@ -103,6 +103,8 @@ $$
 $$
 
 ## Orthogonality of Functions
+> An extremely useful property of BVP of a rather general type consists of the fact that the **set of characteristic functions** corresponding to such problems are **orthogonal** w.r.t. a weighting function.
+>
 > An orthogonal basis can expand an indefinite dimensional **function space**, and eigenfunctions in S-L equations with specific boundary values can construct an orthogonal basis
 
 The eigenfunctions of second-order linear differential equations have **orthogonality**

@@ -1,7 +1,7 @@
 # Laplace Transform
-- Formulation & Definition
-- Properties
-- Inversion of Laplace Transform
+- [Formulation & Definition](#formulation-definition)
+- [Properties](#properties-core)
+- [Inversion of Laplace Transform](#inversion-of-laplace-transform)
 
 ## Formulation & Definition
 ### Introduction
@@ -148,8 +148,8 @@ $$
 
 $$
 \begin{align*}
-    \mathscr{L}\left\{\frac{\mathrm{d}^n f(t)}{\mathrm{d} t^n}\right\}=&s^n \bar{f}(s)-\left[s^{n-1} f(0+)+s^{n-2} \frac{\mathrm{d} f(0+)}{\mathrm{d} t}\right. \\
-&\left.+s^{n-3} \frac{\mathrm{d}^2 f(0+)}{\mathrm{d} t^2}+\cdots+\frac{\mathrm{d}^{n-1} f(0+)}{\mathrm{d} t^{n-1}}\right]
+\mathscr{L}\left\{\frac{\mathrm{d}^n f(t)}{\mathrm{d} t^n}\right\}=s^n \bar{f}(s)-&\left[s^{n-1} f(0+)+s^{n-2} \frac{\mathrm{d} f(0+)}{\mathrm{d} t}\right. \\
+&\left.\quad +s^{n-3} \frac{\mathrm{d}^2 f(0+)}{\mathrm{d} t^2}+\cdots+\frac{\mathrm{d}^{n-1} f(0+)}{\mathrm{d} t^{n-1}}\right]
 \end{align*}
 $$
 
@@ -270,9 +270,9 @@ Table: Laplace Transform [core]
 | T6 | $\frac{1}{s^n} \bar{f}(s)$ | $\overbrace{\int_0^t \cdots \int_0^t}^{n \text { times }} f(t) \overbrace{\mathrm{d} t \cdots \mathrm{d} t}^{n \text { times }}$ |
 | T7 | $(-1)^n \frac{\mathrm{d}^n \bar{f}(s)}{\mathrm{d} s^n}$ | $t^n f(t)$ |
 | T8 | $\bar{f}(s-a)$ | $e^{a t} f(t)$ |
-| T9 | $e^{-a s} \bar{f}(s)$ | $\left\{\begin{array}{c}f(t-a) \\ 0\end{array}\right.$ |
+| T9 | $e^{-a s} \bar{f}(s)$ | $\left\{\begin{array}{c}f(t-a) \quad (t>a)\\ 0\quad (t<a)\end{array}\right.$ |
 | T10 | $\bar{f}(s) \bar{g}(s)$ | $\int_0^t f(t-u) g(u) \mathrm{d} u=\int_0^t f(u) g(t-u) \mathrm{d} u$ |
-| T11 | $\frac{1}{s}$ | 1 |
+| T11 | $\frac{1}{s}$ | $1$ |
 | T12 | $\frac{1}{s+a}$ | $e^{-a t}$ |
 | T13 | $\frac{1}{(s+a)(s+b)}$ | $\frac{1}{a-b}\left(e^{-b t}-e^{-a t}\right)$ |
 | T14 | $\frac{s}{(s+a)(s+b)}$ | $\frac{1}{b-a}\left(b e^{-b t}-a e^{-a t}\right)$ |
@@ -292,13 +292,13 @@ Table: Laplace Transform [core]
 | T28 | $\frac{2 a^2 s}{s^4+4 a^1}$ | $\sin a t \sinh a t$ |
 | T29 | $\frac{2 a^3}{s^4-a^4}$ | $\sinh a t-\sin a t$ |  |
 | T30 | $\frac{2 a^1 s}{s^4-a^4}$ | $\cosh a t-\cos a t$ |  |
-| T31 | 1 | $\delta(t)$ |  |
+| T31 | $1$ | $\delta(t)$ |  |
 | T32 | $e^{-s t_1}$ | $\delta\left(t-t_1\right)$ |  |
 | T33 | $s$ | $\delta^{\prime}(t)$ |  |
 | T34 | $s e^{-s t_1}$ | $\delta^{\prime}\left(t-t_1\right)$ |  |
 | T35 | $\frac{1}{s^n}$ | $\frac{t^{n-1}}{(n-1)!}$ | ( $n>0$ ) |
 | T35a | $\frac{n!}{s^{n+1}}$ | $t^n$ | ( $n>-1$ ) |
-| T36 | $\frac{1}{(s+a)^n}$ | $\frac{t^{\mathrm{a}-1} e^{-a t}}{(n-1)!}$ | ( $n>0$ ) |
+| T36 | $\frac{1}{(s+a)^n}$ | $\frac{t^{n-1} e^{-a t}}{(n-1)!}$ | ( $n>0$ ) |
 | T37 | $\frac{s}{(s+a)^n}$ | $\frac{(n-1)-a t}{(n-1)!} t^{n-2} e^{-a t}$ | ( $n>1$ ) |
 | T38 | $\frac{a^{2 n-1}}{\left(s^2+a^2\right)^n}$ | $\frac{1}{2^{n-1}(n-1)!}\left[\sqrt{\frac{\pi}{2}}(a t)^{n-1 / 2} J_{n-1 / 2}(a t)\right] \quad(n>0)$ |  |
 | T39 | $\frac{a^{2 n-2} s}{\left(s^2+a^2\right)^n}$ | $\frac{a t}{2^n(n-1)!}\left[\sqrt{\frac{\pi}{2}}(a t)^{n-3 / 2} J_{n-3 / 2}(a t)\right] \quad(n>\frac12)$ |  |
@@ -323,7 +323,7 @@ For
 $$
 F(s)=\frac{N(s)}{D(s)}
 $$
-where $D(s)$ is a polynomial of degree $n$ with $n$ **distinct real** zeros $s=a_1, a_2$, $a_n$, and $N(s)$ is a polynomial of degree $n-1$ or less, there follows
+where $D(s)$ is a polynomial of degree $n$ with $n$ **distinct real** zeros $s=a_1, a_2, \cdots a_n$, and $N(s)$ is a polynomial of degree $n-1$ or less, there follows
 $$
 \begin{aligned}
 \frac{N(s)}{D(s)} & =\frac{N\left(a_1\right)}{D^{\prime}\left(a_1\right)} \frac{1}{s-a_1}+\frac{N\left(a_2\right)}{D^{\prime}\left(a_2\right)} \frac{1}{s-a_2}+\cdots+\frac{N\left(a_n\right)}{D^{\prime}\left(a_n\right)} \frac{1}{s-a_n} \\
@@ -341,6 +341,11 @@ $$
       \implies& \frac{N(a_k)}{D^{\prime}(a_k)} = A_k.
     \end{aligned}
 > $$
+
+With $M$-fold roots, like only $a_k$, i.e. $(s-a_k)^M$:
+$$
+\frac{N(s)}{D(s)} =\sum_{m=1,m\neq k}^n \frac{N\left(a_m\right)}{D^{\prime}\left(a_m\right)} \frac{1}{s-a_m} + \sum_{m=1}^M \frac{1}{(M-m)!}\frac{\mathrm{d}^{(n-k)}}{\mathrm{d}x^{(n-k)}}\left(\frac{N(s)}{D(s)}(x-a_k)^n\right) \frac{1}{(s-a_k)^m}.
+$$
 
 and hence, from (T12),
 $$
