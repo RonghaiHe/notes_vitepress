@@ -1,30 +1,35 @@
 ---
-# https://vitepress.dev/reference/default-theme-home-page
+# https://vitepress.dev/zh/reference/default-theme-home-page
 layout: home
 
 hero:
   name: "RonghaiHe's Notes"
-  text: "Storge most notes during learning"
-  tagline: Remain true to the orginal aspiration （不忘初心）
+  text: "不忘初心"
+  tagline: The faintest ink is more powerful than the strongest memory 好记性不如烂笔头
   actions:
     - theme: brand
       text: Optimal Control
-      link: /docs/Control/Optimal_Control/1introduction
+      link: /docs/Control/OCP/1introduction
     - theme: alt
-      text: Engineering Methods
-      link: /docs/Math/Engineering_Methods/linear_algebra1
-    - theme: alt
-      text: Thermal Fluid
-      link: /docs/Fluid/Thermal_Fluid/2externalFlow
+      text: Linear Algebra
+      link: /docs/Math/LA/1intro
 
 features:
-  - title: Math
-    details: 1. Engineering Methods
+  - title: Basic Math
+    details: 1. <a href="./docs/Math/LA/1intro">Linear Algebra</a><br/>2. <a href="./docs/Math/ODE/1linear_ODE">Ordinary Differential Equation</a><br/>3. <a href="./docs/Math/PDE/1linear_PDE">Partial Differential Equation</a><br/>
+  - title: Optimization
+    details: (Empty)
+  - title: Computer Science
+    details: (Empty)
+  - title: Learning
+    details: (Empty)
+  - title: Physics
+    details: (Empty)
   - title: Control
-    details: 1. Optimal Control
+    details: 1. <a href="/docs/Control/OCP/1introduction">Optimal Control</a>
   - title: Robotics
-    details: Empty
-  - title: Fluid
-    details: 1. thermal fluid
+    details: (Empty)
+  - title: Kits
+    details: (Empty)
 ---
 

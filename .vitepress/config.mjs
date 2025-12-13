@@ -19,117 +19,89 @@ export default defineConfig({
     logo: {src: '/book.svg', width: 24, height: 24},
     nav: [
       { text: 'Home', link: 'https://ronghaihe.github.io' },
-      { text: 'Notes List', link: '/' },
+      { text: 'Notes', link: '/' },
+      { text: 'Archive', link: 'https://ronghaihe.github.io/notes_vitepress_archive' },
       {
-        text: 'Math',
+        text: 'Basic Math',
         items: [
-          {
-            text: 'Engineering Methods',
-            items: [
-              { text: 'Vector Space', link: '/docs/Math/Engineering_Methods/linear_algebra1' },
-              { text: 'Linear Transformation', link: '/docs/Math/Engineering_Methods/linear_algebra2' },
-              { text: 'Linear Equation', link: '/docs/Math/Engineering_Methods/linear_algebra3' },
-              { text: 'Determinant', link: '/docs/Math/Engineering_Methods/linear_algebra4' },
-              { text: 'Eigen-values&vectors', link: '/docs/Math/Engineering_Methods/linear_algebra5' },
-              { text: 'Inner Product', link: '/docs/Math/Engineering_Methods/linear_algebra6' },
-              { text: 'Linear ODE', link: '/docs/Math/Engineering_Methods/linear_ODE7' },
-              { text: 'Laplace Transform', link: '/docs/Math/Engineering_Methods/laplace_transform8' },
-              { text: 'Numerical Methods for ODE', link: '/docs/Math/Engineering_Methods/numerical_methods_ODE9' },
-              { text: 'Series solutions for ODE', link: '/docs/Math/Engineering_Methods/series_solutions10' },
-              { text: 'Boundary Value Problems', link: '/docs/Math/Engineering_Methods/BVP11' },
-              { text: 'Linear PDE', link: '/docs/Math/Engineering_Methods/linearPDE12' },
-            ]
-          }
+          { text: 'Linear Algebra', link: '/docs/Math/LA/1intro' },
+          { text: 'ODE', link: '/docs/Math/ODE/1linear_ODE' },
+          { text: 'PDE', link: '/docs/Math/PDE/1linear_PDE' },
         ]
       },
       {
         text: 'Control',
         items: [
-          {
-            text: 'Optimal Control',
-            items: [
-              { text: 'Introduction', link: '/docs/Control/Optimal_Control/1introduction' },
-              { text: 'Control Theory', link: '/docs/Control/Optimal_Control/2controlTheory'},
-              { text: 'Linear Time-Optimal Control', link: '/docs/Control/Optimal_Control/3linearTimeOptimalControl'},
-              { text: 'Pontryagin Maximum Principle', link: '/docs/Control/Optimal_Control/4pontryagin'},
-              { text: 'Dynamic Programming', link: '/docs/Control/Optimal_Control/5dynamicProgramming'},
-              { text: 'Direct Methods', link: '/docs/Control/Optimal_Control/7DirectMethods'},
-              { text: 'DAE', link: '/docs/Control/Optimal_Control/8DAE'},
-            ]
-          }
-        ]
-      },
-      {
-        text: 'Fluid',
-        items: [
-          {
-            text: 'Thermal Fluid',
-            items: [
-              { text: 'External Flow', link: '/docs/Fluid/Thermal_Fluid/2externalFlow'},
-              { text: 'Boundary Layer', link: '/docs/Fluid/Thermal_Fluid/3boundaryLayer'},
-              { text: 'Internal Flow', link: '/docs/Fluid/Thermal_Fluid/4internalFlow'},
-              { text: 'Kinematics', link: '/docs/Fluid/Thermal_Fluid/5fluidKinematics'},
-              { text: 'Two Phase Flow: Intro', link: '/docs/Fluid/Thermal_Fluid/6twoPhase'},
-              { text: 'Two Phase Flow: thermo-fluid', link: '/docs/Fluid/Thermal_Fluid/7thermoFluid'},
-              { text: 'Two Phase Flow: Heat Transfer', link: '/docs/Fluid/Thermal_Fluid/8twoPhaseHeatTransfer'},
-              { text: 'Two Phase Flow: Practice', link: '/docs/Fluid/Thermal_Fluid/9practice'},
-            ]
-          }
+          { text: 'Optimal Control', link: '/docs/Control/OCP/1introduction' },
         ]
       },
     ],
 
     sidebar: {
-      '/docs/Math/Engineering_Methods/': [
+      '/docs/Math/LA/': [
         {
-          text: 'Engineering Methods',
+          text: 'Linear Algebra',
               items: [
-                { text: 'Vector Space', link: '/docs/Math/Engineering_Methods/linear_algebra1' },
-                { text: 'Linear Transformation', link: '/docs/Math/Engineering_Methods/linear_algebra2' },
-                { text: 'Linear Equation', link: '/docs/Math/Engineering_Methods/linear_algebra3' },
-                { text: 'Determinant', link: '/docs/Math/Engineering_Methods/linear_algebra4' },
-                { text: 'Eigen-values&vectors', link: '/docs/Math/Engineering_Methods/linear_algebra5' },
-                { text: 'Inner Product', link: '/docs/Math/Engineering_Methods/linear_algebra6' },
-                { text: 'Linear ODE', link: '/docs/Math/Engineering_Methods/linear_ODE7' },
-                { text: 'Laplace Transform', link: '/docs/Math/Engineering_Methods/laplace_transform8' },
-                { text: 'Numerical Methods for ODE', link: '/docs/Math/Engineering_Methods/numerical_methods_ODE9' },
-                { text: 'Series solutions for ODE', link: '/docs/Math/Engineering_Methods/series_solutions10' },
-                { text: 'Boundary Value Problems', link: '/docs/Math/Engineering_Methods/BVP11' },
-                { text: 'Linear PDE', link: '/docs/Math/Engineering_Methods/linearPDE12' },
+                { text: 'Vector Space', link: '/docs/Math/LA/1intro' },
+                { text: 'Linear Transformation', link: '/docs/Math/LA/2linear_transformation' },
+                { text: 'Linear Equation', link: '/docs/Math/LA/3matrix-linear_equation' },
+                { text: 'Determinant', link: '/docs/Math/LA/4determinant' },
+                { text: 'Eigen-values&vectors', link: '/docs/Math/LA/5eigenvalue' },
+                { text: 'Inner Product', link: '/docs/Math/LA/6inner_product' },              ]
+        }
+      ],
+      '/docs/Math/ODE/': [
+        {
+          text: 'ODE',
+              items: [
+                { text: 'Linear ODE', link: '/docs/Math/ODE/1linear_ODE' },
+                { text: 'Laplace Transform', link: '/docs/Math/ODE/2laplace_transform' },
+                { text: 'Numerical Methods for ODE', link: '/docs/Math/ODE/3numerical_methods_ODE' },
+                { text: 'Series solutions for ODE', link: '/docs/Math/ODE/4series_solutions' },
+                { text: 'Boundary Value Problems', link: '/docs/Math/ODE/5BVP' },
+              ]
+        },
+        {
+          text: 'PDE',
+              items: [
+                { text: 'Linear PDE', link: '/docs/Math/PDE/1linear_PDE' },
               ]
         }
       ],
-
-      '/docs/Control/Optimal_Control/': [
+      '/docs/Math/PDE/': [
+        {
+          text: 'ODE',
+              items: [
+                { text: 'Linear ODE', link: '/docs/Math/ODE/1linear_ODE' },
+                { text: 'Laplace Transform', link: '/docs/Math/ODE/2laplace_transform' },
+                { text: 'Numerical Methods for ODE', link: '/docs/Math/ODE/3numerical_methods_ODE' },
+                { text: 'Series solutions for ODE', link: '/docs/Math/ODE/4series_solutions' },
+                { text: 'Boundary Value Problems', link: '/docs/Math/ODE/5BVP' },
+              ]
+        },
+        {
+          text: 'PDE',
+              items: [
+                { text: 'Linear PDE', link: '/docs/Math/PDE/1linear_PDE' },
+              ]
+        }
+      ],
+      '/docs/Control/OCP/': [
         {
           text: 'Optimal Control',
             items: [
-              { text: 'Introduction', link: '/docs/Control/Optimal_Control/1introduction' },
-              { text: 'Control Theory', link: '/docs/Control/Optimal_Control/2controlTheory'},
-              { text: 'Linear Time-Optimal Control', link: '/docs/Control/Optimal_Control/3linearTimeOptimalControl'},
-              { text: 'Pontryagin Maximum Principle', link: '/docs/Control/Optimal_Control/4pontryagin'},
-              { text: 'Dynamic Programming', link: '/docs/Control/Optimal_Control/5dynamicProgramming'},
-              { text: 'Direct Methods', link: '/docs/Control/Optimal_Control/7DirectMethods'},
-              { text: 'DAE', link: '/docs/Control/Optimal_Control/8DAE'},
+              { text: 'Introduction', link: '/docs/Control/OCP/1introduction' },
+              { text: 'Control Theory', link: '/docs/Control/OCP/2controlTheory'},
+              { text: 'Linear Time-Optimal Control', link: '/docs/Control/OCP/3linearTimeOptimalControl'},
+              { text: 'Pontryagin Maximum Principle', link: '/docs/Control/OCP/4pontryagin'},
+              { text: 'Dynamic Programming', link: '/docs/Control/OCP/5dynamicProgramming'},
+              { text: 'Direct Methods', link: '/docs/Control/OCP/7DirectMethods'},
+              { text: 'DAE', link: '/docs/Control/OCP/8DAE'},
             ]
         }
       ],
 
-      '/docs/Fluid/Thermal_Fluid/': [
-        {
-          text: 'Thermal Fluid',
-            items: [
-              { text: 'External Flow', link: '/docs/Fluid/Thermal_Fluid/2externalFlow' },
-              { text: 'Boundary Layer', link: '/docs/Fluid/Thermal_Fluid/3boundaryLayer'},
-              { text: 'Internal Flow', link: '/docs/Fluid/Thermal_Fluid/4internalFlow'},
-              { text: 'Kinematics', link: '/docs/Fluid/Thermal_Fluid/5fluidKinematics'},
-              { text: 'Two Phase Flow: Intro', link: '/docs/Fluid/Thermal_Fluid/6twoPhase'},
-              { text: 'Two Phase Flow: thermo-fluid', link: '/docs/Fluid/Thermal_Fluid/7thermoFluid'},
-              { text: 'Two Phase Flow: Heat Transfer', link: '/docs/Fluid/Thermal_Fluid/8twoPhaseHeatTransfer'},
-              { text: 'Two Phase Flow: Practice', link: '/docs/Fluid/Thermal_Fluid/9practice'},
-            ]
-        }
-      ],
+      
     },
 
     outline: {
