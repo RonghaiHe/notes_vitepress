@@ -19,9 +19,9 @@ features:
     details: 1. <a href="./docs/Math/LA/1intro">Linear Algebra</a><br/>2. <a href="./docs/Math/ODE/1linear_ODE">Ordinary Differential Equation</a><br/>3. <a href="./docs/Math/PDE/1linear_PDE">Partial Differential Equation</a><br/>
   - title: Optimization
     details: (Empty)
-  - title: Computer Science
-    details: (Empty)
-  - title: Learning
+  - title: Frontiers
+    details: 1. <a href="./docs/Frontiers/RigidityGraph&Formation/1basis">Rigidity Graph</a><br/>
+  - title: CS & Learning
     details: (Empty)
   - title: Physics
     details: (Empty)

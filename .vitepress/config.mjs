@@ -30,6 +30,12 @@ export default defineConfig({
         ]
       },
       {
+        text: 'Frontiers',
+        items: [
+          { text: 'Rigidity Graph & Formation', link: '/docs/Frontiers/RigidityGraph&Formation/1basis' },
+        ]
+      },
+      {
         text: 'Control',
         items: [
           { text: 'Optimal Control', link: '/docs/Control/OCP/1introduction' },
@@ -100,8 +106,14 @@ export default defineConfig({
             ]
         }
       ],
-
-      
+      '/docs/Frontiers/RigidityGraph&Formation/': [
+        {
+          text: 'Rigidity Graph',
+          items: [
+            { text: 'Basis', link: '/docs/Frontiers/RigidityGraph&Formation/1basis' },
+          ]
+        }
+      ],
     },
 
     outline: {
