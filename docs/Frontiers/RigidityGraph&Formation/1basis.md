@@ -1,14 +1,8 @@
 # Basis
-> - *[Rigid graph control architectures for autonomous formations](https://ieeexplore.ieee.org/abstract/document/4653105)* by **D. O. Anderson** etc.;
-> - Section 1.2-1.3 of *[Formation Control of Multi-Agent Systems: A Graph Rigidity Approach](https://onlinelibrary.wiley.com/doi/book/10.1002/9781118887455)* by Marcio de Queiroz etc.;
-> - Theorem from [Conditions for unique graph realizations](http://epubs.siam.org/doi/10.1137/0221008) by Bruce Hendrickson;
-> - Preliminaries part of *[Distributed estimation and control for preserving formation rigidity for mobile robot teams](https://arxiv.org/abs/1309.4850)* by Zhiyong Sun, ..., **D. O. Anderson**;
-> - Preliminaries part of *[Distributed stabilization control of rigid formations with prescribed orientation](https://arxiv.org/abs/1606.03199)* by Zhiyong Sun, ..., **D. O. Anderson**, Hyo-Sung Ahn
-
-## Graph Theory
+## Graph Theory [4,5]
 > Please make sure you are familiar with the **concept** of graph
 
-Consider an **undirected graph** with $m$ **edges** and $n$ **vertices**, denoted by $\mathcal{G} = (\mathcal{V}, \mathcal{E})$ with vertex set $\mathcal{V} = \{1, 2, \cdots, n\}$ and edge set $\mathcal{E} \subset \mathcal{V} \times \mathcal{V}$. The neighbor set $\mathcal{N}_i$ is defined as $\mathcal{N}_i:=\{j\in\mathcal{V}:(i,j)\in\mathcal{E}\}$
+Consider an **undirected graph** with $m$ **edges** and $n$ **vertices**, denoted by $\mathcal{G} = (\mathcal{V}, \mathcal{E})$ with vertex set $\mathcal{V} = \{v_1,\cdots,v_n\} = \{1, 2, \cdots, n\}$ and edge set $\mathcal{E} \subset \mathcal{V} \times \mathcal{V}$. The neighbor set $\mathcal{N}_i$ is defined as $\mathcal{N}_i:=\{j\in\mathcal{V}:(i,j)\in\mathcal{E}\}$
 
 ::: warning Definition: complete graph
 A graph $\mathcal{G}$ is said to be **complete** if every pair of distinct vertices is connected by an edge, i.e., $m = n(n − 1)∕2$. A complete graph with n vertices is symbolized by $\mathcal{K}_n$
@@ -38,6 +32,15 @@ For a connected and undirected graph, one has:
 - $\operatorname{rank}(H) = n − 1$
 - $\operatorname{null}(H) = \operatorname{span}\{\mathbf{1}_n\}$.
 
+Define $\mathbf{H}_o\in\mathbb{R}^{n\times m}$ as:
+$$
+[\mathbf{H}_o]_{ij} =
+\begin{cases}
+    -1, & \text{if } e_k=(v_i,v_j)\in\mathcal{E} \text{ (outgoing edge)} \\
+    0, & \text{otherwise}
+\end{cases}.
+$$
+
 The **adjacency matrix**: $A(\mathcal{G})$, a symmetric $n \times n$ matrix encoding the vertex adjacency relationships, with entries
 $$
 A_{ij} = \begin{cases}
@@ -53,17 +56,18 @@ $$
 \begin{gathered}
 L(\mathcal{G}) = H^\top H = \operatorname{diag}(A\mathbf{1}) - A \\
 L_{ij} = \begin{cases}
-    \sum\limits_{j=1}^n A_{ij}, & i=j\\
-    -A_{ij}, & i\neq j
+    \sum\limits_{j=1}^n A_{ij} = |\mathcal{N}_i|, & i=j\\
+    -A_{ij} = -1 \text{ or }0, & i\neq j, \, =-1 \text{ if }(i,j)\in\mathcal{E}
 \end{cases}.
 \end{gathered}
 $$
 
-::: tip Lemma Properties of **Laplacian matrix**
+::: tip Lemma: Properties of **Laplacian matrix**
 - $L(\mathcal{G})$ is orientation-independent
 - $L(\mathcal{G})$ is symmetric and positive semidefinite
 - $\sum\limits_{j=1}^nL_{ij}=0, \quad i=1,\cdots,n.$
 - If $\mathcal{G}$ is connected, then $L(\mathcal{G})$ has one and only one zero eigenvalue, with $\operatorname{null}(L(\mathcal{G})) = \operatorname{span}\{\mathbf{1}\}$
+- $\operatorname{rank}(L(\mathcal{G}))=n-1$ with $0$ being a simple eigenvalue of $L(\mathcal{G})$ if and only if the directed graph $\mathcal{G}$ contains a (directed) spanning tree
 - $x^\top Lx = \sum\limits_{\{i,j\}\in\mathcal{E}}A_{ij}(x_i-x_j)^2$ where $x$ is a column  vector
 :::
 
@@ -71,7 +75,7 @@ $$
 For a graph $\mathcal{G} = (\mathcal{V},\mathcal{E})$, let $\mathcal{V}'$ be a **subset** of $\mathcal{V}$, then the **subgraph** of $\mathcal{G}$ induced by $\mathcal{V}'$ is the graph $\mathcal{G}' = (\mathcal{V}', \mathcal{E}')$ where $\mathcal{E}'$ includes all those edges of $\mathcal{E}$ that are incident on a vertex pair in $\mathcal{V}'$.
 :::
 
-## Framework
+## Framework [2]
 ::: warning Definition: Framework
 A **framework** is simply a **realization** of a graph at given points in Euclidean space. Specifically, if $p_i \in \mathbb{R}^d$ is the coordinate of vertex $i$ w.r.t. some fixed coordinate frame, then a framework $\mathcal{F}$ is a pair $(\mathcal{G}, \boldsymbol{p})$ where configuration $\boldsymbol{p} = [p_1, \cdots , p_n] \in \mathbb{R}^{dn}$. We will use the notation $\mathcal{F} = (\mathcal{G}, \boldsymbol{p})$ to denote that framework $\mathcal{F}$ is composed of graph $\mathcal{G}$ with coordinates $\boldsymbol{p}$.
 :::
@@ -99,7 +103,7 @@ $$
 
 where the **norm** is the standard Euclidean norm, and the $k$-th component in $r_{\mathcal{G}}(p), \|p_i − p_j\|^2$, corresponds to the **square length** of edge $z_k$.
 
-## Rigidity Theory
+## Rigidity Theory [1,2]
 ### Rigidity Graphs
 #### Characterized by rigid body
 Given a bar-and-joint framework, a fundamental question is whether it is **rigid** or not. By rigidity, we mean the **non-deformation** of the structure. 
@@ -155,6 +159,15 @@ On the other hand, the framework is **flexible** in $\mathbb{R}^d$ if and only i
 
 #### Chacaterized in Combination
 **Counting-type conditions** related to the graph can be used to ascertain the rigidity or nonrigidity of a generic formation corresponding to the graph.
+
+At first, define the Laman graph.
+::: warning Definition: Laman Graph
+A graph $\mathcal{G} = (\mathcal{V}, \mathcal{E})$ is **Laman** if $|\mathcal{E}| = 2|\mathcal{V}|−3$ and every subset of $k \geqslant 2$ vertices spans at most $2k − 3$ edges.
+:::
+
+The above is a combinatorial definition of Laman graphs. Its intuition is that the edges should be **distributed evenly** in a Laman graph.
+
+Laman graphs may also be characterized by the [Henneberg construction](#henneberg-construction) shown in the next 3 sections.
 
 ::: danger Laman's Theorem
 A graph $\mathcal{G} = (\mathcal{V}, \mathcal{E})$ modeling a formation in **2D** with $n$ vertices and $m$ edges is **rigid** if and only if there **exists** a **subgraph** $\mathcal{G}' = (\mathcal{V}, \mathcal{E}')$ with $2n − 3$ edges such that for **every subset** $\mathcal{V}''$ of $\mathcal{V}$ , the induced subgraph $\mathcal{G}'' = (\mathcal{V}'', \mathcal{E}'')$ of $\mathcal{G}'$ satisfies $|\mathcal{E}''| \leqslant 2|\mathcal{V}''| − 3$.
@@ -257,7 +270,7 @@ Fortunately, there is an easy way of checking whether a framework is **infinites
 
 Given the above, we deduce that $\dim(\operatorname{Null}(R_\mathcal{D}(\boldsymbol{p}))) \geqslant d(d+1)/2$ and therefore  $\operatorname{rank}(R_\mathcal{D}(\boldsymbol{p})) \leqslant nd − d(d+1)/2$. From Definition of infinitesimal rigidity, we know that for infinitesimally rigid frameworks $\dim(\operatorname{Null}(R_\mathcal{D}(\boldsymbol{p}))) = d(d+1)/2$ , which gives us the following theorem
 
-::: danger Theorem 1
+::: danger Theorem 1 [3]
 Consider a framework $(\mathcal{G}, p)$ in $d$-dimensional space with $n \geqslant d$ vertices and $m$ edges. It is **infinitesimally rigid** if and only if
 $$
 \operatorname{rank}(R_\mathcal{D}(\boldsymbol{p})) = 
@@ -431,11 +444,11 @@ A new graph $\mathcal{G}' = (\mathcal{V}', \mathcal{E}')$ is formed from $\mathc
 
 <img src="/frontiers_rigidity_1_1_henneberg.png" alt="Henneberg's Method" width="100%" align="center">
 
-These vertex-addition and edge-splitting operations are enough to grow every minimally rigid graph. It is also possible to **deconstruct a minimally rigid graph** by removing one vertex and a net count of two edges at each step
+These vertex-addition and edge-splitting operations are enough to grow **every** minimally rigid graph. It is also possible to **deconstruct a minimally rigid graph** by removing one vertex and a net count of two edges at each step.
 
-In growing and deconstructing a minimally rigid graph, all the intermediate graphs are minimally rigid
-
-A by-product is the fact that every 2D minimally rigid graph is constructible from a primitive comprising a two-vertex single edge graph by using a sequence of these operations
+- In growing and deconstructing a minimally rigid graph, all the intermediate graphs are minimally rigid
+- A by-product is the fact that every 2D minimally rigid graph is constructible from a primitive comprising a **two-vertex single edge** graph by using a sequence of these operations
+- A Henneberg construction starting from an edge connecting two vertices will result in a **Laman graph**. The **converse** is also true. That is if a graph is Laman, then it can be generated by a Henneberg construction
 
 In 3D, operations that are analogous to vertex addition and edge splitting can be defined, but whether these analogously defined operations are necessary and sufficient to build and deconstruct all minimally rigid graphs is still a **matter of conjecture**
 
@@ -514,7 +527,7 @@ Globally rigid formations with four or more agents are **not minimally rigid**. 
 
 Some problems arise in handling nonminimally rigid formations: if the distances between agents in a formation are measured with some **noise** and controls operate to try to bring certain distances to specified values, a similar type of **inconsistency** will be likely to arise
 
-## Formations
+## Formations [1]
 The task of maintaining a prescribed distance between a pair of agents requires **control action**. The **execution** of the task could be the responsibility of **both agents or one nominated agent** of the pair.
 
 - Modeling using undirected graphs is appropriate in the case of **shared responsibility**
@@ -576,7 +589,7 @@ In particular, the graph is structurally persistent if it is **persistent** and 
 
 If a graph is **acyclic and persistent**, it has at most $1$ vertex with no outwardly directed edges. Because the persistence property requires that the **total number of DoF** summed across all vertices is $6$, and the **only** way this number can be achieved in an acyclic graph is by having $1$ vertex with $3$ DoF, $1$ vertex with $2$ DoF, $1$ vertex with $1$ DoF, and the remainder with $0$ DoF, it follows that there is at most $1$ vertex with no outwardly directed edges, and the graph is then structurally persistent.
 
-## Operation with formations
+## Operation with formations [1]
 Various operations on formations can be contemplated. In particular, the concepts of **splitting**, **merging**, and **closing ranks** are defined for formations that are modeled using undirected graphs.
 
 An application domain where such scenarios arise is **terrain surveillance** and **target localization** using a formation of aerial vehicles. The individual vehicles carry sensors performing tasks such as range determination, bearing determination, or time-difference-of-arrival determination.
@@ -616,7 +629,7 @@ Additionally, the splitting problem is actually a particular case of the closing
 
 The formation operations discussed above can also be contemplated for directed graphs
 
-## Metavertices, rigid bodies, and Metaformation
+## Metavertices, rigid bodies, and Metaformation [1]
 In merging two formations, **much of the internal structure is largely irrelevant**. For example, if two rigid formations are to be merged in 2D, the merging can be done by introducing $3$ distance constraints, each of which involves one agent in each of the two formations, while ensuring that, in each formation, **at least two distinct agents are involved in the new distance constraints**. This conclusion holds irrespective of the internal structure of the formations. Establishing general rules for connecting formations to form larger formations, while preserving rigidity is thus of interest. Since for this purpose details of the internal connections of the individual formations are unimportant, we term the **larger formation** a **metaformation**. In this connection, we note two streams of work.
 
 ### Rigidity and 2D Formations of Formations
@@ -659,6 +672,13 @@ For 3D formations, structural persistence of the merged formation is also desire
 In 2D we have described a variation of Laman’s theorem describing the rigidity of a metaformation, obtained by connecting together metavertices or meta-agents. This result leads to the question of whether **the concept of a Henneberg sequence can be extended to metaformations**. Such a sequence could start with a single metavertex, or rigid formation, and involve the successive addition of meta-agents to the metaformation. Each addition would result in a metaformation that has the **minimal number of edges between metavertices** so as to guarantee rigidity of the overall metaformation. Indeed, such a construction is available. Analogues to the primitive operations of the standard Henneberg construction, namely, vertex addition and edge splitting, can be constructed. These operations are termed **metavertex addition** and **metaedge splitting**, respectively. See, for example, Figure 9. The construction can also be described by building on the results described in the previous section.
 
 <img src="/frontiers_rigidity_1_9_meta_henn.png" alt="Meta-Henneberg's Method" width="100%" align="center">
+
+## References
+> 1. *[Rigid graph control architectures for autonomous formations](https://ieeexplore.ieee.org/abstract/document/4653105)* by **D. O. Anderson** etc.;
+> 2. Section 1.2-1.3 of *[Formation Control of Multi-Agent Systems: A Graph Rigidity Approach](https://onlinelibrary.wiley.com/doi/book/10.1002/9781118887455)* by Marcio de Queiroz etc.;
+> 3. Theorem from [Conditions for unique graph realizations](http://epubs.siam.org/doi/10.1137/0221008) by Bruce Hendrickson;
+> 4. Preliminaries part of *[Distributed estimation and control for preserving formation rigidity for mobile robot teams](https://arxiv.org/abs/1309.4850)* by **Zhiyong Sun**, ..., **D. O. Anderson**;
+> 5. Preliminaries part of *[Distributed stabilization control of rigid formations with prescribed orientation](https://arxiv.org/abs/1606.03199)* by **Zhiyong Sun**, ..., **D. O. Anderson**, Hyo-Sung Ahn
 
 <!-- ### Target formation and control framework
 First, define a **target formation** with the given **interagent distance and formation orientation constraints**. Intuitively, by regarding the rigid formation as a **rigid body** and **specifying certain directions of some chosen edges in a global coordinate frame**, the orientation of the overall rigid formation can be fixed. 
