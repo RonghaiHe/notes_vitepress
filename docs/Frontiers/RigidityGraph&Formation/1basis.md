@@ -96,7 +96,7 @@ $$
 
 denote block diagonal matrix of the relative position.
 
-The **edge function** (Specific for distance rigidity function denoted as $D_\mathcal{G}(\boldsymbol{p})$): $r_{\mathcal{G}}(\boldsymbol{p}): \mathbb{R}^{2n} \to \mathbb{R}^m$ associated with the framework $(\mathcal{G}, \boldsymbol{p})$ is defined as:
+The **edge function** (Specific for distance rigidity function denoted as $\boldsymbol{d}_\mathcal{G}(\boldsymbol{p})$) $r_{\mathcal{G}}(\boldsymbol{p}): \mathbb{R}^{2n} \to \mathbb{R}^m$ associated with the framework $(\mathcal{G}, \boldsymbol{p})$ is defined as:
 $$
 r_{\mathcal{G}}(\boldsymbol{p}) = [\cdots, \|p_i-p_j\|^2, \cdots] = Z(\boldsymbol{z})^\top \boldsymbol{z}, \quad (i,j)\in\mathcal{E}. \tag{2}
 $$
@@ -181,10 +181,49 @@ If a graph $\mathcal{G} = (\mathcal{V}, \mathcal{E})$ modeling a formation in **
 First, embed the graph $\mathcal{G}$ into **2-D space**
 
 ::: warning Definition: (global) rigidity
-A framework  $(\mathcal{G}, p)$ is **rigid** in $\mathbb{R}^2$ if there exists a **neighborhood** $\mathbb{U}$ of $p$ such that $r^{−1}_\mathcal{G}(r_\mathcal{G} (p)) \cap \mathbb{U} = r^{−1}_\mathcal{K}(r_\mathcal{K}(p)) \cap \mathbb{U}$, where $\mathcal{K}$ is  the **complete** graph with the same vertex set as $\mathcal{G}$.
+A framework  $(\mathcal{G}, p)$ is **rigid** in $\mathbb{R}^2$ if there exists a **neighborhood** $\mathcal{U}$ of $p$ such that $r^{−1}_\mathcal{G}(r_\mathcal{G} (p)) \cap \mathcal{U} = r^{−1}_\mathcal{K}(r_\mathcal{K}(p)) \cap \mathcal{U}$, where $\mathcal{K}$ is  the **complete** graph with the same vertex set as $\mathcal{G}$.
 :::
 
 Two frameworks $(\mathcal{G}, \boldsymbol{p})$ and $(\mathcal{G}, \bar{\boldsymbol{p}})$ are **equivalent** if $r_\mathcal{G} (\boldsymbol{p}) = r_\mathcal{G} (\bar{\boldsymbol{p}})$ and are **congruent** if $\|p_i − p_j\| = \|\bar{p}_i − \bar{p}_j\|$ for all $i, j \in \mathcal{V}$.
+
+Now give the definition of regular point[7].
+
+For a smooth map $f: X \rightarrow Y$ where $X$ and $Y$ are smooth manifolds, we denote the derivative of $f$ at $\boldsymbol{x} \in X$ by $\mathrm{d} f(\boldsymbol{x})$. Let $k=\max \{\operatorname{rank} (\mathrm{d} f(\boldsymbol{x}))$ : $\boldsymbol{x} \in X\}$. We say that $\boldsymbol{x} \in X$ is a **regular point** of $f$ if $\operatorname{rank} (\mathrm{d} f(\boldsymbol{x}))=k$ and a **singular point** otherwise.
+
+::: tip Proposition 1
+Let $\boldsymbol{f}: \mathbb{R}^{n} \rightarrow \mathbb{R}^{m}$ be a smooth map and $k=\max \left\{\operatorname{rank} (\mathrm{d} \boldsymbol{f}(\boldsymbol{x})): \boldsymbol{x} \in \mathbb{R}^{n}\right\}$. If $\boldsymbol{x}_{0} \in \mathbb{R}^{n}$ is a regular point of $\boldsymbol{f}$, then the image under $\boldsymbol{f}$ of some neighborhood of $\boldsymbol{x}_{0}$ is a $k$-dimensional manifold.
+:::
+
+**Proof**:
+
+Let $\boldsymbol{f}=\left(\boldsymbol{f}_{1}, \boldsymbol{f}_{2}\right)$ where $\boldsymbol{f}_{1}$ consists of the first $k$ coordinate functions of $\boldsymbol{f}$ and assume that $\operatorname{rank}\left(\mathrm{d} \boldsymbol{f}_{1}(\boldsymbol{x}_{0})\right)=k$. Since $\operatorname{rank}(\mathrm{d} \boldsymbol{f}_{1})=k$ in a neighborhood of $\boldsymbol{x}_{0}$, the Inverse Function Theorem yields local coordinates at $\boldsymbol{x}_{0}$ such that $\boldsymbol{f}_{1}\left(\boldsymbol{x}_{1}, \boldsymbol{x}_{2}\right)=\boldsymbol{x}_{1}$. Thus in local coordinates
+$$
+\mathrm{d} \boldsymbol{f}=\left[\begin{array}{cc}
+I & 0 \\
+\frac{\partial \boldsymbol{f}_{2}}{\partial \boldsymbol{x}_{1}} & \frac{\partial \boldsymbol{f}_{2}}{\partial \boldsymbol{x}_{2}}
+\end{array}\right]
+$$
+
+Since  $\operatorname{rank}(\mathrm{d} \boldsymbol{f})=k$ near $\boldsymbol{x}_{0}, \partial \boldsymbol{f}_{2} / \partial \boldsymbol{x}_{2}=0$ near $\boldsymbol{x}_{0}$. Hence $\boldsymbol{f}_{2}\left(\boldsymbol{x}_{1}, \boldsymbol{x}_{2}\right)=g\left(\boldsymbol{x}_{1}\right)$ and therefore $\boldsymbol{f}\left(\boldsymbol{x}_{1}, \boldsymbol{x}_{2}\right)=\left(\boldsymbol{x}_{1}, g\left(\boldsymbol{x}_{1}\right)\right)$ near $\boldsymbol{x}_{0}$. Thus $\boldsymbol{f}$ maps some neighborhood of $\boldsymbol{x}_{0}$ onto the graph of $g$ which is a $k$-dimensional manifold. <div style="text-align: right;">$\square$</div>
+
+It follows that if $\boldsymbol{p}$ is a regular point of $f_\mathcal{G}$, then $f_\mathcal{G}^{-1}\left(f_{G}(\boldsymbol{p})\right)$ is a manifold of co-dimension $k$ near $\boldsymbol{p}$. In this case, the construction of a smooth path in non-rigid implies flexible of Proposition 1 is straightforward since near $\boldsymbol{p}$ we then have that $f_\mathcal{K}^{-1}\left(f_\mathcal{K}(\boldsymbol{p})\right)$ is a proper submanifold of $f_\mathcal{G}^{-1}\left(f_\mathcal{G}(\boldsymbol{p})\right)$.
+
+Finally, a subset $M$ of $\mathbb{R}^{d}$ is said to be an affine set if $M$ contains the entire line through each pair of distinct points in $M$. The dimension of an affine set $M$ in $\mathbb{R}^{d}$ is defined to be the dimension of the subspace $M-M=\{x- y: x, y \in M\}$ parallel to $M$ and the affine hull of a set $S \subset \mathbb{R}^{d}$ is the smallest affine set containing $S$. For $\boldsymbol{p}=\left(p_{1}, \ldots, p_{n}\right) \in \mathbb{R}^{d n}$, let $\dim\boldsymbol{p}$ be the dimension of the affine hull of $\left\{p_{1}, \ldots, p_{n}\right\}$.
+
+::: danger Theorem 0
+Let $\mathcal{G}$ be a graph with $n$ vertices, $m$ edges, and edge function $f_\mathcal{G}$ : $\mathbb{R}^{dn} \rightarrow \mathbb{R}^{m}$. Suppose that $\boldsymbol{p} \in \mathbb{R}^{dn}$ is a regular point of $f_\mathcal{G}$. Then the graph $\mathcal{G}(\boldsymbol{p})$ is **rigid** in $\mathbb{R}^{d}$ if and only if
+$$
+\operatorname{rank} (\mathrm{d} f_\mathcal{G}(\boldsymbol{p}))=d n-(\dim\boldsymbol{p}+1)(2 d-\dim\boldsymbol{p}) / 2,
+$$
+
+and $\mathcal{G}(\boldsymbol{p})$ is **flexible** in $\mathbb{R}^{d}$ if and only if
+$$
+\operatorname{rank} (\mathrm{d} f_\mathcal{G}(\boldsymbol{p}))<d n-(\dim\boldsymbol{p}+1)(2 d-\dim\boldsymbol{p}) / 2 .
+$$
+
+:::
+
+TODO
 
 ### Infinitesimal Rigidity
 Although our physical intuition can indicate if certain frameworks are rigid or not, in general it is difficult to determine rigidity from the definition characterized by rigid body. Therefore, we will consider a related notion of rigidity called **infinitesimal rigidity**, which can be easily verified via a **matrix rank**.
@@ -210,6 +249,15 @@ $$
 $$
 
 where $v_i:=\dot{p}_i(0)$ and $p_i(0) = p_i$ from the definition of continuous family. The above equation leads to a system of $m$ linear equations with the $dn$ unknowns being the velocities $v_i$. When instantaneous velocities $v_i$ that satisfy above formula exist, we say the framework has **infinitesimal motion**.
+
+::: warning Definition: infinitesimal motion [6]
+An **infinitesimal motion** is an assignment of velocities that guarantees the invariance of $r_\mathcal{G}(\boldsymbol{p})$, i.e.,
+$$
+\dot{r}_\mathcal{G}(\boldsymbol{p}) = \frac{\partial r_\mathcal{G}(\boldsymbol{p})}{\partial \boldsymbol{p}}\boldsymbol{v} = 0,
+$$
+
+where $\boldsymbol{v} = (\boldsymbol{v}_1^\top, \cdots, \boldsymbol{v}_n^\top)^\top, \boldsymbol{v}_i=\dot{\boldsymbol{p}}_i$ is the velocity of vertex $i$. We say a motion is **trivial** if it satisfies equation above for **any framework** with $n$ vertices. A framework is **infinitesimally rigid** if every infinitesimal motion is trivial.
+:::
 
 When analyzing infinitesimal rigidity, the **rigidity matrix** of a framework comes in handy, which is defined as
 $$
@@ -679,6 +727,8 @@ In 2D we have described a variation of Laman’s theorem describing the rigidity
 > 3. Theorem from [Conditions for unique graph realizations](http://epubs.siam.org/doi/10.1137/0221008) by Bruce Hendrickson;
 > 4. Preliminaries part of *[Distributed estimation and control for preserving formation rigidity for mobile robot teams](https://arxiv.org/abs/1309.4850)* by **Zhiyong Sun**, ..., **D. O. Anderson**;
 > 5. Preliminaries part of *[Distributed stabilization control of rigid formations with prescribed orientation](https://arxiv.org/abs/1606.03199)* by **Zhiyong Sun**, ..., **D. O. Anderson**, Hyo-Sung Ahn
+> 6. Preliminaries part of *[Angle-based shape determination theory of planar graphs with application to formation stabilization](https://www.sciencedirect.com/science/article/pii/S0005109819301475)* by Gangshan Jing, etc..
+> 7. [The Rigidity of Graphs](https://www.jstor.org/stable/1998867) by L. Asimow and B. Roth in 1978.
 
 <!-- ### Target formation and control framework
 First, define a **target formation** with the given **interagent distance and formation orientation constraints**. Intuitively, by regarding the rigid formation as a **rigid body** and **specifying certain directions of some chosen edges in a global coordinate frame**, the orientation of the overall rigid formation can be fixed. 
