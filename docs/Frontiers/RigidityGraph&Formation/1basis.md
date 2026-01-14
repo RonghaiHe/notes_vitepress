@@ -471,6 +471,8 @@ $$
 
 Note that $V$ is positive definite w.r.t. $y$ and positive semi-definite with respect to $x$. Given that $\operatorname{rank}(R_\mathcal{D}(\boldsymbol{p})) = \operatorname{rank}(R_\mathcal{D}(\boldsymbol{p})R_\mathcal{D}^\top(\boldsymbol{p}))$ and $R_\mathcal{D}(\boldsymbol{p})$ is full row rank, we know $R_\mathcal{D}(\boldsymbol{p})R_\mathcal{D}^\top(\boldsymbol{p})$ is **invertible** and has **no zero eigenvalues**. Therefore, $V$ is positive definite w.r.t. $x$ and $R_\mathcal{D}(\boldsymbol{p})R_\mathcal{D}^\top(\boldsymbol{p})$ is a positive definite matrix.
 
+For an **infinitesimally minimally distance rigid** framework, there must exist a vertex associated with **fewer than $4$ distance constraints**; otherwise, the total number of distance constraints will be at least $2 n$ and thus greater than the minimum number $2n − 3$.
+
 ### Henneberg construction
 The Henneberg construction deals with the **iterative construction** of rigid formations. As for the characterization of rigidity, the Henneberg construction procedure for **2D** formations is better developed than that for 3D formations.
 
@@ -574,6 +576,34 @@ The Euclidean coordinates, however, become **uniquely specified** by using furth
 Globally rigid formations with four or more agents are **not minimally rigid**. A reason for using nonminimally rigid formations, where more constraints are imposed than are needed for shape maintenance: **loss** of a sensor / communication link / control actuator
 
 Some problems arise in handling nonminimally rigid formations: if the distances between agents in a formation are measured with some **noise** and controls operate to try to bring certain distances to specified values, a similar type of **inconsistency** will be likely to arise
+
+### Generic Rigidity [8]
+One can ask, for a given bar framework $\mathcal{G}(\boldsymbol{p})$, whether it is **globally rigid**. However, it is shown that this problem is **strongly NP hard** even for bar frameworks in $\mathbb{R}^1$. We will show that there is an **algebraic set** of configurations, defined by polynomial equations in the coordinates of the configuration, such that when the configuration $\boldsymbol{p}$ is outside that set, $\mathcal{G}(\boldsymbol{p})$ is globally rigid in $\mathbb{R}^2$. However, the complexity of that set of configurations appears to be exponential in $n$, the number of points of the configuration.
+
+So, we are led to consider the question of whether “most” configurations $\boldsymbol{p}$ for a given graph $\mathcal{G}$ are globally rigid.
+
+::: warning Definition: algebraically dependent, generic
+A set $A = (\alpha_1, \cdots , \alpha_m)$ of distinct real numbers is said to be **algebraically dependent** if there is a non-zero polynomial $h(x_1, \cdots , x_m)$ with integer coefficients such that $h = (\alpha_1, \cdots , \alpha_m) = 0$. If $A$ is not algebraically dependent, it is called **generic**. If a configuration $\boldsymbol{p} = ( \boldsymbol{p}_1, \cdots , \boldsymbol{p}_n)$ in $\mathbb{R}^d$ is such that its $dn$ coordinates are generic, we say $\boldsymbol{p}$ is generic.
+:::
+
+We raise a possibly more tractable problem. For a given graph $\mathcal{G}$, when $\mathcal{G}(\boldsymbol{p})$ is globally rigid for all generic configurations $\boldsymbol{p}$ in $\mathbb{R}^d$ we say that $\mathcal{G}$ itself is **generically globally rigid** in $\mathbb{R}^d$. So for a fixed dimension $d$ we ask whether a given graph $\mathcal{G}$ is generically globally rigid.
+
+For $d = 1$, it is easy to see that $\mathcal{G}$ is generically globally rigid if and only if $\mathcal{G}$ is **vertex $2$-connected**, which means that it takes the removal of at least two vertices of $\mathcal{G}$ to disconnect the rest of the vertices. In general a graph is **vertex $m$-connected** if it takes the removal of at least $m$ vertices of $\mathcal{G}$ to disconnect the rest of the vertices.
+
+For $d = 2$, here we now have complete information about generic global rigidity for any graph. A framework $\mathcal{G}(\boldsymbol{p})$ in $\mathbb{R}^d$ is said to be redundantly rigid if $\mathcal{G}(\boldsymbol{p})$ is rigid in $\mathbb{R}^d$ even after the removal of any edge of $\mathcal{G}$.
+
+::: danger Theorem 5
+Let $\mathcal{G}(\boldsymbol{p})$ be a framework in $\mathbb{R}^d$ such that the configuration $\boldsymbol{p}$ is **generic**, and $\mathcal{G}(\boldsymbol{p})$ is **globally rigid** with at least $d + 1$ vertices. Then the following conditions must hold:
+
+1. The graph $\mathcal{G}$ is **vertex $(d + 1)$-connected**.
+2. The framework $\mathcal{G}(\boldsymbol{p})$ is **redundantly rigid** in $\mathbb{R}^d$ .
+:::
+
+Condition 1 is clear. One just reflects the vertices on one side of a hyperplane through any separating set of $d$ vertices. Condition 2 is more subtle. Roughly the idea is to remove an edge from $\mathcal{G}$, let the resulting framework flex, and replace the edge in a different configuration.
+
+It is natural to conjecture that conditions 1 and 2 are sufficient for generic global rigidity as well as **necessary**. Unfortunately, for $d \geqslant 3$, that conjecture is shown to be false. For $d = 3$, the complete bipartite graph $K (5, 5)$ is redundantly rigid, vertex $4$-connected, but there are generic configurations, where the corresponding framework is **not** globally rigid, and it is the only known example. For $d \geqslant 3$ it is somewhat embarrassing to admit that it is **not known** whether global rigidity is a generic property. This means that if $\mathcal{G}(\boldsymbol{p})$ is a generically rigid framework in $\mathbb{R}^d$, and $\boldsymbol{q}$ is another generic configuration in $\mathbb{R}^d$, it is not known, except for $d = 1$ or $d = 2$, whether $\mathcal{G}(\boldsymbol{q})$ is globally rigid.
+
+On the other hand, it is known that **rigidity is a generic property**. In other words, if $\boldsymbol{p}$ is a generic configuration in $\mathbb{R}^d$ , and $\boldsymbol{q}$ is another generic configuration in $\mathbb{R}^d$ , it is known that $\mathcal{G}(\boldsymbol{q})$ is rigid if and only if $\mathcal{G}(\boldsymbol{p})$ is rigid. Thus rigidity in $\mathbb{R}^d$ is entirely a combinatorial property of the graph $\mathcal{G}$, although a purely combinatorial polynomial time algorithm to determine generic rigidity is known only for $d = 1$ and $d = 2$.
 
 ## Formations [1]
 The task of maintaining a prescribed distance between a pair of agents requires **control action**. The **execution** of the task could be the responsibility of **both agents or one nominated agent** of the pair.
@@ -729,6 +759,7 @@ In 2D we have described a variation of Laman’s theorem describing the rigidity
 > 5. Preliminaries part of *[Distributed stabilization control of rigid formations with prescribed orientation](https://arxiv.org/abs/1606.03199)* by **Zhiyong Sun**, ..., **D. O. Anderson**, Hyo-Sung Ahn
 > 6. Preliminaries part of *[Angle-based shape determination theory of planar graphs with application to formation stabilization](https://www.sciencedirect.com/science/article/pii/S0005109819301475)* by Gangshan Jing, etc..
 > 7. [The Rigidity of Graphs](https://www.jstor.org/stable/1998867) by L. Asimow and B. Roth in 1978.
+> 8. Part 1.2: Generic Global Rigidity in *[Generic Global Rigidity](http://link.springer.com/10.1007/s00454-004-1124-4)* by Robert Connelly
 
 <!-- ### Target formation and control framework
 First, define a **target formation** with the given **interagent distance and formation orientation constraints**. Intuitively, by regarding the rigid formation as a **rigid body** and **specifying certain directions of some chosen edges in a global coordinate frame**, the orientation of the overall rigid formation can be fixed. 
