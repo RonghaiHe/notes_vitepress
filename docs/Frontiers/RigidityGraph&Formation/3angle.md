@@ -138,10 +138,10 @@ For two angularities $\mathbb{A}(\mathcal{V}, \mathcal{A}, \boldsymbol{p})$ and 
 We first clarify that for the smallest angularities, namely those that contain only three vertices, there is no gap between angle rigidity and global angle rigidity assuming generic positions.
 
 ::: tip Lemma 0
-For a $3$-vertex angularity, if it is **generically angle rigid**, it is also **generically globally angle rigid**.
+For a 3-vertex angularity, if it is **generically angle rigid**, it is also **generically globally angle rigid**.
 :::
 
-**Proof**: For this $3$-vertex angularity $\mathbb{A}(\mathcal{V}, \mathcal{A}, \boldsymbol{p})$, since it is angle rigid and $\boldsymbol{p}$ is generic, $\mathcal{A}$ must contain **at least two elements**, or said differently, two of the interior angles of the triangle formed by the three vertices are constrained. Again since $\boldsymbol{p}$ is generic, the sum of the three interior angles in this triangle has to be $\pi$, and thus the magnitude of this triangle’s remaining interior angle is uniquely determined too. Therefore, $\mathbb{A}$ is generically globally angle rigid. <div style="text-align: right;">$\square$</div>
+**Proof**: For this 3-vertex angularity $\mathbb{A}(\mathcal{V}, \mathcal{A}, \boldsymbol{p})$, since it is angle rigid and $\boldsymbol{p}$ is generic, $\mathcal{A}$ must contain **at least two elements**, or said differently, two of the interior angles of the triangle formed by the three vertices are constrained. Again since $\boldsymbol{p}$ is generic, the sum of the three interior angles in this triangle has to be $\pi$, and thus the magnitude of this triangle’s remaining interior angle is uniquely determined too. Therefore, $\mathbb{A}$ is generically globally angle rigid. <div style="text-align: right;">$\square$</div>
 
 Now, we define linear and quadratic constraints.
 
@@ -710,8 +710,333 @@ An example of strongly nondegenerate framework embedded by a triangulated Laman 
 
 It is important to note that strong nondegeneracy is **not necessary** for a triangulated framework to be globally angle rigid. A simple counterexample is the framework shown in [Figure 1](#fig-3-1-angle) (d). The framework is globally angle rigid, but not strongly nondegenerate. Moreover, the angle index set we give in Theorem 10 is only **one suitable** choice, there are also other choices of the angle index set supporting minimal infinitesimal angle rigidity or global angle rigidity of $(\mathcal{L}_n,\boldsymbol{p})$.
 
+## 3D Angle Rigidity [4]
+### Definition in 3D
+An element $(j, i, k)$ in $\mathcal{A}$, when pi, pj, and pk are distinct, corresponds to the interior  angle formed by the rays $\vec{ij}$ and $\vec{ik}$; more specifically, using the position vector $\boldsymbol{p}$, the angle $\measuredangle jik \in [0, \pi]$ corresponding to the triplet $(j, i, k)$ in $\mathcal{A}$ can be calculated by
+$$
+\measuredangle jik = \arccos(\boldsymbol{g}_{ij}^\top\boldsymbol{g}_{ik}) \tag{4}
+$$
+
+where $\measuredangle jik = \measuredangle kij$, the unit vector $\boldsymbol{g}_{ij}$ represents the direction $\vec{ij}$.
+
+**Remark**: The 2-D angle is calculated using the **counterclockwise direction**. However, the definition of each 3-D angle’s direction depends on the **associated vertices’ coordinate frames**, which are not assumed to be aligned and known in this 3-D angle rigidity. Although the 3-D angle defined in $(4)$ does not need the notion of being counterclockwise, the 3-D angle constraints will rely on similar notions to be defined later.
+
+In this section, we first introduce 3-D angle rigidity, then introduce the merging operation for two angle rigid angularities, and in the end discuss angle rigidity of convex polyhedra. All the discussions are confined to 3-D and the right-hand rule applies to all rotation operations of vectors.
+
+The definition of [equivalence, congruence, angle rigid and globally angle rigid in 2D](#definition-of-angle-rigidity-in-2d) are the same as 2-D. According to Definitions, **global angle rigidity always implies angle rigidity**, but the inverse is not necessarily true. This is different from bearing rigidity for which global bearing rigidity and bearing rigidity are equivalent.
+
+::: danger Theorem 11: Nonequivalence between angle rigidity and global angle rigidity in 3D
+An angle rigid angularity $\mathbb{A}(\mathcal{V}, \mathcal{A}, \boldsymbol{p})$ in 3-D is **not necessarily** globally angle rigid.
+:::
+
+We prove this theorem by constructing an angularity that is angle rigid but not globally angle rigid. Consider the angularity $\mathbb{A}(\mathcal{V}, \mathcal{A}, \boldsymbol{p})$ in Figure 13 with $\mathcal{V} = \{1, 2, 3, 4\}, \mathcal{A} = \{(1, 3, 2), (3, 2, 1), (1, 4, 2), (1, 4, 3), (2, 4, 3)\}$.
+
+<figure>
+   <img src="/frontiers_rigidity_3_13_amb-3d.jpg" id="fig-3-13-amb" alt="amb-3D" width="100%" align="center">
+   <figcaption> Figure 13: Flex ambiguity in an angle rigid angularity (3D). </figcaption>
+</figure>
+
+We first check whether $\mathbb{A}(\mathcal{V}, \mathcal{A}, \boldsymbol{p})$ is angle rigid. In $\measuredangle 123$, one can uniquely determine $\measuredangle 213 = \pi − \measuredangle 132 − \measuredangle 321$, which implies that the interior angles in $\measuredangle 123$ are uniquely determined. If point $4$’s position could be uniquely determined by $\measuredangle 142, \measuredangle 143, \measuredangle 243$, the other angles formed by $4$ and $1,2,3$ would also be uniquely determined. To check the uniqueness of point $4$ under $\measuredangle 142, \measuredangle 143, \measuredangle 243$, we first show the surface which satisfies the angle constraint of $\measuredangle 142$ given points $1$ and $2$.
+
+Since a 2-D angle constraint $\measuredangle 142$ allows point $4$ to be in an arc $\stackrel\frown{12}$ [see Figure 14(a)], the angle constraint of $\measuredangle 142$ in 3-D gives rise to a closed surface [see Figure 14(b)] formed by rotating the arc $\stackrel\frown{12}$ along the line $\overline{12}$ in Figure 14(a).
+
+<figure>
+   <img src="/frontiers_rigidity_3_14_constraints-3d.jpg" id="fig-3-14-con" alt="constraints-3D" width="100%" align="center">
+   <figcaption> Figure 14: Extension of angle constraints from 2-D to 3-D. (a) 2D angle 142. (B) 3D angle 142. (C) 2D angle 214. (D) 3D angle 214. </figcaption>
+</figure>
+
+Given points $1$, $2$, and $3$ and angles $\measuredangle 142, \measuredangle 143, \measuredangle 243$, point $4$ can be determined by 3 such surfaces. By numerically checking the intersections of these 3 surfaces in Figure 15(a), one can see that there are 4 separate points of intersection [see Figure 15(b)] in these 3 surfaces. Therefore, when $\boldsymbol{p}_1, \boldsymbol{p}_2, \boldsymbol{p}_3, \boldsymbol{p}_4$ are locally perturbed, there is only one unique position for point $4$ in the neighborhood of its current position because these 4 intersection points are separate. More specifically, there always exists a sufficiently small perturbation (corresponding to $\varepsilon$ in Definition of angle rigid) such that every perturbed angularity satisfying the given 5 angle constraints is congruent to $\mathbb{A}$, i,e., $\mathbb{A}$ is angle rigid.
+
+<figure>
+   <img src="/frontiers_rigidity_3_15_intersection-3d.jpg" alt="intersection-3D" width="100%" align="center">
+   <figcaption> Figure 15: Intersection of 3 surfaces. (a) 3 surfaces. (b) Surfaces’ intersected curves. </figcaption>
+</figure>
+
+We now show that $\mathbb{A}(\mathcal{V}, \mathcal{A}, \boldsymbol{p})$ is not globally angle rigid. Perturbing $\boldsymbol{p}_4$ in $\mathbb{R}^3$, one finds another point $\boldsymbol{p}_4'$ satisfying all the angle constraints associated with $\mathcal{A}$ together with $\boldsymbol{p}_1, \boldsymbol{p}_2, \boldsymbol{p}_3$, but $\measuredangle 412 \neq \measuredangle 4'12$. This flex ambiguity shown in Figure 13 implies that $\mathbb{A}$ is not globally angle rigid.
+
+<figure>
+   <img src="/frontiers_rigidity_3_16_nongeneric.jpg" alt="Non-generic" width="100%" align="center">
+   <figcaption> Figure 16: Nongeneric p changes rigidity. </figcaption>
+</figure>
+
+Note that nongeneric embeddings of $\boldsymbol{p}$ in $\mathbb{R}^3$ may change rigidity properties. Now, we consider 3 different embeddings of a four-vertex angularity. When $213 = 0, 143 = 0$ as shown in Figure 16(a), the angularity is angle rigid but not globally angle rigid since if $2$ and $3$ swap their positions, $\measuredangle 213, \measuredangle 143$ remain the same but $\measuredangle 234$ changes by $\pi$. On the other hand, Figure 16(b) shows that when the same 2 angles are assigned to be $\measuredangle 213 = \pi, \measuredangle 143 = \pi$, the angularity becomes globally angle rigid according to Definition. Note that in the above 2 cases, all the 4 points are collinear. When only 3 points are collinear as in Figure 16(c), this angularity is in **general flexible** if fewer than 4 angle constraints are given according to 2-D angle rigidity, i.e. Theorem 4, since points $1,2,3,4$ are in a plane in this case. By giving 3 generic angles (e.g., not $0$ or $\pi$) for $\measuredangle 213, \measuredangle 143, \measuredangle 413$ and one nongeneric angle $\measuredangle 234 = \pi$ in Figure 16(c), the angularity becomes globally angle rigid because $\measuredangle 124 = \pi − \measuredangle 213 − \measuredangle 143 − \measuredangle 413, \measuredangle 132 = \measuredangle 413 + \measuredangle 143$, and $\measuredangle 134 = \pi − \measuredangle 132$ are all uniquely determined. However, four vertices in general form a **tetrahedron** in 3-D. To rule out nongeneric situations for $\boldsymbol{p}$, the notion of generic positions can be used. Following the Definition in 2-D, we say $\boldsymbol{p}$ is a generic position vector if its components are algebraically independent. We say an angularity $\mathbb{A}(\mathcal{V}, \mathcal{A}, \boldsymbol{p})$ is **generically (globally) angle rigid** if $\boldsymbol{p}$ is generic and $\mathbb{A}$ is (globally) angle rigid.
+
+Since an angle rigid angularity is **not necessarily** globally angle rigid, 3-D angle rigidity is a local property, which is **not related to the number of angle constraints** imposed on a specific angularity. However, if one wants to construct an angle rigid structure efficiently, **the number of angle constraints and their distributions** within an angularity become central, which motivates us to develop **sufficient conditions to guarantee global angle rigidity**. First, for two angularities $\mathbb{A}(\mathcal{V}, \mathcal{A}, \boldsymbol{p})$ and $\mathbb{A}'(\mathcal{V}', \mathcal{A}', \boldsymbol{p}')$, we say $\mathbb{A}$ is a **subangularity** of $\mathbb{A}'$ if $\mathcal{V} \subset \mathcal{V}'$, $\mathcal{A} \subset \mathcal{A}'$ and $\boldsymbol{p}$ is the corresponding **subvector** of $\boldsymbol{p}'$. For the smallest angularities with only 3 vertices, there is **no difference** between generic angle rigidity and generic global angle rigidity.
+
+::: tip Lemma 7
+If a 3-vertex angularity in 3-D is **generically angle rigid**, it is also **generically globally angle rigid**.
+:::
+
+**Proof**: This is straightforward by following the proof in 2-D angle rigidity, i.e. Lemma 0.
+
+Now, we develop the vertex addition operations for 3-D angle rigidity to construct an angle rigid angularity from the smallest 3-vertex angularity. Toward this end, we first define some related notions.
+
+::: warning Definition: Constraints in 3-D
+For a given angularity $\mathbb{A}(\mathcal{V}, \mathcal{A}, \boldsymbol{p})$, we say that
+1. a new vertex $i$ positioned at $\boldsymbol{p}_i$ is **linearly constrained** w.r.t. $\mathbb{A}$ if there is $j \in \mathcal{V}$ such that $\boldsymbol{p}_i \neq \boldsymbol{p}_j$ and $\boldsymbol{p}_i$ is  constrained to be on a ray $\vec{ji}$ starting from $\boldsymbol{p}_j$, e.g., $\boldsymbol{p}_4$ is  constrained in ray $\vec{14}$ in [Figure 14](#fig-3-14-con) (c). Later it's shown **how to generate** this constraint.
+2. $i$ is **conically constrained** w.r.t. $\mathbb{A}$ if there are $j, k \in \mathcal{V}$ such that $\{\boldsymbol{p}_i, \boldsymbol{p}_j, \boldsymbol{p}_k\}$ is generic and $\boldsymbol{p}_i$ is constrained to be on a cone $\mathcal{C}_{j\to k}$ with $\boldsymbol{p}_j$ as the cone’s  apex and $\vec{jk}$ as the cone’s axis, e.g., $\boldsymbol{p}_4$ is constrained in cone $\mathcal{C}_{1\to 2}$ in [Figure 14](#fig-3-14-con) (d).
+3. $i$ is **near-spherically constrained** w.r.t. $\mathbb{A}$ if there are $j, k \in \mathcal{V}$ such that $\{\boldsymbol{p}_i, \boldsymbol{p}_j, \boldsymbol{p}_k\}$ is generic and $\boldsymbol{p}_i$ is constrained to be on a near-spherical surface $\mathcal{S}_{jk}$ with $\overline{jk}$ in the surface’s rotation axis, e.g., $\boldsymbol{p}_4$ is constrained in near-spherical surface $\mathcal{S}_{12}$ in [Figure 14](#fig-3-14-con) (b).
+
+For convenience, we also simply say $i$’s angle constraint is **linear**, **conic**, and **near-spherical** in the above 3 cases, respectively.
+:::
+
+In contrast to the linear and quadratic constraints from 2-D angles [see [Figure 14](#fig-3-14-con) (a) and (c)], each angle constraint in 3-D generally determines a **surface** [see [Figure 14](#fig-3-14-con) (b) and (d)] making computations and the exploration of its properties in 3-D more challenging.
+
+To deal with this challenge, inspired by those formation control approaches where **counterclockwise direction** information among agents is employed to **exclude formations’ ambiguities**, we also utilize counterclockwise direction constraints for 3-D angle rigidity to exclude angularities’ ambiguities.
+
+::: warning Definition: counterclockwise / clockwise direction
+For 4 points $i, j, k, m$ in generic positions $\boldsymbol{p}_i, \boldsymbol{p}_j, \boldsymbol{p}_k, \boldsymbol{p}_m$, we say $m$ is in a **counterclockwise** (resp. **clockwise**) **direction** w.r.t. $i, j, k$ if the **signed volume of the tetrahedron** formed by $\boldsymbol{p}_m$ and $\boldsymbol{p}_i, \boldsymbol{p}_j, \boldsymbol{p}_k$ is positive (resp. negative), i.e., $V_{m-i j k}=\frac{\left(\boldsymbol{p}_i-\boldsymbol{p}_m\right)^{\top}\left[\left(\boldsymbol{p}_j-\boldsymbol{p}_m\right) \times\left(\boldsymbol{p}_k-\boldsymbol{p}_m\right)\right]}{6}>0$. 
+
+Correspondingly, when the sign of the tetrahedron's volume is fixed to be positive (resp. negative), we say $\boldsymbol{p}_m$ is under a counterclockwise (resp. clockwise) direction constraint w.r.t. $\boldsymbol{p}_i, \boldsymbol{p}_j, \boldsymbol{p}_k$, e.g., see Figure 17(a) and (b).
+:::
+
+<figure>
+   <img src="/frontiers_rigidity_3_17_clockwise.jpg" alt="Clockwise" width="100%" align="center">
+   <figcaption> Figure 17: Counterclockwise, clockwise, and linear constraints. (a) Counterclockwise constraint. (b) Clockwise constraint. (c) Linear constraint. </figcaption>
+</figure>
+
+**Remark**: As shown in Figure 17(c), 2 noncoincident conic constraints $\mathcal{C}_{j \rightarrow k_1}, \mathcal{C}_{j \rightarrow k_2}$ **sharing the same apex** $\boldsymbol{p}_j$ will lead to 2 cones intersecting at no more than 2 rays, denoted by $\overrightarrow{j i_1}$ and $\overrightarrow{j i_2}$. Since $\overrightarrow{j i_1}$ and $\overrightarrow{j i_2}$ are symmetric w.r.t. the plane formed by the 2 cones' rotation axes $\overrightarrow{j k_1}$ and $\overrightarrow{j k_2}$, one has that $V_{i_1-j k_1 k_2}$ and $V_{i_2-j k_1 k_2}$ have different signs. Therefore, **each linear constraint can be obtained by 2 conic constraints with a common apex and an associated counterclockwise constraint**.
+
+Motivated by Henneberg's construction which has been seen as a cornerstone for distance rigidity theory, we now develop 2 types of **vertex addition** operations to construct global angle rigid and angle rigid angularities in 3-D, respectively.
+
+<figure>
+   <img src="/frontiers_rigidity_3_18_vertex_addition-3D.jpg" alt="vertex addition in 3D" width="100%" align="center">
+   <figcaption> Figure 18: Type-I vertex addition and Type-II vertex addition. (a) Case 1 in Type-I vertex addition. (b) Case 2 in Type-I vertex addition. (c) Case 1 in Type-II vertex addition. (d) Case 2 in Type-II vertex addition. </figcaption>
+</figure>
+
+::: warning Definition: Type-I vertex addition
+For a given angularity $\mathbb{A}(\mathcal{V}, \mathcal{A}, \boldsymbol{p})$, we say the angularity $\mathbb{A}^{\prime}$ with the augmented vertex set $\{\mathcal{V} \cup\{i\}\}$ is obtained from $\mathbb{A}$ through a **Type-I vertex addition** if the new vertex $i$ 's constraints w.r.t. $\mathbb{A}$ contain at least 1 of the following 2 cases:
+
+- Case 1: 2 linear constraints $\overrightarrow{j_1 i}, \overrightarrow{j_2 i}$, in which $\left\{j_1, j_2\right\} \subseteq \mathcal{V}$, and $\overrightarrow{j_1 i}$ and $\overrightarrow{j_2 i}$ are not aligned but intersecting, see Figure 18(a);
+- Case 2: 1 linear constraint $\overrightarrow{j_1 i}$ and 1 conic constraint $\mathcal{C}_{j_1 \rightarrow j_2}$, in which $\left\{j_1, j_2\right\} \subseteq \mathcal{V}$, and $\overrightarrow{j_1 i}$ and $\overrightarrow{j_1 j_2}$ are not aligned but intersecting, see Figure 18(b).
+:::
+
+::: warning Definition: Type-II vertex addition
+For a given angularity $\mathbb{A}(\mathcal{V}, \mathcal{A}, \boldsymbol{p})$, we say the angularity $\mathbb{A}^{\prime}$ with the augmented vertex set $\{\mathcal{V} \cup\{i\}\}$ is obtained from $\mathbb{A}$ through a **Type-II vertex addition** if the new vertex $i$ 's constraints w.r.t. $\mathbb{A}$ contain at least one of the following 2 cases:
+- Case 1: 3 near-spherical constraints $\mathcal{S}_{j_1 j_2}, \mathcal{S}_{j_1 k_1}, \mathcal{S}_{j_2 k_1}$ with generic $\left\{\boldsymbol{p}_i, \boldsymbol{p}_{j_1}, \boldsymbol{p}_{j_2}, \boldsymbol{p}_{k_1}\right\}$ and $\left\{j_1, j_2, k_1\right\} \subseteq \mathcal{V}$, see Figure 18(c).
+- Case 2: 2 near-spherical constraints $\mathcal{S}_{j_1 k_1}, \mathcal{S}_{j_4 k_1}$ and 1 conic constraint $\mathcal{C}_{j_1 \rightarrow j_4}$ with generic $\left\{p_i, p_{j_1}, p_{j_4}, p_{k_1}\right\} \quad$ and $\quad\left\{j_1, j_4, k_1\right\} \subseteq \mathcal{V}$, see Figure 18(d).
+:::
+
+Now, we are ready to present a **sufficient condition** for global angle rigidity using Type-I vertex addition.
+
+::: tip Proposition 3
+An angularity in 3-D is **globally angle rigid** if it can be obtained through a sequence of **Type-I vertex additions** starting from a **generically angle rigid 3-vertex angularity**.
+:::
+
+::: details Details of Proof
+According to Lemma 7, a **generically angle rigid** 3-vertex angularity is **globally angle rigid**. Consider the 2 cases in the Type-I vertex addition given in the related Definition.
+- If case 1 applies, each linear constraint corresponds to a ray according to Definition of counterclockwise direction. Then, the position $\boldsymbol{p}_i$ of the newly added vertex $i$ is unique since two rays, not aligned, starting from 2 different points may intersect only at one point;
+- If case 2 applies, $\boldsymbol{p}_i$ is again unique since a ray starting from the axis of a cone can have only one intersection with the cone. 
+
+Therefore, $\boldsymbol{p}_i$ is always globally uniquely determined, after which all the involved angles are also globally uniquely determined. Then, iteratively, after a sequence of type-I vertex additions, the obtained angularity is globally angle rigid. <div style="text-align: right;">$\square$</div>
+:::
+
+In comparison, type-II vertex additions can **only guarantee angle rigidity** instead of global angle rigidity.
+
+::: tip Proposition 4
+An angularity in 3-D is **angle rigid** if it can be obtained through a sequence of **Type-II vertex additions** starting from a **generically angle rigid 3-vertex angularity**.
+:::
+
+The proof can be easily constructed following similar arguments as those for Proposition 3 and Theorem 11. The only difference is that $\boldsymbol{p}_i$ now may have multiple isolated solutions and is **only unique locally**. Also, note that only 2 types of constraints are defined in Type-II vertex addition operation in Definition, but there are more possible combinations of constraints which can also guarantee a locally unique point $\boldsymbol{p}_i$.
+
+::: tip Corollary of Proposition 1 & 2
+For an angularity $\mathbb{A}(\mathcal{V}, \mathcal{A}, \boldsymbol{p})$, if there exists an angle rigid (resp. globally angle rigid) subangularity $\mathbb{A}^{\prime}\left(\mathcal{V}, \mathcal{A},{ }^{\prime} \boldsymbol{p}\right)$ with $\mathcal{A}^{\prime} \subset \mathcal{A}$, then $\mathbb{A}(\mathcal{V}, \mathcal{A}, \boldsymbol{p})$ is also angle rigid (resp. globally angle rigid).
+:::
+
+**Proof**: Since the vertex set in the subangularity $\mathbb{A}^{\prime}$ is the same as $\mathbb{A}$, one has from Definitions of angle rigidity and globally angle rigidity that angle rigidity of the subangularity $\mathbb{A}^{\prime}$ implies angle rigidity of $\mathbb{A}$. <div style="text-align: right;">$\square$</div>
+
+**Remark**:
+1. The associated counterclockwise direction constraint introduced in the related Definition can be used to remove the reflection ambiguity such that the position of the added vertex $i$ in the Type-I vertex addition operation (see the related Definition) can be **globally uniquely determined**. But this constraint is **not sufficient** to make the position of the added point in Type-II vertex addition operation (see the related Definition) globally uniquely determined. An example is given in [Figue 13](#fig-3-13-amb), where points $1, 2, 3$ are in the clockwise direction w.r.t. both points $4$ and $4^{\prime}$. In other words, not only reflection ambiguity but also flex ambiguity may exist in Type-II vertex addition operation.
+2. Note that Propositions 3 and 4 can also be used as topological conditions to check global angle rigidity and angle rigidity of angularities that **can be sequentially constructed from a triangle**, respectively. For those angularities that are not constructed through such sequential operations, **rank-based algebraic conditions** can be employed to check their **infinitesimal or generic angle rigidity** when the corresponding angularities' embedding $\boldsymbol{p}$ is known [15, Th. 3]TODO.
+
+### Merging two Angle Rigid Angularities
+
+<figure>
+   <img src="/frontiers_rigidity_3_19_vertex_operation.jpg" id="fig-3-19-operation" alt="vertex operation in 3D" width="100%" align="center">
+   <figcaption> Figure 19: 3-vertex addition operation and merging operation. </figcaption>
+</figure>
+
+After introducing how to add 1 vertex to an angularity in Propositions 3 and 4, we now investigate how to add 3 vertices to an angularity [see Figure 19(a)], which becomes useful later for merging two angle rigid angularities.
+
+::: warning Definition: 3-vertex addition operation
+For a given angularity $\mathbb{A}(\mathcal{V}, \mathcal{A}, \boldsymbol{p})$ and 3 new vertices $\left\{i_1, i_2, i_3\right\} \nsubseteq \mathcal{V}$, we say that the angularity $\mathbb{A}^{\prime}$ with the augmented vertex set $\left\{\mathcal{V} \cup\left\{i_1, i_2, i_3\right\}\right\}$ is obtained from $\mathbb{A}$ through a **3-vertex addition operation** if the new vertices' constraints w.r.t. $\mathbb{A}$ contain:
+- 2 unaligned linear constraints $\overrightarrow{j_1 i_1}, \overrightarrow{k_1 i_1}$,
+- 2 unaligned linear constraints $\overrightarrow{j_2 i_2}, \overrightarrow{k_3 i_2}$,
+- 1 conic constraint $\mathcal{C}_{i_1 \rightarrow k_1}$
+- 1 associated counterclockwise constraint $V_{i_3-i_2 i_1 k_1}$ for $i_3$
+
+in which $\left\{j_1, j_2, k_1, k_3\right\} \subseteq \mathcal{V}$. We further denote the angle set corresponding to these added angle constraints by $\mathcal{A}^{\left\{i_1, i_2, i_3\right\}}$.
+:::
+
+Now, we merge a 3-vertex generically angle rigid angularity to a globally angle rigid angularity by the 3-vertex addition operation [see Figure 19(a)].
+
+::: tip Proposition 5
+For a **globally angle rigid angularity** $\mathbb{A}(\mathcal{V}, \mathcal{A}, \boldsymbol{p})$ and a **3-vertex generically angle rigid angularity** $\mathbb{A}_3\left(\left\{i_1, i_2, i_3\right\}, \mathcal{A}_3,\left[\boldsymbol{p}_{i_1}^{\top}, \boldsymbol{p}_{i_2}^{\top}, \boldsymbol{p}_{i_3}^{\top}\right]^{\top}\right)$, if one merges $\mathbb{A}$ and $\mathbb{A}_3$ by adding the vertices $i_1, i_2, i_3$ to $\mathbb{A}$ through the 3-vertex addition operation, then the merged angularity $\mathbb{A}^{\prime}\left(\mathcal{V} \cup\left\{i_1, i_2, i_3\right\}, \mathcal{A} \cup \mathcal{A}_3 \cup \mathcal{A}^{\left\{i_1, i_2, i_3\right\}},\left[\boldsymbol{p}^{\top}, \boldsymbol{p}_{i_1}^{\top}, \boldsymbol{p}_{i_2}^{\top}, \boldsymbol{p}_{i_3}^{\top}\right]^{\top}\right)$ is **globally angle rigid**.
+:::
+
+::: details Details of Proof
+Note that the positions of the added vertices $i_1$ and $i_2$ are globally unique according to Proposition 3 (case 1 of Type I vertex addition). After $\boldsymbol{p}_{i_1}$ and $\boldsymbol{p}_{i_2}$ are fixed, the vertex $i_3$ is constrained on the intersection of two cones with $\overline{i_1 i_2}$ as these two cones' rotation axis because $\mathbb{A}_3$ is **generically angle rigid** and $\measuredangle i_3 i_1 i_2$ and $\measuredangle i_3 i_2 i_1$ are fixed. By further using the given conic constraint for $i_3$ together with the associated counterclockwise constraint, one has that the position of the added vertex $i_3$ is also **globally unique** according to Proposition 3 (case 2 of Type-I vertex addition). <div style="text-align: right;">$\square$</div>
+:::
+
+Since the vertex set and the embedding of $\mathbb{A}$ are different from those of $\mathbb{A}^{\prime}$, Corollary 1 of Proposition 3 & 4 cannot be used as the the proof of Proposition 5. [Figure 19](#fig-3-19-operation) (a) shows the original angle constraints to realize the 3-vertex addition operation. It's known that the **minimum number of angle constraints** to guarantee an $n$-node angle-constrained framework's **angle rigidity** is $3 n-7$. Therefore, the number of these angle constraints in [Figure 19](#fig-3-19-operation) (a) is 7 because the total DoF for vertices $i_1, i_2, i_3$ in 3-D is $9$ , and at least $2$ angle constraints are needed to make $\mathbb{A}_3$ generically angle rigid. Thus, at least $9-2=7$ angle constraints related to $i_1, i_2, i_3$ are needed to merge $\mathbb{A}_3$ with $\mathbb{A}$. Definition of 3-vertex addition operation only gives one set of angle constraints for merging operation under global angle rigidity, and there are many other acceptable sets, especially when the number of angle constraints is larger than $7$ or the merged angularity is only required to be angle rigid. Now, we discuss how to merge two angle rigid angularities as shown in [Figure 19](#fig-3-19-operation) (b).
+
+::: tip Proposition 6
+Suppose that the angularity $\mathbb{A}_1\left(\mathcal{V}_1, \mathcal{A}_1, \boldsymbol{p}\right)$ is globally angle rigid and $\mathbb{A}_2\left(\mathcal{V}_2, \mathcal{A}_2, \boldsymbol{p}^{\prime}\right)$ with $\mathcal{V}_1 \cap \mathcal{V}_2=\varnothing$ has a **subangularity** $\mathbb{A}_2^{\prime}\left(\mathcal{V}_2, \mathcal{A}_2^{\prime}, \boldsymbol{p}^{\prime}\right)$ which can be obtained through a sequence of Type-I vertex additions from a generically angle rigid 3-vertex angularity $\mathbb{A}_3\left(\left\{i_1, i_2, i_3\right\}, \mathcal{A}_3,\left[\boldsymbol{p}_{i_1}^{\top}, \boldsymbol{p}_{i_2}^{\top}, \boldsymbol{p}_{i_3}^{\top}\right]^{\top}\right)$. If one merges $\mathbb{A}_1$ and $\mathbb{A}_2$ by adding the vertices $i_1, i_2, i_3$ to $\mathbb{A}_1$ through the 3-vertex addition operation, then the merged angularity $\mathbb{A}^{\prime \prime}\left(\mathcal{V}_1 \cup \mathcal{V}_2, \mathcal{A}_1 \cup \mathcal{A}_2 \cup \mathcal{A}^{\left\{i_1, i_2, i_3\right\}},\left[\boldsymbol{p}^{\top}, \boldsymbol{p}^{\prime \top}\right]^{\top}\right)$ is **globally angle rigid**.
+:::
+
+::: details Details of Proof
+According to Proposition 5, adding the vertices $i_1, i_2, i_3$ to $\mathbb{A}_1$ through the 3-vertex addition operation yields global angle rigidity of the merged angularity with augmented vertex set $\left\{\mathcal{V}_1 \cup\left\{i_1, i_2, i_3\right\}\right\}$. According to Proposition 3, since $\mathbb{A}_2^{\prime}$ can be obtained through a sequence of Type-I vertex additions from $\mathbb{A}_3$, one has **global angle rigidity** of the angularity $\mathbb{A}_{1-2}^{\prime}\left(\mathcal{V}_1 \cup \mathcal{V}_2, \mathcal{A}_1 \cup \mathcal{A}_2^{\prime} \cup \mathcal{A}^{\left\{i_1, i_2, i_3\right\}},\left[\boldsymbol{p}^{\top}, \boldsymbol{p}^{\prime\top}\right]^{\top}\right)$ after merging $\mathbb{A}_1$ and $\mathbb{A}_2^{\prime}$. Because the angularity $\mathbb{A}_{1-2}^{\prime}$ is a subangularity of $\mathbb{A}^{\prime \prime}$, the merged angularity $\mathbb{A}^{\prime \prime}$ is **globally angle rigid** according to Corollary 1 of Proposition 3 & 4. <div style="text-align: right;">$\square$</div>
+:::
+
+### Minimal Angle Rigidity
+Minimal angle rigidity plays an important role in deriving **angle rigidity's necessary and sufficient conditions**. Inspired by Laman theorem for 2-D distance-constrained frameworks, we now present some results on **3-D infinitesimal minimal angle rigidity**, whose definition is the same as 2D after replacing 2-D by 3-D.
+
+::: tip Lemma 8
+A 3-D angularity $\mathbb{A}(\mathcal{V}, \mathcal{A}, p)$ is **infinitesimally minimally angle rigid** if and only if it is **infinitesimally angle rigid** and $|\mathcal{A}|=3|\mathcal{V}|-7$.
+:::
+
+The proof of Lemma 8 follows straightforwardly from the fact that the magnitude of each 3-D angle is invariant under its associated vertices' overall translation, rotation, and scaling.
+
+::: tip Lemma 9
+A 3-D **infinitesimally minimally angle rigid** angularity must have a vertex associated with **more than 2 but fewer than 9 angle constraints**.
+:::
+
+From Lemma 8, the proof of Lemma 9 can be obtained straightforwardly by following the proof of [Lemma 5](#from-3-aboout-theorem).
+
+However, according to Lemma 9, there are 6 cases for the number of the vertex's associated constraints, which makes it challenging to use Laman's induction method to get a necessary condition for angle rigidity. Instead, we focus on a **special class** of angularity, namely **tetrahedral angularity** whose angle set $\mathcal{A}$ is a tetrahedral angle set.
+
+::: warning Definition: triangular angle set & tetrahedral angle set
+- We say $\mathcal{A}$ is a **triangular angle set** if for every $\left(i_1, j_1, k_1\right) \in \mathcal{A}$, there also exists $\left\{\left(j_1, k_1, i_1\right),\left(k_1, i_1, j_1\right)\right\} \subset \mathcal{A}$.
+- We say $\mathcal{A}$ is a **tetrahedral angle set** if $\mathcal{A}$ is a triangular angle set and for every triangular angle subset $\mathcal{T}_{\Delta i_1 j_1 k_1}:=\left\{\left(i_1, j_1, k_1\right),\left(j_1, k_1, i_1\right),\left(k_1, i_1, j_1\right)\right\} \subset \mathcal{A}$, there always exists a vertex $m \in \mathcal{V}, m \neq i_1 \neq j_1 \neq k_1$ such that $\mathcal{T}_{\Delta i_1 j_1 m} \subset \mathcal{A}, \mathcal{T}_{\Delta i_1 k_1 m} \subset \mathcal{A}, \mathcal{T}_{\Delta j_1 k_1 m} \subset \mathcal{A}$.
+- We say $\left\{\mathcal{T}_{\Delta i_1 j_1 k_1}, \mathcal{T}_{\Delta i_1 j_1 m}, \mathcal{T}_{\Delta i_1 k_1 m}, \mathcal{T}_{\Delta j_1 k_1 m}\right\}$ is a **tetrahedral angle subset** corresponding to tetrahedron $\Delta m i_1 j_1 k_1$.
+:::
+
+::: warning Definition: infinitesimally minimally and tetrahedrally angle rigid
+An angularity $\mathbb{A}(\mathcal{V}, \mathcal{A}, \boldsymbol{p})$ is said to be **infinitesimally minimally and tetrahedrally angle rigid** if $\mathcal{A}$ is a **tetrahedral angle set**, $\mathbb{A}$ is **infinitesimally angle rigid** and fails to remain so after removing any tetrahedron in $\mathcal{A}$.
+:::
+
+Let $n_\mathcal{A}^{\Delta} \in \mathbb{N}$ be the **number of tetrahedra** in the tetrahedral angle set $\mathcal{A}$. Let $\bar{\mathcal{A}}$ be the multiset satisfying that each element of $\bar{\mathcal{A}}$ is a triplet, $\bar{\mathcal{A}}$ consists of $n_{\mathcal{A}}^{\Delta}$ tetrahedral angle subset of $\mathcal{A}$, $|\bar{\mathcal{A}}|=3 \times 4 \times n_{\mathcal{A}}^{\Delta}$ ($3$ from triangular angle set and $4$ from tetrahedral angle subset), and duplicate elements may exist in $\bar{\mathcal{A}}$.
+
+::: tip Proposition 7
+For an **infinitesimally minimally and tetrahedrally angle rigid angularity** $\mathbb{A}(\mathcal{V}, \mathcal{A}, \boldsymbol{p})$, one has that $n_{\mathcal{A}}^{\Delta}= \left\lceil\frac{3 |\mathcal{V}|-7}{5}\right\rceil$, and $\mathbb{A}$ must have a vertex associated with one or two tetrahedra in $\bar{\mathcal{A}}$.
+:::
+
+::: details Details of Proof
+First, we prove $n_\mathcal{A}^{\Delta}=\left\lceil\frac{3|\mathcal{V}|-7}{5}\right\rceil$. From Lemma 8, angle rigid angularities' minimum number of [independent angle](#angle-rigidity-matrix) constraints is $3|\mathcal{V}|-7$. Since each tetrahedron has 5 independent angle constraints, one has $n_\mathcal{A}^{\Delta}=\left\lceil\frac{3|\mathcal{V}|-7}{5}\right\rceil$.
+
+Then, we prove $\mathbb{A}$ must have a vertex associated with 1 or 2 tetrahedra. Suppose on the contrary that each vertex is associated with at least 3 tetrahedra in $\bar{\mathcal{A}}$. Since $\bar{\mathcal{A}}$ is a tetrahedral angle set and each vertex $m$ will show up 9 times ($3$ surfaces of triangles, with each $3$ angles) in its associated tetrahedral angle subset $\left\{\mathcal{T}_{\Delta i_1 j_1 k_1}, \mathcal{T}_{\Delta i_1 j_1 m}, \mathcal{T}_{\Delta i_1 k_1 m}, \mathcal{T}_{\Delta j_1 k_1 m}\right\}$, all the vertices' appearance times in $\bar{\mathcal{A}}$ will be at least $3 \times 9 \times|\mathcal{V}|$. However, the set $\bar{\mathcal{A}}$ only has $3 \times 4 \times n_{\mathcal{A}}^{\Delta}$ triples, i.e., all the vertices' total appearance times in $\bar{\mathcal{A}}$ are $3 \times 4 \times 3 \times n_{\mathcal{A}}^{\Delta}$. Since $36 n_A^{\Delta}=36\left\lceil\frac{3 |\mathcal{V}|-7}{5}\right\rceil<27|\mathcal{V}|$, this implies a contradiction, for which $\mathbb{A}$ must have a vertex associated with 1 or 2 tetrahedra. <div style="text-align: right;">$\square$</div>
+:::
+
+Although there are only 2 cases for the number of the vertex’s associated tetrahedra in an **infinitesimally, minimally and tetrahedrally angle rigid angularity**, the combinatory form of those tetrahedra with respect to the other vertices in $\mathcal{V}$ is multiple, which makes it challenging to obtain a similar conclusion like Laman’s theorem. Nevertheless, the conclusions presented in this section can be a foundation for further investigation of 3-D minimal angle rigidity.
+
+### Angle Rigidity of Convex Polyhedra
+As is well known, **distance rigidity of convex polyhedra** is one of the oldest geometric problems and has been studied by Euler, Cauchy, and Gluck, to name a few. Although many distance rigidity-related results have been obtained for convex polyhedra, the problem of angle rigidity of convex polyhedra${}^1$ has not been investigated so far. Instead of using edge-based frameworks, we use angularities introduced to describe **polyhedra with angle constraints**.
+
+> 1: We only consider **closed polyhedra** here.
+
+For a convex polyhedron $\mathbb{P}$, we define the corresponding angularity $\mathbb{A}(\mathcal{V}, \mathcal{A}, \boldsymbol{p})$, where $\mathcal{V}$ is the vertex set consisting of all the vertices of $\mathbb{P}, \mathcal{A}$ is the angle set consisting of all the angles${}^2$ of the faces of $\mathbb{P}$, and $\boldsymbol{p}$ is the position vector of the 3-D embedding of the vertices in $\mathcal{V}$. Define the angle function $f_{\mathcal{A}}(\boldsymbol{p}):=\left[f_1, \ldots, f_{|\mathcal{A}|}\right]^{\top} \in \mathbb{R}^{|\mathcal{A}|}$ for the angularity $\mathbb{A}(\mathcal{V}, \mathcal{A}, \boldsymbol{p})$ where $f_m: \mathbb{R}^9 \rightarrow[0, \pi], m=1, \ldots,|\mathcal{A}|$, is the mapping from $\left[\boldsymbol{p}_i^{\top}, \boldsymbol{p}_j^{\top}, \boldsymbol{p}_k^{\top}\right]^{\top}$ of the $m$ th element $(i, j, k)$ in $\mathcal{A}$ to the angle $\measuredangle i j k$. The main difference between this section and the previous sections is that the angle constraints of a polyhedron are **not in a cascading sequence**, but all on its **surfaces**.
+
+> 2. For a closed polyhedron, one can easily distinguish the **inside** that its surfaces enclose from its **outside**, so it is possible to define the **positive directions** of the faces to be the normals pointing outwards. Therefore, the angle constraints on the surfaces of such a polyhedron can be associated with the clockwise or counterclockwise directions.
+
+::: tip Lemma 10
+If all angles on the faces of a convex polyhedron $\mathbb{P}$ remain **constant** when $\mathbb{A}$ is **perturbed**, then all the **dihedral angles** of $\mathbb{P}$ remain **constant**.
+:::
+
+::: tip Lemma 11
+If **all edge lengths, angles in faces, and dihedral angles** of a convex polyhedron $\mathbb{P}$ remain **constant** under a perturbation of $\mathbb{A}$, then the perturbation must be a **translation** or **rotation** of $\mathbb{A}$.
+:::
+
+With the properties of the perturbation provided in Lemmas 10 and 11, we now provide a specific class of $\mathcal{A}$ such that these properties can be used for angle rigidity of convex polyhedra.
+
+::: danger Theorem 12
+The angularity $\mathbb{A}(\mathcal{V}, \mathcal{A}, \boldsymbol{p})$ obtained from a convex polyhedron $\mathbb{P}$ with **all faces being triangles** is **angle rigid**.
+:::
+
+::: details Details of Proof
+Following the Definition, we consider $\mathbb{A}$'s **equivalent** angularity $\mathbb{A}^{\prime}\left(\mathcal{V}, \mathcal{A}, \boldsymbol{p}^{\prime}\right)$ with $\left\|\boldsymbol{p}^{\prime}-\boldsymbol{p}\right\|<\varepsilon, \varepsilon>0$, and denote by $\mathbb{P}^{\prime}$ the corresponding polyhedron. Since $\mathbb{A}$ and $\mathbb{A}^{\prime}$ are equivalent, each two corresponding face angles in $\mathbb{A}$ and $\mathbb{A}^{\prime}$ have the **same** value (i.e., $f_\mathcal{A}(\boldsymbol{p})=f_{\mathcal{A}}\left(\boldsymbol{p}^{\prime}\right)$ ). According to Lemma 10, one has that each two corresponding **dihedral angles** formed by two adjacent faces in $\mathbb{P}$ and $\mathbb{P}^{\prime}$ have the **same** value.
+
+Considering an arbitrary face triangle $\triangle i j k, i, j, k \in \mathcal{V}$, one has $\triangle i j k\left(\boldsymbol{p}_i, \boldsymbol{p}_j, \boldsymbol{p}_k\right) \sim \triangle i j k\left(\boldsymbol{p}_i^{\prime}, \boldsymbol{p}_j^{\prime}, \boldsymbol{p}_k^{\prime}\right)$. Now, we **scale** $\mathbb{A}^{\prime}$ to obtain $\mathbb{A}^{\prime \prime}$, which satisfies $\left\|p_i-p_j\right\|=\left\|p_i^{\prime \prime}-p_j^{\prime \prime}\right\|$, $\left\|p_i-p_k\right\|=\left\|p_i^{\prime \prime}-p_k^{\prime \prime}\right\|$ and $\left\|p_k-p_j\right\|=\left\|p_k^{\prime \prime}-p_j^{\prime \prime}\right\|$. We denote the scaled polyhedron by $\mathbf{P}^{\prime \prime}$. Since the scaling will not change all (face or dihedral) angles of a polyhedron, one has $f_{\mathcal{A}^*-\mathcal{A}}\left(\boldsymbol{p}^{\prime}\right)=f_{\mathcal{A}^*-\mathcal{A}}\left(\boldsymbol{p}^{\prime \prime}\right)$ and $f_{\mathcal{A}}\left(\boldsymbol{p}^{\prime}\right)=f_{\mathcal{A}}\left(\boldsymbol{p}^{\prime \prime}\right)$, where $\mathcal{A}^*= \{(i, j, k) \mid \forall i, j, k \in \mathcal{A}, i \neq j \neq k\}$ is the complete angle set. Now, we check $\mathbb{A}$ and $\mathbb{A}^{\prime \prime}$. 
+1. all the face angles have the same values in $\mathbb{A}$ and $\mathbb{A}^{\prime \prime}$ because $f_{\mathcal{A}}(\boldsymbol{p})=f_{\mathcal{A}}\left(\boldsymbol{p}^{\prime}\right)=f_{\mathcal{A}}\left(\boldsymbol{p}^{\prime \prime}\right)$.
+2. All the dihedral angles in $\mathbb{P}$ and $\mathbb{P}^{\prime \prime}$ have the same values because $\mathbb{P}$ and $\mathbb{P}^{\prime}$ have the same dihedral angles and $\mathbb{A}^{\prime \prime}$ is a scaling of $\mathbb{A}^{\prime}$.
+3. Because $\triangle i j k\left(p_i, p_j, p_k\right) \simeq \triangle i j k\left(p_i^{\prime \prime}, p_j^{\prime \prime}, p_k^{\prime \prime}\right)$, the lengths of the edges in $\mathbf{P}$ have the same values as the lengths of the corresponding edges in $\mathbb{P}^{\prime \prime}$, which can be obtained by using the **law of sines** iteratively for the face triangles in $\mathbb{P}$ and $\mathbb{P}^{\prime \prime}$.
+
+From the above 3 facts and using Lemma 11 for $\mathbb{A}$ and $\mathbb{A}^{\prime \prime}$, one has that $\mathbb{A}^{\prime \prime}$ is the translation or rotation of $\mathbb{A}$, under which the values of all triple-vertex angles remain unchanged. It follows that $f_{\mathcal{A}^*-\mathcal{A}}(\boldsymbol{p})=f_{\mathcal{A}^*-\mathcal{A}}\left(\boldsymbol{p}^{\prime \prime}\right)=f_{\mathcal{A}^*-\mathcal{A}}\left(\boldsymbol{p}^{\prime}\right)$. Therefore, $\mathbb{A}$ and $\mathbb{A}^{\prime}$ are **congruent**, and $\mathbb{A}$ is **angle rigid**.
+:::
+
+<figure>
+   <img src="/frontiers_rigidity_3_20_polyhedra.jpg" id="fig-3-20-polyhedra" alt="Angle rigidity of convex polyhedra" width="100%" align="center">
+   <figcaption> Figure 20: Angle rigidity of convex polyhedra. (a) Convex polyhedron with triangular surfaces. (b) Surface triangulation. (c) Coplanar face. </figcaption>
+</figure>
+
+Instead of focusing on convex polyhedra with triangular faces [see [Figure 20](#fig-3-20-polyhedra) (a)], we now study the case of convex polyhedra whose faces are **not necessarily triangles**. Note that when a face is not a triangle, the face's vertices may become **noncoplanar** under perturbations, for which we now develop the operations of **polygonal triangulation** and **surface triangulation**.
+
+::: warning Definition: Polygonal triangulation
+Polygonal triangulation is the **decomposition** of a **polygon** into **a set of triangles** where any two of these triangles either do **not intersect** at all or **intersect at a common vertex or edge**.
+:::
+
+::: warning Definition: Surface triangulation
+Surface triangulation for a polyhedron $\mathbb{P}$ is the **decomposition** of the **surface** of $\mathbb{P}$ using **polygonal triangulation** for each face of $\mathbf{P}$ and at the same time any 2 decomposed **triangles** from 2 **faces** of $\mathbb{P}$ either do **not intersect** at all or **intersect at a common vertex or edge**.
+:::
+
+An example of surface triangulation is shown in [Figure 20](#fig-3-20-polyhedra) (b). Then, we define the corresponding triangulated angularity.
+
+::: warning Definition: Triangulated polyhedral angularity
+Let $\mathcal{K}$ be a surface triangulation of a polyhedron $\mathbf{P}$ with the vertex set $\mathcal{V}=\{1,2, \ldots, n\}$ and embedding $\boldsymbol{p}=\left[\boldsymbol{p}_1^{\top}, \ldots, \boldsymbol{p}_n^{\top}\right]^{\top}$. Then, we call $\mathbb{A}\left(\mathcal{V} \cup \mathcal{V},{ }^{\prime} \mathcal{A},\left[\boldsymbol{p}^{\top}, \boldsymbol{p}^{\top}\right]^{\top}\right)$ a **triangulated polyhedral angularity**, where $\mathcal{V}^{\prime}$ is the vertex set consisting of the vertices **added in the surface triangulation** $\mathcal{K}, \boldsymbol{p}^{\prime}$ is the corresponding embedding of the vertices in $\mathcal{V}^{\prime}$, and $\mathcal{A}$ denotes the angle set consisting of the interior angles of all polygonal faces of the polyhedron with vertices $\mathcal{V} \cup \mathcal{V}^{\prime}$ and embedding $\left[p^{\top}, \boldsymbol{p}^{\prime \top}\right]^{\top}$ and all the interior angles of triangles${}^3$ obtained by $\mathcal{K}$ for the surface of $\mathbb{P}$. Then, the polyhedron corresponding to $\mathcal{K}$ is called a triangulated polyhedron $\tilde{\mathbb{P}}$.
+:::
+
+> 3: Since the sum of three interior angles of each triangle is $\pi$, each triangle has one redundant angle in the angle set.
+
+Note that if $\mathbb{P}$ is convex, we say its corresponding $\mathbb{A}$ is a **convex triangulated polyhedral angularity**. We first present two lemmas which will be needed for the proof of the main result.
+
+::: tip Lemma 12
+When locally perturbing the convex triangulated polyhedral angularity $\mathrm{A}\left(\mathcal{V} \cup \mathcal{V}^\prime,  \mathcal{A},\left[\boldsymbol{p}^{\top}, \boldsymbol{p}^{\top}\right]^{\prime\top}\right)$, the vertices of $\mathcal{V} \cup \mathcal{V}^{\prime}$ that are on a face of $\tilde{\mathbb{P}}$ are always **coplanar** under the angle constraints given in $\mathcal{A}$.
+:::
+
+::: details Details of Proof
+We first prove that under the given angle constraints all the triangles in a face of $\tilde{\mathbb{P}}$ will be coplanar under the local perturbation. Consider an arbitrary face $\mathbb{S}$ of $\tilde{\mathbb{P}}$ whose vertices consist of $\mathcal{I}=\left\{i_1, \ldots, i_m\right\}$ where $m \geqslant 3$. Suppose that $i_k, 1 \leqslant k \leqslant m$ is one of the vertices in $\mathbb{S}$ and is involved in face triangles $\triangle j_1 i_k j_2, \triangle j_2 i_k j_3, \ldots, \triangle j_{n-1} i_k j_n$ where $j_1, \ldots, j_n \in \mathcal{I}$ and $j_1, \ldots, j_n \neq i_k$, and an example is in [Figure 20](#fig-3-20-polyhedra) (c). Note that if $j_1=j_{n-1}$ and $j_2=j_n$, i.e., $i_k$ is only involved in 1 triangle $\triangle j_1 i_k j_2$ in $\mathbb{S}$, then one has that $j_1, i_k, j_2$ are coplanar since three arbitrary points in 3-D are coplanar. When $i_k$ is involved in **more than 1 triangle** in $\mathbb{S}$, one has $\left\{\left(j_1, i_k, j_2\right),\left(j_2, i_k, j_3\right), \ldots,\left(j_{n-1}, i_k, j_n\right)\right\} \in \mathcal{A},\left(j_1, i_k, j_n\right) \in \mathcal{A}$ and $\measuredangle j_1 i_k j_2+\measuredangle j_2 i_k j_3+\cdots \measuredangle j_{n-1} i_k j_n=\measuredangle j_1 i_k j_n$. Since all the vertices of $\mathcal{V}$ and $\mathcal{V}^\prime$ lie on the boundary of the polyhedron, under the local perturbation, $i_k, j_1, j_2, \ldots, j_n$ must be coplanar; otherwise $\measuredangle j_1 i_k j_2+\measuredangle j_2 i_k j_3+\cdots+\measuredangle j_{n-1} i_k j_n>\measuredangle j_1 i_k j_n$, which violates the given angle constraints. Note that for each triangle $\triangle i j k$ in face $\mathbb{S}$, there always exists another triangle in face $\mathbb{S}$ that shares a common edge with $\triangle i j k$. Without loss of generality, assume that the another triangle is $\triangle i j k$ and the intersected edge is $i j$. Consider the first case that $i$ is only involved in these 2 triangles in face $\mathbb{S}$. Then $\{(j, i, k),(j, i, \tilde{k})\} \in \mathcal{A}$, $(k, i, \tilde{k}) \in \mathcal{A}$ and $\measuredangle j i k+\measuredangle j i \tilde{k}=\measuredangle k i \tilde{k}$. Under local perturbation, these 2 triangles are coplanar. The second case is that $i$ is involved in multiple triangles, using the same argument for the shared vertex as $i_k$, one has that these triangles are coplanar.
+
+To prove that all the vertices in each face $\mathbb{S}$ is coplanar, we now consider that vertex $i_k$ is involved in $n-1$ coplanar triangles in face $\mathbb{S}$, and its neighboring vertex $i_{k+1}$ is involved in $\tilde{n}$ coplanar triangles in $\mathbb{S}$ , for which an example is in [Figure 20](#fig-3-20-polyhedra) (c). Note that those $n-1$ triangles from $i_k$ and $\tilde{n}$ triangles from $i_{k+1}$ must share at least 1 common triangle because of the existence of edge $i_k i_{k+1}$. Then, those $n+\tilde{n}-2$ triangles of $i_k$ and $i_{k+1}$ should be coplanar, and thus all the these triangles' vertices are coplanar. Next, if $i_{k+1}$ has a different neighboring vertex than $i_k$, we consider this vertex and label it $i_{k+2}$. Using the previous argument again, one has that all triangles of $i_k, i_{k+1}, i_{k+2}$ are coplanar. Using this argument repeatedly for new neighboring vertices until one reaches all vertices in $\mathcal{I}$, one has that all the triangles in $\mathbb{S} \cap \mathcal{K}$ are coplanar since the vertices of each triangle in $\mathbb{S} \cap \mathcal{K}$ lie in $\mathcal{I}$. Because all the triangles in $\mathbb{S} \cap \mathcal{K}$ cover all the vertices in $\mathcal{I}$, one has that the vertices of $\mathcal{V} \cup \mathcal{V}^{\prime}$ that is in S are coplanar under the perturbation. The same holds for the other faces of $\tilde{\mathbf{P}}$. <div style="text-align: right;">$\square$</div>
+:::
+
+::: tip Lemma 13
+When locally perturbing the convex triangulated polyhedral angularity $\mathrm{A}\left(\mathcal{V} \cup \mathcal{V},^{\prime} \mathcal{A},\left[p^{\top}, p^{\prime \top}\right]^{\top}\right)$, if the **scale** of a triangle in a face of $\vec{P}$ remains **constant**, then **all the edge lengths** of $\tilde{\mathbf{P}}$ remain **constant**.
+:::
+
+::: details Details of Proof
+Note that after triangulating the faces of the polyhedron $\mathbb{P}$, the surface of $\tilde{\mathbb{P}}$ becomes $\bar{K}$, in which each triangle $\triangle i j k \in \mathcal{K}$ has 3 neighboring triangles and each of them shares a different edge with the triangle $\triangle i j k$. When the scale of this arbitrary triangle $\triangle i j k$ in $\mathcal{K}$ is **fixed**, its 3 neighboring triangles also have the same fixed scale using the law of sines. Now, we show why the scales of all the other triangles in $\mathcal{K}$ are fixed as well.
+
+Let the face where $\Delta i j k$ lies be $\mathbb{S}_1$ and the total number of triangles in $\mathbb{S}_1$ is $m$. Then, after fixing the scale of the 3 neighboring triangles of $\triangle i j k$, one can fix $\triangle i j k$ 's neighboring triangles' neighboring triangle; such a propagating fixing process will fix the scales of all the triangles in $\mathbf{S}_1$. Now, consider $\mathbb{S}_1$ 's neighboring face $\mathbb{S}_2$ that shares at least one edge with $\mathbb{S}_1$. Since the scales of all triangles in $S_1$ are fixed, the length of this shared edge is fixed and the scale of the triangle containing this edge in $S_2$ is also fixed. Apply for $S_2$ the same argument for $S_1$, all the triangles in $S_2$ can be fixed. Because the polyhedron $\mathbb{P}$ is closed, under the triangulation $\mathcal{K}$, one can always fix the neighboring triangles from those triangles with fixed scale until all the triangles in $\mathcal{K}$ are fixed. Therefore, all the edge lengths are constant provided that one triangle's scale is constant. <div style="text-align: right;">$\square$</div>
+:::
+
+Now, we present the main result about the convex triangulated polyhedral angularity.
+
+::: danger Theorem 13
+A **convex triangulated polyhedral angularity** $\mathrm{A}\left(\mathcal{V} \cup \mathcal{V},^{\prime} \mathcal{A},\left[p^{\top}, p^{\top}\right]^{\top}\right)$ **without** any vertex of $\mathcal{V}^{\prime}$ lying in the **interior** of a face of $\mathbf{P}$ is **angle rigid**.
+:::
+
+::: details Details of Proof
+We prove Theorem 13 following the proof of Theorem 12. According to Lemma 12, one has that the vertices of $\mathcal{V} \cup \mathcal{V}^{\prime}$ that are involved in a face of $\tilde{\mathrm{P}}$ will be coplanar under the perturbation. Therefore, using Lemma 10, each corresponding dihedral angle formed by two adjacent faces keep constant under the perturbation. On the other hand, Lemma 13 implies that all the edge lengths of $\tilde{\mathbb{P}}$ keep constant under the given conditions. Based on these two facts and the proof of Theorem 12, one has that $\mathbb{A}$ is angle rigid. <div style="text-align: right;">$\square$</div>
+:::
+
+A face in a convex polyhedron is said to be **infinitesimally angle rigid** if the face can only translate, rotate and scale under any local perturbation. We now consider the case where each face of the convex polyhedron is infinitesimally angle rigid.
+
+::: tip Corollary of Theorem 13
+A convex polyhedron with infinitesimally angle rigid faces is angle rigid.
+:::
+
+::: details Details of Proof
+The proof of this corollary follows the proof of Theorem 12. On the one hand, all angles in each face will remain constant under a perturbation according to the definition of infinitesimally angle rigid face. On the other hand, translation and rotation of a face will not change the lengths of its edges. When one edge length is fixed under the perturbation, the scale of the infinitesimally angle rigid face is also fixed, which implies that the lengths of the other edges of the face are fixed. Note that each face of the convex polyhedron has at least three neighboring faces and each pair of them share a different edge with the original face. Therefore, by fixing edge length iteratively, all the edge lengths of the polyhedron will be fixed given one fixed edge length in the polyhedron. From the above two facts and Lemma 11, one has that the convex polyhedron is angle rigid. <div style="text-align: right;">$\square$</div>
+:::
+
+### Comparison With 2-D Angle Rigidity
+Compared with the existing results in 2-D, the contributions of the developed 3-D angle rigidity in this article lie in 3 aspects.
+1. we show in [Section: Angle Rigidity](#3d-angle-rigidity-4) that each angle constraint determines a conic or nearspherical surface in 3-D, where a counterclockwise constraint is defined to avoid reflection ambiguity.
+2. The approaches of constructing and merging 3-D angle rigid frameworks are proposed in [Section: Angle Rigidity](#3d-angle-rigidity-4) and [Section: Merging](#merging-two-angle-rigid-angularities). The proposed **sequential construction approach** for 3-D angle rigid and globally angle rigid frameworks can also be employed as topological conditions to **check 3-D frameworks’ angle rigidit**y.
+3. Angle rigidity of convex polyhedra is discussed in [Section: Minimal Angle Rigidity](#minimal-angle-rigidity), in which all the angle constraints only lie in the faces of polyhedra and no sequential construction from the given angle constraints is applicable.
+
 ## References
-> 1. *[Angle-based shape determination theory of planar graphs with application to formation stabilization](https://www.sciencedirect.com/science/article/pii/S0005109819301475)* by **Gangshan Jing**, etc.. Note that the angle rigidity function was denoted by $f_{\mathcal{T}_\mathcal{G}}$ and $\boldsymbol{g}_p$ is replaced by $\boldsymbol{b}_\mathcal{G}$ in the paper.
+> 1. *Angle-based shape determination theory of planar graphs with application to formation stabilization*, [ScienceDirect](https://www.sciencedirect.com/science/article/pii/S0005109819301475) & [arXiv](https://arxiv.org/pdf/1803.04276), by **Gangshan Jing**, etc.. Note that the angle rigidity function was denoted by $f_{\mathcal{T}_\mathcal{G}}$ and $\boldsymbol{g}_p$ is replaced by $\boldsymbol{b}_\mathcal{G}$ in the paper.
 > 2. Appendix A.1 of *[Global stabilization of triangulated formations](http://epubs.siam.org/doi/10.1137/15M105094X)* by Xudong Chen etc..
-> 3. [Angle rigidity and its usage to stabilize multiagent formations in 2-D](https://ieeexplore.ieee.org/document/9204421) by **Liangming Chen** etc..
+> 3. *Angle rigidity and its usage to stabilize multiagent formations in 2-D*, [IEEE](https://ieeexplore.ieee.org/document/9204421), by **Liangming Chen**, Ming Cao and Chuanjiang Li.
+> 4. *Angle rigidity for multiagent formations in 3-D*, [IEEE](https://ieeexplore.ieee.org/document/10018886), by **Liangming Chen** and Ming Cao.
 <!-- > 1. *[Sensor and framework topologies of formations with direction, bearing, and angle information between agents](https://ieeexplore.ieee.org/abstract/document/1273093)* by **Tolga Eren**, ..., **Brian D.O. Anderson** -->
