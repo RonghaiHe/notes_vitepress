@@ -38,9 +38,8 @@ Each such constraint is called a **direction constraint** $\mathcal{D}$. A forma
 A bearing constraint can be written as a direction constraint.
 :::
 
-**Proof**:
-<details>
-    <summary> Details of Proof </summary>
+::: details Details of Proof
+
 
 A bearing constraint for node $i$ along the trajectory $s$ can be expressed as:
 $$
@@ -89,7 +88,7 @@ $$
 $$
 
 Q.E.D. <div style="text-align: right;">$\square$</div>
-</details>
+:::
 
 This gives a system of $|\mathcal{E}|$ homogenous linear equations. A solution of this system with respect to $\mathcal{F}_{\boldsymbol{p}}$ is called a **parallel point formation**.
 
@@ -145,14 +144,13 @@ For frameworks in $2$-space with bearing information between nodes, the situatio
 If $\mathcal{F}_{\boldsymbol{p}}$ is a formation in $2$-space, then $\mathcal{F}_{\boldsymbol{p}}$ is **parallel rigid** if and only if $\mathcal{F}_{\boldsymbol{p}}$ is **globally rigid** under **translation** and **dilation** maps.
 :::
 
-**Proof**:
-<details>
-    <summary> Details of Proof </summary>
+::: details Details of Proof
+
 
 Suppose that $\mathcal{F}_{\boldsymbol{p}}$ is **not** globally rigid. Therefore, there is a parallel drawing $\mathcal{F}_{\boldsymbol{q}}$ which is not similar to $\mathcal{F}_{\boldsymbol{p}}$ as a configuration. We will show that $\mathcal{F}_{\boldsymbol{p}}$ is **flexible** with $\mathcal{F}_{\boldsymbol{q}}$ as a non-trivial parallel drawing. For all edges $(i, j) \in \mathcal{E} , (p_i − p_j)$ is parallel to $(q_i − q_j)$. Therefore, $(p_i − p_j)^\perp \cdot(q_i − q_j) = 0$ as required. Since $\mathcal{F}_{\boldsymbol{p}}$ is not similar to $\mathcal{F}_{\boldsymbol{q}}$, there is some pair $(h, k) \not\in\mathcal{E}$ such that $p_h − p_k$ is not parallel to $q_h − q_k$ . Therefore,  $(p_h − p_k)^\perp \cdot(q_h − q_k) \neq 0$ . This confirms that $\mathcal{F}_{\boldsymbol{q}}$ is a non-trivial parallel drawing of $\mathcal{F}_{\boldsymbol{p}}$.
 
 Conversely, suppose that $\mathcal{F}_{\boldsymbol{p}}$ is flexible with a non-trivial parallel drawing $\mathcal{F}_{\boldsymbol{q}}$. Then $\mathcal{F}_{\boldsymbol{q}}$ itself is the non-similar parallel drawing of $\mathcal{F}_{\boldsymbol{p}}$ which shows it is not globally rigid. <div style="text-align: right;">$\square$</div>
-</details>
+:::
 
 More generally, nodes are not confined to use their sensing and communication links for measuring **distances only**. We can exploit such a possibility to generate point formation that is not only locally unique but also globally unique with as few links as a minimally rigid formation.
 
@@ -273,13 +271,12 @@ For a digraph $\mathcal{G}=(\mathcal{V}, \mathcal{E})$, with at least $2$ vertic
 3. $\mathcal{G}=(\mathcal{V}, \mathcal{E})$ has **two-leader** architecture, and is **acyclic** with all other vertices having in-degree exactly $2$.
 :::
 
-**Proof**:
-<details>
-    <summary> Details of Proof </summary>
+::: details Details of Proof
+
 
 1. $1\to 2$: Minimally directed bearing rigid digraphs are constraint consistent and they have $|\mathcal{E}| = 2|\mathcal{V}|-3$. We are given that there are **no cycles** in the digraph. Therefore, the digraph represents a **partial order** between vertices. The partial order can be made into a complete order. The smallest element in the order is the $1^\text{st}$ leader, and the next smallest is the $2^\text{nd}$ leader, and this will be our target edge for the directed Henneberg sequence. Assume that there are more than $3$ vertices. The maximal element has all edges in so it has in-degree $d_{\mathcal{G}}^-(i)\leqslant 2$. Overall, since each edge is directed: $\sum\limits_{i\in\mathcal{V}}d_{\mathcal{G}}^-(i)=|\mathcal{E}| = 2|\mathcal{V}|-3$. However, the two initial vertices have a total in-degree of $1$, so on **all other vertices** $\mathcal{V}': \sum\limits_{i\in\mathcal{V}'}d_{\mathcal{G}}^-(i)=|\mathcal{E}| = 2|\mathcal{V}'|=2(|\mathcal{V}|-2)$. We also know that **all vertices** have $d_{\mathcal{G}}^-(i)\leqslant 2$, so we conclude that **all other vertices** have $d_{\mathcal{G}}^-(i)= 2$. Take the maximal vertex in the **linear order**. All edges are in-directed, so the overall valence is $2$. We can apply **$2$-valent vertex deletion** to get a smaller directed bearing rigid acyclic graph, with the induced linear order. We continue with this until there are only the $1^\text{st}$ leader and the $2^\text{nd}$ leader. Reversing this sequence gives the desired construction.
 2. $2$ is **equivalent** to $3$: This is immediate, as the **initial edge** is the first leader-second leader edge, and the valence assumption is equivalent to the count of $2$. <div style="text-align: right;">$\square$</div>
-</details>
+:::
 
 ::: danger Theorem 0.2
 **Minimal bearing rigid** formations with **coleader structure** or **leader-remote follower structure** occur only in **cyclic** formations.
@@ -438,9 +435,8 @@ For a framework $\mathcal{G}(\boldsymbol{p})$ with **undirected** graph $\mathca
 3. $\operatorname{rank}(L_\mathcal{B}) = dn − d − 1$ and $\operatorname{Null}(L_\mathcal{B}) = \operatorname{span} \{\mathbf{1} \otimes I_d, \boldsymbol{p}\}$ if and only if $\mathcal{G}(\boldsymbol{p})$ is infinitesimally bearing rigid.
 :::
 
-**Proof**:
-<details>
-    <summary> Details of Proof </summary>
+::: details Details of Proof
+
 
 Assign an arbitrary orientation to each undirected edge and label the edge vectors and bearings for the directed edges as $\{e_k\}_{k=1}^m$ and $\{g_k\}_{k=1}^m$, respectively. Then the bearing Laplacian $L_\mathcal{B}$ can be expressed as $L_\mathcal{B} = \bar{H}^\top\operatorname{diag}(P_{g_k})\bar{H}$. It further follows from $P_{g_k} = P_{g_k}^\top P_{g_k}$ that
 $$
@@ -448,7 +444,7 @@ L_\mathcal{B} = \bar{H}^\top\operatorname{diag}(P_{g_k})\bar{H} \triangleq R^\to
 $$
 
 Note $R = \operatorname{diag}(\|e_k\|I_d)R_\mathcal{B}$ where $R_\mathcal{B}$ is the bearing rigidity matrix. As a result, the matrix $R$ and hence $L_\mathcal{B}$, have exactly the same rank and null space as $R_\mathcal{B}$. Then the results in $2^\text{nd}$ and $3^\text{rd}$ follow immediately from Lemma 5 and Theorem 8. <div style="text-align: right;">$\square$</div>
-</details>
+:::
 
 Since the nodes in the framework are partitioned into **a**nchors and **f**ollowers, it will be useful to partition the corresponding bearing Laplacian as
 $$
@@ -465,12 +461,11 @@ where $L_{\mathcal{B}_{aa}}\in\mathbb{R}^{dn_a\times dn_a}, L_{\mathcal{B}_{af}}
 For any framework $\mathcal{G}(p)$ with undirected graph $\mathcal{G}$, the subblock matrix $L_{\mathcal{B}_{ff}}$ is symmetric positive semi-definite and satisfies  $L_{\mathcal{B}_{ff}} p_f + L_{\mathcal{B}_{fa}}p_a = \mathbf{0}$.
 :::
 
-**Proof**:
-<details>
-    <summary> Details of Proof </summary>
+::: details Details of Proof
+
 
 For any nonzero $\boldsymbol{x}\in\mathbb{R}^{dn_f}$, denote $\bar{\boldsymbol{x}}=[0,\boldsymbol{x}^\top]^\top\in\mathbb{R}^{dn}$. Since $L_\mathcal{B}\succeq 0$, we have $\boldsymbol{x}^\top L_{\mathcal{B}_{ff}}\boldsymbol{x} = \bar{\boldsymbol{x}}^\top L_\mathcal{B}\bar{\boldsymbol{x}}\geqslant 0$. As a result, $L_{\mathcal{B}_{ff}}$ is positive semi-definite. Since $\boldsymbol{p}\in\operatorname{Null}(L_\mathcal{B})$ as suggested by Lemma 2, we have $L_\mathcal{B}\boldsymbol{p}=\mathbf{0}$ which further implies $L_{\mathcal{B}_{ff}} p_f + L_{\mathcal{B}_{fa}}p_a = \mathbf{0}$. <div style="text-align: right;">$\square$</div>
-</details>
+:::
 
 Up to this point, we have introduced all the fundamental concepts in the bearing rigidity theory. We next explore the properties of these concepts. We first derive a useful expression for the bearing rigidity matrix.
 
@@ -482,9 +477,8 @@ R_\mathcal{B}(\boldsymbol{p}) = \operatorname{diag}\left(\frac{P_{g_{k}}}{\|e_k\
 $$
 :::
 
-**Proof**:
-<details>
-    <summary> Details of Proof </summary>
+::: details Details of Proof
+
 
 It follows from $g_{k}= e_{k}/\|e_{k}\| \, \forall k\in\{1,2,\cdots,m\}$ that:
 $$
@@ -497,7 +491,7 @@ R_\mathcal{B}(\boldsymbol{p}) = \frac{\partial B_\mathcal{G}(\boldsymbol{p})}{\p
 $$
 
 Q.E.D. <div style="text-align: right;">$\square$</div>
-</details>
+:::
 
 The expression $(3)$ can be used to characterize the **null space** and the **rank** of the **bearing rigidity matrix**.
 
@@ -508,14 +502,13 @@ A framework $\mathcal{G}(\boldsymbol{p})$ in $\mathbb{R}^d$ **always** satisfies
 
 :::
 
-**Proof**:
-<details>
-    <summary> Details of Proof </summary>
+::: details Details of Proof
+
 
 1. It's clear that $\operatorname{span}\{\mathbf{1} \otimes I_d\} \subseteq \operatorname{Null}(\bar{H}) \subseteq \operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$
 2. Since $P_{e_k}e_k=0$, we have $R_\mathcal{B}(\boldsymbol{p})\boldsymbol{p}=\operatorname{diag}\left(\frac{P_{g_{k}}}{\|e_k\|}\right)\bar{H}\boldsymbol{p} = \operatorname{diag}\left(\frac{P_{g_{k}}}{\|e_k\|}\right)\boldsymbol{e} = 0$ and hence $\boldsymbol{p}\subseteq \operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$.
 3. The inequality $\operatorname{rank}(R_\mathcal{B}(\boldsymbol{p})) \leqslant dn − d − 1$ follows immediately from $\operatorname{span}\{\mathbf{1} \otimes I_d, \boldsymbol{p}\} \subseteq \operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$. <div style="text-align: right;">$\square$</div>
-</details>
+:::
 
 For any undirected graph $\mathcal{G} = (\mathcal{V}, \mathcal{E})$, denote $\mathcal{G}^\mathcal{K}$ as the **complete graph** over the **same vertex** set $\mathcal{V}$, and $R^\mathcal{K}_\mathcal{B}(\boldsymbol{p})$ as the bearing rigidity matrix of the framework $\mathcal{G}^\mathcal{K}(\boldsymbol{p})$. The next result gives the **necessary and sufficient conditions** for **bearing equivalency** and **bearing congruency**.
 
@@ -526,9 +519,8 @@ Two frameworks $\mathcal{G}(\boldsymbol{p})$ and $\mathcal{G}(\boldsymbol{p}')$ 
 
 :::
 
-**Proof**:
-<details>
-    <summary> Details of Proof </summary>
+::: details Details of Proof
+
 
 Since $R_\mathcal{B}(\boldsymbol{p})\boldsymbol{p}' = \operatorname{diag}\left(\frac{P_{g_{k}}}{\|e_k\|}\right)\bar{H}\boldsymbol{p}' = \operatorname{diag}\left(\frac{P_{g_{k}}}{\|e_k\|}\right)\operatorname{diag}(P_{g_k})\boldsymbol{e}'$, we have
 $$
@@ -536,7 +528,7 @@ R_\mathcal{B}(\boldsymbol{p})\boldsymbol{p}' = \mathbf{0} \Leftrightarrow P_{g_k
 $$
 
 Therefore, by Definition of bearing equivalent, the two frameworks are bearing equivalent if and only if $R_\mathcal{B}(\boldsymbol{p})\boldsymbol{p}' = \mathbf{0}$. By Definition of bearing equivalent, it can be analogously shown that frameworks are bearing equivalent if and only if $R^\mathcal{K}_\mathcal{B}(\boldsymbol{p})\boldsymbol{p}' = \mathbf{0}$. <div style="text-align: right;">$\square$</div>
-</details>
+:::
 
 Since any **infinitesimal motion** $\delta\boldsymbol{p}$ is in $\operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$, it is implied from Lemma 5 and Theorem 5 that $R_\mathcal{B}(\boldsymbol{p})(\boldsymbol{p} + \delta\boldsymbol{p}) = \mathbf{0}$ and hence $\mathcal{G}(\boldsymbol{p} + \delta\boldsymbol{p})$ is **bearing equivalent** to $\mathcal{G}(\boldsymbol{p})$.
 
@@ -549,27 +541,25 @@ A framework $\mathcal{G}(\boldsymbol{p})$ in $\mathbb{R}^d$ **always** satisfies
 
 :::
 
-**Proof**:
-<details>
-    <summary> Details of Proof </summary>
+::: details Details of Proof
+
 
 1. The result that $\operatorname{span}\{\mathbf{1} \otimes I_d, \boldsymbol{p}\} \subseteq \operatorname{Null}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p}))$ and $\operatorname{rank}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p})) \leqslant dn − d − 1$ can be proved similarly as Lemma 5.
 2. For any $\delta\boldsymbol{p}\in\operatorname{Null}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p}))$, we have $R^\mathcal{K}_\mathcal{B}(\boldsymbol{p})\delta\boldsymbol{p}=\mathbf{0}\Rightarrow R^\mathcal{K}_\mathcal{B}(\boldsymbol{p})(\boldsymbol{p} + \delta\boldsymbol{p})=\mathbf{0}$. As a result, $\mathcal{G}(\boldsymbol{p}+\delta\boldsymbol{p})$ is **bearing congruent** to $\mathcal{G}(\boldsymbol{p})$ by Theorem 5. Since bearing congruency implies bearing equivalency, we further know $R_\mathcal{B}(\boldsymbol{p})(\boldsymbol{p} + \delta\boldsymbol{p})=\mathbf{0}$ and hence $R_\mathcal{B}(\boldsymbol{p})\delta\boldsymbol{p}=\mathbf{0}$. Therefore, any $\delta\boldsymbol{p}$ in $\operatorname{Null}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p}))$ is also in $\operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$.
 3. Since $R_\mathcal{B}(\boldsymbol{p}),R^\mathcal{K}_\mathcal{B}(\boldsymbol{p})$ have the same column number, it follows immediately that $\operatorname{rank}(R_\mathcal{B}(\boldsymbol{p})) \leqslant \operatorname{rank}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p}))$. <div style="text-align: right;">$\square$</div>
-</details>
+:::
 
 ::: danger Theorem 6: Condition for Global Bearing Rigidity
 A framework $\mathcal{G}(\boldsymbol{p})$ in $\mathbb{R}^d$ is **globally bearing rigid** if and only if $\operatorname{Null}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p})) = \operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$ or equivalently $\operatorname{rank}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p})) = \operatorname{rank}(R_\mathcal{B}(\boldsymbol{p}))$.
 :::
 
-**Proof**:
-<details>
-    <summary> Details of Proof </summary>
+::: details Details of Proof
+
 
 1. (**Necessity**) Suppose the framework $\mathcal{G}(\boldsymbol{p})$ is **globally bearing rigid**. We next show that $\operatorname{Null}(R_\mathcal{B}(\boldsymbol{p})) \subseteq \operatorname{Null}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p}))$. For any $\delta\boldsymbol{p} \in \operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$, we have $R_\mathcal{B}(\boldsymbol{p})\delta\boldsymbol{p} = \mathbf{0} \Rightarrow R_\mathcal{B}(\boldsymbol{p})(\boldsymbol{p} + \delta\boldsymbol{p}) = \mathbf{0}$. As a result, $\mathcal{G}(\boldsymbol{p}+\delta\boldsymbol{p})$ is bearing equivalent to $\mathcal{G}(\boldsymbol{p})$ according to Theorem 5. Since $\mathcal{G}(\boldsymbol{p})$ is globally bearing rigid, it follows that $\mathcal{G}(\boldsymbol{p}+\delta\boldsymbol{p})$ is **also** bearing congruent to $\mathcal{G}(\boldsymbol{p})$, which means $R^\mathcal{K}_\mathcal{B}(p)(p + \delta\boldsymbol{p}) = \mathbf{0} \Rightarrow R^\mathcal{K}_\mathcal{B}(p)\delta\boldsymbol{p} = \mathbf{0}$. Therefore, any $\delta\boldsymbol{p}$ in $\operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$ is in $\operatorname{Null}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p}))$ and thus $\operatorname{Null}(R_\mathcal{B}(\boldsymbol{p})) \subseteq \operatorname{Null}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p}))$. Since $\operatorname{Null}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p})) \subseteq \operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$ as shown in Lemma 6, we have $\operatorname{Null}(R_\mathcal{B}(\boldsymbol{p})) = \operatorname{Null}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p}))$.
 2. (Sufficiency) Suppose $\operatorname{Null}(R_\mathcal{B}(\boldsymbol{p})) = \operatorname{Null}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p}))$. Any framework $\mathcal{G}(\boldsymbol{p}')$ that is **bearing equivalent** to $\mathcal{G}(\boldsymbol{p})$ satisfies $R_\mathcal{B}(\boldsymbol{p})\boldsymbol{p}' = \mathbf{0}$. It then follows from $\operatorname{Null}(R_\mathcal{B}(\boldsymbol{p})) = \operatorname{Null}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p}))$ that $R^\mathcal{K}_\mathcal{B}(\boldsymbol{p})\boldsymbol{p}' = \mathbf{0}$, which means $\mathcal{G}(\boldsymbol{p}')$ is **also bearing congruent** to $\mathcal{G}(\boldsymbol{p})$. As a result, $\mathcal{G}(\boldsymbol{p})$ is globally bearing rigid.
 3. Because $R_\mathcal{B}(\boldsymbol{p})$ and $R^\mathcal{K}_\mathcal{B}(\boldsymbol{p})$ have the same column number, it follows immediately that $\operatorname{Null}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p})) = \operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$ if and only if $\operatorname{rank}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p})) = \operatorname{rank}(R_\mathcal{B}(\boldsymbol{p}))$. <div style="text-align: right;">$\square$</div>
-</details>
+:::
 
 The following result shows that **bearing rigidity** and **global bearing rigidity** are **equivalent notions**.
 
@@ -577,9 +567,8 @@ The following result shows that **bearing rigidity** and **global bearing rigidi
 A framework $\mathcal{G}(\boldsymbol{p})$ in $\mathbb{R}^d$ is **bearing rigid** if and only if it is **globally bearing rigid**.
 :::
 
-**Proof**:
-<details>
-    <summary> Details of Proof </summary>
+::: details Details of Proof
+
 
 By definition, global bearing rigidity implies bearing rigidity. We next prove the converse is also true. Suppose the framework $\mathcal{G}(\boldsymbol{p})$ is bearing rigid. By the definition of bearing rigidity and Theorem 5, any framework satisfying $R_\mathcal{B}(\boldsymbol{p})\boldsymbol{p}' = \mathbf{0}$ and $\|\boldsymbol{p}' − \boldsymbol{p}\| \leqslant\varepsilon$ also satisfies $R^\mathcal{K}_\mathcal{B}(\boldsymbol{p})\boldsymbol{p}' = \mathbf{0}$, i.e.,
 $$
@@ -587,7 +576,7 @@ R_\mathcal{B}(\boldsymbol{p})(\boldsymbol{p}+\delta\boldsymbol{p}) = \mathbf{0}\
 $$
 
 where $\delta\boldsymbol{p} = \boldsymbol{p}' - \boldsymbol{p}$. It then follows from $R_\mathcal{B}(\boldsymbol{p})\boldsymbol{p} = \mathbf{0}$ and $R^\mathcal{K}_\mathcal{B}(\boldsymbol{p})\boldsymbol{p} = \mathbf{0}$ that $R_\mathcal{B}(\boldsymbol{p})\boldsymbol{p} = \mathbf{0}\Rightarrow R^\mathcal{K}_\mathcal{B}(\boldsymbol{p})\boldsymbol{p} = \mathbf{0}$ for all $\|\delta\boldsymbol{p}\|\leqslant\varepsilon$. This means $\operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))\subseteq\operatorname{Null}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p}))$ in spite of the constraint of $\|\delta\boldsymbol{p}\|$. Since $\operatorname{Null}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p}))\subseteq\operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$ as shown in Lemma 6, we further have $\operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))=\operatorname{Null}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p}))$ and consequently $\mathcal{G}(\boldsymbol{p})$ is globally bearing rigidity. <div style="text-align: right;">$\square$</div>
-</details>
+:::
 
 We next give the necessary and sufficient condition for **infinitesimal bearing rigidity**.
 
@@ -599,13 +588,12 @@ For a framework $\mathcal{G}(\boldsymbol{p})$ in $\mathbb{R}^d$, the following s
 
 :::
 
-**Proof**: 
-<details>
-    <summary> Details of Proof </summary>
+::: details Details of Proof 
+
 
 1. Lemma 5 shows $\operatorname{span}\{\mathbf{1} \otimes I_d, \boldsymbol{p}\}\subseteq \operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$. Observe $\mathbf{1} \otimes I_d$ and $\boldsymbol{p}$ correspond to a rigid-body **translation** and a **scaling** of the framework, respectively. The stated condition directly follows from Definition of infinitesimally bearing rigid.
 2. Note also that $\{\mathbf{1} \otimes I_d, \boldsymbol{p} −  \mathbf{1} \otimes \bar{\boldsymbol{p}}\}$ is an **orthogonal basis** for $\operatorname{span}\{\mathbf{1} \otimes I_d, \boldsymbol{p}\}$. <div style="text-align: right;">$\square$</div>
-</details>
+:::
 
 The special cases of $\mathbb{R}^2$ and $\mathbb{R}^3$ are of particular interest. A framework G(p) is infinitesimally bearing rigid in $\mathbb{R}^2$ if and only if $\operatorname{rank}(R_\mathcal{B}(\boldsymbol{p})) = 2n − 3$, and in $\mathbb{R}^3$ if and only if $\operatorname{rank}(R_\mathcal{B}(\boldsymbol{p})) = 3n−4$. Note Theorem 8 does not require $n \geqslant d$. 
 
@@ -615,12 +603,11 @@ The following result characterizes the relationship between infinitesimal bearin
 Infinitesimal bearing rigidity implies global bearing rigidity.
 :::
 
-**Proof**:
-<details>
-    <summary> Details of Proof </summary>
+::: details Details of Proof
+
 
 Infinitesimal bearing rigidity implies $\operatorname{Null}(R_\mathcal{B}(\boldsymbol{p})) = \operatorname{span}\{\mathbf{1} \otimes  I_d, \boldsymbol{p}\}$. Since $\operatorname{span}\{\mathbf{1} \otimes  I_d, \boldsymbol{p}\} \subseteq \operatorname{Null}(R^\mathcal{K}_\mathcal{B}(p)) \subseteq \operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$ as shown in Lemma 6, it immediately follows from $\operatorname{Null}(R_\mathcal{B}(\boldsymbol{p})) = \operatorname{span}\{\mathbf{1}\otimes I_d, \boldsymbol{p}\}$ that $\operatorname{Null}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p})) = \operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$, which means $\mathcal{G}(\boldsymbol{p})$ is globally bearing rigid according to Theorem 6. <div style="text-align: right;">$\square$</div>
-</details>
+:::
 
 The **converse** of Theorem 9 is **not true**, i.e., global bearing rigidity does not imply infinitesimal bearing rigidity. For example, the collinear framework as shown in Figure 5(a) is globally bearing rigid but not infinitesimally bearing rigid.
 
@@ -649,9 +636,8 @@ The following theorem shows that infinitesimal bearing rigidity can uniquely det
 An infinitesimally bearing rigid framework can be **uniquely** determined up to a **translational** and a **scaling** factor.
 :::
 
-**Proof**:
-<details>
-    <summary> Details of Proof </summary>
+::: details Details of Proof
+
 
 Suppose $\mathcal{G}(\boldsymbol{p})$ is an infinitesimally bearing rigid framework in $\mathbb{R}^d$. Consider an arbitrary framework $\mathcal{G}(\boldsymbol{p}')$ that is **bearing equivalent** to $\mathcal{G}(\boldsymbol{p})$. Our aim is to prove $\mathcal{G}(\boldsymbol{p}')$ is different from $\mathcal{G}(\boldsymbol{p})$ only in a translation and a scaling factor. The configuration $\boldsymbol{p}'$ can always be decomposed as
 $$
@@ -664,7 +650,7 @@ R_\mathcal{B}(\boldsymbol{p})\boldsymbol{p}' = R_\mathcal{B}(\boldsymbol{p})\bol
 $$
 
 Since $\mathcal{G}(\boldsymbol{p}')$ is bearing equivalent to $\mathcal{G}(\boldsymbol{p})$, we have $R_\mathcal{B}(\boldsymbol{p})\boldsymbol{p}' = \mathbf{0}$ by Theorem 5. Therefore, the formula above implies $R_\mathcal{B}(\boldsymbol{p})\boldsymbol{q}=\mathbf{0}$. Since $\boldsymbol{q} \perp \operatorname{span}\{\mathbf{1} \otimes  I_d, \boldsymbol{p}\} = \operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$, the above equation suggests $\boldsymbol{q} = \mathbf{0}$. As a result, $\boldsymbol{p}'$ is different from $\boldsymbol{p}$ only in a scaling factor $c$ and a rigid-body translation $\eta$. <div style="text-align: right;">$\square$</div>
-</details>
+:::
 
 #### Property: Invariant to Dimension
 The following theorem shows that if a framework is infinitesimally bearing rigid in a **lower** dimension, it is still infinitesimally bearing rigid when evaluated in a higher dimensional space.
@@ -673,9 +659,8 @@ The following theorem shows that if a framework is infinitesimally bearing rigid
 Infinitesimal bearing rigidity is **invariant** to space dimensions.
 :::
 
-**Proof**:
-<details>
-    <summary> Details of Proof </summary>
+::: details Details of Proof
+
 
 Consider a framework $\mathcal{G}(\boldsymbol{p})$ in $\mathbb{R}^d (n \geqslant 2, d \geqslant 2)$. Suppose the framework becomes $\mathcal{G}(\tilde{\boldsymbol{p}})$ when the dimension is  lifted from $d$ to $\tilde{d} (\tilde{d} > d)$. Our goal is to prove that
 $$
@@ -734,7 +719,7 @@ $$
 $$
 
 It can be easily verified using the above equation that $\operatorname{rank}(R(\tilde{\boldsymbol{p}})) = \tilde{d}n - \tilde{d}-1$ if and only if $\operatorname{rank}(R_\mathcal{B}(\boldsymbol{p})) = dn - d-1$. <div style="text-align: right;">$\square$</div>
-</details>
+:::
 
 <figure>
    <img src="/frontiers_rigidity_2_5_not_inf.jpg" alt="not inf" id="fig-2-5-not-inf" width="100%" align="center">
@@ -763,9 +748,8 @@ Generically bearing rigid graphs have the following properties.
 If $\mathcal{G}$ is **generically bearing rigid** in $\mathbb{R}^d$, then $(\mathcal{G}, \boldsymbol{p})$ is infinitesimally bearing rigid for **almost all** $\boldsymbol{p}$ in $\mathbb{R}^d$ in the sense that the set of $\boldsymbol{p}$ where $(\mathcal{G}, \boldsymbol{p})$ is not infinitesimally bearing rigid is of **measure zero**. Moreover, for any configuration $\boldsymbol{p}_0$ and any small constant $\varepsilon > 0$, there always exists a configuration $\boldsymbol{p}$ such that $(\mathcal{G}, \boldsymbol{p})$ is infinitesimally bearing rigid and $\|\boldsymbol{p} − \boldsymbol{p}_0\| < \varepsilon$.
 :::
 
-**Proof**:
-<details>
-    <summary> Details of Proof </summary>
+::: details Details of Proof
+
 
 Let $\Omega$ be the set of $\boldsymbol{p}$ where $\operatorname{rank}(L_\mathcal{B}) < dn − d − 1$. Suppose $f(\boldsymbol{p})$ is the vector consisting of all the $(dn−d−2)\times (dn − d − 2)$ **minors** of $L_\mathcal{B}$. Then, $\Omega$ is the set of solutions to $f(\boldsymbol{p}) = 0$. Although the elements of $\boldsymbol{p}$ appear on the denominators in the projection matrices in $L_\mathcal{B}$, the equation $f(\boldsymbol{p}) = 0$ can be converted to a set of polynomial equations of $\boldsymbol{p}$ by multiplying the denominators on both sides of $f(\boldsymbol{p}) = 0$. As a result, $\Omega$ is **an algebraic set and hence it is either the entire space or of measure zero**. Since there exists $\boldsymbol{p}$ such that $(\mathcal{G}, \boldsymbol{p})$ is infinitesimally bearing rigid, $\Omega$ is **not** the entire space, then it is of measure zero and consequently $(\mathcal{G}, \boldsymbol{p})$ is infinitesimally bearing rigid for almost all $\boldsymbol{p}$.
 
@@ -775,7 +759,7 @@ $$
 $$
 
 When $\alpha = 0, \boldsymbol{p}_\alpha = \boldsymbol{p}_0$; when $\alpha = 1, \boldsymbol{p}_\alpha = \boldsymbol{p}_1$. For any $\varepsilon > 0$, there always exists a sufficiently small $\alpha_\varepsilon$ such that $\|\boldsymbol{p}_\alpha − \boldsymbol{p}_0\| < \varepsilon$ for all $\alpha \in (0, \alpha_\varepsilon)$. Let $f (\alpha)$ be the vector consisting of all the $(dn−d−2)\times (dn−d−2)$ minors of $L_\mathcal{B}$ of the framework $(\mathcal{G}, \boldsymbol{p}_\alpha)$. Then $f(\alpha) \neq 0$ if and only if $(\mathcal{G}, \boldsymbol{p}_\alpha)$ is infinitesimally bearing rigid. Since $f(1) \neq 0$, $f(\alpha)$ is not identically zero. Since $f(\alpha) = 0$ can be converted to a set of polynomial equations of $\alpha, f(\alpha) = 0$ has finite zero roots. As a result, there always exists $\alpha_1 \in (0, \alpha_\varepsilon)$ such that $f(\alpha_1) \neq 0$. Then, the framework $(\mathcal{G}, \boldsymbol{p}_{\alpha_1} )$ is infinitesimally bearing rigid and satisfies $\|\boldsymbol{p}_{\alpha_1} − \boldsymbol{p}_0\| < \varepsilon$. <div style="text-align: right;">$\square$</div>
-</details>
+:::
 
 If a graph is **not** generically bearing rigid, there does **not** exist any configuration such that the framework is infinitesimally bearing rigid. This is implied by the definition of generic bearing rigidity.
 - See Figure 7(a) for an illustration. If a graph is generically bearing rigid, the corresponding frameworks are infinitesimally bearing rigid for all configurations except some special ones that form a set of measure zero. This is implied by Lemma 7.
@@ -808,9 +792,8 @@ The next result shows that adding edges to a Laman graph preserves generic beari
 If $\mathcal{G}$ contains a **Laman spanning subgraph**, then $\mathcal{G}$ is generically bearing rigid in $\mathbb{R}^d$ for any $d \geqslant 2$.
 :::
 
-**Proof**:
-<details>
-    <summary> Details of Proof </summary>
+::: details Details of Proof
+
 
 ::: tip Lemma 10
 If $A, B \in \mathbb{R}^{m\times m}$ are positive semi-definite, $\operatorname{rank}(A + B) \geqslant \max\{\operatorname{rank}(A), \operatorname{rank}(B)\}$.
@@ -830,7 +813,7 @@ Since $\mathcal{G}$ is generically bearing rigid, there exists $\boldsymbol{p}$ 
 
 If $\mathcal{G}$ has a Laman spanning subgraph, $\mathcal{G}$ can be obtained by adding edges into the Laman graph. Since a Laman graph is generically bearing rigid, $\mathcal{G}$ is also generically bearing rigid by Lemma 11.
 
-</details>
+:::
 
 While Theorem 12 indicates that Laman graphs are generically bearing rigid, a natural question that follows is whether generically bearing rigid graphs are also Laman. The answer may be negative. A counterexample is given in Figure 9.
 
@@ -849,14 +832,13 @@ As indicated by the example in Figure 9, not all generically bearing rigid graph
 A graph $\mathcal{G}$ is **generically bearing rigid** in $\mathbb{R}^2$ if and only if the graph contains a **Laman spanning subgraph**.
 :::
 
-**Proof**:
-<details>
-    <summary> Details of Proof </summary>
+::: details Details of Proof
+
 
 The **sufficiency** follows from Theorem 12 and Corollary 12-1. To prove **necessity**, we need some notions in the distance rigidity theory. Since $\mathcal{G}$ is generically bearing rigid in $\mathbb{R}^2$, there exists $\boldsymbol{p}$ such that $(\mathcal{G}, \boldsymbol{p})$ is infinitesimally bearing rigid in $\mathbb{R}^2$. Since infinitesimal bearing rigidity and infinitesimal distance rigidity imply each other in $\mathbb{R}^2$ shown in Theorem 14, we know $(\mathcal{G}, \boldsymbol{p})$ is infinitesimally distance rigid in $\mathbb{R}^2$.
 
 Now we consider two cases. In the first case where $\mathcal{G}$ has exactly $2n − 3$ edges, the distance rigidity matrix of $(\mathcal{G}, \boldsymbol{p})$ has **full row rank** and consequently the graph is Laman. In the second case where $\mathcal{G}$ has more than $2n − 3$ edges, the distance rigidity matrix has its rank equal to $2n − 3$ though it is not of full row rank any more. There must exist $2n − 3$ linearly independent rows in the distance rigidity matrix. These $2n − 3$ rows correspond to a spanning subgraph with $2n − 3$ edges. Since the distance rigidity matrix of this spanning subgraph is of full row rank, the subgraph is Laman.
-</details>
+:::
 
 ### Connections to Distance Rigidity Theory
 The bearing rigidity theory and the distance rigidity theory study **similar** problems of whether the shape of a framework can be uniquely determined by the inter-neighbor bearings and inter-neighbor distances, respectively. It is meaningful to study the connections between the two rigidity theories. The following theorem establishes the equivalence between infinitesimal bearing and distance rigidity in $\mathbb{R}^2$.
@@ -865,9 +847,8 @@ The bearing rigidity theory and the distance rigidity theory study **similar** p
 In $\mathbb{R}^2$, a framework is infinitesimally bearing rigid if and only if it is infinitesimally distance rigid.
 :::
 
-**Proof**:
-<details>
-    <summary> Details of Proof </summary>
+::: details Details of Proof
+
 
 To prove Theorem 14, we first prove the following result which indicates that the bearing rigidity matrix always has the **same rank** as the distance rigidity matrix for any framework in $\mathbb{R}^2$.
 
@@ -892,7 +873,7 @@ $$
 Since $\operatorname{diag}\left(g_k^\perp / \|e_k\|^2\right)$ has full column rank and and $I_n \otimes Q_{\pi / 2}^{\top}$ is invertible, we have $\operatorname{rank}(R_\mathcal{B}(\boldsymbol{p})) = \operatorname{rank}(R_\mathcal{D}(\boldsymbol{p}))$. <div style="text-align: right;">$\square$</div>
 
 Now it comes to proving Theorem 14: By Theorem 8, a framework $\mathcal{G}(\boldsymbol{p})$ in $\mathbb{R}^2$ is **infinitesimally bearing rigid** if and only if $\operatorname{rank}(R_\mathcal{B}(\boldsymbol{p})) = 2n − 3$. It's known that a framework is **infinitesimally distance rigid** if and only if $\operatorname{rank}(R_\mathcal{D}(\boldsymbol{p})) = 2n − 3$. Since $\operatorname{rank}(R_\mathcal{B}(\boldsymbol{p})) = \operatorname{rank}(R_\mathcal{D}(\boldsymbol{p}))$ as proved in Proposition 2, we know $\operatorname{rank}(R_\mathcal{B}(\boldsymbol{p})) = 2n − 3$ if and only if $\operatorname{rank}(R_\mathcal{D}(\boldsymbol{p})) = 2n − 3$, which concludes the theorem. <div style="text-align: right;">$\square$</div>
-</details>
+:::
 
 Remarks:
 1. Theorem 14 cannot be generalized to $\mathbb{R}^3$ or higher dimensions.
@@ -905,12 +886,11 @@ An immediate corollary of Theorem 14 describes the relationship between **infini
 The vector $\delta\boldsymbol{p}$ is an infinitesimal bearing motion of a framework $\mathcal{G}(\boldsymbol{p})$ in $\mathbb{R}^2$ if and only if $\delta\boldsymbol{p}^\perp$ is an infinitesimal distance motion of $\mathcal{G}(\boldsymbol{p})$.
 :::
 
-**Proof**:
-<details>
-    <summary> Details of Proof </summary>
+::: details Details of Proof
+
 
 It immediately follows from $(5)$ that $R_\mathcal{B}(\boldsymbol{p})\delta\boldsymbol{p} = \mathbf{0}$ if and only if $R_\mathcal{D}(\boldsymbol{p})\delta\boldsymbol{p}^\perp = \mathbf{0}$. <div style="text-align: right;">$\square$</div>
-</details>
+:::
 
 Given a framework in $\mathbb{R}^2$, Corollary 14-1 suggests that **for any** infinitesimal bearing motion, **there exists** a perpendicular infinitesimal distance motion, and the converse is also true. Corollary 14-1 is illustrated by [Figure 5](#fig-2-5-not-inf) (indicated by the red (solid) and blue (dashed) arrows).
 
@@ -993,13 +973,10 @@ $$
 :::
 
 **Proof**:
-
-<details>
-    <summary> Details of Proof </summary>
-
-1. Define $\tilde{R}_\mathcal{B} = \operatorname{diag}(\|e_k\|)R_\mathcal{B}$ where $R_\mathcal{B}$ is the bearing rigidity matrix. Then it holds $\operatorname{Null}(\tilde{R}_\mathcal{B}) = \operatorname{Null}(R_\mathcal{B})$ and therefore $\operatorname{span}\{\mathbf{1} \otimes I_d, \boldsymbol{p}\} \subseteq \operatorname{Null}(R_\mathcal{B})$.
+::: details Details of 
+1efine $\tilde{R}_\mathcal{B} = \operatorname{diag}(\|e_k\|)R_\mathcal{B}$ where $R_\mathcal{B}$ is the bearing rigidity matrix. Then it holds $\operatorname{Null}(\tilde{R}_\mathcal{B}) = \operatorname{Null}(R_\mathcal{B})$ and therefore $\operatorname{span}\{\mathbf{1} \otimes I_d, \boldsymbol{p}\} \subseteq \operatorname{Null}(R_\mathcal{B})$.
 2. Note that $L_\mathcal{B} = \bar{J}^\top\tilde{R}_\mathcal{B}$ and one has $\operatorname{Null}(\tilde{R}_\mathcal{B}) \subseteq \operatorname{Null}(L_\mathcal{B})$, which concludes the set inclusion of $(8)$. <div style="text-align: right;">$\square$</div>
-</details>
+:::
 
 We remark that, by the property of projection matrix, an alternative formula for $L_\mathcal{B}$ is given as below
 $$
@@ -1019,9 +996,8 @@ holds if and only if the following two conditions are **both** satisfied:
 2. $\operatorname{Null}(\tilde{J}_\mathcal{B}^\top) \cap \operatorname{Range}(\tilde{R}_\mathcal{B}) = \{\mathbf{0}\}$.
 :::
 
-**Proof**:
-<details>
-    <summary> Details of Proof </summary>
+::: details Details of Proof
+
 
 Given Lemma below:
 :::tip Lemma 12: Null space of matrix product
@@ -1029,7 +1005,7 @@ Consider two matrices $A \in \mathbb{R}^{m\times n}$ and $B \in  \mathbb{R}^{n\t
 :::
 
 This necessary and sufficient condition follows from the condition of infinitesimally bearing rigidity in Theorem 8 and the null space property of $L_\mathcal{B}=\tilde{J}^\top_\mathcal{B}\tilde{R}_\mathcal{B}$ as in $(9)$  by applying Lemma 12. <div style="text-align: right;">$\square$</div>
-</details>
+:::
 
 It is not clear at this stage how to use the second condition, or what it means. In the following sections, we will derive more concrete conditions to characterize the spectrum and null space of $L_\mathcal{B}$.
 
@@ -1042,9 +1018,8 @@ The first result characterizes the spectrum property of $L_\mathcal{B}$ for dire
 For **directed acyclic** graphs, the eigenvalues of the bearing Laplacian $L_\mathcal{B}$ are **real and nonnegative**.
 :::
 
-**Proof**:
-<details>
-    <summary> Details of Proof </summary>
+::: details Details of Proof
+
 
 Given two Lemmas below:
 ::: tip Lemma 13: Block triangular matrix
@@ -1069,7 +1044,7 @@ $$
 For directed acyclic graphs, the bearing Laplacian can always be reconstructed (with permutation of vertices and edges) as a block triangular matrix, while the $i$-th diagonal block consists of a projection matrix $P_{g^*_{ij}}$ (if the associated vertex $i$ has only one out-going edge $(i, j)$), or  a sum of projection matrix $\sum\limits_{j\in\mathcal{N}_i}P_{g^*_{ij}}$ (if the associated  vertex $i$ has multiple out-going edges $(i, j)$), or is a zero block (if the associated vertex $i$ has no out-going edge).
 
 According to Lemma 12, the set of eigenvalues of a block triangular matrix is the union of eigenvalues of each diagonal block. In this bearing Laplacian, each diagonal block is either a **zero block** or a **positive semi-definite matrix** (as a single projection or a sum of projection matrices). Therefore, according to Lemma 13, the eigenvalues of the bearing Laplacian for directed acyclic graphs are real and nonnegative. <div style="text-align: right;">$\square$</div>
-</details>
+:::
 
 #### Conditions for bearing persistence: Acycle
 The following conditions are presented to characterize the **null space** property of $L_\mathcal{B}$ for **directed acyclic** graphs. Note that any directed acyclic graph contains a vertex with zero out-going edge, which is often termed as the “**leader agent**” in formation control.
@@ -1124,9 +1099,8 @@ Now we provide a **necessary condition** for bearing persistence in directed gra
 For a directed bearing formation $(\mathcal{G},\boldsymbol{p})$, if the associated bearing Laplacian satisfies $\operatorname{Null}(L_\mathcal{B}) = \operatorname{span}\{\mathbf{1} \otimes I_d, \boldsymbol{p}\}$, then the underlying directed graph contains a **directed spanning tree**.
 :::
 
-**Proof**:
-<details>
-    <summary> Details of Proof </summary>
+::: details Details of Proof
+
 
 If the underlying directed graph does not contain a spanning tree, then the Laplacian matrix $L=J^\top H$ will have additional **null vector** besides $\{\mathbf{1}\}$, implying that  the augmented Laplacian matrix $\bar{L}=L\otimes I_d = \bar{J}^\top\bar{H}$ will have additional null space besides $\operatorname{span}\{\mathbf{1} \otimes I_d\}$, i.e., $\operatorname{span}\{\mathbf{1} \otimes I_d\}\subset\operatorname{Null}(\bar{L})$.
 
@@ -1136,7 +1110,7 @@ $$
 $$
 
 which implies $\operatorname{span}\{\mathbf{1} \otimes I_d, \boldsymbol{p}\}\subset\operatorname{Null}(L_\mathcal{B})$. Thus, to ensure $\operatorname{Null}(L_\mathcal{B}) = \operatorname{span}\{\mathbf{1} \otimes I_d, \boldsymbol{p}\}$, the underlying directed graph must contain a spanning tree. <div style="text-align: right;">$\square$</div>
-</details>
+:::
 
 Proposition 6 provides a necessary condition for bearing persistence that holds for **both acyclic and cyclic directed graphs**. In particular, Condition (1) in Proposition 4 violates the spanning tree condition, and therefore any bearing formation with two leader agents (i.e., two vertices with zero out-degree) are not bearing equivalent.
 
@@ -1149,9 +1123,8 @@ Consider a **bearing equivalent** formation $(\mathcal{G},\boldsymbol{p})$ in $\
 In particular, if $\operatorname{span}\{\mathbf{1} \otimes I_d, \boldsymbol{p}\} = \operatorname{Null}(L_\mathcal{B}(\mathcal{G}))$, then $span{1n+1 ⊗ Id, (\boldsymbol{p}, \boldsymbol{p}')} =  \operatorname{Null}(L_\mathcal{B}(\mathcal{G}'))$.
 :::
 
-**Proof**:
-<details>
-    <summary> Details of Proof </summary>
+::: details Details of Proof
+
 
 Without loss of generality we assign the index ‘n + 1’ to the new vertex p' in the augmented graph G'. The augmented bearing Laplacian L_\mathcal{B}(G') with the augmented  graph G' can be expressed by
 $$
@@ -1164,7 +1137,7 @@ L_{\mathcal{B}}(\mathcal{G}(p)) & & \vdots \\
 $$
 
 The condition that the new vertex $p^{\prime}$ has **at least two out-going non-collinear edges** connected with existing vertices guarantees that **no additional null vector** is introduced in $L_{\mathcal{B}}\left(\mathcal{G}^{\prime}\right)$ with the edge addition. Therefore, if $\operatorname{rank}\left(R_{\mathcal{B}}(\mathcal{G})\right)=\operatorname{rank}\left(L_{\mathcal{B}}(\mathcal{G})\right)$, then it holds that $\operatorname{rank}\left(R_{\mathcal{B}}\left(\mathcal{G}^{\prime}\right)\right)=\operatorname{rank}\left(L_{\mathcal{B}}\left(\mathcal{G}^{\prime}\right)\right)$. In particular, with the matrix structure in (9), it is straightforward to show that if $\operatorname{span}\left\{\mathbf{1}_n \otimes I_d, p\right\}=\operatorname{Null}\left(L_{\mathcal{B}}(\mathcal{G})\right)$, then $\operatorname{span}\left\{\mathbf{1}_{n+1} \otimes\right. \left.I_d,\left(p, p^{\prime}\right)\right\}=\operatorname{Null}\left(L_{\mathcal{B}}\left(\mathcal{G}^{\prime}\right)\right)$. <div style="text-align: right;">$\square$</div>
-</details>
+:::
 
 This proposition holds for **both acyclic and cyclic** directed formations, and therefore can be used to analyze complex bearing formations if they can be decomposed by simple sub-graphs consisting of vertices with non-collinear outgoing edges.
 
@@ -1396,9 +1369,8 @@ $$
 
 
 
-**Proof**:
-<details>
-    <summary> Details of Proof </summary>
+::: details Details of Proof
+
 
 According to Definition, the extended bearing rigidity matrix $R^+_\mathcal{B}(\boldsymbol{p}(t))$ has to map the vector $\boldsymbol{\delta}^+\in\mathbb{R}^{6n}$ to the derivative of the bearing function. By applying the product rule to $(12)$, it follows that
 $$
@@ -1416,7 +1388,7 @@ $$
 
 where $\mathbf{U} \bar{\mathbf{E}}^\top, \mathbf{V}\bar{\mathbf{E}}_{o}^\top \in \mathbb{R}^{3m \times 3n}$ link the bearing measurements variations to the agents variations. In detail, the $1^\text{st}$ addendum in $(17)$ includes the product of three matrices: the matrix $\bar{\mathbf{E}}^\top$ translates the variations of the agents position into relative positions (which are scaled bearings),
 the block matrix $\mathbf{U}$ embeds the variation of each bearing in the manifold $\mathbb{S}^{2}$ and, finally, the block matrix $\mathbf{D}_p(t)$ accounts for the projection of each bearing $\boldsymbol{b}_{ij}$ in the $i$-th agent local frame. An analogous reasoning can be carried out for the $2^\text{nd}$ addendum in $(17)$ where $\mathbf{D}_a(t)$ acts similarly to $\mathbf{D}_p(t)$ since the skew matrix of the relative position vector is an orthogonal matrix. <div style="text-align: right;">$\square$</div>
-</details>
+:::
 
 The table below shows particularization of the structure of the **extended bearing matrix** in $(15)$ for the differential manifolds:
 
