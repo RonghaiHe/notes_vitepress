@@ -383,7 +383,7 @@ $$
 e_{k}\triangleq p_j-p_i, \quad g_{k}\triangleq \frac{e_{k}}{\|e_{k}\|} = \frac{p_j-p_i}{\|p_j-p_i\|}, \quad \forall k\in\{1,2,\cdots,m\}.
 $$
 
-as the edge vector and the bearing for the $k$-th directed edge. Note that $g_k$ is the unit vector so that $P(g_{ij}) = I_d - g_{ij}g_{ij}^\top$. Denote $\boldsymbol{e} = [e_1^\top,\cdots , e_m^\top]^\top$ and $\boldsymbol{g} = [g_1^\top, \cdots, g_m^\top]^\top$. Note $\boldsymbol{e}$ satisfies $\boldsymbol{e}=\bar{H}\boldsymbol{p}$ where $\bar{H}=H\otimes I_d$ and $H$ is the **incidence matrix** of the graph.. Define the **bearing rigidity function** $B_\mathcal{G}(\boldsymbol{p}): \mathbb{R}^{dn} \longmapsto \mathbb{R}^{dm}$ as
+as the edge vector and the bearing for the $k$-th directed edge. Note that $g_k$ is the unit vector so that $P(g_{ij}) = I_d - g_{ij}g_{ij}^\top$. Denote $\boldsymbol{z} = [e_1^\top,\cdots , e_m^\top]^\top$ and $\boldsymbol{g} = [g_1^\top, \cdots, g_m^\top]^\top$. Note $\boldsymbol{z}$ satisfies $\boldsymbol{z}=\bar{H}\boldsymbol{p}$ where $\bar{H}=H\otimes I_d$ and $H$ is the **incidence matrix** of the graph.. Define the **bearing rigidity function** $B_\mathcal{G}(\boldsymbol{p}): \mathbb{R}^{dn} \longmapsto \mathbb{R}^{dm}$ as
 $$
 B_\mathcal{G}(\boldsymbol{p})\triangleq [g_1^\top, \cdots, g_m^\top]^\top \in\mathbb{R}^{dm}.
 $$
@@ -485,9 +485,9 @@ $$
 \frac{\partial g_k}{\partial e_k} = \frac{1}{\|e_k\|}(I_d - \frac{e_k}{\|e_k\|}\frac{e_k^\top}{\|e_k\|}) = \frac{1}{\|e_k\|}P_{g_k}.
 $$
 
-As a result, $\partial B_\mathcal{G}(\boldsymbol{p})/\partial \boldsymbol{e} = \operatorname{diag}(P_{g_k}/\|e_k\|)$ and consequently
+As a result, $\partial B_\mathcal{G}(\boldsymbol{p})/\partial \boldsymbol{z} = \operatorname{diag}(P_{g_k}/\|e_k\|)$ and consequently
 $$
-R_\mathcal{B}(\boldsymbol{p}) = \frac{\partial B_\mathcal{G}(\boldsymbol{p})}{\partial \boldsymbol{e}}\frac{\partial \boldsymbol{e}}{\partial \boldsymbol{p}} = \operatorname{diag}\left(\frac{P_{g_{k}}}{\|e_k\|}\right)\bar{H}.
+R_\mathcal{B}(\boldsymbol{p}) = \frac{\partial B_\mathcal{G}(\boldsymbol{p})}{\partial \boldsymbol{z}}\frac{\partial \boldsymbol{z}}{\partial \boldsymbol{p}} = \operatorname{diag}\left(\frac{P_{g_{k}}}{\|e_k\|}\right)\bar{H}.
 $$
 
 Q.E.D. <div style="text-align: right;">$\square$</div>
@@ -506,7 +506,7 @@ A framework $\mathcal{G}(\boldsymbol{p})$ in $\mathbb{R}^d$ **always** satisfies
 
 
 1. It's clear that $\operatorname{span}\{\mathbf{1} \otimes I_d\} \subseteq \operatorname{Null}(\bar{H}) \subseteq \operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$
-2. Since $P_{e_k}e_k=0$, we have $R_\mathcal{B}(\boldsymbol{p})\boldsymbol{p}=\operatorname{diag}\left(\frac{P_{g_{k}}}{\|e_k\|}\right)\bar{H}\boldsymbol{p} = \operatorname{diag}\left(\frac{P_{g_{k}}}{\|e_k\|}\right)\boldsymbol{e} = 0$ and hence $\boldsymbol{p}\subseteq \operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$.
+2. Since $P_{e_k}e_k=0$, we have $R_\mathcal{B}(\boldsymbol{p})\boldsymbol{p}=\operatorname{diag}\left(\frac{P_{g_{k}}}{\|e_k\|}\right)\bar{H}\boldsymbol{p} = \operatorname{diag}\left(\frac{P_{g_{k}}}{\|e_k\|}\right)\boldsymbol{z} = 0$ and hence $\boldsymbol{p}\subseteq \operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$.
 3. The inequality $\operatorname{rank}(R_\mathcal{B}(\boldsymbol{p})) \leqslant dn − d − 1$ follows immediately from $\operatorname{span}\{\mathbf{1} \otimes I_d, \boldsymbol{p}\} \subseteq \operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$. <div style="text-align: right;">$\square$</div>
 :::
 
@@ -522,7 +522,7 @@ Two frameworks $\mathcal{G}(\boldsymbol{p})$ and $\mathcal{G}(\boldsymbol{p}')$ 
 ::: details Details of Proof
 
 
-Since $R_\mathcal{B}(\boldsymbol{p})\boldsymbol{p}' = \operatorname{diag}\left(\frac{P_{g_{k}}}{\|e_k\|}\right)\bar{H}\boldsymbol{p}' = \operatorname{diag}\left(\frac{P_{g_{k}}}{\|e_k\|}\right)\operatorname{diag}(P_{g_k})\boldsymbol{e}'$, we have
+Since $R_\mathcal{B}(\boldsymbol{p})\boldsymbol{p}' = \operatorname{diag}\left(\frac{P_{g_{k}}}{\|e_k\|}\right)\bar{H}\boldsymbol{p}' = \operatorname{diag}\left(\frac{P_{g_{k}}}{\|e_k\|}\right)\operatorname{diag}(P_{g_k})\boldsymbol{z}'$, we have
 $$
 R_\mathcal{B}(\boldsymbol{p})\boldsymbol{p}' = \mathbf{0} \Leftrightarrow P_{g_k}e_k' = 0, \quad \forall k\in\{1,\cdots,m\}.
 $$
@@ -875,10 +875,11 @@ Since $\operatorname{diag}\left(g_k^\perp / \|e_k\|^2\right)$ has full column ra
 Now it comes to proving Theorem 14: By Theorem 8, a framework $\mathcal{G}(\boldsymbol{p})$ in $\mathbb{R}^2$ is **infinitesimally bearing rigid** if and only if $\operatorname{rank}(R_\mathcal{B}(\boldsymbol{p})) = 2n − 3$. It's known that a framework is **infinitesimally distance rigid** if and only if $\operatorname{rank}(R_\mathcal{D}(\boldsymbol{p})) = 2n − 3$. Since $\operatorname{rank}(R_\mathcal{B}(\boldsymbol{p})) = \operatorname{rank}(R_\mathcal{D}(\boldsymbol{p}))$ as proved in Proposition 2, we know $\operatorname{rank}(R_\mathcal{B}(\boldsymbol{p})) = 2n − 3$ if and only if $\operatorname{rank}(R_\mathcal{D}(\boldsymbol{p})) = 2n − 3$, which concludes the theorem. <div style="text-align: right;">$\square$</div>
 :::
 
-Remarks:
+::: info Remarks:
 1. Theorem 14 cannot be generalized to $\mathbb{R}^3$ or higher dimensions.
 For example, the 3D cubic and hexagonal pyramid frameworks in Figure 6(c), (d) are infinitesimally bearing rigid but not distance rigid. In particular, the rank of the distance rigidity matrices of the two frameworks are $13$ and $12$, respectively, whereas the required ranks for infinitesimal distance rigidity are $18$ and $15$, respectively.
 2. Theorem 14 suggests that we can determine the infinitesimal distance rigidity of a framework **by examining its infinitesimal bearing rigidity**. For example, it may be tricky to see the frameworks in [Figure 5](#fig-2-5-not-inf) (c), (d) are not infinitesimally distance rigid, but it is obvious to see the non-trivial infinitesimal bearing motions and conclude they are not infinitesimally bearing rigid.
+:::
 
 An immediate corollary of Theorem 14 describes the relationship between **infinitesimal bearing motions** and **infinitesimal distance motions** of frameworks in $\mathbb{R}^2$. Let $Q_{\pi/2}\in\mathrm{SO}(2)$ be a rotation matrix that can rotate a vector in $\mathbb{R}^2$ by $\pi/2$. For any $\delta\boldsymbol{p}=[\delta p_1^\top, \cdots,\delta p_n^\top]^\top\in\mathbb{R}^{2n}$, denote $\delta\boldsymbol{p}^\perp=[(Q_{\pi/2}\delta p_1)^\top, \cdots,(Q_{\pi/2}\delta p_n)^\top]^\top\in\mathbb{R}^{2n}$
 
@@ -1446,4 +1447,4 @@ The table below shows the summary of the principal notions related to bearing ri
 > 8. *[Characterizing bearing equivalence in directed graphs](https://www.sciencedirect.com/science/article/pii/S2405896323017111)* by **Zhiyong Sun**, **Shiyu Zhao** and **Daniel Zelazo**.
 > 9. *[A unified dissertation on bearing rigidity theory](https://ieeexplore.ieee.org/abstract/document/9424432)* by Giulia Michieletto, Angelo Cenedese and **Daniel Zelazo**.
 >
-> We use "framwork" to replace the "network".
+> We use "framwork" to replace the "network"; use $\boldsymbol{z}$ to replace $\boldsymbol{e}$.

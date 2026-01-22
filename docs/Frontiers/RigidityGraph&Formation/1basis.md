@@ -121,7 +121,10 @@ $$
 
 where $\omega \in \mathbb{R}^3$ denotes the angular velocity of the rigid body about an arbitrary  axis $\hat{R}$ passing through point $O$ and $\{x, y, z\}$ is an inertial coordinate frame.
 
-<img src="/frontiers_rigidity_1_0_motion.png" alt="Motion of rigid body" width="100%" align="center">
+<figure>
+   <img src="/frontiers_rigidity_1_0_motion.png" alt="Motion of rigid body" width="100%" align="center">
+   <figcaption> Figure 0: Rigid body kinematics.</figcaption>
+</figure>
 
 ::: warning Definition: Equivalent & Congruent
 Two frameworks $(\mathcal{G}, \boldsymbol{p})$ and $(\mathcal{G},\hat{\boldsymbol{p}})$ with $\mathcal{G} = (\mathcal{V}, \mathcal{E})$ are:
@@ -194,8 +197,7 @@ For a smooth map $f: X \rightarrow Y$ where $X$ and $Y$ are smooth manifolds, we
 Let $\boldsymbol{f}: \mathbb{R}^{n} \rightarrow \mathbb{R}^{m}$ be a smooth map and $k=\max \left\{\operatorname{rank} (\mathrm{d} \boldsymbol{f}(\boldsymbol{x})): \boldsymbol{x} \in \mathbb{R}^{n}\right\}$. If $\boldsymbol{x}_{0} \in \mathbb{R}^{n}$ is a regular point of $\boldsymbol{f}$, then the image under $\boldsymbol{f}$ of some neighborhood of $\boldsymbol{x}_{0}$ is a $k$-dimensional manifold.
 :::
 
-**Proof**:
-
+::: details Details of Proof
 Let $\boldsymbol{f}=\left(\boldsymbol{f}_{1}, \boldsymbol{f}_{2}\right)$ where $\boldsymbol{f}_{1}$ consists of the first $k$ coordinate functions of $\boldsymbol{f}$ and assume that $\operatorname{rank}\left(\mathrm{d} \boldsymbol{f}_{1}(\boldsymbol{x}_{0})\right)=k$. Since $\operatorname{rank}(\mathrm{d} \boldsymbol{f}_{1})=k$ in a neighborhood of $\boldsymbol{x}_{0}$, the Inverse Function Theorem yields local coordinates at $\boldsymbol{x}_{0}$ such that $\boldsymbol{f}_{1}\left(\boldsymbol{x}_{1}, \boldsymbol{x}_{2}\right)=\boldsymbol{x}_{1}$. Thus in local coordinates
 $$
 \mathrm{d} \boldsymbol{f}=\left[\begin{array}{cc}
@@ -205,6 +207,7 @@ I & 0 \\
 $$
 
 Since  $\operatorname{rank}(\mathrm{d} \boldsymbol{f})=k$ near $\boldsymbol{x}_{0}, \partial \boldsymbol{f}_{2} / \partial \boldsymbol{x}_{2}=0$ near $\boldsymbol{x}_{0}$. Hence $\boldsymbol{f}_{2}\left(\boldsymbol{x}_{1}, \boldsymbol{x}_{2}\right)=g\left(\boldsymbol{x}_{1}\right)$ and therefore $\boldsymbol{f}\left(\boldsymbol{x}_{1}, \boldsymbol{x}_{2}\right)=\left(\boldsymbol{x}_{1}, g\left(\boldsymbol{x}_{1}\right)\right)$ near $\boldsymbol{x}_{0}$. Thus $\boldsymbol{f}$ maps some neighborhood of $\boldsymbol{x}_{0}$ onto the graph of $g$ which is a $k$-dimensional manifold. <div style="text-align: right;">$\square$</div>
+:::
 
 It follows that if $\boldsymbol{p}$ is a regular point of $f_\mathcal{G}$, then $f_\mathcal{G}^{-1}\left(f_{G}(\boldsymbol{p})\right)$ is a manifold of co-dimension $k$ near $\boldsymbol{p}$. In this case, the construction of a smooth path in non-rigid implies flexible of Proposition 1 is straightforward since near $\boldsymbol{p}$ we then have that $f_\mathcal{K}^{-1}\left(f_\mathcal{K}(\boldsymbol{p})\right)$ is a proper submanifold of $f_\mathcal{G}^{-1}\left(f_\mathcal{G}(\boldsymbol{p})\right)$.
 
@@ -234,7 +237,12 @@ For so-called **generic** frameworks, rigidity is equivalent to infinitesimal ri
 
 For example, The planar framework in Figure below is nongeneric in $\mathbb{R}^2$ since vertices $1, 2, 3, 4$ are collinear.
 
-<img src="/frontiers_rigidity_1_05_nongeneric.png" id="fig-105-nongeneric" alt="Nongeneric framework"  width="100%" align="center">
+<figure>
+   <img src="/frontiers_rigidity_1_05_nongeneric.png" id="fig-105-nongeneric" alt="Nongeneric framework"  width="100%" align="center">
+   <figcaption> Figure 0.5: A nongeneric framework in 2D real field.</figcaption>
+</figure>
+
+
 
 In infinitesimal rigidity, instead of preserving distances during a continuous deformation, we require **first-order preservation of distances** during an **infinitesimal motion**. Therefore, infinitesimal rigidity (also called first-order rigidity) is a linear approximation to rigidity.
 
@@ -435,12 +443,14 @@ $$
 
 :::
 
-Proof: Let $\hat{\mathcal{F}}=(\mathcal{G},\hat{\boldsymbol{p}})\in\operatorname{Iso}(\mathcal{F})$ be such that
+::: details Details of Proof
+Let $\hat{\mathcal{F}}=(\mathcal{G},\hat{\boldsymbol{p}})\in\operatorname{Iso}(\mathcal{F})$ be such that
 $$
 \operatorname{dist}(\bar{\boldsymbol{p}}, \operatorname{Iso}(\mathcal{F})) = \inf_{\boldsymbol{x}\in\operatorname{Iso}(\mathcal{F})}\|\bar{\boldsymbol{p}} - \boldsymbol{x}\| = \|\bar{\boldsymbol{p}} - \hat{\boldsymbol{p}}\|.
 $$
 
-Obviously, $\hat{\mathcal{F}}$ is infinitesimally rigid since it is isomorphic to $\mathcal{F}$. Therefore, $\operatorname{rank}(R_\mathcal{D}(\hat{\boldsymbol{p}})) = 2n − 3$ according to Theorem 1, and there exists a $(2n − 3) \times (2n − 3)$ submatrix of $R_\mathcal{D}(\hat{\boldsymbol{p}})$, $R_s(\hat{\boldsymbol{p}})$, such that $\det[R_s(\hat{\boldsymbol{p}})] \neq 0$. The  submatrix $R_s(\hat{\boldsymbol{p}})$ has nonzero elements of the form $(\hat{p}_i − \hat{p}_j)^\top , (i, j) \in \mathcal{E}$. Since $\operatorname{dist}(\bar{\boldsymbol{p}}, \operatorname{Iso}(\mathcal{F}))=\|\bar{\boldsymbol{p}} - \hat{\boldsymbol{p}}\|\leqslant \varepsilon$, it is not difficult to show that $[\bar{p}_i]_k = [\hat{p}_i]_k + \gamma_{ik}$ where $\gamma_{ik}$ is a sufficiently small positive constant. Thus, the nonzero elements of $R_s(\hat{\boldsymbol{p}})$ have the form $[\bar{p}_i]_k − [\bar{p}_j]_k = [\hat{p}_i]_k − [\hat{p}_j]_k + \gamma_{ik} − \gamma_{jk}$, which are continuously dependent on $\hat{\boldsymbol{p}}$. Since the eigenvalues of a matrix depend continuously on its elements, and the determinant of a matrix is the product of its eigenvalues, it follows that **the determinant continuously depends on the elements of the matrix**. Thus, for sufficiently small $\gamma_{ik}$, we have that $\det[R_s(\hat{\boldsymbol{p}})] \neq 0$ and $\operatorname{rank}(R_s(\bar{\boldsymbol{p}})) = \operatorname{rank}(R_s(\hat{\boldsymbol{p}})) = 2n − 3$. Now, since $R_s(\bar{\boldsymbol{p}})$ is a full rank submatrix of $R_\mathcal{D}(\bar{\boldsymbol{p}})$, we know $\operatorname{rank}(R_\mathcal{D}(\bar{\boldsymbol{p}})) = 2n − 3$, so $\bar{\mathcal{F}}$ is infinitesimally rigid.
+Obviously, $\hat{\mathcal{F}}$ is infinitesimally rigid since it is isomorphic to $\mathcal{F}$. Therefore, $\operatorname{rank}(R_\mathcal{D}(\hat{\boldsymbol{p}})) = 2n − 3$ according to Theorem 1, and there exists a $(2n − 3) \times (2n − 3)$ submatrix of $R_\mathcal{D}(\hat{\boldsymbol{p}})$, $R_s(\hat{\boldsymbol{p}})$, such that $\det[R_s(\hat{\boldsymbol{p}})] \neq 0$. The  submatrix $R_s(\hat{\boldsymbol{p}})$ has nonzero elements of the form $(\hat{p}_i − \hat{p}_j)^\top , (i, j) \in \mathcal{E}$. Since $\operatorname{dist}(\bar{\boldsymbol{p}}, \operatorname{Iso}(\mathcal{F}))=\|\bar{\boldsymbol{p}} - \hat{\boldsymbol{p}}\|\leqslant \varepsilon$, it is not difficult to show that $[\bar{p}_i]_k = [\hat{p}_i]_k + \gamma_{ik}$ where $\gamma_{ik}$ is a sufficiently small positive constant. Thus, the nonzero elements of $R_s(\hat{\boldsymbol{p}})$ have the form $[\bar{p}_i]_k − [\bar{p}_j]_k = [\hat{p}_i]_k − [\hat{p}_j]_k + \gamma_{ik} − \gamma_{jk}$, which are continuously dependent on $\hat{\boldsymbol{p}}$. Since the eigenvalues of a matrix depend continuously on its elements, and the determinant of a matrix is the product of its eigenvalues, it follows that **the determinant continuously depends on the elements of the matrix**. Thus, for sufficiently small $\gamma_{ik}$, we have that $\det[R_s(\hat{\boldsymbol{p}})] \neq 0$ and $\operatorname{rank}(R_s(\bar{\boldsymbol{p}})) = \operatorname{rank}(R_s(\hat{\boldsymbol{p}})) = 2n − 3$. Now, since $R_s(\bar{\boldsymbol{p}})$ is a full rank submatrix of $R_\mathcal{D}(\bar{\boldsymbol{p}})$, we know $\operatorname{rank}(R_\mathcal{D}(\bar{\boldsymbol{p}})) = 2n − 3$, so $\bar{\mathcal{F}}$ is infinitesimally rigid. <div style="text-align: right;">$\square$</div>
+:::
 
 ### Minimal Rigidity
 It is obvious that adding edges to a graph does not destroy rigidity. A natural question is then: What is the minimum number of edges that ensures rigidity? This is important in practice because it ensures that a formation of multiple agents is rigid with the **minimum number of sensing and communication links**. The disadvantage of minimal rigidity is that it **lacks robustness** to the loss of a sensor or communication link since redundant edges are removed from the graph
@@ -464,12 +474,14 @@ This leads to the following corollary.
 If a framework is infinitesimally and minimally rigid, then its rigidity matrix has **full row rank** and $R_\mathcal{D}(\boldsymbol{p})R_\mathcal{D}^\top(\boldsymbol{p})$ is **positive definite**.
 :::
 
-Proof: Given that the rigidity matrix has $m$ rows and $\operatorname{rank}(R_\mathcal{D}(\boldsymbol{p})) = dn − d(d+1)/2$  and $m = dn − d(d+1)/2$ for infinitesimally and minimally rigid frameworks, we  know $R_\mathcal{D}(\boldsymbol{p})$ is full row rank. Now, let $\boldsymbol{y} = R_\mathcal{D}^\top(\boldsymbol{p})\boldsymbol{x}$ and
+::: details Details of Proof
+Given that the rigidity matrix has $m$ rows and $\operatorname{rank}(R_\mathcal{D}(\boldsymbol{p})) = dn − d(d+1)/2$  and $m = dn − d(d+1)/2$ for infinitesimally and minimally rigid frameworks, we  know $R_\mathcal{D}(\boldsymbol{p})$ is full row rank. Now, let $\boldsymbol{y} = R_\mathcal{D}^\top(\boldsymbol{p})\boldsymbol{x}$ and
 $$
 V=\boldsymbol{y}^\top\boldsymbol{y}\geqslant 0.
 $$
 
-Note that $V$ is positive definite w.r.t. $y$ and positive semi-definite with respect to $x$. Given that $\operatorname{rank}(R_\mathcal{D}(\boldsymbol{p})) = \operatorname{rank}(R_\mathcal{D}(\boldsymbol{p})R_\mathcal{D}^\top(\boldsymbol{p}))$ and $R_\mathcal{D}(\boldsymbol{p})$ is full row rank, we know $R_\mathcal{D}(\boldsymbol{p})R_\mathcal{D}^\top(\boldsymbol{p})$ is **invertible** and has **no zero eigenvalues**. Therefore, $V$ is positive definite w.r.t. $x$ and $R_\mathcal{D}(\boldsymbol{p})R_\mathcal{D}^\top(\boldsymbol{p})$ is a positive definite matrix.
+Note that $V$ is positive definite w.r.t. $y$ and positive semi-definite with respect to $x$. Given that $\operatorname{rank}(R_\mathcal{D}(\boldsymbol{p})) = \operatorname{rank}(R_\mathcal{D}(\boldsymbol{p})R_\mathcal{D}^\top(\boldsymbol{p}))$ and $R_\mathcal{D}(\boldsymbol{p})$ is full row rank, we know $R_\mathcal{D}(\boldsymbol{p})R_\mathcal{D}^\top(\boldsymbol{p})$ is **invertible** and has **no zero eigenvalues**. Therefore, $V$ is positive definite w.r.t. $x$ and $R_\mathcal{D}(\boldsymbol{p})R_\mathcal{D}^\top(\boldsymbol{p})$ is a positive definite matrix. <div style="text-align: right;">$\square$</div>
+:::
 
 For an **infinitesimally minimally distance rigid** framework, there must exist a vertex associated with **fewer than $4$ distance constraints**; otherwise, the total number of distance constraints will be at least $2 n$ and thus greater than the minimum number $2n − 3$.
 
@@ -492,7 +504,10 @@ Let $\mathcal{G} = (\mathcal{V}, \mathcal{E})$ be a graph modeling a formation i
 - edge splitting
 A new graph $\mathcal{G}' = (\mathcal{V}', \mathcal{E}')$ is formed from $\mathcal{G} = (\mathcal{V}, \mathcal{E})$, where $\mathcal{V}' = \mathcal{V} \cup \{v\}$ and $\mathcal{E}' = \mathcal{E} \cup \{(v, j ), (v, k ), (v,m)\}\backslash \{e\}$  for some $j, k, m \in \mathcal{V}$ with at least two of the vertices $j, k, m$ adjacent in $\mathcal{G}$, and the edge $e$ either $( j, k), ( j, m )$, or $(k, m )$
 
-<img src="/frontiers_rigidity_1_1_henneberg.png" alt="Henneberg's Method" width="100%" align="center">
+<figure>
+   <img src="/frontiers_rigidity_1_1_henneberg.png" alt="Henneberg's Method" width="100%" align="center">
+   <figcaption> Figure 1: Growing formations using a Henneberg sequence. (a) The four-agent formation can be expanded to include agent 5 by either (b) a vertex addition operation or (c) an edge-splitting operation. In (b), agent 5 is connected to two distinct agents of the formations. In (c) the edge (1,4) is replaced by two edges (1,5) and (5,4), which are incident on the newly added agent. A third connection (5,2) is also added to the latter agent. Both operations lead to a minimally rigid formation provided that the initial formation is minimally rigid. Moreover, every minimally rigid formation can be obtained by performing a sequence of these operations on an initial formation consisting of two connected agents.</figcaption>
+</figure>
 
 These vertex-addition and edge-splitting operations are enough to grow **every** minimally rigid graph. It is also possible to **deconstruct a minimally rigid graph** by removing one vertex and a net count of two edges at each step.
 
@@ -529,7 +544,9 @@ $$
 If $\mathcal{F}$ is infinitesimally rigid and $\Psi(\bar{\mathcal{F}},\mathcal{F}) \leqslant \delta$ where $\delta$ is a sufficiently small positive constant, then $\bar{\mathcal{F}}$ is also infinitesimally rigid.
 :::
 
-Proof: First, note that $\Psi(\bar{\mathcal{F}},\mathcal{F})=0$ implies that $\bar{\mathcal{F}} \in \operatorname{Iso}(\mathcal{F})$ or $\bar{\mathcal{F}} \in \operatorname{Amb}(\mathcal{F})$. Therefore, $\Psi(\bar{\mathcal{F}},\mathcal{F}) \leqslant \delta$ implies that there is a sufficiently small positive constant $\varepsilon$ such that $\operatorname{dist}(\bar{\boldsymbol{p}}, \operatorname{Iso}(\mathcal{F})) \leqslant \varepsilon$ or $\operatorname{dist}(\bar{\boldsymbol{p}}, \operatorname{Amb}(\mathcal{F})) \leqslant \varepsilon$. From Theorem 2, we know that $\bar{\mathcal{F}}$ is infinitesimally rigid if $\operatorname{dist}(\bar{\boldsymbol{p}}, \operatorname{Iso}(\mathcal{F})) \leqslant \varepsilon$. Since the elements of $\operatorname{Amb}(\mathcal{F})$ are infinitesimally rigid, the proof of Theorem 2 can be followed with $\operatorname{Iso}(\mathcal{F})$ replaced by $\operatorname{Amb}(\mathcal{F})$ to show that $\operatorname{dist}(\bar{\boldsymbol{p}}, \operatorname{Amb}(\mathcal{F})) \leqslant \varepsilon$ implies $\bar{\mathcal{F}}$ is infinitesimally rigid.
+::: details Detail of Proof
+First, note that $\Psi(\bar{\mathcal{F}},\mathcal{F})=0$ implies that $\bar{\mathcal{F}} \in \operatorname{Iso}(\mathcal{F})$ or $\bar{\mathcal{F}} \in \operatorname{Amb}(\mathcal{F})$. Therefore, $\Psi(\bar{\mathcal{F}},\mathcal{F}) \leqslant \delta$ implies that there is a sufficiently small positive constant $\varepsilon$ such that $\operatorname{dist}(\bar{\boldsymbol{p}}, \operatorname{Iso}(\mathcal{F})) \leqslant \varepsilon$ or $\operatorname{dist}(\bar{\boldsymbol{p}}, \operatorname{Amb}(\mathcal{F})) \leqslant \varepsilon$. From Theorem 2, we know that $\bar{\mathcal{F}}$ is infinitesimally rigid if $\operatorname{dist}(\bar{\boldsymbol{p}}, \operatorname{Iso}(\mathcal{F})) \leqslant \varepsilon$. Since the elements of $\operatorname{Amb}(\mathcal{F})$ are infinitesimally rigid, the proof of Theorem 2 can be followed with $\operatorname{Iso}(\mathcal{F})$ replaced by $\operatorname{Amb}(\mathcal{F})$ to show that $\operatorname{dist}(\bar{\boldsymbol{p}}, \operatorname{Amb}(\mathcal{F})) \leqslant \varepsilon$ implies $\bar{\mathcal{F}}$ is infinitesimally rigid. <div style="text-align: right;">$\square$</div>
+:::
 
 ### Globally Rigidity
 Consider a formation with distinctly labeled agents and with some of the interagent distances known. We wish to understand what **alternative formation shapes** agents can have when they are positioned consistently with the data.  Note that if the formation $\mathcal{\mathcal{F}}$ is consistent with the data, then so is every rotation, translation, and reflection of $\mathcal{\mathcal{F}}$ . However, the existence of alternative formation shapes that are not obtainable from $\mathcal{\mathcal{F}}$ through rotation, translation, and reflection is not clear.
@@ -548,7 +565,10 @@ Global rigidity is a **more demanding** concept than rigidity since there exist 
 - **Local rigidity**: cannot cannot deform smoothly from one shape. **Minimal rigidity** therefore allows retention of shape only in the face of potential smooth deformations, although it does not of itself specify what shape is retained. But with same constraints, graph can have different shapes
 - **Global rigidity**: ensure that the shape is **unique**
 
-<img src="/frontiers_rigidity_1_2_local_rigidity.png" alt="Ambiguity in local rigidity" width="100%" align="center">
+<figure>
+   <img src="/frontiers_rigidity_1_2_local_rigidity.png" alt="Ambiguity in local rigidity" width="100%" align="center">
+   <figcaption> Figure 2: Noncongruent rigid formations with the same set of distance constraints. (a) depicts flip ambiguity since vertex A can be flipped over edge (B,C) to the symmetric position A′ while the distance constraints remain the same. (b) depicts discontinuous flex ambiguity since, by temporarily removing edge (A,D), the edge triple (A,E), (A,B), (B,C) can be flexed to obtain positions A′ and B′ such that the edge length (A′,D) equals the edge length (A,D), and thus all of the distance constraints are maintained. The formations (a) and (b) are thus rigid but not globally rigid. Although no smooth motion can deform these formations without affecting the distances between agents connected by edges, the sets of edges and corresponding distance constraints do not uniquely define the relative positions of the agents. In other words, the distance constraints do not specify the formation shape up to a rotation, translation, or reflection.</figcaption>
+</figure>
 
 A nice characterization of global rigidity is available for **2D formations** and their associated graphs. No extension is known for 3D formations. The 2D characterization uses the terms **redundant rigidity** and three **connectivity**. 
 
@@ -639,7 +659,10 @@ Suppose that a 2D undirected graph is **rigid**. Can we **assign edge directions
 
 The **simplest algorithm** for assigning directions in a minimally rigid graph is to consider the associated **undirected graph** and determine a **Henneberg sequence** that generates it. Then directions can be assigned to the edges that are added at each step, using the rule that any vertex can have **no more than two outgoing edges**. Such a directed graph is termed **minimally persistent**. Minimally persistent graphs are precisely those that are minimally rigid and constraint consistent.
 
-<img src="/frontiers_rigidity_1_3_persistent.png" alt="Persistent Graphs" width="100%" align="center">
+<figure>
+   <img src="/frontiers_rigidity_1_3_persistent.png" alt="Persistent Graphs" width="100%" align="center">
+   <figcaption> Figure 3: Persistent graphs. (a) depicts a persistent wheel graph, while (b) illustrates a persistent C^2 graph, a generalization of a graph comprising a single cycle, obtained by inserting edges between two-hop neighbors of the original cycle. The persistence property follows from the fact that both graphs are rigid as well as the fact that no vertex has an out-degree larger than two. The direction assignment can be generalized to all wheel and C^2 graphs. A wheel graph is a convenient abstraction for a formation that has one of its agents as a commander or leader; a C^2 graph abstracts the reverse situation, in that all agents have the same task, and none is a leader.</figcaption>
+</figure>
 
 Figure 3 shows some direction assignments for wheel graphs and C${}^2$-graphs, both structures being attractive for operational autonomous agent formations. Given an arbitrary graph $\mathcal{G}$, the graph $\mathcal{G}^2$ (the **square** of $\mathcal{G}$) is obtained by adding edges to $\mathcal{G}$, linking each vertex to its **two-hop** neighbors, i.e., to those vertices with which a neighbor vertex is **shared**. A C${}^2$-graph is the **square** of a **cycle graph**, which is a graph that is simply a cycle.
 
@@ -657,7 +680,10 @@ In 2D, a vertex is said to have $2$, $1$, or $0$ DoF if it has $0,1$, or at leas
 ### Extension of the Persistence Concept to 3D Formations
 In 3D, most of the consistence and persistence ideas described above carry through. However, these extensions involve the **behavior of subsets of agents**, as opposed to individual agents or vertices. For $3$ and indeed higher dimensions, the concept of **structural persistence** is required.
 
-<img src="/frontiers_rigidity_1_4_structural.png" alt="Structural Persistence" width="100%" align="center">
+<figure>
+   <img src="/frontiers_rigidity_1_4_structural.png" alt="Structural Persistence" width="100%" align="center">
+   <figcaption> Figure 4: Persistence and structural persistence. According to the theoretical characterization of persistence, this 3D formation is persistent because it can be proved to be rigid and none of its agents has an out-degree larger than three. This formation, however, does not qualify as a persistent formation according to the intuitive meaning that we give to persistence. Agents 1 and 2 are indeed not responsible for the maintenance of any distance and can move freely. Suppose that agents 1 and 2 move in such a way that the distance between them changes. Then agents 3, 4, and 5 cannot simultaneously satisfy all of the constraints that they are responsible for, although each of them could individually satisfy its three constraints if the positions of all other agents remained fixed. This paradox is solved by introducing the concept of structural persistence, which, in addition to considering the behavior of each agent, considers the behavior of groups of agents. The formation depicted here is persistent but not structurally persistent.</figcaption>
+</figure>
 
 In 3D, checking structural persistence is trivial once persistence has been established. To illustrate structural persistence, Figure 4 depicts a 3D formation with an underlying directed graph, which is persistent since it is rigid and each agent has no more than three outgoing edges. However, agents 1 and 2 are unconstrained, **having no outgoing edges**, and so in principle can **move apart**, thus **destroying** the shape of the formation. Hence, despite the persistence property, this formation is not structurally persistent, and thus does not have a sensing and control architecture that allows retention of its shape
 
@@ -680,7 +706,10 @@ Apart from rigidity preservation, the successful execution of these maneuvers re
 ### Splitting
 Consider a single rigid formation. Splitting refers to the division of the set of agents into **two subsets**, along with **suppression of the distance constraints** between agent pairs when the agents are in **different subsets**. Reasons for splitting include a **change of objective or obstacle avoidance**. See Figure 5 for an illustration of the problem.
 
-<img src="/frontiers_rigidity_1_5_splitting.png" id="fig-15-splitting" alt="Formation Splitting"  width="100%" align="center">
+<figure>
+   <img src="/frontiers_rigidity_1_5_splitting.png" id="fig-15-splitting" alt="Formation Splitting"  width="100%" align="center">
+   <figcaption> Figure 5: Formation splitting to avoid obstacles. Some distance constraints in (a) are removed (b) to separate the agents into two independent groups. The two formations obtained are not necessarily rigid, although rigidity can always be regained as in (c) by adding connections within each formation between agents that, in the original formation, are incident to the removed edges.</figcaption>
+</figure>
 
 In graph theory terms, the split yields two **separate subgraphs**, neither of which is guaranteed to be rigid. Introducing **additional distance constraints** in the separate subformations is thus required to **ensure rigidity** of each subformation separately. 
 
@@ -689,12 +718,18 @@ Additionally, we could consider **variations of the problem**. For example, we c
 ### Merging
 Consider two rigid formations. Merging requires the determination of **additional distance constraints** linking agent pairs with one agent drawn from each formation, such that the union of the agents of the two formations, along with the union of the distance constraints in the original formations and the new distance constraints, describes a single rigid formation. Figure 6 illustrates the problem.
 
-<img src="/frontiers_rigidity_1_6_merging.png" alt="Formation Merging" width="100%" align="center">
+<figure>
+   <img src="/frontiers_rigidity_1_6_merging.png" alt="Formation Merging" width="100%" align="center">
+   <figcaption> Figure 6: Formation merging. (a) Two distinct rigid formations are merged into the larger rigid formation (b) by inserting three interconnecting edges. At least three interconnecting edges are needed, and merging to secure a larger rigid formation can always be achieved using exactly three interconnecting edges. In that case, the formation obtained is rigid if and only if at least two distinct agents in each formation are incident to the new interconnecting edges.</figcaption>
+</figure>
 
 ### Closing ranks
 Consider a single rigid formation. Suppose that one agent is removed, and, consequently all distance constraints are lost between this agent and the remaining agents of the formation; see Figure 7. 
 
-<img src="/frontiers_rigidity_1_7_closing_ranks.png" id="fig-17-closing_ranks" alt="Closing Ranks" width="100%" align="center">
+<figure>
+   <img src="/frontiers_rigidity_1_7_closing_ranks.png" id="fig-17-closing_ranks" alt="Closing Ranks" width="100%" align="center">
+   <figcaption> Figure 7: Closing ranks. In the rigid formation in (a), agent 1 and all associated links are lost, and new links (5,3) and (4,3) are inserted as in (b) to reestablish rigidity. Agents 6 and 7 are not affected by the process. Rigidity can always be recovered after loss of one or more agents by appropriately connecting agents that are adjacent in the original formation to the lost agent(s).</figcaption>
+</figure>
 
 The problem is to determine **where new distance constraints can be inserted to recover rigidity**. In addition, the closing ranks problem can be generalized to contemplate simultaneous removal of two or more agents from a formation, with the removal also of the associated distance constraints.
 
@@ -739,8 +774,10 @@ If the merged graph must be **persistent** but **not necessarily minimally persi
 
 In 3D, if only **two agents** in the two persistent graphs have **positive DoF**, then the two graphs **cannot be merged** into a single **persistent** graph. However, in every other case, if **at least $6$ DoF** are available, **$6$ directed interconnection edges can always be chosen** to make the merged graph **persistent** and even **structurally persistent**.
 
-<img src="/frontiers_rigidity_1_8_merging.png" alt="Merging Persistent Graphs" width="100%" align="center">
-
+<figure>
+   <img src="/frontiers_rigidity_1_8_merging.png" alt="Merging Persistent Graphs" width="100%" align="center">
+   <figcaption> Figure 8: Merging persistent graphs. Two types of merging are illustrated, (a) leader-follower merging and (b) collaborative merging. In both cases, two persistent formations are merged into a larger persistent formation by inserting three directed interconnecting edges. For the obtained graph to be persistent, it is necessary to insert at least three edges and that the agents that these edges leave do not have an out-degree larger than two in the resulting formation. The formation is then persistent if and only if it is rigid. Under some conditions, alternative interconnecting edges are possible, but using these other possibilities is never necessary.</figcaption>
+</figure>
 
 Figure 8 illustrates merging two persistent 2D formations using directed edges. As with undirected graphs, three new edges incident on at least two agents in each formation can achieve the merging. To ensure persistence of the overall structure, the vertices left by these three new edges must have in the merged structure a **maximum out-degree** of $2$. This upper bound restricts the vertices at which outwardly directed edges must be added. In Figure 8(a), all the DoF of the merged formation end up associated with the upper subformation, which in a sense is a leader. The lower subformation is the follower.
 
@@ -749,7 +786,10 @@ For 3D formations, structural persistence of the merged formation is also desire
 ### Toward a More Systematic Theory
 In 2D we have described a variation of Laman’s theorem describing the rigidity of a metaformation, obtained by connecting together metavertices or meta-agents. This result leads to the question of whether **the concept of a Henneberg sequence can be extended to metaformations**. Such a sequence could start with a single metavertex, or rigid formation, and involve the successive addition of meta-agents to the metaformation. Each addition would result in a metaformation that has the **minimal number of edges between metavertices** so as to guarantee rigidity of the overall metaformation. Indeed, such a construction is available. Analogues to the primitive operations of the standard Henneberg construction, namely, vertex addition and edge splitting, can be constructed. These operations are termed **metavertex addition** and **metaedge splitting**, respectively. See, for example, Figure 9. The construction can also be described by building on the results described in the previous section.
 
-<img src="/frontiers_rigidity_1_9_meta_henn.png" alt="Meta-Henneberg's Method" width="100%" align="center">
+<figure>
+   <img src="/frontiers_rigidity_1_9_meta_henn.png" alt="Meta-Henneberg's Method" width="100%" align="center">
+   <figcaption> Figure 9: Merging three two-dimensional formations. Two possible ways to merge three rigid two-dimensional formations are illustrated. In the first step, G ′ is obtained by connecting G1 to G2 with three interconnecting edges. This operation is called meta-vertex addition. G3 can then be merged with G ′ using metavertex addition as in (a) or by means of meta-edge splitting as in (b). In the latter case, one of the edges connecting G1 to G2 is split into two parts, which are reconnected to an agent in G3. Two additional edges are then inserted to connect G3 to G ′.</figcaption>
+</figure>
 
 ## References
 > 1. *[Rigid graph control architectures for autonomous formations](https://ieeexplore.ieee.org/abstract/document/4653105)* by **D. O. Anderson** etc.;
