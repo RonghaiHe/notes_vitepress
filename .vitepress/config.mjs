@@ -113,6 +113,7 @@ export default defineConfig({
             { text: 'Basis', link: '/docs/Frontiers/RigidityGraph&Formation/1basis' },
             { text: 'Bearing', link: '/docs/Frontiers/RigidityGraph&Formation/2bearing' },
             { text: 'Angle', link: '/docs/Frontiers/RigidityGraph&Formation/3angle' },
+            { text: 'Angle-Bearing', link: '/docs/Frontiers/RigidityGraph&Formation/4angle_bearing' },
           ]
         }
       ],
