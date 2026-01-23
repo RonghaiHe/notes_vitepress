@@ -36,6 +36,12 @@ export default defineConfig({
         ]
       },
       {
+        text: 'Robotics',
+        items: [
+          { text: '视觉SLAM', link: '/docs/Robotics/vSLAM/1intro' },
+        ]
+      },
+      {
         text: 'Control',
         items: [
           { text: 'Optimal Control', link: '/docs/Control/OCP/1introduction' },
@@ -114,6 +120,17 @@ export default defineConfig({
             { text: 'Bearing', link: '/docs/Frontiers/RigidityGraph&Formation/2bearing' },
             { text: 'Angle', link: '/docs/Frontiers/RigidityGraph&Formation/3angle' },
             { text: 'Angle-Bearing', link: '/docs/Frontiers/RigidityGraph&Formation/4angle_bearing' },
+          ]
+        }
+      ],
+      '/docs/Robotics/vSLAM/': [
+        {
+          text: '视觉SLAM',
+          items: [
+            { text: '引言', link: '/docs/Robotics/vSLAM/1intro' },
+            // { text: '视觉SLAM框架', link: '/docs/Robotics/vSLAM/2bearing' },
+            { text: '3D刚体运动', link: '/docs/Robotics/vSLAM/3motion3D' },
+            { text: '李群&李代数', link: '/docs/Robotics/vSLAM/4lie' },
           ]
         }
       ],
