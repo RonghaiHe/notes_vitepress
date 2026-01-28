@@ -32,7 +32,7 @@ export default defineConfig({
       {
         text: 'Frontiers',
         items: [
-          { text: 'Rigidity Graph & Formation', link: '/docs/Frontiers/RigidityGraph&Formation/1basis' },
+          { text: 'Rigidity Graph & Formation', link: '/docs/Frontiers/RigidityGraph&Formation/1distance' },
         ]
       },
       {
@@ -116,10 +116,11 @@ export default defineConfig({
         {
           text: 'Rigidity Graph',
           items: [
-            { text: 'Basis', link: '/docs/Frontiers/RigidityGraph&Formation/1basis' },
+            { text: 'Distance', link: '/docs/Frontiers/RigidityGraph&Formation/1distance' },
             { text: 'Bearing', link: '/docs/Frontiers/RigidityGraph&Formation/2bearing' },
             { text: 'Angle', link: '/docs/Frontiers/RigidityGraph&Formation/3angle' },
             { text: 'Angle-Bearing', link: '/docs/Frontiers/RigidityGraph&Formation/4angle_bearing' },
+            { text: 'Formation', link: '/docs/Frontiers/RigidityGraph&Formation/1_1formation' },
           ]
         }
       ],

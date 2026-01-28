@@ -774,7 +774,7 @@ If a graph is **not** generically bearing rigid, there does **not** exist any co
 We have shown that the **key** to construct infinitesimally bearing rigid frameworks is to construct generically bearing rigid graphs. In this section, we address **how to construct** generically bearing rigid graphs.
 
 ::: danger Theorem 12: Generic Bearing Rigidity of Laman Graphs
-If $\mathcal{G}$ is a **[Laman graph](./1basis#chacaterized-in-combination)**, then $\mathcal{G}$ is **generically bearing rigid** in $\mathbb{R}^d$ for any $d \geqslant 2$.
+If $\mathcal{G}$ is a **[Laman graph](./1distance#chacaterized-in-combination)**, then $\mathcal{G}$ is **generically bearing rigid** in $\mathbb{R}^d$ for any $d \geqslant 2$.
 :::
 
 TODO: Details of proof are in the Section IV of *[Laman graphs are generically bearing rigid in arbitrary dimensions](https://ieeexplore.ieee.org/abstract/document/8264151)*
@@ -903,9 +903,9 @@ To end this section, we briefly compare the proposed bearing rigidity theory wit
 The relationship between them is (ii) ⇒ (i) and (iii)⇒(i). Note (ii) and (iii) do not imply each other. **The global distance rigidity can uniquely determine the shape of a framework**, but it is usually difficult to mathematically examine. Infinitesimal distance rigidity can be conveniently examined by a rank condition, but it is **not** able to ensure a unique shape.
 
 As a comparison:
-- The rank condition for infinitesimal distance rigidity requires to distinguish the cases of $n \geqslant d$ and $n < d$ (Theorem 1 in the [Basis](./1basis#infinitesimal-rigidity) chapter), while the rank condition for infinitesimal bearing rigidity does not. The proposed infinitesimal bearing rigidity not only can be **examined by a rank condition** (Theorem 8) but also can ensure the **unique shape** of a framework (Theorem 10).
+- The rank condition for infinitesimal distance rigidity requires to distinguish the cases of $n \geqslant d$ and $n < d$ (Theorem 1 in the [Basis](./1distance#infinitesimal-rigidity) chapter), while the rank condition for infinitesimal bearing rigidity does not. The proposed infinitesimal bearing rigidity not only can be **examined by a rank condition** (Theorem 8) but also can ensure the **unique shape** of a framework (Theorem 10).
 - An infinitesimally distance rigid framework in a lower dimension may become non-rigid in a higher dimension (see, for example, [Figure 6](#fig-2-6-inf) (b)), while infinitesimal bearing rigidity is invariant to dimensions.
-- Although a laman graph embedded in a generic configuration is infinitesimally distance rigid, this result (known as [laman’s theorem](./1basis#chacaterized-in-combination)) is valid merely in 2D spaces. in three or higher dimensions, extra conditions and more edges are required to guarantee distance rigidity. However, in bearing rigidity theory, a laman graph is generically bearing rigid in arbitrary dimensions, and at most $2n - 3$ edges would be sufficient to guarantee the bearing rigidity of a framework in an arbitrary dimension.
+- Although a laman graph embedded in a generic configuration is infinitesimally distance rigid, this result (known as [laman’s theorem](./1distance#chacaterized-in-combination)) is valid merely in 2D spaces. in three or higher dimensions, extra conditions and more edges are required to guarantee distance rigidity. However, in bearing rigidity theory, a laman graph is generically bearing rigid in arbitrary dimensions, and at most $2n - 3$ edges would be sufficient to guarantee the bearing rigidity of a framework in an arbitrary dimension.
 - in the plane(2D), $2n - 3$ is the minimum number of edges to ensure infinitesimally distance rigidity. More than $2n - 3$ edges are required to ensure infinitesimally distance rigidity in three or higher dimensions. As a comparison, in an arbitrary dimension, $2n - 3$ edges are **sufficient** to ensure infinitesimal bearing rigidity. **less** than $2n - 3$ edges may also be sufficient to ensure infinitesimal bearing rigidity in three or higher dimensions.
 
 ||infinitesimal Bearing Rigidity (IBR)|infinitesimal distance Rigidity (IDR)

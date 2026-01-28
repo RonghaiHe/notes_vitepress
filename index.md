@@ -20,7 +20,7 @@ features:
   - title: Optimization
     details: (Empty)
   - title: Frontiers
-    details: 1. <a href="./docs/Frontiers/RigidityGraph&Formation/1basis">Rigidity Graph</a><br/>
+    details: 1. <a href="./docs/Frontiers/RigidityGraph&Formation/1distance">Rigidity Graph</a><br/>
   - title: CS & Learning
     details: (Empty)
   - title: Physics
