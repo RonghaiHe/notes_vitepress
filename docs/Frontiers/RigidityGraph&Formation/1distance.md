@@ -1,5 +1,40 @@
 # Basis
-## Graph Theory [4,5]
+## Introduction
+> "*The whole is more than the sum of its parts.*" by Aristotle
+### Multiple Vehicles [1,2]
+For millions of years, nature has presented examples of collective behavior in groups of insects, birds, and fish. This behavior has arisen to permit sophisticated functions of the group that cannot be achieved by individual members.
+
+Collective behavior serves needs such as foraging for food, defense against predators, aggression against prey, and mating. Fish and birds particularly, as part of their group behavior, often display formation-type behavior. In this type of behavior, **the relative positions of the fish or birds are preserved, and the formation moves as a cohesive whole**.
+
+Nature is inspiring humans to engineer multi-agent systems that mimic this **distributed, coordinated** behavior. The agents in such engineering systems are not living beings, but machines such as robots, vehicles, and/or mobile sensors. With this inspiration, **formations** of robots and autonomous or piloted vehicles are being deployed to tackle problems in both the civilian and military spheres, such as bush-fire control, surveillance, and underwater exploration. For various reasons, a formation of vehicles may constitute a **more effective sensor** than a single vehicle:
+1. Some tasks inherently require **multiple sensors with known relative positions**. For example, in 3D, when distances to an object of interest are measured, to determine the position of that object, at least 4 distance measurements from noncoplanar sensors with known positions are needed to uniquely localize the object, that is, to determine its position.
+2. Multiple sensors may have individually **differing functionalities**, which in aggregate give a new functionality to the sensor formation.
+   For example, a group of UAV may include radio-frequency direction-sensing sensors on some vehicles and optical sensors on others, to allow target localization and target identification by the entire formation.
+3. Small, mobile sensors are often less expensive to deploy than a single large sensor.
+4. Multiple mobile sensors can **cover a region of interest more quickly** than a single sensor when the sensing range is too small to allow the whole region to be scanned from one position.
+
+In conclusion, more efficient and complex task execution, robustness when one or more agents fail, scalability, versatility, adaptability, and lower cost.
+
+**Formation control** and **network localization** are two fundamental tasks for multiagent systems that enable them to perform complex missions.
+
+<!-- ### Multiple fingers -->
+
+### Formation Control [1,8]
+From a control point of view, tasks are specified at both the level of the **whole formation**, determining, for example, way points for a path that the center of gravity of the formation is commanded to follow, as well as for the individual agents of the formation, such as **maintaining their relative positions**, or shifting from one formation shape to another formation shape. Certainly in formations occurring in nature, and commonly in synthetic formations, there is no single master agent exercising control over all other agents. Control tasks in some way are handled on a **decentralized** basis.
+
+In meeting these objectives, various systems problems arise. The most basic problem is **defining practical architectures for control, communications, and sensing**. Suitable architectures, however, cannot be defined independently of one another. An overarching requirement is that architectures be **scalable**. The scalability requirement imposes the need for significant **decentralization** of information and controller structures. For example, in a formation of birds, **no one bird can be expected to watch all of the other birds and compute its own trajectory using even partial knowledge of the trajectories of all of the other birds**. Hence the amount of sensing, communication, and control computation by any one agent must be limited.
+
+The goal of formation control is to direct each agent using **local information from neighboring agents** so that the **entire team forms a desired spatial geometric pattern**. While the notion of a formation as a geometric pattern has a natural meaning for robotic systems, it may also correspond to more abstract configurations for the system state of a team of agents.
+
+### Network Localization [8]
+The goal of network localization is to **estimate the location of each agent** in a network **using locally sensed or communicated information from neighboring agents**. Network localization is usually the first step that must be completed before a sensor network provides other services, such as positioning mobile robots or monitoring areas of interest.
+
+### Graph Rigidity Theory [2]
+**Graph theory** is a natural tool for describing the multi-agent formation shape as well as the inter-agent sensing, communication, and control topology in the decentralized case. This note is based on an important subset of this theory—**rigid graph theory**—since it naturally ensures that the **inter-agent distance constraints of the desired formation are enforced through the graph rigidity**. This implicitly ensures that collisions between agents are avoided while acquiring the formation.
+
+We use the concept of graph rigidity as an abstraction of the rigidity of physical structures. In our case, the “vertices” of the “structure” are the agents and the “bars” connecting the vertices are the inter-agent distance constraints imposed by the desired formation. Within this framework, it is convenient to treat each agent as a point.
+
+### Preliminary: Graph Theory [4,5]
 > Please make sure you are familiar with the **concept** of graph
 
 Consider an **undirected graph** with $m$ **edges** and $n$ **vertices**, denoted by $\mathcal{G} = (\mathcal{V}, \mathcal{E})$ with vertex set $\mathcal{V} = \{v_1,\cdots,v_n\} = \{1, 2, \cdots, n\}$ and edge set $\mathcal{E} \subset \mathcal{V} \times \mathcal{V}$. The neighbor set $\mathcal{N}_i$ is defined as $\mathcal{N}_i:=\{j\in\mathcal{V}:(i,j)\in\mathcal{E}\}$
@@ -627,13 +662,14 @@ On the other hand, it is known that **rigidity is a generic property**. In other
 
 ## References
 > 1. *[Rigid graph control architectures for autonomous formations](https://ieeexplore.ieee.org/abstract/document/4653105)* by **D. O. Anderson** etc.;
-> 2. Section 1.2-1.3 of *[Formation Control of Multi-Agent Systems: A Graph Rigidity Approach](https://onlinelibrary.wiley.com/doi/book/10.1002/9781118887455)* by Marcio de Queiroz etc.;
+> 2. Section 1.1-1.3 of *[Formation Control of Multi-Agent Systems: A Graph Rigidity Approach](https://onlinelibrary.wiley.com/doi/book/10.1002/9781118887455)* by Marcio de Queiroz etc.;
 > 3. Theorem from [Conditions for unique graph realizations](http://epubs.siam.org/doi/10.1137/0221008) by Bruce Hendrickson;
 > 4. Preliminaries part of *[Distributed estimation and control for preserving formation rigidity for mobile robot teams](https://arxiv.org/abs/1309.4850)* by **Zhiyong Sun**, ..., **D. O. Anderson**;
 > 5. Preliminaries part of *[Distributed stabilization control of rigid formations with prescribed orientation](https://arxiv.org/abs/1606.03199)* by **Zhiyong Sun**, ..., **D. O. Anderson**, Hyo-Sung Ahn
 > 6. Preliminaries part of *[Angle-based shape determination theory of planar graphs with application to formation stabilization](https://www.sciencedirect.com/science/article/pii/S0005109819301475)* by Gangshan Jing, etc..
 > 7. [The Rigidity of Graphs](https://www.jstor.org/stable/1998867) by L. Asimow and B. Roth in 1978.
 > 8. Part 1.2: Generic Global Rigidity in *[Generic Global Rigidity](http://link.springer.com/10.1007/s00454-004-1124-4)* by Robert Connelly
+> 9. 1st Part in *[Bearing rigidity theory and its applications for control and estimation of framework systems: life beyond distance rigidity](https://ieeexplore.ieee.org/abstract/document/8667521)* by **Shiyu Zhao** and **Daniel Zelazo**.
 
 <!-- ### Target formation and control framework
 First, define a **target formation** with the given **interagent distance and formation orientation constraints**. Intuitively, by regarding the rigid formation as a **rigid body** and **specifying certain directions of some chosen edges in a global coordinate frame**, the orientation of the overall rigid formation can be fixed. 
