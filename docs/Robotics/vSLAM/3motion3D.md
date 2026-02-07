@@ -28,7 +28,7 @@ $\boldsymbol{a}\times \boldsymbol{b} = \left|\begin{matrix}
 \end{matrix}\right| = \left[\begin{matrix}
   0 & -a_3 & a_2 \\
   a_3 & 0 & -a_1 \\
-  a_2 & a_1 & 0 \\
+  -a_2 & a_1 & 0 \\
 \end{matrix} \right] \boldsymbol{b} = \boldsymbol{a}^\wedge\boldsymbol{b}$
 
 引入 $\wedge$ 记号，表示向量所对应的反对称矩阵 $b_{ij}$放的下标为k，下三角为正，上三角看$(-1)^{i+j}$
@@ -89,7 +89,7 @@ $$\left[
 
 $\mathbf{R}$称为旋转矩阵，是一个行列式为1的正交矩阵。
 
-定义特殊正交群$SO(n)$来作为旋转矩阵的集合：
+定义特殊正交群$\mathrm{SO}(n)$来作为旋转矩阵的集合：
 
 $$\mathrm{SO}(n) = \{\mathbf{R} \in \mathbb{R}^{n \times n}| \mathbf{R}\mathbf{R}^\top = \mathbf{I}, \mathrm{det}(\mathbf{R}) = 1\}$$
 
@@ -344,18 +344,18 @@ $$q_3 = \frac{m_{12}-m_{21}}{4q_0}$$
 ## 3.5 相似、仿射、射影变换
 
 1. 相似变换:比欧氏变换多了一个自由度，允许物体进行均匀缩放
-2. 仿射变换：只要求$\boldsymbol{A}$是可逆矩阵。变换后立方体不再是方形，各个面仍然是平行四边形
+2. 仿射变换：只要求$\mathbf{A}$ 是可逆矩阵。变换后立方体不再是方形，各个面仍然是平行四边形
 3. 射影变换：
-   - $\boldsymbol{A}$是可逆矩阵，$\boldsymbol{t}$是平移矩阵，左下角缩放$\boldsymbol{a}^\top$。 $v \neq 0$ 可以对整个矩阵 $v$ 得到一个右下角为 1 的矩阵。
-   - 2D的射影变换一共有8个自由度，3D的射影变换一共有15个自由度。
+   - $\mathbf{A}$ 是可逆矩阵，$\boldsymbol{t}$ 是平移矩阵，左下角缩放 $\boldsymbol{a}^\top$ 。 $v \neq 0$ 可以对整个矩阵 $v$ 得到一个右下角为 1 的矩阵。
+   - 2D 的射影变换一共有8个自由度，3D 的射影变换一共有15个自由度。
    - 真实世界到相机照片的变换可以看成一个射影变换
 
 | 变换名称 | 矩阵形式 | 自由度 | 不变性质 |
 | :--- | :--- | :--- | :--- |
 | 欧氏变换 | $\left[\begin{array}{cc}\mathbf{R} & \boldsymbol{t} \\ \mathbf{0}^{\mathrm{T}} & 1\end{array}\right]$ | 6 | 长度、夹角、体积 |
 | 相似变换 | $\left[\begin{array}{cc}s \mathbf{R} & \boldsymbol{t} \\ \mathbf{0}^{\mathrm{T}} & 1\end{array}\right]$ | 7 | 体积比 |
-| 仿射变换 | $\left[\begin{array}{cc}\boldsymbol{A} & \boldsymbol{t} \\ \mathbf{0}^{\mathrm{T}} & 1\end{array}\right]$ | 12 | 平行性、体积比 |
-| 射影变换 | $\left[\begin{array}{cc}\boldsymbol{A} & \boldsymbol{t} \\ \boldsymbol{a}^{\mathrm{T}} & v\end{array}\right]$ | 15 | 接触平面的相交和相切 |
+| 仿射变换 | $\left[\begin{array}{cc}\mathbf{A} & \boldsymbol{t} \\ \mathbf{0}^{\mathrm{T}} & 1\end{array}\right]$ | 12 | 平行性、体积比 |
+| 射影变换 | $\left[\begin{array}{cc}\mathbf{A} & \boldsymbol{t} \\ \boldsymbol{a}^{\mathrm{T}} & v\end{array}\right]$ | 15 | 接触平面的相交和相切 |
 
 ## 3.6（补充）三维旋转转换
 
@@ -370,7 +370,7 @@ $$q_3 = \frac{m_{12}-m_{21}}{4q_0}$$
 
 $$
 \begin{aligned}
-&R(\alpha,\beta,\gamma)=R_y(\alpha)R_x(\beta)R_z(\gamma)  \\
+&\mathbf{R}(\alpha,\beta,\gamma)=\mathbf{R}_y(\alpha)\mathbf{R}_x(\beta)\mathbf{R}_z(\gamma)  \\
 =&\,\begin{bmatrix}\cos\alpha&0&\sin\alpha\\0&1&0\\-\sin\alpha&0&\cos\alpha\end{bmatrix}\begin{bmatrix}1&0&0\\0&\cos\beta&-\sin\beta\\0&\sin\beta&\cos\beta\end{bmatrix}\begin{bmatrix}\cos\gamma&-\sin\gamma&0\\\sin\gamma&\cos\gamma&0\\0&0&1\end{bmatrix} \\
 =&\,\left[\begin{array}{ccc}c_1&0&s_1\\0&1&0\\-s_1&0&c_1\end{array}\right]\begin{bmatrix}1&0&0\\0&c_2&-s_2\\0&s_2&c_2\end{bmatrix}\begin{bmatrix}c_3&-s_3&0\\s_3&c_3&0\\0&0&1\end{bmatrix} \\
 =&\,\begin{bmatrix}c_1&s_1s_2&s_1c_2\\0&c_2&-s_2\\-s_1&c_1s_2&c_1c_2\end{bmatrix}\begin{bmatrix}c_3&-s_3&0\\s_3&c_3&0\\0&0&1\end{bmatrix} \\
@@ -392,14 +392,14 @@ $$\begin{aligned}
 =&\,\left[\begin{array}{l}\cos(\alpha/2)\sin(\beta/2)\cos(\gamma/2)+\sin(\alpha/2)\cos(\beta/2)\sin(\gamma/2)\\\sin(\alpha/2)\cos(\beta/2)\cos(\gamma/2)-\cos(\alpha/2)\sin(\beta/2)\sin(\gamma/2)\\-\sin(\alpha/2)\sin(\beta/2)\cos(\gamma/2)+\cos(\alpha/2)\cos(\beta/2)\sin(\gamma/2)\\\cos(\alpha/2)\cos(\beta/2)\cos(\gamma/2)+\sin(\alpha/2)\sin(\beta/2)\sin(\gamma/2)\end{array}\right]
 \end{aligned}$$
 
-如果欧拉角带有不确定性，并使用协方差 $\boldsymbol{P} = \mathrm{diag}(\sigma_\alpha, \sigma_\beta, \sigma_\gamma)$ 表示，则以四元数表示，其协方差为：
+如果欧拉角带有不确定性，并使用协方差 $\mathbf{P} = \mathrm{diag}(\sigma_\alpha, \sigma_\beta, \sigma_\gamma)$ 表示，则以四元数表示，其协方差为：
 $$
-\boldsymbol{P}^\prime = \boldsymbol{HPH}^\top
+\mathbf{P}^\prime = \mathbf{HPH}^\top
 $$
 
-其中 $\boldsymbol{H}$ 为Jacobian矩阵：
+其中 $\mathbf{H}$ 为Jacobian矩阵：
 $$
-\boldsymbol{H} = \frac12
+\mathbf{H} = \frac12
 \begin{bmatrix}
 -\sin(\alpha/2)\sin(\beta/2)\cos(\gamma/2)+\cos(\alpha/2)\cos(\beta/2)\sin(\gamma/2) & \cos(\alpha/2)\cos(\beta/2)\cos(\gamma/2)-\sin(\alpha/2)\sin(\beta/2)\sin(\gamma/2) & -\cos(\alpha/2)\sin(\beta/2)\sin(\gamma/2)+\sin(\alpha/2)\cos(\beta/2)\cos(\gamma/2)\\
 \cos(\alpha/2)\cos(\beta/2)\cos(\gamma/2)+\sin(\alpha/2)\sin(\beta/2)\sin(\gamma/2) & -\sin(\alpha/2)\sin(\beta/2)\cos(\gamma/2)-\cos(\alpha/2)\cos(\beta/2)\sin(\gamma/2) & -\sin(\alpha/2)\cos(\beta/2)\sin(\gamma/2)-\cos(\alpha/2)\sin(\beta/2)\cos(\gamma/2)\\
