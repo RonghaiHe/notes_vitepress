@@ -25,6 +25,7 @@ export default defineConfig({
         text: 'Basic Math',
         items: [
           { text: 'Linear Algebra', link: '/docs/Math/LA/1intro' },
+          { text: 'Lie Theory', link: '/docs/Math/Lie/2d' },
           { text: 'ODE', link: '/docs/Math/ODE/1linear_ODE' },
           { text: 'PDE', link: '/docs/Math/PDE/1linear_PDE' },
         ]
@@ -61,6 +62,15 @@ export default defineConfig({
                 { text: 'Eigen-values&vectors', link: '/docs/Math/LA/5eigenvalue' },
                 { text: 'Inner Product', link: '/docs/Math/LA/6inner_product' },              ]
         }
+      ],
+      '/docs/Math/Lie/': [
+        {
+          text: 'Lie Theory',
+              items: [
+                { text: '2D Lie Theory', link: '/docs/Math/Lie/2d' },
+                { text: '3D Lie Theory in vSLAM(zh-cn)', link: '/docs/Robotics/vSLAM/4lie' },
+              ]
+        },
       ],
       '/docs/Math/ODE/': [
         {
