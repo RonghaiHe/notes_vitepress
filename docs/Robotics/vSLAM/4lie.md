@@ -51,9 +51,9 @@ $$\mathbf{R}(t)\mathbf{R}(t)^\top = \mathbf{I}$$
 
 $$\dot{\mathbf{R}}(t)\mathbf{R}(t)^\top + \mathbf{R}(t)\dot{\mathbf{R}}(t)^\top= 0$$
 
-$$\dot{\mathbf{R}}(t)\mathbf{R}(t)^\top = -(\dot{\mathbf{R}}(t)\mathbf{R}(t)^\top)^\top$$
+$$\dot{\mathbf{R}}(t)\mathbf{R}(t)^\top = -\left[\dot{\mathbf{R}}(t)\mathbf{R}(t)^\top\right]^\top$$
 
-可以看出， $\dot{\mathbf{R}}(t){\mathbf{R}}(t)^\top$ 是一个反对称矩阵。同理，对于任意反对称矩阵，也可以找到与之对应的向量，用 $^\vee $ 表示：
+可以看出， $\dot{\mathbf{R}}(t){\mathbf{R}}(t)^\top$ 是一个反对称矩阵。同理，对于任意反对称矩阵，也可以找到与之对应的向量，用 $^\vee$ 表示：
 
 $$\dot{\mathbf{R}}(t)\mathbf{R}(t)^\top = \phi(t)^\wedge$$
 
@@ -63,7 +63,7 @@ $$\dot{\mathbf{R}}(t) = \phi(t)^\wedge \mathbf{R}(t)$$
 
 $$\mathbf{R}(t) \approx \mathbf{R}(t_0) + \dot{\mathbf{R}}(t_0)(t-t_0) = \mathbf{I} + \phi(t_0)^\wedge t$$
 
-$\phi$ 反映了 $\mathbf{R}$ 的导数性质，称它在$\mathrm{SO}(3)$ 原点附近的正切空间。同时在 $t_0$ 附近，设 $\phi$ 保持为常数 $\phi(t_0) = \phi_0$ ，有：
+$\phi$ 反映了 $\mathbf{R}$ 的导数性质，称它在 $\mathrm{SO}(3)$ 原点附近的正切空间。同时在 $t_0$ 附近，设 $\phi$ 保持为常数 $\phi(t_0) = \phi_0$ ，有：
 
 $$\dot{\mathbf{R}}(t) = \phi(t_0)^\wedge \mathbf{R}(t) = \phi_0^\wedge \mathbf{R}(t)$$
 

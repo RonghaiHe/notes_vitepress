@@ -126,18 +126,18 @@ $$\left[
 \end{matrix}\right]\left[\begin{matrix}
   \boldsymbol{a} \\
   1 \\
-\end{matrix}\right] = \boldsymbol{T}\left[\begin{matrix}
+\end{matrix}\right] = \mathbf{T}\left[\begin{matrix}
   \boldsymbol{a} \\
   1 \\
 \end{matrix}\right]$$
 
-将三维向量的末尾添加1，变成四维向量，成为齐次坐标。$\boldsymbol{T}$称为变换矩阵。
+将三维向量的末尾添加1，变成四维向量，成为齐次坐标。$\mathbf{T}$ 称为变换矩阵。
 
 齐次坐标是射影几何的概念，多了一个自由度，但是允许将变换写成线性的形式。将某个点的每个分量同乘一个非 0 常数 $k$ 后仍然表示同一个点。因此，一个点的具体坐标值不是唯一的。强制最后一项为 1，从而得到一个点的唯一坐标表示。
 
 定义特殊欧氏群：
 
-$$\mathrm{SE}(3) = \left\{\boldsymbol{T} = \left[
+$$\mathrm{SE}(3) = \left\{\mathbf{T} = \left[
 \begin{matrix}
   \mathbf{R} & \boldsymbol{t} \\
   \boldsymbol{0}^\top & 1\\
@@ -145,13 +145,13 @@ $$\mathrm{SE}(3) = \left\{\boldsymbol{T} = \left[
 
 反向的变换：
 
-$$\boldsymbol{T}^{-1} = \left[
+$$\mathbf{T}^{-1} = \left[
 \begin{matrix}
   \mathbf{R}^\top & -\mathbf{R}^\top\boldsymbol{t} \\
   \boldsymbol{0}^\top & 1\\
 \end{matrix}\right]$$
 
-$\boldsymbol{T}_{WR}$的是机器人坐标系到世界坐标系的转换，平移部分描述机器人坐标系在世界坐标系下的平移
+$\mathbf{T}_{WR}$ 的是机器人坐标系到世界坐标系的转换，平移部分描述机器人坐标系在世界坐标系下的平移
 
 例1：世界坐标系的一个点 $\boldsymbol{p}$，在相机坐标系下的坐标为 $\mathbf{R}_{cb}\boldsymbol{p} + \boldsymbol{t}_{cb}$。由于相机会随着机器人移动，所以世界坐标系到相机坐标系的转换随着机器人移动而变化，是定位所需要求解的。
 
@@ -170,14 +170,14 @@ $$
 $${}^{k+1}\boldsymbol{t}_b^k = \left({}^{k+1}\mathbf{R}_c^k\mathbf{R}_{cb}^k\right)^\top {}^{k+1}\boldsymbol{t}_c^k = \mathbf{R}_{bc}^{k+1}{}^{k+1}\boldsymbol{t}_c^k
 $$
 
-例2：两个世界坐标系下的pose $\mathbf{R}_1, \boldsymbol{t}_1; \mathbf{R}_2, \boldsymbol{t}_2$，求它们的相对pose
+例2：两个世界坐标系下的 pose $\mathbf{R}_1, \boldsymbol{t}_1; \mathbf{R}_2, \boldsymbol{t}_2$，求它们的相对pose
 
 考虑坐标系的2个点 $\boldsymbol{t}_1,\boldsymbol{t}_2$ 作为2个pose，则相对旋转为 $\mathbf{R}_2\mathbf{R}_1^{-1}$，相对平移为 $\boldsymbol{t}_2 - \boldsymbol{t}_1$ （因为这个可以表示成世界坐标系下的坐标，在同一个坐标系下，就不需要带旋转了，直接向量相减）
 
 ## 3.3 旋转向量和欧拉角
 ### 3.3.1旋转向量
 
-- $\mathrm{SO}(3)$的旋转矩阵有9个量，但一次旋转只有3个自由度。同理，变换矩阵用16个量表达了6自由度的变换
+- $\mathrm{SO}(3)$ 的旋转矩阵有9个量，但一次旋转只有3个自由度。同理，变换矩阵用16个量表达了6自由度的变换
 
 - 旋转矩阵自身带有约束，必须是正交矩阵，且行列式为1
 
