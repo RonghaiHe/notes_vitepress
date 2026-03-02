@@ -187,7 +187,7 @@ $$
 
 <figure>
    <img src="/Robotics/vSLAM/lie_group_algebra-4-2-1.jpg" alt="Motion of rigid body" width="100%" align="center">
-   <figcaption> Figure 1: 李群和李代数的关系.</figcaption>
+   <div align="center"><figcaption> Figure 1: 李群和李代数的关系.</figcaption></div>
 </figure>
 
 ## 4.3 BCH公式与扰动模型

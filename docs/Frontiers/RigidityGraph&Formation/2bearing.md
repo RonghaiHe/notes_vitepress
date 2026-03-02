@@ -97,7 +97,7 @@ Given a formation $F(\boldsymbol{p})$ in $2$-space with **direction constraints*
 
 <figure>
    <img src="/frontiers_rigidity_2_1_parallel.jpg" alt="Parallel Constaints" width="100%" align="center">
-   <figcaption> Figure 1: Parallel Constraits</figcaption>
+   <div align="center"><figcaption> Figure 1: Parallel Constraits</figcaption></div>
 </figure>
 
 For example, Figure 1(b) shows a **translation** of the formation in Figure 1(a); and Figure 1(c) and (d) are **uniform scaling** of the formation in Figure 1(a). In particular, Figure 1(c) is a **uniform contraction** and Figure 1(d) is an **uniform expansion**. Figure 1(e) shows a **non-trivial parallel formation** of Figure 1(a), because the formation in Figure 1(e) **cannot** be obtained from the formation in Figure 1(a) by **translation or uniform scaling** although all the corresponding links in these two formations are parallel to each other.
@@ -189,7 +189,7 @@ Provided that the underlying graph constructed with the links representing **bea
 
 <figure>
    <img src="/frontiers_rigidity_2_2_bearing_constraints.jpg" alt="Bearing Constaints v.s. Direction Constraints" width="100%" align="center">
-   <figcaption> Figure 2: Bearing Constaints v.s. Direction Constraints</figcaption>
+   <div align="center"><figcaption> Figure 2: Bearing Constaints v.s. Direction Constraints</figcaption></div>
 </figure>
 
 1. **Bearing constraint** is more **stringent** than **direction constraint**.
@@ -346,7 +346,7 @@ Two nonzero vectors $\boldsymbol{x}, \boldsymbol{y} \in \mathbb{R}^d$ are **para
 
 <figure>
    <img src="/frontiers_rigidity_2_3_projection.jpg" alt="Orthogonal Projection Matrix" width="100%" align="center">
-   <figcaption> Figure 3: An illustration of the orthogonal projection matrix.</figcaption>
+   <div align="center"><figcaption> Figure 3: An illustration of the orthogonal projection matrix.</figcaption></div>
 </figure>
 
 > Most existing works, like the last section, use the notion of **normal vectors** to describe parallel vectors in $\mathbb{R}^2$. Specifically, given a nonzero vector $\boldsymbol{x} \in \mathbb{R}^2$, denote $\boldsymbol{x}^\perp \in \mathbb{R}^2$ as a **nonzero normal vector** satisfying $\boldsymbol{x}^\top\boldsymbol{x}^\perp = 0$. Then any vector $\boldsymbol{y} \in \mathbb{R}^2$ is parallel to $\boldsymbol{x}$ if and only if $(\boldsymbol{x}^\perp)^\top\boldsymbol{y}= 0$. This approach is applicable to 2D cases but difficult to extend to arbitrary dimensions. Moreover, it is straightforward to prove that in $\mathbb{R}^2$ the use of the orthogonal projection operator is **equivalent** to the use of normal vectors based on the fact that
@@ -369,7 +369,7 @@ By definition, **bearing congruency implies bearing equivalency**. The converse,
 
 <figure>
    <img src="/frontiers_rigidity_2_4_bearing.jpg" alt="Bearing equivalent but not bearing congruent" width="100%" align="center">
-   <figcaption> Figure 4: Bearing equivalent but not bearing congruent</figcaption>
+   <div align="center"><figcaption> Figure 4: Bearing equivalent but not bearing congruent</figcaption></div>
 </figure>
 
 ::: warning Definition: Global Bearing Rigidity
@@ -723,14 +723,14 @@ It can be easily verified using the above equation that $\operatorname{rank}(R(\
 
 <figure>
    <img src="/frontiers_rigidity_2_5_not_inf.jpg" alt="not inf" id="fig-2-5-not-inf" width="100%" align="center">
-   <figcaption> Figure 5: Examples of noninfinitesimally bearing-rigid frameworks. the red/solid arrows represent nontrivial infinitesimal bearing motions that preserve all of the interneighbor bearings. these frameworks also are not infinitesimally distance rigid because they have nontrivial infinitesimal distance motions (see the blue/dotted arrows). Note that the infinitesimal distance motions are perpendicular to the infinitesimal bearing motions.</figcaption>
+   <div align="center"><figcaption> Figure 5: Examples of noninfinitesimally bearing-rigid frameworks. the red/solid arrows represent nontrivial infinitesimal bearing motions that preserve all of the interneighbor bearings. these frameworks also are not infinitesimally distance rigid because they have nontrivial infinitesimal distance motions (see the blue/dotted arrows). Note that the infinitesimal distance motions are perpendicular to the infinitesimal bearing motions.</figcaption></div>
 </figure>
 
 Figure. 4 shows examples of non-infinitesimal bearing rigid frameworks. The frameworks in Figure. 4 are not infinitesimally bearing rigid because **there exist non-trivial infinitesimal bearing motions** (see, for example, the red arrows). Figure. 5 shows some two- and three-dimensional infinitesimally bearing rigid frameworks. It can be verified that each of the frameworks satisfies $\operatorname{rank}(R_\mathcal{B}(\boldsymbol{p})) = dn − d − 1$.
 
 <figure>
    <img src="/frontiers_rigidity_2_6_inf.jpg" alt="inf" id="fig-2-6-inf" width="100%" align="center">
-   <figcaption> Figure 6: Examples of infinitesimally bearing-rigid frameworks: the frameworks in (a) and (b) are 2d and the frameworks in (c) and (d) are 3d. it can be verified that each of these frameworks satisfies the rank condition. the frameworks in (a), (b), and (c) also satisfy the laman condition and can, therefore, be generated using a Henneberg construction. Note that the two frameworks in (c) and (d) are infinitesimally bearing rigid but not infinitesimally distance rigid.</figcaption>
+   <div align="center"><figcaption> Figure 6: Examples of infinitesimally bearing-rigid frameworks: the frameworks in (a) and (b) are 2d and the frameworks in (c) and (d) are 3d. it can be verified that each of these frameworks satisfies the rank condition. the frameworks in (a), (b), and (c) also satisfy the laman condition and can, therefore, be generated using a Henneberg construction. Note that the two frameworks in (c) and (d) are infinitesimally bearing rigid but not infinitesimally distance rigid.</figcaption></div>
 </figure>
 
 Next, we show that the bearing rigidity of a framework is a generic property that is critically determined by the underlying graph rather than the configuration. We first define the following notion.
@@ -767,7 +767,7 @@ If a graph is **not** generically bearing rigid, there does **not** exist any co
 
 <figure>
    <img src="/frontiers_rigidity_2_7_generic.jpg" alt="generic" width="100%" align="center">
-   <figcaption> Figure 7: The graph of the framework in (a) is not generically bearing rigid. As a result, the framework is not infinitesimally bearing rigid for any configuration. The graph of the frameworks in (b) is generically bearing rigid. The framework is infinitesimally bearing rigid for almost all configurations except those where the three nodes are collinear.</figcaption>
+   <div align="center"><figcaption> Figure 7: The graph of the framework in (a) is not generically bearing rigid. As a result, the framework is not infinitesimally bearing rigid for any configuration. The graph of the frameworks in (b) is generically bearing rigid. The framework is infinitesimally bearing rigid for almost all configurations except those where the three nodes are collinear.</figcaption></div>
 </figure>
 
 #### Construction of Generically Bearing Rigid Graphs
@@ -783,7 +783,7 @@ Theorem 12 indicates that a framework with a **Laman graph** is infinitesimally 
 
 <figure>
    <img src="/frontiers_rigidity_2_8_procedure.jpg" alt="procedure" width="100%" align="center">
-   <figcaption> Figure 8: The procedure to construct a 3D infinitesimally bearing rigid framework. The number of edges in this framework is equal to 2n-3 = 13.</figcaption>
+   <div align="center"><figcaption> Figure 8: The procedure to construct a 3D infinitesimally bearing rigid framework. The number of edges in this framework is equal to 2n-3 = 13.</figcaption></div>
 </figure>
 
 The next result shows that adding edges to a Laman graph preserves generic bearing rigidity.
@@ -819,7 +819,7 @@ While Theorem 12 indicates that Laman graphs are generically bearing rigid, a na
 
 <figure>
    <img src="/frontiers_rigidity_2_9_counterpart.jpg" alt="counterpart" width="100%" align="center">
-   <figcaption> Figure 9: The configuration (a) is in the x–y plane and the framework is not infinitesimally bearing rigid. The configuration (b) is 3D and the framework is infinitesimally bearing rigid. It can be verified that rank of the bearing laplacian is dn − d − 1 for the configuration in (b).</figcaption>
+   <div align="center"><figcaption> Figure 9: The configuration (a) is in the x–y plane and the framework is not infinitesimally bearing rigid. The configuration (b) is 3D and the framework is infinitesimally bearing rigid. It can be verified that rank of the bearing laplacian is dn − d − 1 for the configuration in (b).</figcaption></div>
 </figure>
 
 The cyclic graph in this example is **generically bearing rigid** in $\mathbb{R}^3$ because the configuration in Figure 9(b) makes the framework infinitesimally bearing rigid. However, this cyclic graph is **not** Laman because the edge number of the graph is $4$, which is **less** than $2n − 3 = 5$ (a Laman graph must have $2n − 3$ edges). This example also demonstrates that $2n − 3$ is not the minimum number of edges required to ensure infinitesimally bearing rigidity. A discussion on this example is given below.
@@ -1152,7 +1152,7 @@ This proposition can be seen as a **generation** of the **dimensional invariance
 #### Examples
 <figure>
    <img src="/frontiers_rigidity_2_10_equi.jpg" id="fig-2-10-equi" alt="bearing persistence" width="100%" align="center">
-   <figcaption> Figure 10: Examples of bearing equivalent formations modelled by directed graphs with cycles.</figcaption>
+   <div align="center"><figcaption> Figure 10: Examples of bearing equivalent formations modelled by directed graphs with cycles.</figcaption></div>
 </figure>
 
 Figure 10 shows several examples of bearing equivalent formations modelled by directed graphs with **cycles**. As a consequence of the cyclic structure in these graphs, their bearing Laplacians have complex eigenvalues. For some special agents’ positions, the associated bearing Laplacian can have eigenvalues with negative real parts.

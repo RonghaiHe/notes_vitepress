@@ -40,7 +40,7 @@ We should note that a framework often has **redundant** angle information for sh
 
 <figure>
    <img src="/frontiers_rigidity_3_1_angle_rigidity.jpg" id="fig-3-1-angle" alt="Parallel Constaints" width="100%" align="center">
-   <figcaption> Figure 1: (a) A globally and infinitesimally angle rigid framework; (b) A framework that is not angle rigid. (c) A globally and infinitesimally angle rigid framework; (d) A globally angle rigid framework.</figcaption>
+   <div align="center"><figcaption> Figure 1: (a) A globally and infinitesimally angle rigid framework; (b) A framework that is not angle rigid. (c) A globally and infinitesimally angle rigid framework; (d) A globally angle rigid framework.</figcaption></div>
 </figure>
 
 For example, in Figure 1(a), once $\boldsymbol{g}_{12}^\top\boldsymbol{g}_{13}$ and $\boldsymbol{g}_{21}^\top\boldsymbol{g}_{23}$ are available, it holds that $\boldsymbol{g}_{31}^\top\boldsymbol{g}_{32}=\cos(\pi-\arccos(\boldsymbol{g}_{12}^\top\boldsymbol{g}_{13})-\arccos(\boldsymbol{g}_{21}^\top\boldsymbol{g}_{23}))$. That is, the information of partial angles in the graph is often **sufficient to recognize** a framework. Therefore, by employing a **subset** $\mathcal{T}_\mathcal{G}^*\subset\mathcal{T}_\mathcal{G}$ with $|\mathcal{T}_\mathcal{G}^*|=w$, we will try to study whether $(\mathcal{G},\boldsymbol{p})$ can be **uniquely determined** by  $\{\boldsymbol{g}_{ij}^\top\boldsymbol{g}_{ik}\in[-1,1]:(i,j,k)\in\mathcal{T}_\mathcal{G}^*\}$ based on the angle rigidity theory to be developed in this paper. Note that although $\mathcal{T}_\mathcal{G}^*$ is only a subset of $\mathcal{T}_\mathcal{G}$, the elements in $\mathcal{T}_\mathcal{G}^*$ should **involve all vertices** in $\mathcal{G}$, otherwise the shape of $(\mathcal{G},\boldsymbol{p})$ can never be determined. Moreover, we call $\mathcal{T}_\mathcal{G}^*$ the **angle index set**.
@@ -96,7 +96,7 @@ An angle rigid angularity $\mathbb{A}(\mathcal{V}, \mathcal{A}, \boldsymbol{p})$
 
 <figure>
    <img src="/frontiers_rigidity_3_2_amb_example.jpg" id="fig-3-2-amb" alt="example about ambiguity" width="100%" align="center">
-   <figcaption> Figure 2: Flex ambiguity in angle rigid angularity.</figcaption>
+   <div align="center"><figcaption> Figure 2: Flex ambiguity in angle rigid angularity.</figcaption></div>
 </figure>
 
 Here is an example, see Figure 2. $\mathbb{A}(\mathcal{V}, \mathcal{A}, \boldsymbol{p})$ is angle rigid, but **not** globally angle rigid.
@@ -115,7 +115,7 @@ The possible nonlinearity in the angle constraints gives rise to potential ambig
 
 <figure>
    <img src="/frontiers_rigidity_3_3_3vertex.jpg" id="fig-3-3-3vertex" alt="3 vertex with different angles" width="100%" align="center">
-   <figcaption> Figure 3: Nongeneric p changes rigidity. (a) Not rigid; (b) Angle rigid; (c) Globally angle rigid.</figcaption>
+   <div align="center"><figcaption> Figure 3: Nongeneric p changes rigidity. (a) Not rigid; (b) Angle rigid; (c) Globally angle rigid.</figcaption></div>
 </figure>
 
 Note that the embedding of $\boldsymbol{p}$ in the plane may affect the rigidity of $\mathbb{A}$. Consider the $3$-vertex angularity as embedded in three different situations in Figure 3 when its angle set $\mathcal{A}$ contains only one element $(2,1,3)$.
@@ -158,7 +158,7 @@ Similar to [Henneberg’s construction](./1distance#henneberg-construction) in d
 
 <figure>
    <img src="/frontiers_rigidity_3_4_addition.jpg" alt="vertex addition" width="100%" align="center">
-   <figcaption> Figure 4: Type-I vertex addition and Type-II vertex addition. (a) Case 1 in Type-I vertex addition. (b) Case 2 in Type-I vertex addition. (c) Case 3 in Type-I vertex addition. (d) Case 1 in Type-II vertex addition. (e) Case 2 in Type-II vertex addition.</figcaption>
+   <div align="center"><figcaption> Figure 4: Type-I vertex addition and Type-II vertex addition. (a) Case 1 in Type-I vertex addition. (b) Case 2 in Type-I vertex addition. (c) Case 3 in Type-I vertex addition. (d) Case 1 in Type-II vertex addition. (e) Case 2 in Type-II vertex addition.</figcaption></div>
 </figure>
 
 ::: warning Definition: Type-I vertex addition
@@ -181,7 +181,7 @@ For a given angularity $\mathbb{A}(\mathcal{V}, \mathcal{A}, \boldsymbol{p})$, w
 
 <figure>
    <img src="/frontiers_rigidity_3_5_not-generic.jpg" alt="not generic" width="100%" align="center">
-   <figcaption> Figure 5: Overall angularity is not necessarily generic. (a) Point 4 is unique when {1,3,4} are generic. (b) Point 4 is not unique when {1,3,4} are not generic. (c) {2,3,5} are not generic but angularity is rigid.</figcaption>
+   <div align="center"><figcaption> Figure 5: Overall angularity is not necessarily generic. (a) Point 4 is unique when {1,3,4} are generic. (b) Point 4 is not unique when {1,3,4} are not generic. (c) {2,3,5} are not generic but angularity is rigid.</figcaption></div>
 </figure>
 
 Now we are ready to present a **sufficient condition** for global angle rigidity using Type-I vertex addition.
@@ -438,7 +438,7 @@ Note that this theorem implies that $\mathbb{A}(\mathcal{V}, \mathcal{A}, \bolds
 
 <figure>
    <img src="/frontiers_rigidity_3_6_dependent.jpg" id="fig-3-6-dependent" alt="dependent" width="100%" align="center">
-   <figcaption> Figure 6: Types of dependent triplet elements in A. (a) Cycle. (b) Triplets with the same middle vertex. (c) Overly constrained angle subset.</figcaption>
+   <div align="center"><figcaption> Figure 6: Types of dependent triplet elements in A. (a) Cycle. (b) Triplets with the same middle vertex. (c) Overly constrained angle subset.</figcaption></div>
 </figure>
 
 If $\mathcal{A}$ contains 1 of the above 3 combinatorial structures, we say the triplet elements in $\mathcal{A}$ are **dependent**; otherwise, they are **independent**. One can further quantify the number of triplet elements such that the angularity is **infinitesimally angle rigid**.
@@ -496,7 +496,7 @@ In Figure 7, we show an infinitesimally minimally angle rigid angularity whose v
 
 <figure>
    <img src="/frontiers_rigidity_3_7_inf-min.jpg" alt="infinitesimally minimally angle rigid angularity" width="100%" align="center">
-   <figcaption> Figure 7: All vertices are involved in 5 angle constraints in an infinitesimally minimally angle rigid angularity.</figcaption>
+   <div align="center"><figcaption> Figure 7: All vertices are involved in 5 angle constraints in an infinitesimally minimally angle rigid angularity.</figcaption></div>
 </figure>
 
 Note that if an angularity $\mathbb{A}(\mathcal{V}, \mathcal{A}, p)$ is infinitesimally minimally angle rigid, then $|\mathcal{A}|=2 n-4$, and more importantly, the triplet elements in $\mathcal{A}$ need to be **independent**; this also implies that those situations listed in [Figure 6](#fig-3-6-dependent), namely cyclic triplets, triplets with the same middle vertex, and overly constrained angle subsets, **cannot** show up in $\mathcal{A}$, which is a **necessary combinatorial condition** for infinitesimal minimal angle rigidity.
@@ -535,7 +535,7 @@ One can realize that the validity of Theorem 7 will not be lost provided the com
 
 <figure>
    <img src="/frontiers_rigidity_3_8_angle_non-bearing.jpg" alt="angle, non-bearing" width="100%" align="center">
-   <figcaption> Figure 8: The angle constraints are the same, but not the bearing constraints. The angles in red are all constrained angles.</figcaption>
+   <div align="center"><figcaption> Figure 8: The angle constraints are the same, but not the bearing constraints. The angles in red are all constrained angles.</figcaption></div>
 </figure>
 
 It is important to note that Theorem 7 cannot induce equivalence of global angle rigidity and global bearing rigidity. Some examples show that this equivalence holds, but we still have no idea of how to prove it. Nonetheless, we are able to establish the following result.
@@ -575,7 +575,7 @@ From Definition of infinitesimal angle rigidity, it is easy to see that $\mathca
 
 <figure>
    <img src="/frontiers_rigidity_3_9_alg_suit_set.jpg" alt="Algorithms for suitable angle index set" width="100%" align="center">
-   <figcaption> Figure 9: Algorithms for Constructing Suitable Angle Index Set.</figcaption>
+   <div align="center"><figcaption> Figure 9: Algorithms for Constructing Suitable Angle Index Set.</figcaption></div>
 </figure>
 
 Since each vertex has at most $n-1$ neighbors, it is easy to see that the number of elementary operations performed by Algorithm 1 is at most $n(n-2)$. Hence the time complexity of Algorithm 1 is $\mathcal{O}(n^2)$.
@@ -584,7 +584,7 @@ An example of constructing $^i\mathcal{T}_{\mathcal{G}}^*$ by Algorithm 1 is sho
 
 <figure>
    <img src="/frontiers_rigidity_3_10_construction.jpg" alt="Constructon" width="100%" align="center">
-   <figcaption> Figure 10: An example to illustrate the construction of $^i\mathcal{T}_{\mathcal{G}}^*$ by Algorithm 1. (a) The subgraph composed of vertex $i$ and its neighbors $j_1$, $j_2$, $k_1$, $k_2$, $k_3$. Note that $i,k_2,k_3$ are collinear, $i,j_1,j_2$ are collinear. (b) $\hat{\mathcal{N}}_i=\{j_1,j_2\}$, $\check{\mathcal{N}}_i=\{k_1,k_2,k_3\}$. If $j_s$ and $k_l$ are connected by a red line, it implies that the angle between edge $(i,j_s)$ and edge $(i,k_l)$ is selected to be constrained. This also implies that $(i,j_s,k_l)$ (if $j_s < k_l$) or $(i,k_l,j_s)$ (if $k_l< j_s$) is an element of $^i\mathcal{T}_{\mathcal{G}}^*$. </figcaption>
+   <div align="center"><figcaption> Figure 10: An example to illustrate the construction of $^i\mathcal{T}_{\mathcal{G}}^*$ by Algorithm 1. (a) The subgraph composed of vertex $i$ and its neighbors $j_1$, $j_2$, $k_1$, $k_2$, $k_3$. Note that $i,k_2,k_3$ are collinear, $i,j_1,j_2$ are collinear. (b) $\hat{\mathcal{N}}_i=\{j_1,j_2\}$, $\check{\mathcal{N}}_i=\{k_1,k_2,k_3\}$. If $j_s$ and $k_l$ are connected by a red line, it implies that the angle between edge $(i,j_s)$ and edge $(i,k_l)$ is selected to be constrained. This also implies that $(i,j_s,k_l)$ (if $j_s < k_l$) or $(i,k_l,j_s)$ (if $k_l< j_s$) is an element of $^i\mathcal{T}_{\mathcal{G}}^*$. </figcaption></div>
 </figure>
 
 Note that for an infinitesimally angle rigid framework, the angle index set generated by Algorithm 1 is **suitable** but **not minimally suitable** for infinitesimal angle rigidity. For example, let $(\mathcal{G},\boldsymbol{p})$ be a minimally angle rigid framework, then $|\mathcal{E}|=2n-3$. For a set $\mathcal{T}_\mathcal{G}^*$ generated by Algorithm 1, we have $|\mathcal{T}_\mathcal{G}^*|=\sum\limits_{i\in\mathcal{V}}|^i\mathcal{T}_\mathcal{G}^*|=\sum\limits_{i\in\mathcal{V}}(|\mathcal{N}_i|-1)=2(2n-3)-n=3n-6\geq 2n-4$ for $n\geq2$. Currently we do not have an algorithm to construct a minimally suitable angle index set for an arbitrary infinitesimally angle rigid framework.
@@ -595,7 +595,7 @@ Although $\mathcal{T}_\mathcal{G}^*$ constructed by Algorithm 1 supports infinit
 
 <figure>
    <img src="/frontiers_rigidity_3_11_amb.jpg" alt="Ambiguity" width="100%" align="center">
-   <figcaption> Figure 11: Both are infinitesimally angle rigid for $\mathcal{T}_\mathcal{G}^*=\{(1,2,4), (4,1,2), (1,3,4), (4,1,3)\}$, globally angle rigid for $\bar{\mathcal{T}}_\mathcal{G}^*=\{(1,2,3)\}\cup\mathcal{T}_\mathcal{G}^*$. </figcaption>
+   <div align="center"><figcaption> Figure 11: Both are infinitesimally angle rigid for $\mathcal{T}_\mathcal{G}^*=\{(1,2,4), (4,1,2), (1,3,4), (4,1,3)\}$, globally angle rigid for $\bar{\mathcal{T}}_\mathcal{G}^*=\{(1,2,3)\}\cup\mathcal{T}_\mathcal{G}^*$. </figcaption></div>
 </figure>
 
 In fact, even for a complete graph, it is possible that the geometric shape cannot be determined by angle-only or bearing-only information. A typical example is the degenerate configuration shown in [Figure 1](#fig-3-1-angle) (d).
@@ -709,7 +709,7 @@ Recall that $(i,k,n)\in\mathcal{T}_{\mathcal{L}_n}^\dagger$, we have $g_{ik}^\to
 
 <figure>
    <img src="/frontiers_rigidity_3_12_tri-laman.jpg" alt="tri-laman graph" width="100%" align="center">
-   <figcaption> Figure 12: (a) A framework embedded by a triangulated Laman graph $\mathcal{L}_5$. $(\mathcal{L}_5,p)$ is infinitesimally angle rigid for $\mathcal{T}_{\mathcal{L}_5}^*=\{(1,2,3),(1,3,4),(1,4,5),(2,1,3),(3,1,4),$ $(4,1,5)\}$, and globally angle rigid for $\mathcal{T}_{\mathcal{L}_5}^\dagger= \mathcal{T}_{\mathcal{L}_5}^*\cup\{(1,2,4), (1,3,5)\}$. The angles in red are constrained angles determined by $\mathcal{T}_{\mathcal{L}_5}^\dagger$. (b) A framework embedded by a Laman graph that is not triangulated. The framework is globally and infinitesimally angle rigid, but $\mathcal{T}_{\mathcal{L}_n}^*$ is not sufficient for its global and infinitesimal angle rigidity. The angles in red are constrained angles determined by $\mathcal{T}_{\mathcal{L}_n}^*$. </figcaption>
+   <div align="center"><figcaption> Figure 12: (a) A framework embedded by a triangulated Laman graph $\mathcal{L}_5$. $(\mathcal{L}_5,p)$ is infinitesimally angle rigid for $\mathcal{T}_{\mathcal{L}_5}^*=\{(1,2,3),(1,3,4),(1,4,5),(2,1,3),(3,1,4),$ $(4,1,5)\}$, and globally angle rigid for $\mathcal{T}_{\mathcal{L}_5}^\dagger= \mathcal{T}_{\mathcal{L}_5}^*\cup\{(1,2,4), (1,3,5)\}$. The angles in red are constrained angles determined by $\mathcal{T}_{\mathcal{L}_5}^\dagger$. (b) A framework embedded by a Laman graph that is not triangulated. The framework is globally and infinitesimally angle rigid, but $\mathcal{T}_{\mathcal{L}_n}^*$ is not sufficient for its global and infinitesimal angle rigidity. The angles in red are constrained angles determined by $\mathcal{T}_{\mathcal{L}_n}^*$. </figcaption></div>
 </figure>
 
 An example of strongly nondegenerate framework embedded by a triangulated Laman graph is shown in Figure 12 (a). The angles in red are constrained angles determined by $\mathcal{T}_{\mathcal{L}_5}^\dagger$. The framework in Figure 12 (b) is both globally angle rigid and infinitesimally angle rigid, but it is not embedded by a triangulated Laman graph. 
@@ -741,7 +741,7 @@ We prove this theorem by constructing an angularity that is angle rigid but not 
 
 <figure>
    <img src="/frontiers_rigidity_3_13_amb-3d.jpg" id="fig-3-13-amb" alt="amb-3D" width="100%" align="center">
-   <figcaption> Figure 13: Flex ambiguity in an angle rigid angularity (3D). </figcaption>
+   <div align="center"><figcaption> Figure 13: Flex ambiguity in an angle rigid angularity (3D). </figcaption></div>
 </figure>
 
 We first check whether $\mathbb{A}(\mathcal{V}, \mathcal{A}, \boldsymbol{p})$ is angle rigid. In $\measuredangle 123$, one can uniquely determine $\measuredangle 213 = \pi − \measuredangle 132 − \measuredangle 321$, which implies that the interior angles in $\measuredangle 123$ are uniquely determined. If point $4$’s position could be uniquely determined by $\measuredangle 142, \measuredangle 143, \measuredangle 243$, the other angles formed by $4$ and $1,2,3$ would also be uniquely determined. To check the uniqueness of point $4$ under $\measuredangle 142, \measuredangle 143, \measuredangle 243$, we first show the surface which satisfies the angle constraint of $\measuredangle 142$ given points $1$ and $2$.
@@ -750,21 +750,21 @@ Since a 2-D angle constraint $\measuredangle 142$ allows point $4$ to be in an a
 
 <figure>
    <img src="/frontiers_rigidity_3_14_constraints-3d.jpg" id="fig-3-14-con" alt="constraints-3D" width="100%" align="center">
-   <figcaption> Figure 14: Extension of angle constraints from 2-D to 3-D. (a) 2D angle 142. (B) 3D angle 142. (C) 2D angle 214. (D) 3D angle 214. </figcaption>
+   <div align="center"><figcaption> Figure 14: Extension of angle constraints from 2-D to 3-D. (a) 2D angle 142. (B) 3D angle 142. (C) 2D angle 214. (D) 3D angle 214. </figcaption></div>
 </figure>
 
 Given points $1$, $2$, and $3$ and angles $\measuredangle 142, \measuredangle 143, \measuredangle 243$, point $4$ can be determined by 3 such surfaces. By numerically checking the intersections of these 3 surfaces in Figure 15(a), one can see that there are 4 separate points of intersection [see Figure 15(b)] in these 3 surfaces. Therefore, when $\boldsymbol{p}_1, \boldsymbol{p}_2, \boldsymbol{p}_3, \boldsymbol{p}_4$ are locally perturbed, there is only one unique position for point $4$ in the neighborhood of its current position because these 4 intersection points are separate. More specifically, there always exists a sufficiently small perturbation (corresponding to $\varepsilon$ in Definition of angle rigid) such that every perturbed angularity satisfying the given 5 angle constraints is congruent to $\mathbb{A}$, i,e., $\mathbb{A}$ is angle rigid.
 
 <figure>
    <img src="/frontiers_rigidity_3_15_intersection-3d.jpg" alt="intersection-3D" width="100%" align="center">
-   <figcaption> Figure 15: Intersection of 3 surfaces. (a) 3 surfaces. (b) Surfaces’ intersected curves. </figcaption>
+   <div align="center"><figcaption> Figure 15: Intersection of 3 surfaces. (a) 3 surfaces. (b) Surfaces’ intersected curves. </figcaption></div>
 </figure>
 
 We now show that $\mathbb{A}(\mathcal{V}, \mathcal{A}, \boldsymbol{p})$ is not globally angle rigid. Perturbing $\boldsymbol{p}_4$ in $\mathbb{R}^3$, one finds another point $\boldsymbol{p}_4'$ satisfying all the angle constraints associated with $\mathcal{A}$ together with $\boldsymbol{p}_1, \boldsymbol{p}_2, \boldsymbol{p}_3$, but $\measuredangle 412 \neq \measuredangle 4'12$. This flex ambiguity shown in Figure 13 implies that $\mathbb{A}$ is not globally angle rigid.
 
 <figure>
    <img src="/frontiers_rigidity_3_16_nongeneric.jpg" alt="Non-generic" width="100%" align="center">
-   <figcaption> Figure 16: Nongeneric p changes rigidity. </figcaption>
+   <div align="center"><figcaption> Figure 16: Nongeneric p changes rigidity. </figcaption></div>
 </figure>
 
 Note that nongeneric embeddings of $\boldsymbol{p}$ in $\mathbb{R}^3$ may change rigidity properties. Now, we consider 3 different embeddings of a four-vertex angularity. When $213 = 0, 143 = 0$ as shown in Figure 16(a), the angularity is angle rigid but not globally angle rigid since if $2$ and $3$ swap their positions, $\measuredangle 213, \measuredangle 143$ remain the same but $\measuredangle 234$ changes by $\pi$. On the other hand, Figure 16(b) shows that when the same 2 angles are assigned to be $\measuredangle 213 = \pi, \measuredangle 143 = \pi$, the angularity becomes globally angle rigid according to Definition. Note that in the above 2 cases, all the 4 points are collinear. When only 3 points are collinear as in Figure 16(c), this angularity is in **general flexible** if fewer than 4 angle constraints are given according to 2-D angle rigidity, i.e. Theorem 4, since points $1,2,3,4$ are in a plane in this case. By giving 3 generic angles (e.g., not $0$ or $\pi$) for $\measuredangle 213, \measuredangle 143, \measuredangle 413$ and one nongeneric angle $\measuredangle 234 = \pi$ in Figure 16(c), the angularity becomes globally angle rigid because $\measuredangle 124 = \pi − \measuredangle 213 − \measuredangle 143 − \measuredangle 413, \measuredangle 132 = \measuredangle 413 + \measuredangle 143$, and $\measuredangle 134 = \pi − \measuredangle 132$ are all uniquely determined. However, four vertices in general form a **tetrahedron** in 3-D. To rule out nongeneric situations for $\boldsymbol{p}$, the notion of generic positions can be used. Following the Definition in 2-D, we say $\boldsymbol{p}$ is a generic position vector if its components are algebraically independent. We say an angularity $\mathbb{A}(\mathcal{V}, \mathcal{A}, \boldsymbol{p})$ is **generically (globally) angle rigid** if $\boldsymbol{p}$ is generic and $\mathbb{A}$ is (globally) angle rigid.
@@ -800,7 +800,7 @@ Correspondingly, when the sign of the tetrahedron's volume is fixed to be positi
 
 <figure>
    <img src="/frontiers_rigidity_3_17_clockwise.jpg" alt="Clockwise" width="100%" align="center">
-   <figcaption> Figure 17: Counterclockwise, clockwise, and linear constraints. (a) Counterclockwise constraint. (b) Clockwise constraint. (c) Linear constraint. </figcaption>
+   <div align="center"><figcaption> Figure 17: Counterclockwise, clockwise, and linear constraints. (a) Counterclockwise constraint. (b) Clockwise constraint. (c) Linear constraint. </figcaption></div>
 </figure>
 
 ::: info Remark:
@@ -811,7 +811,7 @@ Motivated by Henneberg's construction which has been seen as a cornerstone for d
 
 <figure>
    <img src="/frontiers_rigidity_3_18_vertex_addition-3D.jpg" alt="vertex addition in 3D" width="100%" align="center">
-   <figcaption> Figure 18: Type-I vertex addition and Type-II vertex addition. (a) Case 1 in Type-I vertex addition. (b) Case 2 in Type-I vertex addition. (c) Case 1 in Type-II vertex addition. (d) Case 2 in Type-II vertex addition. </figcaption>
+   <div align="center"><figcaption> Figure 18: Type-I vertex addition and Type-II vertex addition. (a) Case 1 in Type-I vertex addition. (b) Case 2 in Type-I vertex addition. (c) Case 1 in Type-II vertex addition. (d) Case 2 in Type-II vertex addition. </figcaption></div>
 </figure>
 
 ::: warning Definition: Type-I vertex addition
@@ -864,7 +864,7 @@ For an angularity $\mathbb{A}(\mathcal{V}, \mathcal{A}, \boldsymbol{p})$, if the
 
 <figure>
    <img src="/frontiers_rigidity_3_19_vertex_operation.jpg" id="fig-3-19-operation" alt="vertex operation in 3D" width="100%" align="center">
-   <figcaption> Figure 19: 3-vertex addition operation and merging operation. </figcaption>
+   <div align="center"><figcaption> Figure 19: 3-vertex addition operation and merging operation. </figcaption></div>
 </figure>
 
 After introducing how to add 1 vertex to an angularity in Propositions 3 and 4, we now investigate how to add 3 vertices to an angularity [see Figure 19(a)], which becomes useful later for merging two angle rigid angularities.
@@ -976,7 +976,7 @@ From the above 3 facts and using Lemma 11 for $\mathbb{A}$ and $\mathbb{A}^{\pri
 
 <figure>
    <img src="/frontiers_rigidity_3_20_polyhedra.jpg" id="fig-3-20-polyhedra" alt="Angle rigidity of convex polyhedra" width="100%" align="center">
-   <figcaption> Figure 20: Angle rigidity of convex polyhedra. (a) Convex polyhedron with triangular surfaces. (b) Surface triangulation. (c) Coplanar face. </figcaption>
+   <div align="center"><figcaption> Figure 20: Angle rigidity of convex polyhedra. (a) Convex polyhedron with triangular surfaces. (b) Surface triangulation. (c) Coplanar face. </figcaption></div>
 </figure>
 
 Instead of focusing on convex polyhedra with triangular faces [see [Figure 20](#fig-3-20-polyhedra) (a)], we now study the case of convex polyhedra whose faces are **not necessarily triangles**. Note that when a face is not a triangle, the face's vertices may become **noncoplanar** under perturbations, for which we now develop the operations of **polygonal triangulation** and **surface triangulation**.

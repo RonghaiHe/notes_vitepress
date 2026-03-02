@@ -158,7 +158,7 @@ where $\omega \in \mathbb{R}^3$ denotes the angular velocity of the rigid body a
 
 <figure>
    <img src="/frontiers_rigidity_1_0_motion.png" alt="Motion of rigid body" width="100%" align="center">
-   <figcaption> Figure 0: Rigid body kinematics.</figcaption>
+   <div align="center"><figcaption> Figure 0: Rigid body kinematics.</figcaption></div>
 </figure>
 
 ::: warning Definition: Equivalent & Congruent
@@ -274,7 +274,7 @@ For example, The planar framework in Figure below is nongeneric in $\mathbb{R}^2
 
 <figure>
    <img src="/frontiers_rigidity_1_05_nongeneric.png" id="fig-105-nongeneric" alt="Nongeneric framework"  width="100%" align="center">
-   <figcaption> Figure 0.5: A nongeneric framework in 2D real field.</figcaption>
+   <div align="center"><figcaption> Figure 0.5: A nongeneric framework in 2D real field.</figcaption></div>
 </figure>
 
 
@@ -541,7 +541,7 @@ A new graph $\mathcal{G}' = (\mathcal{V}', \mathcal{E}')$ is formed from $\mathc
 
 <figure>
    <img src="/frontiers_rigidity_1_1_henneberg.png" alt="Henneberg's Method" width="100%" align="center">
-   <figcaption> Figure 1: Growing formations using a Henneberg sequence. (a) The four-agent formation can be expanded to include agent 5 by either (b) a vertex addition operation or (c) an edge-splitting operation. In (b), agent 5 is connected to two distinct agents of the formations. In (c) the edge (1,4) is replaced by two edges (1,5) and (5,4), which are incident on the newly added agent. A third connection (5,2) is also added to the latter agent. Both operations lead to a minimally rigid formation provided that the initial formation is minimally rigid. Moreover, every minimally rigid formation can be obtained by performing a sequence of these operations on an initial formation consisting of two connected agents.</figcaption>
+   <div align="center"><figcaption> Figure 1: Growing formations using a Henneberg sequence. (a) The four-agent formation can be expanded to include agent 5 by either (b) a vertex addition operation or (c) an edge-splitting operation. In (b), agent 5 is connected to two distinct agents of the formations. In (c) the edge (1,4) is replaced by two edges (1,5) and (5,4), which are incident on the newly added agent. A third connection (5,2) is also added to the latter agent. Both operations lead to a minimally rigid formation provided that the initial formation is minimally rigid. Moreover, every minimally rigid formation can be obtained by performing a sequence of these operations on an initial formation consisting of two connected agents.</figcaption></div>
 </figure>
 
 These vertex-addition and edge-splitting operations are enough to grow **every** minimally rigid graph. It is also possible to **deconstruct a minimally rigid graph** by removing one vertex and a net count of two edges at each step.
@@ -602,7 +602,7 @@ Global rigidity is a **more demanding** concept than rigidity since there exist 
 
 <figure>
    <img src="/frontiers_rigidity_1_2_local_rigidity.png" alt="Ambiguity in local rigidity" width="100%" align="center">
-   <figcaption> Figure 2: Noncongruent rigid formations with the same set of distance constraints. (a) depicts flip ambiguity since vertex A can be flipped over edge (B,C) to the symmetric position A′ while the distance constraints remain the same. (b) depicts discontinuous flex ambiguity since, by temporarily removing edge (A,D), the edge triple (A,E), (A,B), (B,C) can be flexed to obtain positions A′ and B′ such that the edge length (A′,D) equals the edge length (A,D), and thus all of the distance constraints are maintained. The formations (a) and (b) are thus rigid but not globally rigid. Although no smooth motion can deform these formations without affecting the distances between agents connected by edges, the sets of edges and corresponding distance constraints do not uniquely define the relative positions of the agents. In other words, the distance constraints do not specify the formation shape up to a rotation, translation, or reflection.</figcaption>
+   <div align="center"><figcaption> Figure 2: Noncongruent rigid formations with the same set of distance constraints. (a) depicts flip ambiguity since vertex A can be flipped over edge (B,C) to the symmetric position A′ while the distance constraints remain the same. (b) depicts discontinuous flex ambiguity since, by temporarily removing edge (A,D), the edge triple (A,E), (A,B), (B,C) can be flexed to obtain positions A′ and B′ such that the edge length (A′,D) equals the edge length (A,D), and thus all of the distance constraints are maintained. The formations (a) and (b) are thus rigid but not globally rigid. Although no smooth motion can deform these formations without affecting the distances between agents connected by edges, the sets of edges and corresponding distance constraints do not uniquely define the relative positions of the agents. In other words, the distance constraints do not specify the formation shape up to a rotation, translation, or reflection.</figcaption></div>
 </figure>
 
 A nice characterization of global rigidity is available for **2D formations** and their associated graphs. No extension is known for 3D formations. The 2D characterization uses the terms **redundant rigidity** and three **connectivity**. 

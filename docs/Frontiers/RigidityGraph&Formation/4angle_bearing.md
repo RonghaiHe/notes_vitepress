@@ -11,7 +11,7 @@ Restricted to the plane, the following definitions, exemplified in Figure 1, are
 
 <figure>
    <img src="/frontiers_rigidity_4_1_outerplane.jpg" id="fig-4-1-outerplane" alt="Outerplane graph" width="100%" align="center">
-   <figcaption> Figure 1: An outerplane graph (black vertices/edges) is a plane graph for which all vertices are on the outer face; its weak dual graph (red vertices/edges) is composed of vertices for each inner face with edges capturing the adjacency of inner faces. Addition of the dashed black edge removes a vertex from the outer face, resulting in a nonouterplanar graph whose weak dual has a cycle.</figcaption>
+   <div align="center"><figcaption> Figure 1: An outerplane graph (black vertices/edges) is a plane graph for which all vertices are on the outer face; its weak dual graph (red vertices/edges) is composed of vertices for each inner face with edges capturing the adjacency of inner faces. Addition of the dashed black edge removes a vertex from the outer face, resulting in a nonouterplanar graph whose weak dual has a cycle.</figcaption></div>
 </figure>
 
 ::: warning Definition: planar
@@ -61,7 +61,7 @@ In this section, **infinitesimal shape-similarity** is presented as a tool to de
 #### Definition of Infinitesimal Shape-Similarity
 <figure>
    <img src="/frontiers_rigidity_4_2_bearing.jpg" id="fig-4-2-bearing" alt="Bearing" width="100%" align="center">
-   <figcaption> Figure 2: Interrobot bearings capture direction information relative to a coordinate frame and are represented as unit vectors. Pairs of bearings define angles independently of a coordinate frame; infinitesimal shape-similarity characterizes frameworks for which these angles are maintained.</figcaption>
+   <div align="center"><figcaption> Figure 2: Interrobot bearings capture direction information relative to a coordinate frame and are represented as unit vectors. Pairs of bearings define angles independently of a coordinate frame; infinitesimal shape-similarity characterizes frameworks for which these angles are maintained.</figcaption></div>
 </figure>
 
 Consider a framework${ }^2$ $G(\boldsymbol{p})$ with vertex positions $\boldsymbol{p}=\left[\boldsymbol{p}_1^{\top}, \boldsymbol{p}_2^{\top}, \ldots, \boldsymbol{p}_n^{\top}\right]^{\top} \in \mathbb{R}^{d n}$, and denote by $\Theta$ the angle-set, which contains all $m$ angles formed between 3 distinct, connected vertices in the framework; i.e., $\Theta=\{(i, k, j) \mid(i, k),(j, k) \in \mathcal{E}, i \neq j\}$. For $G(\boldsymbol{p}), \quad$ let $\theta(\boldsymbol{p})=\left[\ldots, \theta_{i k j}, \ldots\right]^{\top} \in \mathbb{R}^m, \forall(i, k, j) \in \Theta$, be the vector of angles formed between 3 distinct, connected vertices, where the angle between the vectors $\boldsymbol{z}_{i k}=\boldsymbol{p}_i-\boldsymbol{p}_k$ and $\boldsymbol{z}_{j k}=\boldsymbol{p}_j-\boldsymbol{p}_k$ centered on $\boldsymbol{p}_k$, shown in Figure 2, is given by
@@ -89,7 +89,7 @@ Furthermore, in order for frameworks to be infinitesimally shape-similar, the **
 
 <figure>
    <img src="/frontiers_rigidity_4_3_similar.jpg" id="fig-4-3-similar" alt="infinitesimally shape-similar" width="100%" align="center">
-   <figcaption> Figure 3: The left framework is infinitesimally shape-similar. In contrast, the right frameworks are not infinitesimally shape-similar because, due to network topology and pathological configuration, angle-consistent motion along the dotted lines is not a translation, rotation, or uniform scaling.</figcaption>
+   <div align="center"><figcaption> Figure 3: The left framework is infinitesimally shape-similar. In contrast, the right frameworks are not infinitesimally shape-similar because, due to network topology and pathological configuration, angle-consistent motion along the dotted lines is not a translation, rotation, or uniform scaling.</figcaption></div>
 </figure>
 
 #### Shape-Similarity Matrix
@@ -508,7 +508,7 @@ so any edge-additions between vertices in the triangulation do not affect the ra
 
 <figure>
    <img src="/frontiers_rigidity_4_4_addition.jpg" id="fig-4-4-addition" alt="vertex addition" width="100%" align="center">
-   <figcaption> Figure 4: Angles produced by vertex/edge-addition to aid in visualization of the proof of Theorem 6. The left image shows the angles produced by the addition of x_k(p_k in the content), the center image shows the reduced set of angles, and the right image shows the angles resulting from edge-addition.</figcaption>
+   <div align="center"><figcaption> Figure 4: Angles produced by vertex/edge-addition to aid in visualization of the proof of Theorem 6. The left image shows the angles produced by the addition of x_k(p_k in the content), the center image shows the reduced set of angles, and the right image shows the angles resulting from edge-addition.</figcaption></div>
 </figure>
 
 ::: info Remark 3
@@ -524,7 +524,7 @@ A **maximally outerplane graph** is a simple plane graph (a plane graph for whic
 
 <figure>
    <img src="/frontiers_rigidity_4_5_relationship.jpg" alt="relationship" width="100%" align="center">
-   <figcaption> Figure 5: Relationship between near-triangulations, triangulations, and maximally outerplane graphs. Triangulations are near-triangulations whose outer face is a cycle; maximally outerplane graphs are triangulations for which the weak dual graph is a tree.</figcaption>
+   <div align="center"><figcaption> Figure 5: Relationship between near-triangulations, triangulations, and maximally outerplane graphs. Triangulations are near-triangulations whose outer face is a cycle; maximally outerplane graphs are triangulations for which the weak dual graph is a tree.</figcaption></div>
 </figure>
 
 Figure 5 distinguishes maximally outerplane graphs from the broader class of triangulations. Maximally outerplane graphs with at least 3 vertices are triangulations as in the $2^\text{nd}$ Definition of near-triangulations, so they are infinitesimally shape-similar. Furthermore, the weak dual graph of a maximally outerplane graph is a tree; this is related to the observation of Remark 3.
@@ -533,7 +533,7 @@ To construct maximally outerplane graphs, define the graph grammar $\Phi=\left\{
 
 <figure>
    <img src="/frontiers_rigidity_4_6_r1.jpg" alt="r1" width="100%" align="center">
-   <figcaption> Figure 6: The rule r_1 connects disconnected vertices across adjacent vertices on the outer face of a maximally outerplane graph.</figcaption>
+   <div align="center"><figcaption> Figure 6: The rule r_1 connects disconnected vertices across adjacent vertices on the outer face of a maximally outerplane graph.</figcaption></div>
 </figure>
 
 ::: danger Theorem 7
