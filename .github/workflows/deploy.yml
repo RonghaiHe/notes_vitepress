@@ -10,7 +10,7 @@ jobs:
         with: { fetch-depth: 0 }
       - uses: actions/setup-node@v4
         with: { node-version: 20 }
-      - run: npm add -D markdown-it-mathjax3  
+      - run: npm add -D markdown-it-mathjax3 markdown-it-footnote
       - run: npm install
       - run: npm run docs:build
       - uses: peaceiris/actions-gh-pages@v4

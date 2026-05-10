@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import footnote from 'markdown-it-footnote'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -11,6 +12,9 @@ export default defineConfig({
     math: true,
     image: {
       lazyLoading: true
+    },
+    config: (md) => {
+      md.use(footnote)
     }
   },
 
@@ -131,6 +135,12 @@ export default defineConfig({
             { text: 'Angle', link: '/docs/Frontiers/RigidityGraph&Formation/3angle' },
             { text: 'Angle-Bearing', link: '/docs/Frontiers/RigidityGraph&Formation/4angle_bearing' },
             { text: 'Formation', link: '/docs/Frontiers/RigidityGraph&Formation/1_1formation' },
+          ]
+        },
+        {
+          text: 'Formation Control',
+          items: [
+            { text: 'Distance-based', link: '/docs/Frontiers/RigidityGraph&Formation/1dist_control' },
           ]
         }
       ],
