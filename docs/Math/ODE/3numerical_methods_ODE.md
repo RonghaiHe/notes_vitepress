@@ -84,7 +84,7 @@ $$
 > $y|_{x=0.2} = 3\exp(0.2)-0.2-1\approx 2.4642$
 
 ## Euler’s Methods
-<img src="/math_em9_1_euler.png" alt="euler's method to solving ODEs" width="100%" align="center">
+<img src="./images/3num_1_euler.png" alt="euler's method to solving ODEs" width="100%" align="center">
 
 The first derivative provides a direct estimate of the **slope** at $x_i$:
 $$
@@ -98,7 +98,7 @@ $$
 
 A new value of $y$ is predicted using the slope to extrapolate linearly over the step size $h$.
 
-<img src="/math_em9_2_euler.png" alt="euler's method with different steps" width="100%" align="center">
+<img src="./images/3num_2_euler.png" alt="euler's method with different steps" width="100%" align="center">
 
 ### Error Analysis for Euler’s Method
 Numerical solutions of ODEs involves two types of error:
@@ -132,8 +132,8 @@ $$
 y_{i+1} = y_i + \frac{f(x_i,y_i) + f(x_{i+1},y_{i+1}^0)}{2}h
 $$
 
-<img src="/math_em9_3_heun.png" alt="heun's method to help euler's" width="100%" align="center">
-<img src="/math_em9_4_heun.png" alt="result about heun's method" width="100%" align="center">
+<img src="./images/3num_3_heun.png" alt="heun's method to help euler's" width="100%" align="center">
+<img src="./images/3num_4_heun.png" alt="result about heun's method" width="100%" align="center">
 
 #### The Midpoint / Improved Polygon Method
 Uses Euler’s method to predict a value of $y$ at the midpoint of the interval:
@@ -150,7 +150,7 @@ $$
 \end{aligned}
 $$
 
-<img src="/math_em9_5_midpoint.png" alt="midpoint method to help euler's" width="100%" align="center">
+<img src="./images/3num_5_midpoint.png" alt="midpoint method to help euler's" width="100%" align="center">
 
 ## Runge-Kutta (RK) Methods
 Runge-Kutta methods achieve the accuracy of a Taylor series approach without requiring the calculation of higher derivatives.
@@ -241,7 +241,7 @@ $$
   - The Midpoint Method ($a_2=1$)
   - Raltson’s Method ($a_2=2/3$)
 
-<img src="/math_em9_6_rk2.png" alt="RK2's method to solving ODEs" width="100%" align="center">
+<img src="./images/3num_6_rk2.png" alt="RK2's method to solving ODEs" width="100%" align="center">
 
 ### 3rd-Order RK
 For $n=3$:
@@ -271,7 +271,7 @@ $$
 \begin{aligned} & y_{i+1}=y_i+\frac{\left(7 k_1+32 k_3+12 k_4+32 k_5+7 k_6\right)}{90} h \\ & k_1=f\left(x_i, y_i\right) \\ & k_2=f\left(x_i+\frac{h}{4}, y_i+\frac{1}{4} k_1 h\right) \\ & k_3=f\left(x_i+\frac{h}{4}, y_i+\frac{1}{8} k_1 h+\frac{1}{8} k_2 h\right) \\ & k_4=f\left(x_i+\frac{h}{2}, y_i-\frac{1}{2} k_2 h+k_3 h\right) \\ & k_5=f\left(x_i+\frac{3 h}{4}, y_i+\frac{3}{16} k_1 h+\frac{9}{16} k_4 h\right) \\ & k_6=f\left(x_i+h, y_i-\frac{3}{7} k_1 h+\frac{2}{7} k_2 h+\frac{12}{7} k_3 h-\frac{12}{7} k_4 h+\frac{8}{7} k_5 h\right)\end{aligned}
 $$
 
-<img src="/math_em9_7_methods_effort.png" alt="efforts of different methods" width="100%" align="center">
+<img src="./images/3num_7_methods_effort.png" alt="efforts of different methods" width="100%" align="center">
 
 ### Example2
 Solve the following initial-value problem over the
@@ -302,7 +302,7 @@ $$
 
 The result can be plotted as
 
-<img src="/math_em9_8_plot.png" alt="curve of examples" width="100%" align="center">
+<img src="./images/3num_8_plot.png" alt="curve of examples" width="100%" align="center">
 
 (b) Euler's method with $h=0.5$ gives
 | ${x}$ | ${y}$ | $\mathrm{d} {y} / \mathrm{d} {x}$ |
@@ -362,7 +362,7 @@ The remaining steps can be implemented with the result
 
 The results along with the analytical solution are displayed below:
 
-<img src="/math_em9_9_plot2.png" alt="curve of examples in Heun's method" width="100%" align="center">
+<img src="./images/3num_9_plot2.png" alt="curve of examples in Heun's method" width="100%" align="center">
 
 (d) The [midpoint](#the-midpoint--improved-polygon-method) method with $h=0.5$
 | ${x}$ | ${y}$ | $\mathrm{d} {y} / \mathrm{d} {x}$ | ${y}_{{m}}$ | $\mathrm{d} {y} / \mathrm{d} {x}-{\text{mid}}$ |
@@ -387,7 +387,7 @@ with $h=0.25$ gives
 | 1.75 | 0.852761 | 1.673543 | 1.061954 | 2.565282 |
 | 2 | 1.494081 | 4.332836 | 2.035686 | 6.953139 |
 
-<img src="/math_em9_10_plot3.png" alt="curve of examples in Midpoint's method" width="100%" align="center">
+<img src="./images/3num_10_plot3.png" alt="curve of examples in Midpoint's method" width="100%" align="center">
 
 (d) The $4^{\text {th }}$-order RK method with $h=0.5$ gives
 
@@ -399,7 +399,7 @@ with $h=0.25$ gives
 | 1.5 | 0.59138 | 0.680087 | 0.761402 | 1.494252 | 0.964943 | 1.893701 | 1.538231 | 4.460869 | 1.986144 |
 | 2 | 1.584452 | 4.594911 | 2.73318 | 10.83023 | 4.292008 | 17.00708 | 10.08799 | 51.95317 | 18.70378 |
 
-<img src="/math_em9_11_plot4.png" alt="curve of examples in RK4's method" width="100%" align="center">
+<img src="./images/3num_11_plot4.png" alt="curve of examples in RK4's method" width="100%" align="center">
 
 ## HW
 ### Question 1

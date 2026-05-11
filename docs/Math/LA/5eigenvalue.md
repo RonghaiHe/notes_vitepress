@@ -277,7 +277,7 @@ $$
 
 is a basis for $\mathbb{R}^2$ consisting of eigenvectors of $A$. Thus $\mathsf{L}_A$, and hence $A$, is diagonalizable.
 
-Suppose that $\beta$ is a basis for $\mathsf{F}^n$ consisting of eigenvectors of $A$. The [corollary](./2linear_transformation#corollary-of-theorem-2-23) to Theorem 2.23 assures that if $Q$ is the $n \times n$ matrix whose columns are the vectors in $\beta$, then $Q^{-1} A Q$ is a diagonal matrix. For example, in Example 5.1.6, if  
+Suppose that $\beta$ is a basis for $\mathsf{F}^n$ consisting of eigenvectors of $A$. The [corollary to Theorem 2.23](./2linear_transformation#corollary-thm-2.23) assures that if $Q$ is the $n \times n$ matrix whose columns are the vectors in $\beta$, then $Q^{-1} A Q$ is a diagonal matrix. For example, in Example 5.1.6, if  
 $$
 Q = \begin{bmatrix}
 1 & 1 \\
@@ -445,6 +445,8 @@ What is still needed is a simple test to determine whether an operator or a matr
 ::: danger Theorem 5.5  
 Let $\mathsf{T}$ be a linear operator on a vector space, and let $\lambda_1, \lambda_2, \ldots, \lambda_k$ be **distinct** eigenvalues of $\mathsf{T}$. For each $i=1,2,\ldots,k,$ let $S_i (i=1,2,\cdots,k)$ be a finite set of eigenvectors of $\mathsf{T}$ corresponding to $\lambda_i$. If each $S_i$ is **linearly independent**, then $S_1 \cup S_2 \cup \cdots \cup S_k$ is also **linearly independent**.  
 :::
+
+<span id="corollary-thm-5.5"></span>
 
 ::: tip Corollary
 Let $\mathsf{T}$ be a linear operator on an $n$-dimensional vector space $\mathsf{V}$. If $\mathsf{T}$ has $n$ distinct eigenvalues, then $\mathsf{T}$ is diagonalizable.  
@@ -629,7 +631,7 @@ $$
 
 is linearly independent and hence is a basis for $\mathbb{R}^3$ consisting of eigenvectors of $\mathsf{T}$. Consequently, $\mathsf{T}$ is diagonalizable.
 
-<img src="/math_em5_1_eigen.png" alt="diagram" width="100%" align="middle">
+<img src="./images/5eigen_1_eigen.png" alt="diagram" width="100%" align="middle">
 
 ::: tip Lemma
 Let $\mathsf{T}$ be a linear operator, and let $\lambda_1, \lambda_2, \dots, \lambda_k$ be **distinct** eigenvalues of $\mathsf{T}$. For each $i = 1, 2, \dots, k$, let $v_i \in \mathsf{E}_{\lambda_i}$, the eigenspace corresponding to $\lambda_i$. If
@@ -819,7 +821,7 @@ We show $A$ is diagonalizable and find a $2 \times 2$ matrix $Q$ such that $Q^{-
 
 First observe the characteristic polynomial of $A$ is $(t - 1)(t - 2)$, so $A$ has two distinct eigenvalues, $\lambda_1 = 1$ and $\lambda_2 = 2$.
 
-By applying the [corollary](#theorem-5-5-and-corollary) to Theorem 5.5 to the operator $\mathsf{L}_A$, $A$ is diagonalizable. Moreover,
+By applying the [Corollary to Theorem 5.5](#corollary-thm-5.5) to the operator $\mathsf{L}_A$, $A$ is diagonalizable. Moreover,
 
 $$
 \gamma_1 = \{ (-2, 1)^\top \}, \quad \gamma_2 = \{ (-1, 1)^\top \}.
@@ -840,7 +842,7 @@ Q = \begin{bmatrix}
 \end{bmatrix}
 $$
 
-be the matrix whose columns are the vectors in $\gamma$. Then, by the [corollary](./2linear_transformation#theorem-2-2-3) to Theorem 2.23,
+be the matrix whose columns are the vectors in $\gamma$. Then, by the [Corollary to Theorem 2.23](./2linear_transformation#corollary-thm-2.23),
 $$
 D = Q^{-1} A Q = \begin{bmatrix}
 1 & 0 \\

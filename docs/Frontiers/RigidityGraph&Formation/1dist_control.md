@@ -83,7 +83,7 @@ When $\boldsymbol{v}_{di}$ **only includes a translation velocity**, the formati
 
 An example of $\mathcal{F}^∗$ is illustrated by the 3D formation in [Figure 1.1](#fig-1.1) where the leader is located in the interior of the tetrahedron. **The axis of rotation passes through the leader**, which is inside the tetrahedron. Since $n = 5$, we need $3n − 6 = 9$ for the framework to be **minimally rigid**. The solid lines indicate edges that form the faces of the tetrahedron while the dashed lines are edges in its interior. Notice that edge $(1, 4)$ is not necessary.
 
-The association of a leader agent (instead of a virtual leader) with the axis of rotation is done for convenience (not necessity) since the leader’s relative position to the followers can be measured and it will not have to undergo any rotation. Note that if one uses a virtual leader, its location would have to be known in order to calculate its position relative to the agents (see [$(3)$](#eq-3) in [Distance](./1distance.md#rigidity-theory-12)). This in turn would require extra measurements and/or calculations.
+The association of a leader agent (instead of a virtual leader) with the axis of rotation is done for convenience (not necessity) since the leader’s relative position to the followers can be measured and it will not have to undergo any rotation. Note that if one uses a virtual leader, its location would have to be known in order to calculate its position relative to the agents (see $(3)$ in [Distance](./1distance.md#eq-3)). This in turn would require extra measurements and/or calculations.
 
 > [!info] Problem 3: Target Interception
 > The agents should intercept and surround a (possibly evading) moving target with a pre-defined formation. Here, we will also use the leader–follower approach by taking the $n^\text{th}$ agent to be the leader while the remaining agents are followers. The control protocol will consist of:
@@ -131,12 +131,12 @@ The above inequality has several implications.
 - If $\boldsymbol{u}(t) \to \mathbf{0}$ as $t \to\infty$, so does $\boldsymbol{x}(t)$.
 
 
-<span id="theorem-1.2"></span>
+<span id="thm-1.2"></span>
 
 > [!caution] Theorem 1.2 (Originally from [1] of Theorem C.4)
 > Consider that $f(\boldsymbol{x}, \boldsymbol{u})$ in $\dot{\boldsymbol{x}=\boldsymbol{f}(\boldsymbol{x}, \boldsymbol{u})}, \quad \boldsymbol{x}(0)=\boldsymbol{x}_0$ is locally Lipschitz in $(\boldsymbol{x}, \boldsymbol{u})$ in some neighborhood of $(\boldsymbol{x}=0, \boldsymbol{u}=0)$. Then, the system is locally input-to-state stable if and only if the unforced system $\dot{\boldsymbol{x}}=\boldsymbol{f}(\boldsymbol{x}, 0)$ has a locally asymptotically stable equilibrium point at the origin.
 
-<span id="theorem-1.3"></span>
+<span id="thm-1.3"></span>
 
 > [!caution] Theorem 1.3 (Originally from [1] of Theorem C.5)
 > Consider the interconnected system
@@ -152,7 +152,7 @@ The above inequality has several implications.
 >
 > If subsystem $\Sigma_1$ with input $y$ is locally input-to-state stable and $y=0$ is a locally asymptotically stable equilibrium point of subsystem $\Sigma_2$, then $[x, y]=0$ is a locally asymptotically stable equilibrium point of the interconnected system.
 
-<span id="theorem-1.4"></span>
+<span id="thm-1.4"></span>
 
 > [!caution] Theorem 1.4 (Originally from [1] of Theorem C. 6)
 > If $0 \in K[f](0, t)$ in a region $Q \supset B(0, \delta) \times\left[t_0, \infty\right)$ and $V$ : $D \times \mathbb{R}_{\geq 0} \rightarrow \mathbb{R}$ is a regular function satisfying $V(0, t)=0$,
@@ -283,7 +283,7 @@ $$
 \dot{W} = \sum_{(i,j)\in\mathcal{E}^*}e_{ij}(e_{ij}+2d_{ij})\tilde{\boldsymbol{q}}^\top_{ij}(\boldsymbol{u}_i - \boldsymbol{u}_j). \tag{2.11}
 $$
 
-Using definition of rigidity matrix $R_\mathcal{D}$ i.e., [$(6)$](#eq-6) in [Infinitesimal Rigidity](./1distance.md#infinitesimal-rigidity), and [$(2.9)$](#eq-2.9), [$(2.11)$](#eq-2.11) can be conveniently written as[^2.1]
+Using definition of rigidity matrix $R_\mathcal{D}$ i.e., [$(6)$](./1distance.md#eq-6) in Infinitesimal Rigidity, and [$(2.9)$](#eq-2.9), [$(2.11)$](#eq-2.11) can be conveniently written as[^2.1]
 
 <span id="eq-2.12"></span>
 
@@ -291,18 +291,18 @@ $$
 \dot{W} = \boldsymbol{z}^\top R_\mathcal{D}(\tilde{\boldsymbol{q}})\boldsymbol{u} \tag{2.12}
 $$
 
-where $\boldsymbol{u} = [\boldsymbol{u}_1, \ldots, \boldsymbol{u}_n] \in \mathbb{R}^{mn}$ is the stacked vector of control inputs. Before presenting the main result, we introduce a lemma that establishes the **relationship** between Corollary of Theorem 2 in [Graph Rigidity](./1distance.md#framework-ambiguities) and the level surfaces of the Lyapunov function candidate.
+where $\boldsymbol{u} = [\boldsymbol{u}_1, \ldots, \boldsymbol{u}_n] \in \mathbb{R}^{mn}$ is the stacked vector of control inputs. Before presenting the main result, we introduce a lemma that establishes the **relationship** between [Corollary](./1distance.md#corollary-thm-2) of Theorem 2 in Graph Rigidity and the level surfaces of the Lyapunov function candidate.
 
-<span id="lemma-2.1"></span>
+<span id="lem-2.1"></span>
 
 > [!tip] Lemma 2.1
-> For **nonnegative** constants $c$ and $\delta$, the level set $W (e) \leqslant c$ is equivalent to $\Psi(\mathcal{F}, \mathcal{F}^∗) \leqslant \delta$ where $\Psi$ and $W$ were defined in Corollary of Theorem 2 in [Graph Rigidity](./1distance.md#framework-ambiguities) and [$(2.10)$](#eq-2.10), respectively.
+> For **nonnegative** constants $c$ and $\delta$, the level set $W (e) \leqslant c$ is equivalent to $\Psi(\mathcal{F}, \mathcal{F}^∗) \leqslant \delta$ where $\Psi$ and $W$ were defined in [Corollary](./1distance.md#corollary-thm-2) of Theorem 2 in Graph Rigidity and [$(2.10)$](#eq-2.10), respectively.
 
 **Proof**:
 <details>
     <summary> Details of Proof </summary>
 
-First, from the definition of $\Psi(\cdot,\cdot)$ in Corollary of Theorem 2 in [Graph Rigidity](./1distance.md#framework-ambiguities), [$(1.1)$](#eq-1.1), [$(2.5)$](#eq-2.5), [$(2.6)$](#eq-2.6), we have that
+First, from the definition of $\Psi(\cdot,\cdot)$ in [Corollary](./1distance.md#corollary-thm-2) of Theorem 2 in Graph Rigidity, [$(1.1)$](#eq-1.1), [$(2.5)$](#eq-2.5), [$(2.6)$](#eq-2.6), we have that
 
 <span id="eq-2.13"></span>
 
@@ -319,7 +319,7 @@ From [$(2.10)$](#eq-2.10), we know $W (e) \leqslant c$ implies that $e_{ij}, (i,
 
 The control law for solving the formation acquisition problem is given in the following theorem. Its structure is based on [$(2.12)$](#eq-2.12) and Lyapunov stability theory. Specifically, the goal is to make the time derivative of the Lyapunov function candidate **negative definite**.
 
-<span id="theorem-2.1"></span>
+<span id="thm-2.1"></span>
 
 > [!caution] Theorem 2.1
 > Consider the formation $\mathcal{F}(t)=\left(\mathcal{G}^{*}, \boldsymbol{q}(t)\right)$, and let the initial conditions of the error dynamics be such that $\boldsymbol{e}(0) \in \Omega_{1} \cap \Omega_{2}$ where
@@ -355,7 +355,7 @@ $$
 \end{equation*}
 $$
 
-Since $\mathcal{F}^{*}$ is infinitesimally rigid, we know from Corollary of Theorem 2 in [Graph Rigidity](./1distance.md#framework-ambiguities) that $\mathcal{F}(t)$ is infinitesimally rigid for $\boldsymbol{e}(t) \in \Omega_{1}$. Therefore, we know $\mathcal{F}(t)$ is infinitesimally and minimally rigid for $\boldsymbol{e}(t) \in \Omega_{1}$, so we can invoke Corollary 1 in [Minimal Rigidity](./1distance.md#minimal-rigidity) to state
+Since $\mathcal{F}^{*}$ is infinitesimally rigid, we know from [Corollary](./1distance.md#corollary-thm-2) of Theorem 2 in Graph Rigidity that $\mathcal{F}(t)$ is infinitesimally rigid for $\boldsymbol{e}(t) \in \Omega_{1}$. Therefore, we know $\mathcal{F}(t)$ is infinitesimally and minimally rigid for $\boldsymbol{e}(t) \in \Omega_{1}$, so we can invoke [Corollary](./1distance.md#corollary-thm-3) of Theorem 3 in Minimal Rigidity to state
 
 <span id="eq-2.17"></span>
 
@@ -365,7 +365,7 @@ $$
 \end{equation*}
 $$
 
-where [$(2.10)$](#eq-2.10) was used. From [$(2.17)$](#eq-2.17), we know that $\dot{W}(t) \leqslant 0$ for all $t \geqslant 0$; hence, $W(t)$ is **nonincreasing** for all $t \geqslant 0$. Then, since $\boldsymbol{e}(t) \in \Omega_{1}$ is equivalent to $\boldsymbol{e}(t) \in\left\{\boldsymbol{e} \in \mathbb{R}^{3 n} \mid W(\boldsymbol{e}) \leqslant c\right\}$ from [Lemma 2.1](#lemma-2.1), a **sufficient condition** for [$(2.17)$](#eq-2.17) is given by
+where [$(2.10)$](#eq-2.10) was used. From [$(2.17)$](#eq-2.17), we know that $\dot{W}(t) \leqslant 0$ for all $t \geqslant 0$; hence, $W(t)$ is **nonincreasing** for all $t \geqslant 0$. Then, since $\boldsymbol{e}(t) \in \Omega_{1}$ is equivalent to $\boldsymbol{e}(t) \in\left\{\boldsymbol{e} \in \mathbb{R}^{3 n} \mid W(\boldsymbol{e}) \leqslant c\right\}$ from [Lemma 2.1](#lem-2.1), a **sufficient condition** for [$(2.17)$](#eq-2.17) is given by
 
 <span id="eq-2.18"></span>
 
@@ -393,7 +393,7 @@ Due to [$(2.19)$](#eq-2.19), the energy-like function $W(t)$ would need to incre
    <div align="center"><figcaption> Figure 2.1: Energy landscape showing the two equilibrium points, Iso(\mathcal{F}^{*}) and Amb(\mathcal{F}^{*})$, at the bottom of each well.</figcaption></div>
 </figure>
 
-The initial condition $\boldsymbol{e}(0) \in \Omega_{1} \cap \Omega_{2}$ in [Theorem 2.1](#theorem-2.1) is a sufficient condition for the actual formation $\mathcal{F}(t)$ to
+The initial condition $\boldsymbol{e}(0) \in \Omega_{1} \cap \Omega_{2}$ in [Theorem 2.1](#thm-2.1) is a sufficient condition for the actual formation $\mathcal{F}(t)$ to
 1. Remain infinitesimally rigid for all time and
 2. Be closer to a framework in $\operatorname{Iso}\left(\mathcal{F}^{*}\right)$ at $t=0$ than to one in $\operatorname{Amb}\left(\mathcal{F}^{*}\right)$ in order to avoid converging to an ambiguous framework.
 
@@ -413,7 +413,7 @@ which is only a function of $\tilde{\boldsymbol{q}}_{i j}$ and $d_{i j}$ for $(i
 
 Notice that each individual term of the summation in [$(2.20)$](#eq-2.20) is a vector whose direction is along $\tilde{\boldsymbol{q}}_{i j}$. If all $n$ agents are positioned collinearly at $t=0$, the control input of each one will necessarily be **directed along the line**. As a result, the agents will be stuck in a collinear formation and will never converge to the desired formation. In other words, the collinear formation is an **invariant set**. However, if at least one agent is not initially collinear with the others, the agents will not necessarily remain collinear because the edges between these agents and the noncollinear ones will create **control components whose directions are not parallel to the line**.
 
-The stability result of [Theorem 2.1](#theorem-2.1) guarantees that the desired formation is acquired up to rotation and translation. In other words, the formation acquisition controller does not regulate the formation to a pre-defined global location in space. This is a reflection of the facts that $\boldsymbol{u}_{i}$ is not a function of $\boldsymbol{q}_{i}$ but only of the relative positions $\tilde{\boldsymbol{q}}_{i j},(i, j) \in \mathcal{E}^{*}$ and that the control objective is to regulate $\left\|\tilde{q}_{i j}\right\|$.
+The stability result of [Theorem 2.1](#thm-2.1) guarantees that the desired formation is acquired up to rotation and translation. In other words, the formation acquisition controller does not regulate the formation to a pre-defined global location in space. This is a reflection of the facts that $\boldsymbol{u}_{i}$ is not a function of $\boldsymbol{q}_{i}$ but only of the relative positions $\tilde{\boldsymbol{q}}_{i j},(i, j) \in \mathcal{E}^{*}$ and that the control objective is to regulate $\left\|\tilde{q}_{i j}\right\|$.
 
 Since we are only concerned with the inter-agent distances, any coordinate frame can be used to implement $\boldsymbol{u}_{i}$. That is, although the above analysis was done with the variables defined with respect to a common, fixed coordinate frame for convenience, [$(2.20)$](#eq-2.20) can be implemented in practice with respect to the $i^\text{th}$ agent's own local coordinate frame. This means that the agents do not need to have a common sense of orientation and [$(2.20)$](#eq-2.20) is rotationally invariant. To see this, let $\mathcal{F}_{0}$ and $\mathcal{F}_{i}$ denote the Earth-fixed coordinate frame and the local coordinate frame of the $i^\text{th}$ agent, respectively (see [Figure 2.2](#fig-2.2)). If $\mathcal{R}_{i}^{0} \in \mathbb{R}^{m}$ denotes the rotation matrix representing the orientation of $\mathcal{F}_{i}$ with respect to $\mathcal{F}_{0}$, we have that
 
@@ -476,10 +476,10 @@ which is the same as [$(2.7)$](#eq-2.7) without the control gain. That is, since
 
 In this section, we solve the formation maneuvering problem defined in Section 1.4 using model [$(2.1)$](#eq-2.1). Since formation acquisition is embedded in the formation maneuvering problem, we use [$(2.12)$](#eq-2.12) as the starting point. The control law here will take the form $\boldsymbol{u}_{i}=\boldsymbol{u}_{i}\left(\tilde{\boldsymbol{q}}_{i j}, d_{i j}, \boldsymbol{v}_{d i}\right), i=1, \ldots, n$ and $j \in \mathcal{N}_{i}\left(\mathcal{E}^{*}\right)$ where $\boldsymbol{v}_{d i}(t)$, which was defined in [$(1.4)$](#eq-1.4), is a bounded continuous function.
 
-<span id="theorem-2.2"></span>
+<span id="thm-2.2"></span>
 
 > [!caution] Theorem 2.2
-> Consider the formation $\mathcal{F}(t)=\left(\mathcal{G}^{*}, \boldsymbol{q}(t)\right)$ with the initial conditions on $\boldsymbol{e}(0)$ given in [Theorem 2.1](#theorem-2.1). Then, the control
+> Consider the formation $\mathcal{F}(t)=\left(\mathcal{G}^{*}, \boldsymbol{q}(t)\right)$ with the initial conditions on $\boldsymbol{e}(0)$ given in [Theorem 2.1](#thm-2.1). Then, the control
 >
 > <span id="eq-2.23"></span>
 >
@@ -521,7 +521,7 @@ R_\mathcal{D}(\tilde{\boldsymbol{q}}) \boldsymbol{v}_{d}=0 . \tag{2.26}
 \end{equation*}
 $$
 
-Therefore, the proof of [Theorem 2.1](#theorem-2.1) can be directly followed to show that $\boldsymbol{e}=0$ is exponentially stable for $\boldsymbol{e}(0) \in \Omega_{1} \cap \Omega_{2}$ and [$(1.2)$](#eq-1.2) holds.
+Therefore, the proof of [Theorem 2.1](#thm-2.1) can be directly followed to show that $\boldsymbol{e}=0$ is exponentially stable for $\boldsymbol{e}(0) \in \Omega_{1} \cap \Omega_{2}$ and [$(1.2)$](#eq-1.2) holds.
 
 From [$(2.9)$](#eq-2.9) it is clear that $\boldsymbol{z} \rightarrow 0$ as $\boldsymbol{e} \rightarrow 0$. The exponential stability of $\boldsymbol{e}=0$ implies that $\tilde{\boldsymbol{q}}$ is bounded from [$(2.6)$](#eq-2.6). Therefore, $R_\mathcal{D}(\tilde{\boldsymbol{q}})$ is bounded and we know from [$(2.23)$](#eq-2.23) and [$(2.15)$](#eq-2.15) that
 
@@ -575,10 +575,10 @@ $$
 
 $\boldsymbol{u}_{a}$ was defined in [$(2.15)$](#eq-2.15), $\hat{\boldsymbol{v}}=\left[\hat{\boldsymbol{v}}_{1}, \ldots, \hat{\boldsymbol{v}}_{n}\right] \in \mathbb{R}^{m n}$ contains the velocity estimates for each agent, and $\alpha>0$ is a user-defined observer gain.
 
-<span id="theorem-2.3"></span>
+<span id="thm-2.3"></span>
 
 >[!caution] Theorem 2.3
-> Consider the formation $\mathcal{F}(t)=\left(\mathcal{G}^{*}, \boldsymbol{q}(t)\right)$ with the initial conditions in [Theorem 2.1](#theorem-2.1). Then, the controller-observer scheme [$(2.28)$](#eq-2.28) with any $\hat{\boldsymbol{v}}(0)$ renders $\boldsymbol{e}=\boldsymbol{0}$ **asymptotically stable** and ensures that [$(1.2)$](#eq-1.2) and [$(1.4)$](#eq-1.4) are satisfied with $\boldsymbol{v}_{d i}=\boldsymbol{v}_{0}, i=1, \ldots, n$.
+> Consider the formation $\mathcal{F}(t)=\left(\mathcal{G}^{*}, \boldsymbol{q}(t)\right)$ with the initial conditions in [Theorem 2.1](#thm-2.1). Then, the controller-observer scheme [$(2.28)$](#eq-2.28) with any $\hat{\boldsymbol{v}}(0)$ renders $\boldsymbol{e}=\boldsymbol{0}$ **asymptotically stable** and ensures that [$(1.2)$](#eq-1.2) and [$(1.4)$](#eq-1.4) are satisfied with $\boldsymbol{v}_{d i}=\boldsymbol{v}_{0}, i=1, \ldots, n$.
 
 **Proof**:
 <details>
@@ -651,7 +651,7 @@ $$
 \end{align*}
 $$
 
-where we used the fact that $\hat{\boldsymbol{v}}_{i}-\hat{\boldsymbol{v}}_{j}=\tilde{\boldsymbol{v}}_{i}-\tilde{\boldsymbol{v}}_{j}, \mathbf{B}:=\operatorname{diag}\left(b_{1}, \ldots b_{n}\right), \mathcal{L}$ is the Laplacian matrix defined in [$(1.4)$](#eq-1.4), and $\mathbf{M}:=\mathcal{L}+\mathbf{B}$ is symmetric. Our overall closed-loop system is composed of two interconnected subsystems, [$(2.34)$](#eq-2.34) and [$(2.35)$](#eq-2.35), which are in the form of [$(1.6)$](#eq-1.6). Notice that [$(2.34)$](#eq-2.34) with $\tilde{\boldsymbol{v}}=0$ is input-to-state stable by [Theorem 1.2](#theorem-1.2) since it reduces to the closed-loop system analyzed in [Theorem 2.1](#theorem-2.1). Since the graph of a rigid framework is always connected, we know that $\mathcal{G}^{*}$ is connected. Therefore, we know from Lemmas 1.1 and nonautonomous (time-varying) system $\dot{\boldsymbol{x}}=f(\boldsymbol{x},t), \quad \boldsymbol{x}(t_0)=\boldsymbol{x}_0$ that $\mathbf{M}$ and $\mathbf{M} \otimes \mathbf{I}_{m}$ are positive definite, respectively. It then follows from [$(2.35)$](#eq-2.35) that $\tilde{\boldsymbol{v}}=0$ is exponentially stable. We can now invoke [Theorem 1.3](#theorem-1.3) to claim that $(\boldsymbol{z}, \tilde{\boldsymbol{v}})=0$ is an asymptotically stable equilibrium point of the interconnected system. Since $\boldsymbol{z}=0$ if and only if $\boldsymbol{e}=0$, we know $\boldsymbol{e}=0$ is asymptotically stable. Finally, by virtue of the initial conditions, we know that $\mathcal{F}(t) \rightarrow \operatorname{Iso}\left(\mathcal{F}^{*}\right)$ as $t \rightarrow \infty$ as argued in the proof of [Theorem 2.1](#theorem-2.1).
+where we used the fact that $\hat{\boldsymbol{v}}_{i}-\hat{\boldsymbol{v}}_{j}=\tilde{\boldsymbol{v}}_{i}-\tilde{\boldsymbol{v}}_{j}, \mathbf{B}:=\operatorname{diag}\left(b_{1}, \ldots b_{n}\right), \mathcal{L}$ is the Laplacian matrix defined in [$(1.4)$](#eq-1.4), and $\mathbf{M}:=\mathcal{L}+\mathbf{B}$ is symmetric. Our overall closed-loop system is composed of two interconnected subsystems, [$(2.34)$](#eq-2.34) and [$(2.35)$](#eq-2.35), which are in the form of [$(1.6)$](#eq-1.6). Notice that [$(2.34)$](#eq-2.34) with $\tilde{\boldsymbol{v}}=0$ is input-to-state stable by [Theorem 1.2](#thm-1.2) since it reduces to the closed-loop system analyzed in [Theorem 2.1](#thm-2.1). Since the graph of a rigid framework is always connected, we know that $\mathcal{G}^{*}$ is connected. Therefore, we know from Lemmas 1.1 and nonautonomous (time-varying) system $\dot{\boldsymbol{x}}=f(\boldsymbol{x},t), \quad \boldsymbol{x}(t_0)=\boldsymbol{x}_0$ that $\mathbf{M}$ and $\mathbf{M} \otimes \mathbf{I}_{m}$ are positive definite, respectively. It then follows from [$(2.35)$](#eq-2.35) that $\tilde{\boldsymbol{v}}=0$ is exponentially stable. We can now invoke [Theorem 1.3](#thm-1.3) to claim that $(\boldsymbol{z}, \tilde{\boldsymbol{v}})=0$ is an asymptotically stable equilibrium point of the interconnected system. Since $\boldsymbol{z}=0$ if and only if $\boldsymbol{e}=0$, we know $\boldsymbol{e}=0$ is asymptotically stable. Finally, by virtue of the initial conditions, we know that $\mathcal{F}(t) \rightarrow \operatorname{Iso}\left(\mathcal{F}^{*}\right)$ as $t \rightarrow \infty$ as argued in the proof of [Theorem 2.1](#thm-2.1).
 
 Finally, due to the asymptotic stability of $\boldsymbol{e}=0$, we know $\boldsymbol{u}_{a}(t) \rightarrow 0$ as $t \rightarrow \infty$ and therefore from [$(2.28a)$](#eq-2.28) that $\boldsymbol{u}(t)-\hat{\boldsymbol{v}}(t) \rightarrow 0$ as $t \rightarrow \infty$. Since $\tilde{\boldsymbol{v}}_{i}(t)=\hat{\boldsymbol{v}}_{i}(t)- \boldsymbol{v}_{0} \rightarrow 0$ as $t \rightarrow \infty$, then we know from [$(2.1)$](#eq-2.1) that [$(1.4)$](#eq-1.4) holds. Q.E.D. <div style="text-align: right;">$\square$</div>
 </details>
@@ -735,9 +735,9 @@ $$
 \end{align*}
 $$
 
-By choosing $\alpha>\gamma$, we get that $\dot{W}_{f}$ is negative definite. Therefore, from [Theorem 1.4](#theorem-1.4), we know that $\tilde{\boldsymbol{v}}=0$ is asymptotically stable.
+By choosing $\alpha>\gamma$, we get that $\dot{W}_{f}$ is negative definite. Therefore, from [Theorem 1.4](#thm-1.4), we know that $\tilde{\boldsymbol{v}}=0$ is asymptotically stable.
 
-Now the proof that [$(2.15)$](#eq-2.15) and [$(2.36)$](#eq-2.36) guarantee that [$(1.2)$](#eq-1.2) and [$(1.4)$](#eq-1.4) are satisfied directly follows from the proof of [Theorem 2.3](#theorem-2.3).
+Now the proof that [$(2.15)$](#eq-2.15) and [$(2.36)$](#eq-2.36) guarantee that [$(1.2)$](#eq-1.2) and [$(1.4)$](#eq-1.4) are satisfied directly follows from the proof of [Theorem 2.3](#thm-2.3).
 
 ### Target Interception with Unknown Target Velocity
 
@@ -767,7 +767,7 @@ where $k_{1}, k_{2}>0$ are user-defined control gains. This mechanism allows one
 
 Before presenting the control law, a lemma is related to [$(2.45)$](#eq-2.45) is introduced.
 
-<span id="lemma-2.2"></span>
+<span id="lem-2.2"></span>
 
 >[!tip] Lemma 2.2
 > Let
@@ -856,7 +856,7 @@ when $k_{2}$ is selected according to [$(2.47)$](#eq-2.47). Q.E.D. <div style="t
 </details>
 
 >[!caution] Theorem 2.4
-> Consider the formation $\mathcal{F}(t)=\left(\mathcal{G}^{*}, \boldsymbol{q}(t)\right)$ with the initial conditions on $e(0)$ given in [Theorem 2.1](#theorem-2.1). Then, the control
+> Consider the formation $\mathcal{F}(t)=\left(\mathcal{G}^{*}, \boldsymbol{q}(t)\right)$ with the initial conditions on $e(0)$ given in [Theorem 2.1](#thm-2.1). Then, the control
 >
 > <span id="eq-2.53"></span>
 >
@@ -889,7 +889,7 @@ $$
 \end{equation*}
 $$
 
-Due to Property in the [Infinitesimal Rigidity](./1distance.md#infinitesimal-rigidity), the second term on the right-hand side of [$(2.55)$](#eq-2.55) disappears and the proof of [Theorem 2.1](#theorem-2.1) can be again followed to prove the exponential stability of $e=0$ and [$(1.2)$](#eq-1.2).
+Due to Property in the [Infinitesimal Rigidity](./1distance.md#infinitesimal-rigidity), the second term on the right-hand side of [$(2.55)$](#eq-2.55) disappears and the proof of [Theorem 2.1](#thm-2.1) can be again followed to prove the exponential stability of $e=0$ and [$(1.2)$](#eq-1.2).
 
 We now proceed to prove [$(1.5)$](#eq-1.5). From [$(2.53)$](#eq-2.53) and [$(2.54)$](#eq-2.54), we have that the leader control input is[^2.4]
 
@@ -1048,7 +1048,7 @@ $$
 with elements ordered as $r_\mathcal{G}$. We assume $\boldsymbol{d}_{i j}$ is a continuously differentiable function of time and $\boldsymbol{d}_{i j}(t), \dot{\boldsymbol{d}}_{i j}(t) \in \mathcal{L}_{\infty}$. The presence of the extra term, $\boldsymbol{d}_{v}$, in the derivative of the Lyapunov function candidate will dictate a different control structure.
 
 >[!caution] Theorem 2.5
-> Consider the formation $\mathcal{F}(t)=\left(\mathcal{G}^{*}, \boldsymbol{q}(t)\right)$ with the initial conditions given in [Theorem 2.1](#theorem-2.1). The control law
+> Consider the formation $\mathcal{F}(t)=\left(\mathcal{G}^{*}, \boldsymbol{q}(t)\right)$ with the initial conditions given in [Theorem 2.1](#thm-2.1). The control law
 >
 > <span id="eq-2.71"></span>
 >
@@ -1058,13 +1058,13 @@ with elements ordered as $r_\mathcal{G}$. We assume $\boldsymbol{d}_{i j}$ is a 
 >
 > where $R^{\dagger}_\mathcal{D}(\tilde{\boldsymbol{q}})=R^{\top}_\mathcal{D}(\tilde{\boldsymbol{q}})\left[R_\mathcal{D}(\tilde{\boldsymbol{q}}) R^{\top}_\mathcal{D}(\tilde{\boldsymbol{q}})\right]^{-1}$ is the Moore-Penrose pseudoinverse, yields $\boldsymbol{e}=0$ exponentially stable and guarantees that [$(2.66)$](#eq-2.66) is satisfied.
 
-The proof of this theorem is nearly identical to the proof of [Theorem 2.1](#theorem-2.1) so the details are omitted. The main difference is that, since $R_\mathcal{D}(\tilde{\boldsymbol{q}})$ has full row rank for $\boldsymbol{e}(t) \in \Omega_{1}$, then $R_\mathcal{D}(\tilde{\boldsymbol{q}}) R^{\dagger}_\mathcal{D}(\tilde{\boldsymbol{q}})=\mathbf{I}$ for $\boldsymbol{e}(t) \in \Omega_{1}$. Therefore, substituting [$(2.71)$](#eq-2.71) into [$(2.69)$](#eq-2.69) yields
+The proof of this theorem is nearly identical to the proof of [Theorem 2.1](#thm-2.1) so the details are omitted. The main difference is that, since $R_\mathcal{D}(\tilde{\boldsymbol{q}})$ has full row rank for $\boldsymbol{e}(t) \in \Omega_{1}$, then $R_\mathcal{D}(\tilde{\boldsymbol{q}}) R^{\dagger}_\mathcal{D}(\tilde{\boldsymbol{q}})=\mathbf{I}$ for $\boldsymbol{e}(t) \in \Omega_{1}$. Therefore, substituting [$(2.71)$](#eq-2.71) into [$(2.69)$](#eq-2.69) yields
 
 $$
 \dot{W}=-k_{v} \boldsymbol{z}^{\top} \boldsymbol{z}=-4 k_{v} W \quad \text { for } \boldsymbol{e}(t) \in \Omega_{1} . \tag{2.72}
 $$
 
-From this point on, the proof of [Theorem 2.1](#theorem-2.1) can be directly followed to show that [$(2.66)$](#eq-2.66) holds for $\boldsymbol{e}(0) \in \Omega_{1} \cap \Omega_{2}$.
+From this point on, the proof of [Theorem 2.1](#thm-2.1) can be directly followed to show that [$(2.66)$](#eq-2.66) holds for $\boldsymbol{e}(0) \in \Omega_{1} \cap \Omega_{2}$.
 
 A fundamental difference exists in the implementation of (2.71) in comparison to the previous controllers of this chapter. Namely, the matrix $R^{\dagger}_\mathcal{D}(\tilde{\boldsymbol{q}})$ couples the variables such that $\boldsymbol{u}_{i}=\boldsymbol{u}_{i}\left(\tilde{\boldsymbol{q}}_{i j}, \boldsymbol{d}_{i j}, \dot{\boldsymbol{d}}_{i j}\right), i=1, \ldots, n$ and $(i, j) \in \mathcal{E}^{*}$. That is, unlike in the previous cases where $j \in \mathcal{N}_{i}\left(\mathcal{E}^{*}\right)$ for the $i^\text{th}$ input, here each input is dependent on all $(i, j) \in \mathcal{E}^{*}$ variables.
 
@@ -1078,7 +1078,7 @@ $$
 \end{equation*}
 $$
 
-where $\boldsymbol{v}_{d}$ was defined in [$(2.24)$](#eq-2.24). It is straightforward to show that [$(2.73)$](#eq-2.73) ensures [$(1.4)$](#eq-1.4) properties by following the proof of [Theorem 2.2](#theorem-2.2).
+where $\boldsymbol{v}_{d}$ was defined in [$(2.24)$](#eq-2.24). It is straightforward to show that [$(2.73)$](#eq-2.73) ensures [$(1.4)$](#eq-1.4) properties by following the proof of [Theorem 2.2](#thm-2.2).
 
 ### Notes
 **The directionality of the information exchange among agents** is an important design factor. This issue is of practical importance since it relates to **the number of communication, sensing, and/or control channels of the multi-agent system**.
@@ -1111,4 +1111,4 @@ TBC
 
 ----
 
-> [1] Marcio de Queiroz, Xiaoyu Cai, and Matthew Feemster, *Formation Control of Multi-Agent Systems: A Graph Rigidity Approach*. USA: John Wiley & Sons, Ltd, 2019. Accessed: Dec. 31, 2025.
+> 1. Marcio de Queiroz, Xiaoyu Cai, and Matthew Feemster, *[*Formation Control of Multi-Agent Systems: A Graph Rigidity Approach](https://onlinelibrary.wiley.com/doi/book/10.1002/9781118887455)*. USA: John Wiley & Sons, Ltd, 2019. Accessed: Dec. 31, 2025: Section 2.

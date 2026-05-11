@@ -19,7 +19,7 @@ $$
 
 ### Why do we need Laplace Transform for solving ODE?
 
-<img src="/math_em8_1_laplace.png" alt="Why using laplace transform" width="100%" align="center">
+<img src="./images/2laplace_1_laplace.png" alt="Why using laplace transform" width="100%" align="center">
 
 ### The Formulation of Laplace Transform
 ::: warning Definition: Laplace Transform
@@ -239,7 +239,7 @@ v=t-u, \quad \mathrm{d} v=\mathrm{d} t,
 \end{align*}
 > $$
 > 
-> <img src="/math_em8_2_conv.png" alt="conv" width="100%" align="center">
+> <img src="./images/2laplace_2_conv.png" alt="conv" width="100%" align="center">
 
 ## Inversion of Laplace Transform
 ### Inverse of the Laplace Transform
@@ -381,7 +381,7 @@ e^{-2 t}(\cos t-2 \sin t) .
 $$
 
 #### Example3: Solving the following ODE with Laplace Transform [core]
-<img src="/math_em8_3_vibration.png" alt="vibration model" width="100%" align="center">
+<img src="./images/2laplace_3_vibration.png" alt="vibration model" width="100%" align="center">
 
 Forced vibration:
 $$

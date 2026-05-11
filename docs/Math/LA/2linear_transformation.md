@@ -291,6 +291,8 @@ is linearly independent in $\mathbb{R}^3$.
 Let $\mathsf{V}$ and $\mathsf{W}$ be vector spaces over $F$, and suppose that $\{v_1,v_2,\cdots,v_n\}$ is a basis for $\mathsf{V}$. For $w_1,w_2,\cdots,w_n$ in $\mathsf{W}$, there exists **exactly one linear transformation**: $\mathsf{T:V}\to\mathsf{W}$ s.t. $\mathsf{T}(v_i)=w_i$,for $i=1,2,\cdots,n$.
 :::
 
+<span id="corollary-thm-2.6"></span>
+
 ::: tip Corollary
 Let $\mathsf{V}$ and $\mathsf{W}$ be vector spaces, and suppose that $\mathsf{V}$ has a finite basis $\{v_1,v_2,\cdots,v_n\}$. If $\mathsf{U,T:V}\to\mathsf{W}$ are linear and $\mathsf{U}(v_i)=\mathsf{T}(v_i)$ for $i=1,2,\cdots,n$, then $\mathsf{U=T}$.
 :::
@@ -345,7 +347,7 @@ If $\mathsf{V=W}$ and $\beta=\gamma$, then we write $A=[\mathsf
 T]_\beta$.
 :::
 
-Notice that the jth column of $A$ is simply $[\mathsf{T}(v_j)]_\gamma$. Also observe that if $\mathsf{U:V}\to\mathsf{W}$ is a linear transformation s.t. $[\mathsf{U}]_\beta^\gamma = [\mathsf{T}]_\beta^\gamma$, then $\mathsf{U=T}$ by the corollary to [theorem 2.6](#theorem-2-6).
+Notice that the jth column of $A$ is simply $[\mathsf{T}(v_j)]_\gamma$. Also observe that if $\mathsf{U:V}\to\mathsf{W}$ is a linear transformation s.t. $[\mathsf{U}]_\beta^\gamma = [\mathsf{T}]_\beta^\gamma$, then $\mathsf{U=T}$ by the [Corollary to Theorem 2.6](#corollary-thm-2.6).
 
 #### Example 2.2.3: matrix representation for tuples
 
@@ -964,7 +966,7 @@ Consider the following two composites of linear transformations that map $\maths
 
 2. Map $\mathsf{V}$ into $\mathsf{W}$ with $\mathsf{T}$ and follow it by $\phi_\gamma$ to obtain the composite $\phi_\gamma \mathsf{T}$.
 
-<img src="/math_em_2_1_diagram.png" alt="diagram" width="100%" align="middle">
+<img src="./images/2lt_1_diagram.png" alt="diagram" width="100%" align="middle">
 
 These 2 composites are depictedby the dashed arrows in the diagram. By a simple reformulation of Theorem 2.14, we may conclude that 
 
@@ -1028,7 +1030,7 @@ $$
 \mathsf{L}_A \phi_\beta(p(x)) = \phi_\gamma \mathsf{T}(p(x))
 $$
 
-<img src="/math_em_2_2_diagram_example.png" alt="diagram" width="100%" align="middle">
+<img src="./images/2lt_2_diagram_example.png" alt="diagram" width="100%" align="middle">
 
 ## 2.5 The Change of Coordinate Matrix
 
@@ -1141,7 +1143,7 @@ $$
 So
 
 $$
-    [\mathsf{T}]_\beta &= 
+    [\mathsf{T}]_\beta = 
     \frac12 
     \begin{pmatrix}
       1 & 1\\
@@ -1300,6 +1302,8 @@ $$
 $$
 
 ### Corollary of Theorem 2.23
+<span id="corollary-thm-2.23"></span>
+
 ::: tip Corollary
 Let $A \in \mathsf{M}_{n\times n}(F)$, and let $\gamma$ be an ordered basis for $\mathsf{F}^n$. Then  
 

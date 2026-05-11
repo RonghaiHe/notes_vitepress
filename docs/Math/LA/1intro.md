@@ -133,7 +133,7 @@ Example of group:
     - $f$: reflection
     - $r\cdot f \neq f\cdot r$
   
-  <img src="/math_em1_dihedral.png" alt="plae" width="100%">
+  <img src="./images/1intro_dihedral.png" alt="plae" width="100%">
 
 ### Ring
 Given:

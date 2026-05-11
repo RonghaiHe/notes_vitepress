@@ -178,6 +178,8 @@ $$
 is the **Euclidean** definition of length. Note that if $n = 1$, we have $\|a\| = |a|$.
 
 ### Theorem 6.2
+<span id="thm-6.2"></span>
+
 ::: danger Theorem 6.2
 Let $\mathsf{V}$ be an inner product space over $F$. Then for all $x, y \in \mathsf{V}$ and $c \in F$, the following statements are true.
 
@@ -189,7 +191,7 @@ Let $\mathsf{V}$ be an inner product space over $F$. Then for all $x, y \in \mat
 
 #### Example 6.1.7
 
-For $\mathsf{F}^n$, we may apply 3rd and 4th of [Theorem 6.2](#theorem-6-2) to the standard inner product to obtain the following well-known inequalities:
+For $\mathsf{F}^n$, we may apply 3rd and 4th of [Theorem 6.2](#thm-6.2) to the standard inner product to obtain the following well-known inequalities:
 $$
 \left|\sum_{i=1}^n a_i \bar{b}_i\right| \leq\left[\sum_{i=1}^n\left|a_i\right|^2\right]^{1 / 2}\left[\sum_{i=1}^n\left|b_i\right|^2\right]^{1 / 2}
 $$
@@ -268,6 +270,8 @@ $$
 :::
 
 #### Corollary of Theorem 6.3
+<span id="corollary-thm-6.3"></span>
+
 ::: tip Corollary
 1. If, in addition to the hypotheses of Theorem 6.3, $S$ is **orthonormal** and $y \in \operatorname{span}(S)$, then
 
@@ -285,7 +289,7 @@ For Corollary 1: If $\mathsf{V}$ possesses a finite orthonormal basis, then Coro
 By Corollary 2, the orthonormal set 
 $$\left\{\frac{1}{\sqrt{2}}(1,1,0), \frac{1}{\sqrt{3}}(1,-1,1), \frac{1}{\sqrt{6}}(-1,1,2)\right\}$$
 
-obtained in [Example 6.1.8](#example-6-1-8) is an orthonormal basis for $\mathbb{R}^3$. Let $x = (2,1,3)$. The coefficients given by [Corollary 1](#corollary-of-theorem-6-3) to Theorem 6.3 that express $x$ as a linear combination of the basis vectors are
+obtained in [Example 6.1.8](#example-6-1-8) is an orthonormal basis for $\mathbb{R}^3$. Let $x = (2,1,3)$. The coefficients given by [Corollary 1 to Theorem 6.3](#corollary-thm-6.3) that express $x$ as a linear combination of the basis vectors are
 
 $$
 a_1 = \frac{\langle x, v_1\rangle}{\|v_1\|^2} = \frac{2+1}{\sqrt{2}}, \quad a_2 = \frac{2-1+3}{\sqrt{3}}, \quad a_3 = \frac{-2+1+6}{\sqrt{6}}.
@@ -301,7 +305,7 @@ $$
 
 Before stating this theorem, let us consider a simple case. Suppose that $\{w_1, w_2\}$ is a linearly independent subset of an inner product space (and hence a basis for some two-dimensional subspace). We want to construct an orthogonal set from $\{w_1, w_2\}$ that spans the same subspace. 
 
-<img src="/math_em6_1_gs.png" alt="gram-schmidt" width="100%" align="middle">
+<img src="./images/6in_1_gs.png" alt="gram-schmidt" width="100%" align="middle">
 
 Figure 6.1 suggests that the set $\{v_1, v_2\}$, where $v_1 = w_1$ and $v_2 = w_2 - c w_1$, has this property if $c$ is chosen so that $v_2$ is orthogonal to $w_1$. To find $c$, we solve
 
@@ -495,7 +499,7 @@ Consider the problem in $\mathbb{R}^3$ of finding the distance from a point $P$ 
 
 Determine the vector $\boldsymbol{u}$ in $\mathsf{W}$ that is "**closest**" to $y$. The desired distance is clearly given by $\|\boldsymbol{y} - \boldsymbol{u}\|$. Notice from the figure that the vector $\boldsymbol{z} = \boldsymbol{y} - \boldsymbol{u}$ is orthogonal to every vector in $\mathsf{W}$, so $\boldsymbol{z} \in \mathsf{W}^\perp$.
 
-<img src="/math_em6_2_perp_plane.png" alt="perp_plane" width="100%" align="middle">
+<img src="./images/6in_2_perp_plane.png" alt="perp_plane" width="100%" align="middle">
 
 ### Orthogonal projection
 ::: danger Theorem 6.6
@@ -507,7 +511,7 @@ $$
 
 :::
 
-P.S. From [Corollary 1](#corollary-of-theorem-6-3) of Theorem 6.3: 
+P.S. From [Corollary 1](#corollary-of-thm-6-3) of Theorem 6.3: 
 $$
 u = \sum_{i=1}^k \langle u, v_i\rangle v_i.
 $$

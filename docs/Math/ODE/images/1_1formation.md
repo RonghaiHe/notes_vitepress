@@ -33,7 +33,7 @@ Suppose that a 2D undirected graph is **rigid**. Can we **assign edge directions
 The **simplest algorithm** for assigning directions in a minimally rigid graph is to consider the associated **undirected graph** and determine a **Henneberg sequence** that generates it. Then directions can be assigned to the edges that are added at each step, using the rule that any vertex can have **no more than two outgoing edges**. Such a directed graph is termed **minimally persistent**. Minimally persistent graphs are precisely those that are minimally rigid and constraint consistent.
 
 <figure>
-   <img src="/frontiers_rigidity_1_3_persistent.png" alt="Persistent Graphs" width="100%" align="center">
+   <img src="./images/1dist_3-persistent.png" alt="Persistent Graphs" width="100%" align="center">
    <div align="center"><figcaption> Figure 3: Persistent graphs. (a) depicts a persistent wheel graph, while (b) illustrates a persistent C^2 graph, a generalization of a graph comprising a single cycle, obtained by inserting edges between two-hop neighbors of the original cycle. The persistence property follows from the fact that both graphs are rigid as well as the fact that no vertex has an out-degree larger than two. The direction assignment can be generalized to all wheel and C^2 graphs. A wheel graph is a convenient abstraction for a formation that has one of its agents as a commander or leader; a C^2 graph abstracts the reverse situation, in that all agents have the same task, and none is a leader.</figcaption></div>
 </figure>
 
@@ -46,15 +46,14 @@ The broad conclusion is that the technique can be applied, so long as the primit
 
 More than one operation is possible, with the simplest possible operation being **edge-reversal**, that is, **reversing the direction** of one edge arriving at a vertex that has $1$ or $2$ DoF.
 
-::: warning Definition: degree of freedom(DoF)
-In 2D, a vertex is said to have $2$, $1$, or $0$ DoF if it has $0,1$, or at least $2$ outgoing edges; each outgoing edge uses up $1$ DoF. A direct generalization applies in 3D, where an agent can have up to $3$ DoF.
-:::
+> [!warning] Definition: degree of freedom(DoF)
+> In 2D, a vertex is said to have $2$, $1$, or $0$ DoF if it has $0,1$, or at least $2$ outgoing edges; each outgoing edge uses up $1$ DoF. A direct generalization applies in 3D, where an agent can have up to $3$ DoF.
 
 ## Extension of the Persistence Concept to 3D Formations
 In 3D, most of the consistence and persistence ideas described above carry through. However, these extensions involve the **behavior of subsets of agents**, as opposed to individual agents or vertices. For $3$ and indeed higher dimensions, the concept of **structural persistence** is required.
 
 <figure>
-   <img src="/frontiers_rigidity_1_4_structural.png" alt="Structural Persistence" width="100%" align="center">
+   <img src="./images/1dist_4-structural.png" alt="Structural Persistence" width="100%" align="center">
    <div align="center"><figcaption> Figure 4: Persistence and structural persistence. According to the theoretical characterization of persistence, this 3D formation is persistent because it can be proved to be rigid and none of its agents has an out-degree larger than three. This formation, however, does not qualify as a persistent formation according to the intuitive meaning that we give to persistence. Agents 1 and 2 are indeed not responsible for the maintenance of any distance and can move freely. Suppose that agents 1 and 2 move in such a way that the distance between them changes. Then agents 3, 4, and 5 cannot simultaneously satisfy all of the constraints that they are responsible for, although each of them could individually satisfy its three constraints if the positions of all other agents remained fixed. This paradox is solved by introducing the concept of structural persistence, which, in addition to considering the behavior of each agent, considers the behavior of groups of agents. The formation depicted here is persistent but not structurally persistent.</figcaption></div>
 </figure>
 
@@ -80,7 +79,7 @@ Apart from rigidity preservation, the successful execution of these maneuvers re
 Consider a single rigid formation. Splitting refers to the division of the set of agents into **two subsets**, along with **suppression of the distance constraints** between agent pairs when the agents are in **different subsets**. Reasons for splitting include a **change of objective or obstacle avoidance**. See Figure 5 for an illustration of the problem.
 
 <figure>
-   <img src="/frontiers_rigidity_1_5_splitting.png" id="fig-15-splitting" alt="Formation Splitting"  width="100%" align="center">
+   <img src="./images/1dist_5-splitting.png" id="fig-15-splitting" alt="Formation Splitting"  width="100%" align="center">
    <div align="center"><figcaption> Figure 5: Formation splitting to avoid obstacles. Some distance constraints in (a) are removed (b) to separate the agents into two independent groups. The two formations obtained are not necessarily rigid, although rigidity can always be regained as in (c) by adding connections within each formation between agents that, in the original formation, are incident to the removed edges.</figcaption></div>
 </figure>
 
@@ -92,7 +91,7 @@ Additionally, we could consider **variations of the problem**. For example, we c
 Consider two rigid formations. Merging requires the determination of **additional distance constraints** linking agent pairs with one agent drawn from each formation, such that the union of the agents of the two formations, along with the union of the distance constraints in the original formations and the new distance constraints, describes a single rigid formation. Figure 6 illustrates the problem.
 
 <figure>
-   <img src="/frontiers_rigidity_1_6_merging.png" alt="Formation Merging" width="100%" align="center">
+   <img src="./images/1dist_6-merging.png" alt="Formation Merging" width="100%" align="center">
    <div align="center"><figcaption> Figure 6: Formation merging. (a) Two distinct rigid formations are merged into the larger rigid formation (b) by inserting three interconnecting edges. At least three interconnecting edges are needed, and merging to secure a larger rigid formation can always be achieved using exactly three interconnecting edges. In that case, the formation obtained is rigid if and only if at least two distinct agents in each formation are incident to the new interconnecting edges.</figcaption></div>
 </figure>
 
@@ -100,7 +99,7 @@ Consider two rigid formations. Merging requires the determination of **additiona
 Consider a single rigid formation. Suppose that one agent is removed, and, consequently all distance constraints are lost between this agent and the remaining agents of the formation; see Figure 7. 
 
 <figure>
-   <img src="/frontiers_rigidity_1_7_closing_ranks.png" id="fig-17-closing_ranks" alt="Closing Ranks" width="100%" align="center">
+   <img src="./images/1dist_7-closing_ranks.png" id="fig-17-closing_ranks" alt="Closing Ranks" width="100%" align="center">
    <div align="center"><figcaption> Figure 7: Closing ranks. In the rigid formation in (a), agent 1 and all associated links are lost, and new links (5,3) and (4,3) are inserted as in (b) to reestablish rigidity. Agents 6 and 7 are not affected by the process. Rigidity can always be recovered after loss of one or more agents by appropriately connecting agents that are adjacent in the original formation to the lost agent(s).</figcaption></div>
 </figure>
 
@@ -148,7 +147,7 @@ If the merged graph must be **persistent** but **not necessarily minimally persi
 In 3D, if only **two agents** in the two persistent graphs have **positive DoF**, then the two graphs **cannot be merged** into a single **persistent** graph. However, in every other case, if **at least $6$ DoF** are available, **$6$ directed interconnection edges can always be chosen** to make the merged graph **persistent** and even **structurally persistent**.
 
 <figure>
-   <img src="/frontiers_rigidity_1_8_merging.png" alt="Merging Persistent Graphs" width="100%" align="center">
+   <img src="./images/1dist_8-merging.png" alt="Merging Persistent Graphs" width="100%" align="center">
    <div align="center"><figcaption> Figure 8: Merging persistent graphs. Two types of merging are illustrated, (a) leader-follower merging and (b) collaborative merging. In both cases, two persistent formations are merged into a larger persistent formation by inserting three directed interconnecting edges. For the obtained graph to be persistent, it is necessary to insert at least three edges and that the agents that these edges leave do not have an out-degree larger than two in the resulting formation. The formation is then persistent if and only if it is rigid. Under some conditions, alternative interconnecting edges are possible, but using these other possibilities is never necessary.</figcaption></div>
 </figure>
 
@@ -160,9 +159,9 @@ For 3D formations, structural persistence of the merged formation is also desire
 In 2D we have described a variation of Laman’s theorem describing the rigidity of a metaformation, obtained by connecting together metavertices or meta-agents. This result leads to the question of whether **the concept of a Henneberg sequence can be extended to metaformations**. Such a sequence could start with a single metavertex, or rigid formation, and involve the successive addition of meta-agents to the metaformation. Each addition would result in a metaformation that has the **minimal number of edges between metavertices** so as to guarantee rigidity of the overall metaformation. Indeed, such a construction is available. Analogues to the primitive operations of the standard Henneberg construction, namely, vertex addition and edge splitting, can be constructed. These operations are termed **metavertex addition** and **metaedge splitting**, respectively. See, for example, Figure 9. The construction can also be described by building on the results described in the previous section.
 
 <figure>
-   <img src="/frontiers_rigidity_1_9_meta_henn.png" alt="Meta-Henneberg's Method" width="100%" align="center">
+   <img src="./images/1dist_9-meta_henn.png" alt="Meta-Henneberg's Method" width="100%" align="center">
    <div align="center"><figcaption> Figure 9: Merging three two-dimensional formations. Two possible ways to merge three rigid two-dimensional formations are illustrated. In the first step, G ′ is obtained by connecting G1 to G2 with three interconnecting edges. This operation is called meta-vertex addition. G3 can then be merged with G ′ using metavertex addition as in (a) or by means of meta-edge splitting as in (b). In the latter case, one of the edges connecting G1 to G2 is split into two parts, which are reconnected to an agent in G3. Two additional edges are then inserted to connect G3 to G ′.</figcaption></div>
 </figure>
 
 ## References
-> 1. *[Rigid graph control architectures for autonomous formations](https://ieeexplore.ieee.org/abstract/document/4653105)* by **D. O. Anderson** etc.;
+> 1. **B. D. O. Anderson**, C. Yu, B. Fidan, and J. M. Hendrickx, *[Rigid graph control architectures for autonomous formations](https://ieeexplore.ieee.org/abstract/document/4653105)*, IEEE Control Syst. Mag., vol. 28, no. 6, pp. 48–63, Dec. 2008.
