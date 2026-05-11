@@ -461,6 +461,7 @@ $$
 $$
 
 which implies the row dependence in $R_\mathcal{A}(\boldsymbol{p})$ and dependent angles in $\boldsymbol{a}_\mathcal{G}(\boldsymbol{p})$. The cases in Figure 6(b) and (c) can be similarly obtained. Now, one has that dependent triplet elements in $\mathcal{A}$ ⇒ dependent angles in $\boldsymbol{a}_\mathcal{G}(\boldsymbol{p})$, which implies that independent angles in $\boldsymbol{a}_\mathcal{G}(\boldsymbol{p}) \Rightarrow$ independent triplet elements in $\mathcal{A}$. So its angle set $\mathcal{A}$ has $2 n-4$ independent triplet elements. <div style="text-align: right;">$\square$</div>
+</details>
 
 Now we show the relationship between angle rigidity and infinitesimal angle rigidity.
 
@@ -708,8 +709,7 @@ g_{ik}^\top (p)g_{in}(p)&=g_{ik}^\top (q)\mathscr{H}_{g_{ij}^{\perp}(q)}\mathscr
 \end{split}
 $$
 
-Recall that $(i,k,n)\in\mathcal{T}_{\mathcal{L}_n}^\dagger$, we have $g_{ik}^\top (p)g_{in}(p)=g_{ik}^\top (q)g_{in}(q)$. Together with (\ref{gikgin}), it follows that $g_{ik}^\top (q)\mathscr{H}_{g_{ij}^{\perp}(q)}g_{in}(q)=g_{ik}^\top (q)g_{in}(q)$, which holds if and only if $g_{ij}(q)$ is collinear with either $g_{ik}(q)$ or $g_{in}(q)$, i.e., either $(q_i^\top ,q_j^\top ,q_k^\top )^\top $ or $(q_i^\top ,q_j^\top ,q_n^\top )^\top $ is degenerate, implying that either $(p_i^\top ,p_j^\top ,p_k^\top )^\top $ or $(p_i^\top ,p_j^\top ,p_n^\top )^\top $ is degenerate. This conflicts with strong nondegeneracy of $(\mathcal{L}_n,p)$.  Therefore, $\mathscr{R}_{n-1}=\mathscr{R}_{ijn}\triangleq\mathscr{R}_{n}$. That is, $g_{i'j'}(p)=\mathscr{R}_{n}g_{i'j'}(q)$ for any $(i',j')\in\mathcal{E}_n$. It follows that $f_{\mathcal{K}}(p)=~f_{\mathcal{K}}(q)$. Hence, $(\mathcal{L}_{n},p)$ with $\mathcal{T}_{\mathcal{L}_{n}}^*$ is globally angle rigid.
-</details> -->
+Recall that $(i,k,n)\in\mathcal{T}_{\mathcal{L}_n}^\dagger$, we have $g_{ik}^\top (p)g_{in}(p)=g_{ik}^\top (q)g_{in}(q)$. Together with (\ref{gikgin}), it follows that $g_{ik}^\top (q)\mathscr{H}_{g_{ij}^{\perp}(q)}g_{in}(q)=g_{ik}^\top (q)g_{in}(q)$, which holds if and only if $g_{ij}(q)$ is collinear with either $g_{ik}(q)$ or $g_{in}(q)$, i.e., either $(q_i^\top ,q_j^\top ,q_k^\top )^\top $ or $(q_i^\top ,q_j^\top ,q_n^\top )^\top $ is degenerate, implying that either $(p_i^\top ,p_j^\top ,p_k^\top )^\top $ or $(p_i^\top ,p_j^\top ,p_n^\top )^\top $ is degenerate. This conflicts with strong nondegeneracy of $(\mathcal{L}_n,p)$.  Therefore, $\mathscr{R}_{n-1}=\mathscr{R}_{ijn}\triangleq\mathscr{R}_{n}$. That is, $g_{i'j'}(p)=\mathscr{R}_{n}g_{i'j'}(q)$ for any $(i',j')\in\mathcal{E}_n$. It follows that $f_{\mathcal{K}}(p)=~f_{\mathcal{K}}(q)$. Hence, $(\mathcal{L}_{n},p)$ with $\mathcal{T}_{\mathcal{L}_{n}}^*$ is globally angle rigid.-->
 
 
 <figure>

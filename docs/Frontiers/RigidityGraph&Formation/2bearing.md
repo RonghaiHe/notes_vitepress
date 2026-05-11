@@ -547,6 +547,7 @@ We next give a useful lemma and then prove the **necessary and sufficient condit
 1. The result that $\operatorname{span}\{\mathbf{1} \otimes I_d, \boldsymbol{p}\} \subseteq \operatorname{Null}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p}))$ and $\operatorname{rank}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p})) \leqslant dn − d − 1$ can be proved similarly as Lemma 5.
 2. For any $\delta\boldsymbol{p}\in\operatorname{Null}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p}))$, we have $R^\mathcal{K}_\mathcal{B}(\boldsymbol{p})\delta\boldsymbol{p}=\mathbf{0}\Rightarrow R^\mathcal{K}_\mathcal{B}(\boldsymbol{p})(\boldsymbol{p} + \delta\boldsymbol{p})=\mathbf{0}$. As a result, $\mathcal{G}(\boldsymbol{p}+\delta\boldsymbol{p})$ is **bearing congruent** to $\mathcal{G}(\boldsymbol{p})$ by Theorem 5. Since bearing congruency implies bearing equivalency, we further know $R_\mathcal{B}(\boldsymbol{p})(\boldsymbol{p} + \delta\boldsymbol{p})=\mathbf{0}$ and hence $R_\mathcal{B}(\boldsymbol{p})\delta\boldsymbol{p}=\mathbf{0}$. Therefore, any $\delta\boldsymbol{p}$ in $\operatorname{Null}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p}))$ is also in $\operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$.
 3. Since $R_\mathcal{B}(\boldsymbol{p}),R^\mathcal{K}_\mathcal{B}(\boldsymbol{p})$ have the same column number, it follows immediately that $\operatorname{rank}(R_\mathcal{B}(\boldsymbol{p})) \leqslant \operatorname{rank}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p}))$. <div style="text-align: right;">$\square$</div>
+</details>
 
 > [!caution] Theorem 6: Condition for Global Bearing Rigidity
 > A framework $\mathcal{G}(\boldsymbol{p})$ in $\mathbb{R}^d$ is **globally bearing rigid** if and only if $\operatorname{Null}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p})) = \operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$ or equivalently $\operatorname{rank}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p})) = \operatorname{rank}(R_\mathcal{B}(\boldsymbol{p}))$.
@@ -792,7 +793,7 @@ TODO: Details of proof are in the Section IV of *[Laman graphs are generically b
 [Theorem 12](#thm-12) indicates that a framework with a **Laman graph** is infinitesimally bearing rigid for **almost all** configurations in $\mathbb{R}^d$ for any $d \geqslant 2$. It also indicates that $2n−3$ edges are **sufficient** to guarantee the infinitesimally bearing rigidity of a framework in an arbitrary dimension since a Laman graph has $2n − 3$ edges. For example, every framework in Figure 8 is infinitesimally bearing rigid in $\mathbb{R}^3$ and has merely $2n − 3$ edges. Figure 8 shows all the steps to construct a 3D infinitesimally bearing rigid framework.
 
 <figure>
-   <img src="./images/2bearing_8_procedure.jpg" alt="procedure" width="100%" align="center">
+   <img src="./images/2bearing_8-procedure.jpg" alt="procedure" width="100%" align="center">
    <div align="center"><figcaption> Figure 8: The procedure to construct a 3D infinitesimally bearing rigid framework. The number of edges in this framework is equal to 2n-3 = 13.</figcaption></div>
 </figure>
 
@@ -1177,7 +1178,7 @@ This proposition can be seen as a **generation** of the **dimensional invariance
 
 #### Examples
 <figure>
-   <img src="/frontiers_rigidity_2_10_equi.jpg" id="fig-10" alt="bearing persistence" width="100%" align="center">
+   <img src="./images/2bearing_10-equi.jpg" id="fig-10" alt="bearing persistence" width="100%" align="center">
    <div align="center"><figcaption> Figure 10: Examples of bearing equivalent formations modelled by directed graphs with cycles.</figcaption></div>
 </figure>
 

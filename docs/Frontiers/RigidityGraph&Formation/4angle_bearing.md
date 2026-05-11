@@ -212,7 +212,7 @@ The following theorem can now be stated.
 
 **Proof**:
 
-<detail>
+<details>
   <summary>Details of proof</summary>
 
 To prove Theorem 2, the proposed basis vectors are first shown to be in $\operatorname{null}\left(R_S(\boldsymbol{p})\right)$ and linearly independent. The proof then follows from Definition of infinitesimally shape-similar and [Theorem 1](#thm-1).
