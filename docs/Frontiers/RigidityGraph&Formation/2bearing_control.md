@@ -127,6 +127,8 @@ $$
 
 The matrix form of the control law is
 
+<span id="eq-2.6"></span>
+
 $$
 \dot{\boldsymbol{p}}_{f}(t)=-L_{\mathcal{B}_{f f}} \boldsymbol{p}_{f}(t)-L_{\mathcal{B}_{f l}} \boldsymbol{p}_{l}, \tag{2.6}
 $$
@@ -458,6 +460,8 @@ Q.E.D. <div style="text-align: right;">$\square$</div>
 
 > [!tip] Proposition 2 (Scaling Maneuvering)
 > If the velocity of each leader is constant and satisfies
+>
+> <span id="eq-2.14"></span>
 >
 > $$
 \boldsymbol{v}_{i}^{*}=\alpha_{i} \frac{\boldsymbol{p}_{i}^{*}(t)-c\left(\boldsymbol{p}^{*}\right)}{\left\|\boldsymbol{p}_{i}^{*}(t)-c\left(\boldsymbol{p}^{*}\right)\right\|}, \quad i \in \mathcal{V}_{l}, \tag{2.14}
