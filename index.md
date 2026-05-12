@@ -8,6 +8,9 @@ hero:
   tagline: The faintest ink is more powerful than the strongest memory 好记性不如烂笔头
   actions:
     - theme: brand
+      text: Graph Rigidity & Formation Control
+      link: /docs/frontiers/RigidityGraph&Formation/1dist_control
+    - theme: alt
       text: Optimal Control
       link: /docs/Control/OCP/1introduction
     - theme: alt
@@ -20,7 +23,7 @@ features:
   - title: Optimization
     details: (Empty)
   - title: Frontiers
-    details: 1. <a href="./docs/Frontiers/RigidityGraph&Formation/1distance">Rigidity Graph</a><br/>
+    details: 1. <a href="./docs/Frontiers/RigidityGraph&Formation/1distance">Graph Rigidity</a><br/>
   - title: CS & Learning
     details: (Empty)
   - title: Physics

@@ -419,6 +419,8 @@ The bearing Laplacian of a framework can be viewed as a **weighted graph Laplaci
 
 For a framework with an **undirected** graph, the bearing Laplacian has the **same rank and null space** as the bearing rigidity matrix. When the underlying graph is directed, the bearing Laplacian and the bearing rigidity matrix may have **different** ranks and null spaces (See [Bearing Persistence](#bearing-persistence-in-directed-graphs) part for details). Compared to the bearing rigidity matrix, the bearing Laplacian is more convenient to use because it is symmetric and positive semidefinite for undirected graphs. Here is more specific:
 
+<span id="lem-2"></span>
+
 > [!tip] Lemma 2
 > For a framework $\mathcal{G}(\boldsymbol{p})$ with **undirected** graph $\mathcal{G}$, the bearing Laplacian $L_\mathcal{B}$ satisfies the following:
 > 1. $L_\mathcal{B}$ is symmetric positive semi-definite;
@@ -435,7 +437,7 @@ $$
 L_\mathcal{B} = \bar{H}^\top\operatorname{diag}(P_{g_k})\bar{H} \triangleq R^\top R
 $$
 
-Note $R = \operatorname{diag}(\|e_k\|I_d)R_\mathcal{B}$ where $R_\mathcal{B}$ is the bearing rigidity matrix. As a result, the matrix $R$ and hence $L_\mathcal{B}$, have exactly the same rank and null space as $R_\mathcal{B}$. Then the results in $2^\text{nd}$ and $3^\text{rd}$ follow immediately from Lemma 5 and Theorem 8. <div style="text-align: right;">$\square$</div>
+Note $R = \operatorname{diag}(\|e_k\|I_d)R_\mathcal{B}$ where $R_\mathcal{B}$ is the bearing rigidity matrix. As a result, the matrix $R$ and hence $L_\mathcal{B}$, have exactly the same rank and null space as $R_\mathcal{B}$. Then the results in $2^\text{nd}$ and $3^\text{rd}$ follow immediately from [Lemma 5](#lem-5) and [Theorem 8](#thm-8). <div style="text-align: right;">$\square$</div>
 </details>
 
 Since the nodes in the framework are partitioned into **a**nchors and **f**ollowers, it will be useful to partition the corresponding bearing Laplacian as
@@ -457,7 +459,7 @@ where $L_{\mathcal{B}_{aa}}\in\mathbb{R}^{dn_a\times dn_a}, L_{\mathcal{B}_{af}}
 <details>
     <summary> Details of Proof</summary>
 
-For any nonzero $\boldsymbol{x}\in\mathbb{R}^{dn_f}$, denote $\bar{\boldsymbol{x}}=[0,\boldsymbol{x}^\top]^\top\in\mathbb{R}^{dn}$. Since $L_\mathcal{B}\succeq 0$, we have $\boldsymbol{x}^\top L_{\mathcal{B}_{ff}}\boldsymbol{x} = \bar{\boldsymbol{x}}^\top L_\mathcal{B}\bar{\boldsymbol{x}}\geqslant 0$. As a result, $L_{\mathcal{B}_{ff}}$ is positive semi-definite. Since $\boldsymbol{p}\in\operatorname{Null}(L_\mathcal{B})$ as suggested by Lemma 2, we have $L_\mathcal{B}\boldsymbol{p}=\mathbf{0}$ which further implies $L_{\mathcal{B}_{ff}} p_f + L_{\mathcal{B}_{fa}}p_a = \mathbf{0}$. <div style="text-align: right;">$\square$</div>
+For any nonzero $\boldsymbol{x}\in\mathbb{R}^{dn_f}$, denote $\bar{\boldsymbol{x}}=[0,\boldsymbol{x}^\top]^\top\in\mathbb{R}^{dn}$. Since $L_\mathcal{B}\succeq 0$, we have $\boldsymbol{x}^\top L_{\mathcal{B}_{ff}}\boldsymbol{x} = \bar{\boldsymbol{x}}^\top L_\mathcal{B}\bar{\boldsymbol{x}}\geqslant 0$. As a result, $L_{\mathcal{B}_{ff}}$ is positive semi-definite. Since $\boldsymbol{p}\in\operatorname{Null}(L_\mathcal{B})$ as suggested by [Lemma 2](#lem-2), we have $L_\mathcal{B}\boldsymbol{p}=\mathbf{0}$ which further implies $L_{\mathcal{B}_{ff}} p_f + L_{\mathcal{B}_{fa}}p_a = \mathbf{0}$. <div style="text-align: right;">$\square$</div>
 </details>
 
 Up to this point, we have introduced all the fundamental concepts in the bearing rigidity theory. We next explore the properties of these concepts. We first derive a useful expression for the bearing rigidity matrix.
@@ -492,6 +494,8 @@ Q.E.D. <div style="text-align: right;">$\square$</div>
 
 The expression [$(3)$](#eq-3) can be used to characterize the **null space** and the **rank** of the **bearing rigidity matrix**.
 
+<span id="lem-5"></span>
+
 > [!tip] Lemma 5
 > A framework $\mathcal{G}(\boldsymbol{p})$ in $\mathbb{R}^d$ **always** satisfies:
 > - $\operatorname{span}\{\mathbf{1} \otimes I_d, \boldsymbol{p}\} \subseteq \operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$
@@ -508,6 +512,8 @@ The expression [$(3)$](#eq-3) can be used to characterize the **null space** and
 </details>
 
 For any undirected graph $\mathcal{G} = (\mathcal{V}, \mathcal{E})$, denote $\mathcal{G}^\mathcal{K}$ as the **complete graph** over the **same vertex** set $\mathcal{V}$, and $R^\mathcal{K}_\mathcal{B}(\boldsymbol{p})$ as the bearing rigidity matrix of the framework $\mathcal{G}^\mathcal{K}(\boldsymbol{p})$. The next result gives the **necessary and sufficient conditions** for **bearing equivalency** and **bearing congruency**.
+
+<span id="thm-5"></span>
 
 > [!caution] Theorem 5: bearing equivalent & bearing congruent
 > Two frameworks $\mathcal{G}(\boldsymbol{p})$ and $\mathcal{G}(\boldsymbol{p}')$ are:
@@ -527,7 +533,7 @@ $$
 Therefore, by Definition of bearing equivalent, the two frameworks are bearing equivalent if and only if $R_\mathcal{B}(\boldsymbol{p})\boldsymbol{p}' = \mathbf{0}$. By Definition of bearing equivalent, it can be analogously shown that frameworks are bearing equivalent if and only if $R^\mathcal{K}_\mathcal{B}(\boldsymbol{p})\boldsymbol{p}' = \mathbf{0}$. <div style="text-align: right;">$\square$</div>
 </details>
 
-Since any **infinitesimal motion** $\delta\boldsymbol{p}$ is in $\operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$, it is implied from Lemma 5 and Theorem 5 that $R_\mathcal{B}(\boldsymbol{p})(\boldsymbol{p} + \delta\boldsymbol{p}) = \mathbf{0}$ and hence $\mathcal{G}(\boldsymbol{p} + \delta\boldsymbol{p})$ is **bearing equivalent** to $\mathcal{G}(\boldsymbol{p})$.
+Since any **infinitesimal motion** $\delta\boldsymbol{p}$ is in $\operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$, it is implied from [Lemma 5](#lem-5) and [Theorem 5](#thm-5) that $R_\mathcal{B}(\boldsymbol{p})(\boldsymbol{p} + \delta\boldsymbol{p}) = \mathbf{0}$ and hence $\mathcal{G}(\boldsymbol{p} + \delta\boldsymbol{p})$ is **bearing equivalent** to $\mathcal{G}(\boldsymbol{p})$.
 
 We next give a useful lemma and then prove the **necessary and sufficient condition** for **global bearing rigidity**.
 
@@ -544,8 +550,8 @@ We next give a useful lemma and then prove the **necessary and sufficient condit
     <summary>Details of Proof</summary>
 
 
-1. The result that $\operatorname{span}\{\mathbf{1} \otimes I_d, \boldsymbol{p}\} \subseteq \operatorname{Null}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p}))$ and $\operatorname{rank}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p})) \leqslant dn − d − 1$ can be proved similarly as Lemma 5.
-2. For any $\delta\boldsymbol{p}\in\operatorname{Null}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p}))$, we have $R^\mathcal{K}_\mathcal{B}(\boldsymbol{p})\delta\boldsymbol{p}=\mathbf{0}\Rightarrow R^\mathcal{K}_\mathcal{B}(\boldsymbol{p})(\boldsymbol{p} + \delta\boldsymbol{p})=\mathbf{0}$. As a result, $\mathcal{G}(\boldsymbol{p}+\delta\boldsymbol{p})$ is **bearing congruent** to $\mathcal{G}(\boldsymbol{p})$ by Theorem 5. Since bearing congruency implies bearing equivalency, we further know $R_\mathcal{B}(\boldsymbol{p})(\boldsymbol{p} + \delta\boldsymbol{p})=\mathbf{0}$ and hence $R_\mathcal{B}(\boldsymbol{p})\delta\boldsymbol{p}=\mathbf{0}$. Therefore, any $\delta\boldsymbol{p}$ in $\operatorname{Null}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p}))$ is also in $\operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$.
+1. The result that $\operatorname{span}\{\mathbf{1} \otimes I_d, \boldsymbol{p}\} \subseteq \operatorname{Null}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p}))$ and $\operatorname{rank}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p})) \leqslant dn − d − 1$ can be proved similarly as [Lemma 5](#lem-5).
+2. For any $\delta\boldsymbol{p}\in\operatorname{Null}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p}))$, we have $R^\mathcal{K}_\mathcal{B}(\boldsymbol{p})\delta\boldsymbol{p}=\mathbf{0}\Rightarrow R^\mathcal{K}_\mathcal{B}(\boldsymbol{p})(\boldsymbol{p} + \delta\boldsymbol{p})=\mathbf{0}$. As a result, $\mathcal{G}(\boldsymbol{p}+\delta\boldsymbol{p})$ is **bearing congruent** to $\mathcal{G}(\boldsymbol{p})$ by [Theorem 5](#thm-5). Since bearing congruency implies bearing equivalency, we further know $R_\mathcal{B}(\boldsymbol{p})(\boldsymbol{p} + \delta\boldsymbol{p})=\mathbf{0}$ and hence $R_\mathcal{B}(\boldsymbol{p})\delta\boldsymbol{p}=\mathbf{0}$. Therefore, any $\delta\boldsymbol{p}$ in $\operatorname{Null}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p}))$ is also in $\operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$.
 3. Since $R_\mathcal{B}(\boldsymbol{p}),R^\mathcal{K}_\mathcal{B}(\boldsymbol{p})$ have the same column number, it follows immediately that $\operatorname{rank}(R_\mathcal{B}(\boldsymbol{p})) \leqslant \operatorname{rank}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p}))$. <div style="text-align: right;">$\square$</div>
 </details>
 
@@ -557,7 +563,7 @@ We next give a useful lemma and then prove the **necessary and sufficient condit
 <details>
     <summary>Details of Proof</summary>
 
-1. (**Necessity**) Suppose the framework $\mathcal{G}(\boldsymbol{p})$ is **globally bearing rigid**. We next show that $\operatorname{Null}(R_\mathcal{B}(\boldsymbol{p})) \subseteq \operatorname{Null}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p}))$. For any $\delta\boldsymbol{p} \in \operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$, we have $R_\mathcal{B}(\boldsymbol{p})\delta\boldsymbol{p} = \mathbf{0} \Rightarrow R_\mathcal{B}(\boldsymbol{p})(\boldsymbol{p} + \delta\boldsymbol{p}) = \mathbf{0}$. As a result, $\mathcal{G}(\boldsymbol{p}+\delta\boldsymbol{p})$ is bearing equivalent to $\mathcal{G}(\boldsymbol{p})$ according to Theorem 5. Since $\mathcal{G}(\boldsymbol{p})$ is globally bearing rigid, it follows that $\mathcal{G}(\boldsymbol{p}+\delta\boldsymbol{p})$ is **also** bearing congruent to $\mathcal{G}(\boldsymbol{p})$, which means $R^\mathcal{K}_\mathcal{B}(p)(p + \delta\boldsymbol{p}) = \mathbf{0} \Rightarrow R^\mathcal{K}_\mathcal{B}(p)\delta\boldsymbol{p} = \mathbf{0}$. Therefore, any $\delta\boldsymbol{p}$ in $\operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$ is in $\operatorname{Null}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p}))$ and thus $\operatorname{Null}(R_\mathcal{B}(\boldsymbol{p})) \subseteq \operatorname{Null}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p}))$. Since $\operatorname{Null}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p})) \subseteq \operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$ as shown in [Lemma 6](#lem-6), we have $\operatorname{Null}(R_\mathcal{B}(\boldsymbol{p})) = \operatorname{Null}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p}))$.
+1. (**Necessity**) Suppose the framework $\mathcal{G}(\boldsymbol{p})$ is **globally bearing rigid**. We next show that $\operatorname{Null}(R_\mathcal{B}(\boldsymbol{p})) \subseteq \operatorname{Null}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p}))$. For any $\delta\boldsymbol{p} \in \operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$, we have $R_\mathcal{B}(\boldsymbol{p})\delta\boldsymbol{p} = \mathbf{0} \Rightarrow R_\mathcal{B}(\boldsymbol{p})(\boldsymbol{p} + \delta\boldsymbol{p}) = \mathbf{0}$. As a result, $\mathcal{G}(\boldsymbol{p}+\delta\boldsymbol{p})$ is bearing equivalent to $\mathcal{G}(\boldsymbol{p})$ according to [Theorem 5](#thm-5). Since $\mathcal{G}(\boldsymbol{p})$ is globally bearing rigid, it follows that $\mathcal{G}(\boldsymbol{p}+\delta\boldsymbol{p})$ is **also** bearing congruent to $\mathcal{G}(\boldsymbol{p})$, which means $R^\mathcal{K}_\mathcal{B}(p)(p + \delta\boldsymbol{p}) = \mathbf{0} \Rightarrow R^\mathcal{K}_\mathcal{B}(p)\delta\boldsymbol{p} = \mathbf{0}$. Therefore, any $\delta\boldsymbol{p}$ in $\operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$ is in $\operatorname{Null}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p}))$ and thus $\operatorname{Null}(R_\mathcal{B}(\boldsymbol{p})) \subseteq \operatorname{Null}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p}))$. Since $\operatorname{Null}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p})) \subseteq \operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$ as shown in [Lemma 6](#lem-6), we have $\operatorname{Null}(R_\mathcal{B}(\boldsymbol{p})) = \operatorname{Null}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p}))$.
 2. (Sufficiency) Suppose $\operatorname{Null}(R_\mathcal{B}(\boldsymbol{p})) = \operatorname{Null}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p}))$. Any framework $\mathcal{G}(\boldsymbol{p}')$ that is **bearing equivalent** to $\mathcal{G}(\boldsymbol{p})$ satisfies $R_\mathcal{B}(\boldsymbol{p})\boldsymbol{p}' = \mathbf{0}$. It then follows from $\operatorname{Null}(R_\mathcal{B}(\boldsymbol{p})) = \operatorname{Null}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p}))$ that $R^\mathcal{K}_\mathcal{B}(\boldsymbol{p})\boldsymbol{p}' = \mathbf{0}$, which means $\mathcal{G}(\boldsymbol{p}')$ is **also bearing congruent** to $\mathcal{G}(\boldsymbol{p})$. As a result, $\mathcal{G}(\boldsymbol{p})$ is globally bearing rigid.
 3. Because $R_\mathcal{B}(\boldsymbol{p})$ and $R^\mathcal{K}_\mathcal{B}(\boldsymbol{p})$ have the same column number, it follows immediately that $\operatorname{Null}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p})) = \operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$ if and only if $\operatorname{rank}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p})) = \operatorname{rank}(R_\mathcal{B}(\boldsymbol{p}))$. <div style="text-align: right;">$\square$</div>
 </details>
@@ -572,7 +578,7 @@ The following result shows that **bearing rigidity** and **global bearing rigidi
 <details>
     <summary>Details of Proof</summary>
 
-By definition, global bearing rigidity implies bearing rigidity. We next prove the converse is also true. Suppose the framework $\mathcal{G}(\boldsymbol{p})$ is bearing rigid. By the definition of bearing rigidity and Theorem 5, any framework satisfying $R_\mathcal{B}(\boldsymbol{p})\boldsymbol{p}' = \mathbf{0}$ and $\|\boldsymbol{p}' − \boldsymbol{p}\| \leqslant\varepsilon$ also satisfies $R^\mathcal{K}_\mathcal{B}(\boldsymbol{p})\boldsymbol{p}' = \mathbf{0}$, i.e.,
+By definition, global bearing rigidity implies bearing rigidity. We next prove the converse is also true. Suppose the framework $\mathcal{G}(\boldsymbol{p})$ is bearing rigid. By the definition of bearing rigidity and [Theorem 5](#thm-5), any framework satisfying $R_\mathcal{B}(\boldsymbol{p})\boldsymbol{p}' = \mathbf{0}$ and $\|\boldsymbol{p}' − \boldsymbol{p}\| \leqslant\varepsilon$ also satisfies $R^\mathcal{K}_\mathcal{B}(\boldsymbol{p})\boldsymbol{p}' = \mathbf{0}$, i.e.,
 $$
 R_\mathcal{B}(\boldsymbol{p})(\boldsymbol{p}+\delta\boldsymbol{p}) = \mathbf{0}\Rightarrow R^\mathcal{K}_\mathcal{B}(\boldsymbol{p})(\boldsymbol{p}+\delta\boldsymbol{p}) = \mathbf{0}, \quad \forall \delta\boldsymbol{p},\|\delta\boldsymbol{p}\|\leqslant\varepsilon.
 $$
@@ -595,7 +601,7 @@ We next give the necessary and sufficient condition for **infinitesimal bearing 
 <details>
     <summary>Details of Proof</summary>
 
-1. Lemma 5 shows $\operatorname{span}\{\mathbf{1} \otimes I_d, \boldsymbol{p}\}\subseteq \operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$. Observe $\mathbf{1} \otimes I_d$ and $\boldsymbol{p}$ correspond to a rigid-body **translation** and a **scaling** of the framework, respectively. The stated condition directly follows from Definition of infinitesimally bearing rigid.
+1. [Lemma 5](#lem-5) shows $\operatorname{span}\{\mathbf{1} \otimes I_d, \boldsymbol{p}\}\subseteq \operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$. Observe $\mathbf{1} \otimes I_d$ and $\boldsymbol{p}$ correspond to a rigid-body **translation** and a **scaling** of the framework, respectively. The stated condition directly follows from Definition of infinitesimally bearing rigid.
 2. Note also that $\{\mathbf{1} \otimes I_d, \boldsymbol{p} −  \mathbf{1} \otimes \bar{\boldsymbol{p}}\}$ is an **orthogonal basis** for $\operatorname{span}\{\mathbf{1} \otimes I_d, \boldsymbol{p}\}$. <div style="text-align: right;">$\square$</div>
 </details>
 
@@ -637,6 +643,8 @@ We next explore two important properties of infinitesimal bearing rigidity.
 #### Geometric Property
 The following theorem shows that infinitesimal bearing rigidity can uniquely determine the shape of a framework.
 
+<span id="thm-10"></span>
+
 > [!caution] Theorem 10: Unique Shape (Geometric Property)
 > An infinitesimally bearing rigid framework can be **uniquely** determined up to a **translational** and a **scaling** factor.
 
@@ -658,7 +666,7 @@ $$
 R_\mathcal{B}(\boldsymbol{p})\boldsymbol{p}' = R_\mathcal{B}(\boldsymbol{p})\boldsymbol{q}.
 $$
 
-Since $\mathcal{G}(\boldsymbol{p}')$ is bearing equivalent to $\mathcal{G}(\boldsymbol{p})$, we have $R_\mathcal{B}(\boldsymbol{p})\boldsymbol{p}' = \mathbf{0}$ by Theorem 5. Therefore, the formula above implies $R_\mathcal{B}(\boldsymbol{p})\boldsymbol{q}=\mathbf{0}$. Since $\boldsymbol{q} \perp \operatorname{span}\{\mathbf{1} \otimes  I_d, \boldsymbol{p}\} = \operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$, the above equation suggests $\boldsymbol{q} = \mathbf{0}$. As a result, $\boldsymbol{p}'$ is different from $\boldsymbol{p}$ only in a scaling factor $c$ and a rigid-body translation $\eta$. <div style="text-align: right;">$\square$</div>
+Since $\mathcal{G}(\boldsymbol{p}')$ is bearing equivalent to $\mathcal{G}(\boldsymbol{p})$, we have $R_\mathcal{B}(\boldsymbol{p})\boldsymbol{p}' = \mathbf{0}$ by [Theorem 5](#thm-5). Therefore, the formula above implies $R_\mathcal{B}(\boldsymbol{p})\boldsymbol{q}=\mathbf{0}$. Since $\boldsymbol{q} \perp \operatorname{span}\{\mathbf{1} \otimes  I_d, \boldsymbol{p}\} = \operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$, the above equation suggests $\boldsymbol{q} = \mathbf{0}$. As a result, $\boldsymbol{p}'$ is different from $\boldsymbol{p}$ only in a scaling factor $c$ and a rigid-body translation $\eta$. <div style="text-align: right;">$\square$</div>
 </details>
 
 #### Property: Invariant to Dimension
@@ -919,7 +927,7 @@ To end this section, we briefly compare the proposed bearing rigidity theory wit
 The relationship between them is (ii) ⇒ (i) and (iii)⇒(i). Note (ii) and (iii) do not imply each other. **The global distance rigidity can uniquely determine the shape of a framework**, but it is usually difficult to mathematically examine. Infinitesimal distance rigidity can be conveniently examined by a rank condition, but it is **not** able to ensure a unique shape.
 
 As a comparison:
-- The rank condition for infinitesimal distance rigidity requires to distinguish the cases of $n \geqslant d$ and $n < d$ ([Theorem 1](./1distance#thm-1) in the Basis chapter), while the rank condition for infinitesimal bearing rigidity does not. The proposed infinitesimal bearing rigidity not only can be **examined by a rank condition** ([Theorem 8](#thm-8)) but also can ensure the **unique shape** of a framework (Theorem 10).
+- The rank condition for infinitesimal distance rigidity requires to distinguish the cases of $n \geqslant d$ and $n < d$ ([Theorem 1](./1distance#thm-1) in the Basis chapter), while the rank condition for infinitesimal bearing rigidity does not. The proposed infinitesimal bearing rigidity not only can be **examined by a rank condition** ([Theorem 8](#thm-8)) but also can ensure the **unique shape** of a framework ([Theorem 10](#thm-10)).
 - An infinitesimally distance rigid framework in a lower dimension may become non-rigid in a higher dimension (see, for example, [Figure 6](#fig-6) (b)), while infinitesimal bearing rigidity is invariant to dimensions.
 - Although a laman graph embedded in a generic configuration is infinitesimally distance rigid, this result (known as [laman’s theorem](./1distance#thm-laman)) is valid merely in 2D spaces. in three or higher dimensions, extra conditions and more edges are required to guarantee distance rigidity. However, in bearing rigidity theory, a laman graph is generically bearing rigid in arbitrary dimensions, and at most $2n - 3$ edges would be sufficient to guarantee the bearing rigidity of a framework in an arbitrary dimension.
 - In the plane(2D), $2n - 3$ is the minimum number of edges to ensure infinitesimally distance rigidity. More than $2n - 3$ edges are required to ensure infinitesimally distance rigidity in three or higher dimensions. As a comparison, in an arbitrary dimension, $2n - 3$ edges are **sufficient** to ensure infinitesimal bearing rigidity. **less** than $2n - 3$ edges may also be sufficient to ensure infinitesimal bearing rigidity in three or higher dimensions.

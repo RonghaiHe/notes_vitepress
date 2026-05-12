@@ -141,6 +141,10 @@ export default defineConfig({
           text: 'Formation Control',
           items: [
             { text: 'Distance-based', link: '/docs/Frontiers/RigidityGraph&Formation/1dist_control' },
+            { text: 'Bearing-based', link: '/docs/Frontiers/RigidityGraph&Formation/2bearing_control' },
+            // { text: 'Angle-based', link: '/docs/Frontiers/RigidityGraph&Formation/3angle_control' },
+            { text: 'Formation Control with Constraints', link: '/docs/Frontiers/RigidityGraph&Formation/0control_constraints' },
+
           ]
         }
       ],
