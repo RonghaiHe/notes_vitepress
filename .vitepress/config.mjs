@@ -7,6 +7,11 @@ export default defineConfig({
   base: '/notes_vitepress/',
   title: "Notes of RonghaiHe",
   description: "Notes shown in the website powered by VitePress & Github Actions+Pages",
+  vite: {
+    build: {
+      chunkSizeWarningLimit: 1200
+    }
+  },
   
   markdown: {
     math: true,

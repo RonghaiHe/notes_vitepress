@@ -5,14 +5,18 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      NODE_OPTIONS: "--max-old-space-size=12288"
+      VITEPRESS_BUILD_CPUS: "1"
     steps:
       - uses: actions/checkout@v4
         with: { fetch-depth: 0 }
       - uses: actions/setup-node@v4
         with: { node-version: 20 }
       - run: npm add -D markdown-it-mathjax3 markdown-it-footnote
-      - run: npm install
-      - run: npm run docs:build
+      - run: npm install --no-audit --no-fund
+      - name: Build Documentation
+        run: npm run docs:build
       - uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
