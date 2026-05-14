@@ -15,7 +15,7 @@ For an angle between two lines $p_1p_2$ and $p_3p_2$ meeting at the vertex $p_2$
 ## Introduction [1]
 Unfortunately, similar to the displacement-based approach, a bearing-constrained formation requires either the **global coordinate system** for each agent or developing **observers** based on inter-agent communications. The authors in some research achieved bearing-based formation control in the absence of the global coordinate system, but each agent should have a controllable quantity determining the **relationship between the local body frame and the global coordinate frame**.
 
-## 2D Angle Rigidity [1][3]
+## 1. 2D Angle Rigidity [1][3]
 ### Definition of angle rigidity in 2D
 > We still use  $\boldsymbol{z}_{ij} = \boldsymbol{p}_i-\boldsymbol{p}_j, \boldsymbol{g}_{ij} = \frac{\boldsymbol{p}_i-\boldsymbol{p}_j}{\|\boldsymbol{p}_i-\boldsymbol{p}_j\|}$ from the Chapter: [Bearing Rigidity in arbitary dimension](./2bearing#bearing-rigidity-in-arbitary-dimensions-4) 
 
@@ -152,7 +152,7 @@ As shown in [Figure 2](#fig-3-2-amb), $\measuredangle 234 = 30^\circ$ is a **lin
 Similar to [Henneberg’s construction](./1distance#henneberg-construction) in distance rigidity, in the following, we define two types of vertex addition operations in angle rigidity to demonstrate how a bigger angularity might grow from a smaller one, which are shown in Figure 4.
 
 <figure>
-   <img src="./images/3angle_4-addition.jpg" alt="vertex addition" width="100%" align="center">
+   <img src="./images/3angle_4-addition.jpg" alt="vertex addition" id="fig-4" width="100%" align="center">
    <div align="center"><figcaption> Figure 4: Type-I vertex addition and Type-II vertex addition. (a) Case 1 in Type-I vertex addition. (b) Case 2 in Type-I vertex addition. (c) Case 3 in Type-I vertex addition. (d) Case 1 in Type-II vertex addition. (e) Case 2 in Type-II vertex addition.</figcaption></div>
 </figure>
 
@@ -178,6 +178,8 @@ Similar to [Henneberg’s construction](./1distance#henneberg-construction) in d
 
 Now we are ready to present a **sufficient condition** for global angle rigidity using Type-I vertex addition.
 
+<span id="prop-1"></span>
+
 > [!tip] Proposition 1: Sufficient condition for global angle rigidity
 > An angularity is globally angle rigid if it can be obtained through a sequence of **Type-I vertex additions** from a **generically angle rigid $3$-vertex angularity**.
 
@@ -196,6 +198,8 @@ Therefore, $\boldsymbol{p}_i$ is always globally uniquely determined. After $\bo
 
 In comparison, Type-II vertex additions can only guarantee angle rigidity, but not global angle rigidity.
 
+<span id="prop-2"></span>
+
 > [!tip] Proposition 2: Sufficient condition for angle rigidity
 > An angularity is angle rigid if it can be obtained through a sequence of Type-II vertex additions from a generically angle rigid $3$-vertex angularity.
 
@@ -207,10 +211,10 @@ After having presented our results on angularity and angle rigidity, in the foll
 #### From [1]
 Similar to distance and bearing rigidity theory, we define the **infinitesimal angle motion** as a motion preserving the invariance of $\boldsymbol{a}_{\mathcal{T}_\mathcal{G}^*}(\boldsymbol{p})$. The velocity $\boldsymbol{v}=\dot{\boldsymbol{p}}$ corresponding to an infinitesimal motion should satisfy $\dot{\boldsymbol{a}}_{\mathcal{T}_\mathcal{G}^*}(\boldsymbol{p})=0$, which is equivalent to the following equation
 
-<span id="eq-1"></span>
+<span id="eq-1.1"></span>
 
 $$
-\dot{\boldsymbol{g}}_{ij}^\top\boldsymbol{g}_{ik}+\boldsymbol{g}_{ij}^\top\dot{\boldsymbol{g}}_{ik}=0,~~(i,j,k)\in\mathcal{T}_\mathcal{G}^*. \tag{1}
+\dot{\boldsymbol{g}}_{ij}^\top\boldsymbol{g}_{ik}+\boldsymbol{g}_{ij}^\top\dot{\boldsymbol{g}}_{ik}=0,~~(i,j,k)\in\mathcal{T}_\mathcal{G}^*. \tag{1.1}
 $$
 
 From the Chapter: [Lemma 6 of Chapter: Bearing rigidity](./2bearing#relationship-among-types-of-bearing-rigidity), we know that $\frac{\partial \boldsymbol{g}_{ij}}{\partial \boldsymbol{z}_{ij}}=\frac{1}{\|\boldsymbol{z}_{ij}\|}P_{ij}$, where $P_{ij}\triangleq P(\boldsymbol{g}_{ij})$, $P(\cdot):\mathbb{R}^2\rightarrow\mathbb{R}^{2\times 2}$ is a projection matrix defined as $P(x)= I_2-\boldsymbol{xx}^\top$, $\boldsymbol{x}\in\mathbb{R}^2$ is a unit vector. Then we have $\dot{\boldsymbol{g}}_{ij}=\frac{1}{\|\boldsymbol{z}_{ij}\|}P_{ij}\dot{\boldsymbol{z}}_{ij}$. Let $\boldsymbol{b}_\mathcal{G}(\boldsymbol{p})=(\cdots,\boldsymbol{g}_{ij}^\top(\boldsymbol{p}),\cdots)^\top$, where $(i,j)\in\mathcal{E}$, and $R_g\triangleq\frac{\partial \boldsymbol{a}_{\mathcal{T}_\mathcal{G}^*}}{\partial \boldsymbol{g}}$. It follows from the chain rule that
@@ -218,12 +222,12 @@ $$
 \dot{\boldsymbol{a}}_{\mathcal{T}_\mathcal{G}^*}=\frac{\partial \boldsymbol{a}_{\mathcal{T}_\mathcal{G}^*}}{\partial \boldsymbol{b}_\mathcal{G}} \frac{\partial \boldsymbol{b}_\mathcal{G}}{\partial \boldsymbol{z}} \frac{\partial \boldsymbol{z}}{\partial \boldsymbol{p}}\dot{\boldsymbol{p}}=R_g(\boldsymbol{p}) \operatorname{diag}(\frac{P_{ij}}{\|\boldsymbol{z}_{ij}\|})\bar{H}\dot{\boldsymbol{p}}= R_{\mathcal{T}_{\mathcal{G}}^*}(\boldsymbol{p})\dot{\boldsymbol{p}},
 $$
 
-where $\bar{H}=H\otimes I_2$, $R_{\mathcal{T}_{\mathcal{G}}^*}(\boldsymbol{p})\triangleq R_g(\boldsymbol{p}) \operatorname{diag}(\frac{P_{ij}}{\|\boldsymbol{z}_{ij}\|})\bar{H}=R_g(\boldsymbol{p})R_B(\boldsymbol{p})\in\mathbb{R}^{w\times 2n}$ is termed the **angle rigidity matrix**, $R_\mathcal{B}=\frac{\partial g(\boldsymbol{p})}{\partial \boldsymbol{p}}$ is actually the bearing rigidity matrix. Therefore, equation [$(1)$](#eq-1) is equivalent to $R_{\mathcal{T}_{\mathcal{G}}^*}(\boldsymbol{p})\dot{\boldsymbol{p}}=\mathbf{0}$.
+where $\bar{H}=H\otimes I_2$, $R_{\mathcal{T}_{\mathcal{G}}^*}(\boldsymbol{p})\triangleq R_g(\boldsymbol{p}) \operatorname{diag}(\frac{P_{ij}}{\|\boldsymbol{z}_{ij}\|})\bar{H}=R_g(\boldsymbol{p})R_B(\boldsymbol{p})\in\mathbb{R}^{w\times 2n}$ is termed the **angle rigidity matrix**, $R_\mathcal{B}=\frac{\partial g(\boldsymbol{p})}{\partial \boldsymbol{p}}$ is actually the bearing rigidity matrix. Therefore, equation [$(1.1)$](#eq-1.1) is equivalent to $R_{\mathcal{T}_{\mathcal{G}}^*}(\boldsymbol{p})\dot{\boldsymbol{p}}=\mathbf{0}$.
 
 Next we define **infinitesimal angle rigidity**, to do this, we should distinguish all **trivial** motions for an angle-constrained geometric shape. By an intuitive observation, the motions always preserving invariance of angles in the framework are **translations, rotations, and scalings**. Therefore, the dimension of the trivial motion space is $2+1+1=4$. Note that the trivial motion space is always a subspace of $\operatorname{Null}(R_{\mathcal{T}_{\mathcal{G}}^*})$, implying that $\dim(\operatorname{Null}(R_{\mathcal{T}_{\mathcal{G}}^*}))\geq 4$. We present the following definition.
 
 > [!warning] Definition: infinitesimally angle rigid
-> A framework $(\mathcal{G},\boldsymbol{p})$ is **infinitesimally angle rigid** if there exists an angle index set $\mathcal{T}_\mathcal{G}^*$ such that every possible motion satisfying equation [$(1)$](#eq-1) is trivial, or equivalently, $\dim(\operatorname{Null}(R_{\mathcal{T}_{\mathcal{G}}^*}))=4$.
+> A framework $(\mathcal{G},\boldsymbol{p})$ is **infinitesimally angle rigid** if there exists an angle index set $\mathcal{T}_\mathcal{G}^*$ such that every possible motion satisfying equation [$(1)$](#eq-1.1) is trivial, or equivalently, $\dim(\operatorname{Null}(R_{\mathcal{T}_{\mathcal{G}}^*}))=4$.
 
 By this definition, the frameworks in [Figure 1](#fig-3-1-angle) (a) and (c) are both infinitesimally angle rigid. The frameworks (b) and (d) are not infinitesimally angle rigid since they both have nontrivial infinitesimal angle motions, which are interpreted by the arrows in blue.
 
@@ -239,10 +243,13 @@ $$
 $$
 
 Differentiating both sides of formula above w.r.t. time leads to
+
+<span id="eq-1.2"></span>
+
 $$
 \begin{aligned}
    (-\sin\beta)\dot{\beta} &= \dot{\boldsymbol{g}}_{ij}^\top\boldsymbol{g}_{kj} + \boldsymbol{g}_{ij}^\top\dot{\boldsymbol{g}}_{kj} \\
-   &= \left[\frac{P_{ij}}{l_{ij}}(\dot{\boldsymbol{p}}_i - \dot{\boldsymbol{p}}_j)\right]^\top\boldsymbol{g}_{kj} + \boldsymbol{g}_{ij}^\top\frac{P_{kj}}{l_{kj}}(\dot{\boldsymbol{p}}_k - \dot{\boldsymbol{p}}_j)
+   &= \left[\frac{P_{ij}}{l_{ij}}(\dot{\boldsymbol{p}}_i - \dot{\boldsymbol{p}}_j)\right]^\top\boldsymbol{g}_{kj} + \boldsymbol{g}_{ij}^\top\frac{P_{kj}}{l_{kj}}(\dot{\boldsymbol{p}}_k - \dot{\boldsymbol{p}}_j) \tag{1.2}
 \end{aligned}
 $$
 
@@ -343,17 +350,17 @@ $$
 
 where $c(t)\neq 0$ is a scalar scaling factor, $\mathcal{Q}(t) \in \mathbb{R}^{2\times 2}$ is a rotation matrix, $\mathcal{W}(t) \in \mathbb{R}^2$ is a translation vector, and $c(t), \mathcal{Q}(t), \mathcal{W}(t)$ are all differentiable smooth functions. Since all $\boldsymbol{p}_i(t), \forall i\in\mathcal{V}$ share the same $c(t), \mathcal{Q}(t), \mathcal{W}(t)$, it follows
 
-<span id="eq-2"></span>
+<span id="eq-1.3"></span>
 
 $$
-\boldsymbol{p}(t) = \{I_n\otimes [c(t)\mathcal{Q}(t)]\}\boldsymbol{p}(t_0) + \mathbf{1}_n\otimes \mathcal{W}(t), \, t\geqslant t_0. \tag{2}
+\boldsymbol{p}(t) = \{I_n\otimes [c(t)\mathcal{Q}(t)]\}\boldsymbol{p}(t_0) + \mathbf{1}_n\otimes \mathcal{W}(t), \, t\geqslant t_0. \tag{1.3}
 $$
 
 Now we are ready to define infinitesimal angle rigidity.
 > [!warning] Definition: Infinitesimal angle rigidity
 > An angularity $\mathbb{A}(\mathcal{V}, \mathcal{A}, \boldsymbol{p})$ is infinitesimally angle rigid if all its continuous infinitesimally angle rigid motion $\boldsymbol{p}(t)$ are trivial.
 
-In fact, a motion satisfying [$(2)$](#eq-2) is always an **infinitesimally angle rigid motion** because the combination of **translation, rotation, and scaling** preserves all the angle constraints. However, the **converse does not necessarily hold**, e.g., nontrivial infinitesimally angle rigid motion exists when only point $1$ moves along line $12$ in [Figure 3](#fig-3-3-3vertex) (b). We formalize these remarks in the following theorem in the following subsection.
+In fact, a motion satisfying [$(2)$](#eq-1.3) is always an **infinitesimally angle rigid motion** because the combination of **translation, rotation, and scaling** preserves all the angle constraints. However, the **converse does not necessarily hold**, e.g., nontrivial infinitesimally angle rigid motion exists when only point $1$ moves along line $12$ in [Figure 3](#fig-3-3-3vertex) (b). We formalize these remarks in the following theorem in the following subsection.
 
 ### Theorem Parts
 #### From [1] about theorem
@@ -684,7 +691,7 @@ The following theorem shows that the shape of a **strongly nondegenerate triangu
 > 1. if and only if $(\mathcal{L}_n,\boldsymbol{p})$ is **minimally infinitesimally angle rigid**. A minimally suitable angle index set is 
 >
 > $$
-\mathcal{T}_{\mathcal{L}_n}^*=\{(i,j,k)\in\mathcal{V}^3_n:~~(i,j),(j,k),(i,k)\in\mathcal{E}_n,~i,j<k\}; \tag{3}
+\mathcal{T}_{\mathcal{L}_n}^*=\{(i,j,k)\in\mathcal{V}^3_n:~~(i,j),(j,k),(i,k)\in\mathcal{E}_n,~i,j<k\}; \tag{1.4}
 > $$
 > 
 > 2. only if $(\mathcal{L}_n,\boldsymbol{p})$ is **globally angle rigid**. A minimally suitable angle index set is $\mathcal{T}_{\mathcal{L}_n}^\dagger=\mathcal{T}_{\mathcal{L}_n}^*\cup\Delta\mathcal{T}_{\mathcal{L}_n}$, where $\Delta\mathcal{T}_{\mathcal{L}_n}=\{(i,k,l):  k=\min\{\mathcal{N}_i\cap\mathcal{N}_j\cap\mathcal{V}_{l-1}\}, i,j\in\mathcal{N}_l, ~ i<j<l, l=4,\cdots,n\}$ if $n\geqslant 4$, and $\Delta\mathcal{T}_{\mathcal{L}_n}=\varnothing$ otherwise. 
@@ -692,7 +699,7 @@ The following theorem shows that the shape of a **strongly nondegenerate triangu
 **Proof**: TODO
 
 
-<!-- 1. From Lemma 6 and the fact that $|\mathcal{E}_n|=2n-3$, strong nondegeneracy and minimal infinitesimal angle rigidity are equivalent for $(\mathcal{L}_n,\boldsymbol{p})$. Next we show $\mathcal{T}_{\mathcal{L}_n}^*$ in $(3)$ is minimally suitable for $(\mathcal{L}_n,\boldsymbol{p})$ to be **minimally infinitesimally angle rigid**. 
+<!-- 1. From Lemma 6 and the fact that $|\mathcal{E}_n|=2n-3$, strong nondegeneracy and minimal infinitesimal angle rigidity are equivalent for $(\mathcal{L}_n,\boldsymbol{p})$. Next we show $\mathcal{T}_{\mathcal{L}_n}^*$ in $(1.4)$ is minimally suitable for $(\mathcal{L}_n,\boldsymbol{p})$ to be **minimally infinitesimally angle rigid**. 
 
 By virtues of Theorem 6 and Lemma 6, $(\mathcal{L}_n,\boldsymbol{p})$ is **infinitesimally bearing rigid**. Then $\operatorname{null}(R_B)=\mathcal{S}_s\cup\mathcal{S}_t$. It suffices to show that for any $\boldsymbol{\eta}\in \operatorname{null}(R_g)\cap \operatorname{range}(R_\mathcal{B})$, there always exists $\boldsymbol{q}\in\mathcal{S}_r$ such that $\boldsymbol{\eta}=R_\mathcal{B}\boldsymbol{q}$. Suppose that $R_{\mathcal{T}_{\mathcal{L}_n}^*}\boldsymbol{v}=R_gR_\mathcal{B}\boldsymbol{v}=\mathbf{0}$ and $R_\mathcal{B}\boldsymbol{v}\neq \mathbf{0}$, where $\boldsymbol{v}=(\boldsymbol{v}_1^\top ,\cdots, \boldsymbol{v}_n^\top )\in\mathbb{R}^{2n}$. In the proof of Theorem 6, we have shown that for any $(i,j,k)\in\mathcal{T}_{\mathcal{L}_n}^*$, if $g_{ij}$ is not collinear with $g_{ik}$, then (\ref{two final equalities}) holds for some $c_{ijk}$. Recall that $(\mathcal{L}_n,\boldsymbol{p})$ is strongly nondegenerate, then for any $(i,j,k)\in\mathcal{T}_{\mathcal{L}_n}^*$, (\ref{two final equalities}) holds for some $c_{ijk}$. Without loss of generality, suppose $i<j<k$. Due to the definition in (\ref{T_L^*}), for each triangle in $\mathcal{L}_n$ formed by vertices $i$, $j$ and $k$, we have $(i,j,k),(j,i,k)\in\mathcal{T}_{\mathcal{L}_n}^*$. Now we regard $(i,j)$ as a vertex of $\mathcal{G}'$ for all $(i,j)\in\mathcal{E}_n$, two vertices in $\mathcal{G}'$ are adjacent if they belong to a same triangle in $\mathcal{L}_n$. Let $c_{ij}$ be the state of $(i,j)$ if $v_i-v_j=c_{ij}\mathscr{R}_o(\frac{\pi}{2})e_{ij}+\bar{c}_{ij}e_{ij}$ for some $\bar{c}_{ij}\in\mathbb{R}$. It is easy to see that $(i,j)$, $(i,k)$ and $(k,j)$ have a common state, implying that adjacent vertices in $\mathcal{G}'$ must have a common state. Note that in every step during the generation of graph $\mathcal{L}_n$, a new triangle is generated based on an existing edge. Therefore, $\mathcal{G}'$ must be connected. As a result, there exists a constant $c\in\mathbb{R}$ such that $v_i-v_j=c\mathscr{R}_o(\frac{\pi}{2})e_{ij}+\bar{c}_{ij}e_{ij}$ for all $(i,j)\in\mathcal{E}_n$. By similar analysis to the proof of Theorem \ref{th IAR=IBR}, we can obtain $v\in\mathcal{S}_r$, which implies that $(\mathcal{L}_n,p)$ is infinitesimally angle rigid for $\mathcal{T}_{\mathcal{L}_n}^*$. Moreover, observe that $|\mathcal{T}_{\mathcal{L}_n}^*|=2n-4$, we conclude that $\mathcal{T}_{\mathcal{L}_n}^*$ is also minimal.
 
@@ -721,20 +728,20 @@ An example of strongly nondegenerate framework embedded by a triangulated Laman 
 
 It is important to note that strong nondegeneracy is **not necessary** for a triangulated framework to be globally angle rigid. A simple counterexample is the framework shown in [Figure 1](#fig-3-1-angle) (d). The framework is globally angle rigid, but not strongly nondegenerate. Moreover, the angle index set we give in [Theorem 10](#thm-10) is only **one suitable** choice, there are also other choices of the angle index set supporting minimal infinitesimal angle rigidity or global angle rigidity of $(\mathcal{L}_n,\boldsymbol{p})$.
 
-## 3D Angle Rigidity [4]
+## 2. 3D Angle Rigidity [4]
 ### Definition in 3D
 An element $(j, i, k)$ in $\mathcal{A}$, when pi, pj, and pk are distinct, corresponds to the interior  angle formed by the rays $\vec{ij}$ and $\vec{ik}$; more specifically, using the position vector $\boldsymbol{p}$, the angle $\measuredangle jik \in [0, \pi]$ corresponding to the triplet $(j, i, k)$ in $\mathcal{A}$ can be calculated by
 
-<span id="eq-4"></span>
+<span id="eq-2.1"></span>
 
 $$
-\measuredangle jik = \arccos(\boldsymbol{g}_{ij}^\top\boldsymbol{g}_{ik}) \tag{4}
+\measuredangle jik = \arccos(\boldsymbol{g}_{ij}^\top\boldsymbol{g}_{ik}) \tag{2.1}
 $$
 
 where $\measuredangle jik = \measuredangle kij$, the unit vector $\boldsymbol{g}_{ij}$ represents the direction $\vec{ij}$.
 
 > [!info] Remark:
-> The 2-D angle is calculated using the **counterclockwise direction**. However, the definition of each 3-D angle’s direction depends on the **associated vertices’ coordinate frames**, which are not assumed to be aligned and known in this 3-D angle rigidity. Although the 3-D angle defined in [$(4)$](#eq-4) does not need the notion of being counterclockwise, the 3-D angle constraints will rely on similar notions to be defined later.
+> The 2-D angle is calculated using the **counterclockwise direction**. However, the definition of each 3-D angle’s direction depends on the **associated vertices’ coordinate frames**, which are not assumed to be aligned and known in this 3-D angle rigidity. Although the 3-D angle defined in [$(2.1)$](#eq-2.1) does not need the notion of being counterclockwise, the 3-D angle constraints will rely on similar notions to be defined later.
 
 In this section, we first introduce 3-D angle rigidity, then introduce the merging operation for two angle rigid angularities, and in the end discuss angle rigidity of convex polyhedra. All the discussions are confined to 3-D and the right-hand rule applies to all rotation operations of vectors.
 
@@ -1069,6 +1076,6 @@ Compared with the existing results in 2-D, the contributions of the developed 3-
 ## References
 > 1. **Gangshan Jing**, G. Zhang, H. W. J. Lee, and L. Wang, *[Angle-based shape determination theory of planar graphs with application to formation stabilization](https://www.sciencedirect.com/science/article/pii/S0005109819301475)*, Automatica J. IFAC, vol. 105, pp. 117–129, Jul. 2019: [arXiv](https://arxiv.org/pdf/1803.04276); Note that the angle rigidity function was denoted by $f_{\mathcal{T}_\mathcal{G}}$ and $\boldsymbol{g}_p$ is replaced by $\boldsymbol{b}_\mathcal{G}$ in the paper.
 > 2. X. Chen, M.-A. Belabbas, and T. Başar, *[Global stabilization of triangulated formations](http://epubs.siam.org/doi/10.1137/15M105094X)*, SIAM J. Control Optim., vol. 55, no. 1, pp. 172–199, Jan. 2017: Appendix A.1
-> 3. **Liangming Chen**, Ming Cao and Chuanjiang Li, *[Angle rigidity and its usage to stabilize multiagent formations in 2-D](https://ieeexplore.ieee.org/document/9204421)*, IEEE Trans. Autom. Control, vol. 66, no. 8, pp. 3667–3681, Aug. 2021.
+> 3. **Liangming Chen**, Ming Cao and Chuanjiang Li, *[Angle rigidity and its usage to stabilize multiagent formations in 2-D](https://ieeexplore.ieee.org/document/9204421)*, IEEE Trans. Autom. Control, vol. 66, no. 8, pp. 3667–3681, Aug. 2021: `Section II & III`.
 > 4. **Liangming Chen** and Ming Cao, *[Angle rigidity for multiagent formations in 3-D](https://ieeexplore.ieee.org/document/10018886)*, IEEE Trans. Autom. Control, vol. 68, no. 10, pp. 6130–6145, Oct. 2023.
 <!-- > 1. *[Sensor and framework topologies of formations with direction, bearing, and angle information between agents](https://ieeexplore.ieee.org/abstract/document/1273093)* by **Tolga Eren**, ..., **Brian D.O. Anderson** -->

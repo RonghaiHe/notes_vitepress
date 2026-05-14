@@ -9,7 +9,7 @@ hero:
   actions:
     - theme: brand
       text: Graph Rigidity & Formation Control
-      link: /docs/frontiers/RigidityGraph&Formation/1dist_control
+      link: /docs/Frontiers/RigidityGraph&Formation/1distance
     - theme: alt
       text: Optimal Control
       link: /docs/Control/OCP/1introduction
