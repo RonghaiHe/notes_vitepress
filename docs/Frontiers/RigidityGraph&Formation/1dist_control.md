@@ -83,7 +83,7 @@ When $\boldsymbol{v}_{di}$ **only includes a translation velocity**, the formati
 
 An example of $\mathcal{F}^∗$ is illustrated by the 3D formation in [Figure 1.1](#fig-1.1) where the leader is located in the interior of the tetrahedron. **The axis of rotation passes through the leader**, which is inside the tetrahedron. Since $n = 5$, we need $3n − 6 = 9$ for the framework to be **minimally rigid**. The solid lines indicate edges that form the faces of the tetrahedron while the dashed lines are edges in its interior. Notice that edge $(1, 4)$ is not necessary.
 
-The association of a leader agent (instead of a virtual leader) with the axis of rotation is done for convenience (not necessity) since the leader’s relative position to the followers can be measured and it will not have to undergo any rotation. Note that if one uses a virtual leader, its location would have to be known in order to calculate its position relative to the agents (see $(3)$ in [Distance](./1distance.md#eq-3)). This in turn would require extra measurements and/or calculations.
+The association of a leader agent (instead of a virtual leader) with the axis of rotation is done for convenience (not necessity) since the leader’s relative position to the followers can be measured and it will not have to undergo any rotation. Note that if one uses a virtual leader, its location would have to be known in order to calculate its position relative to the agents (see [$(3)$ in Distance](./1distance.md#eq-3)). This in turn would require extra measurements and/or calculations.
 
 > [!info] Problem 3: Target Interception
 > The agents should intercept and surround a (possibly evading) moving target with a pre-defined formation. Here, we will also use the leader–follower approach by taking the $n^\text{th}$ agent to be the leader while the remaining agents are followers. The control protocol will consist of:
@@ -100,13 +100,29 @@ The association of a leader agent (instead of a virtual leader) with the axis of
 
 Before beginning with the control design, some theorem and corollary statements will be made without proof.
 
-> [!caution] Theorem 1.1 (Originally from [1] of Theorem C.2)
+<span id="thm-1.1"></span>
+
+> [!caution] Theorem 1.1 (Originally from [1] of Theorem C. 1)
+> Consider the SISO LTI system
+>
+> $$
+\begin{aligned}
+& \dot{\boldsymbol{x}}=\mathbf{A} \boldsymbol{x}+\mathbf{B} \boldsymbol{u} \\
+& \boldsymbol{y}=\mathbf{C} \boldsymbol{x}
+\end{aligned}
+> $$
+>
+> where $\mathbf{A} \in \mathbb{R}^{n \times n}$ is a **Hurwitz** matrix. Then, the following results hold:
+> - If $\boldsymbol{u}(t) \in \mathcal{L}_2$, then $\boldsymbol{y}(t) \in \mathcal{L}_2 \cap \mathcal{L}_{\infty}, \boldsymbol{y}(t) \in \mathcal{L}_2, \boldsymbol{y}(t)$ is continuous, and $\boldsymbol{y}(t) \rightarrow 0$ as $t \rightarrow \infty$.
+> - If $\boldsymbol{u}(t) \in \mathcal{L}_{\infty}$, then $\boldsymbol{y}(t) \in \mathcal{L}_{\infty}, \boldsymbol{y}(t) \in \mathcal{L}_{\infty}$, and $\boldsymbol{y}(t)$ is uniformly continuous. If, in addition, $\boldsymbol{u}(t) \rightarrow 0$ as $t \rightarrow \infty$, then $\boldsymbol{y}(t) \rightarrow 0$ as $t \rightarrow \infty$.
+
+> [!caution] Theorem 1.2 (Originally from [1] of Theorem C.2)
 > Let $V: D \times \mathbb{R}_{\geqslant 0} \rightarrow \mathbb{R}$ be a continuously differentiable function such that
 > 
 > $$
 \begin{aligned}
-& U_1(x) \leq V(x, t) \leq U_2(x) \\
-& \dot{V}=\frac{\partial V}{\partial t}+\frac{\partial V}{\partial x} f(x, t) \leq-U_3(x)
+& U_1(x) \leqslant V(x, t) \leqslant U_2(x) \\
+& \dot{V}=\frac{\partial V}{\partial t}+\frac{\partial V}{\partial x} f(x, t) \leqslant-U_3(x)
 \end{aligned}
 > $$
 > 
@@ -130,15 +146,23 @@ The above inequality has several implications.
 - As $t \to\infty$, the state is ultimately bounded by function $\alpha$.
 - If $\boldsymbol{u}(t) \to \mathbf{0}$ as $t \to\infty$, so does $\boldsymbol{x}(t)$.
 
-
-<span id="thm-1.2"></span>
-
-> [!caution] Theorem 1.2 (Originally from [1] of Theorem C.4)
-> Consider that $f(\boldsymbol{x}, \boldsymbol{u})$ in $\dot{\boldsymbol{x}=\boldsymbol{f}(\boldsymbol{x}, \boldsymbol{u})}, \quad \boldsymbol{x}(0)=\boldsymbol{x}_0$ is locally Lipschitz in $(\boldsymbol{x}, \boldsymbol{u})$ in some neighborhood of $(\boldsymbol{x}=0, \boldsymbol{u}=0)$. Then, the system is locally input-to-state stable if and only if the unforced system $\dot{\boldsymbol{x}}=\boldsymbol{f}(\boldsymbol{x}, 0)$ has a locally asymptotically stable equilibrium point at the origin.
-
 <span id="thm-1.3"></span>
 
-> [!caution] Theorem 1.3 (Originally from [1] of Theorem C.5)
+> [!caution] Theorem 1.3 (A corollary to Barbalat's Lemma, originally from [1] of Theorem C.3)
+> Consider the function $F: \mathbb{R}_{\geqslant 0} \rightarrow \mathbb{R}$. If $f(t)\in\mathcal{L}_\infty, \dot{f}(t)\in\mathcal{L}_\infty$, and $f(t)\in\mathcal{L}_2$, then
+>
+> $$
+f(t)\to 0 \text{ as }t\to\infty.
+> $$
+
+<span id="thm-1.4"></span>
+
+> [!caution] Theorem 1.4 (Originally from [1] of Theorem C.4)
+> Consider that $f(\boldsymbol{x}, \boldsymbol{u})$ in $\dot{\boldsymbol{x}=\boldsymbol{f}(\boldsymbol{x}, \boldsymbol{u})}, \quad \boldsymbol{x}(0)=\boldsymbol{x}_0$ is locally Lipschitz in $(\boldsymbol{x}, \boldsymbol{u})$ in some neighborhood of $(\boldsymbol{x}=0, \boldsymbol{u}=0)$. Then, the system is locally input-to-state stable if and only if the unforced system $\dot{\boldsymbol{x}}=\boldsymbol{f}(\boldsymbol{x}, 0)$ has a locally asymptotically stable equilibrium point at the origin.
+
+<span id="thm-1.5"></span>
+
+> [!caution] Theorem 1.5 (Originally from [1] of Theorem C.5)
 > Consider the interconnected system
 >
 > <span id="eq-1.6"></span>
@@ -152,13 +176,13 @@ The above inequality has several implications.
 >
 > If subsystem $\Sigma_1$ with input $y$ is locally input-to-state stable and $y=0$ is a locally asymptotically stable equilibrium point of subsystem $\Sigma_2$, then $[x, y]=0$ is a locally asymptotically stable equilibrium point of the interconnected system.
 
-<span id="thm-1.4"></span>
+<span id="thm-1.6"></span>
 
-> [!caution] Theorem 1.4 (Originally from [1] of Theorem C. 6)
-> If $0 \in K[f](0, t)$ in a region $Q \supset B(0, \delta) \times\left[t_0, \infty\right)$ and $V$ : $D \times \mathbb{R}_{\geq 0} \rightarrow \mathbb{R}$ is a regular function satisfying $V(0, t)=0$,
+> [!caution] Theorem 1.6 (Originally from [1] of Theorem C. 6)
+> If $0 \in K[f](0, t)$ in a region $Q \supset B(0, \delta) \times\left[t_0, \infty\right)$ and $V$ : $D \times \mathbb{R}_{\geqslant 0} \rightarrow \mathbb{R}$ is a regular function satisfying $V(0, t)=0$,
 > 
 > $$
-\alpha_1(\|x\|) \leq V(x, t) \leq \alpha_2(\|x\|) \quad \forall x \neq 0
+\alpha_1(\|x\|) \leqslant V(x, t) \leqslant \alpha_2(\|x\|) \quad \forall x \neq 0
 > $$
 > 
 > and
@@ -167,7 +191,7 @@ The above inequality has several implications.
 \dot{V} \stackrel{\text { a.e. }}{\in} \underset{\xi \in \partial V(x, t)}{\cap} \xi^{\top}\left[\begin{array}{c}
 K[f](x, t) \\
 1
-\end{array}\right] \leq-\alpha_3(\|x\|)
+\end{array}\right] \leqslant-\alpha_3(\|x\|)
 > $$
 > 
 > in $Q$ where $\alpha_i(\cdot), i=1,2,3$ are class $\mathcal{K}$ functions, $K[f](x, t)$ is an upper semi-continuous, nonempty, compact, convex-valued map on $D$ defined as
@@ -184,7 +208,7 @@ B(\bar{\boldsymbol{x}},r) = \{\boldsymbol{x}\in\mathbb{R}^n: \|\boldsymbol{x} - 
 >
 > represents the "ball" of radius $r$ centered at $\bar{\boldsymbol{x}}$.
 > 
-> Then $x=0$ is a **uniformly asymptotically stable equilibrium point** of system $\dot{\boldsymbol{x}}=\boldsymbol{f}(\boldsymbol{x}, t), \quad \boldsymbol{x}(t_0)=\boldsymbol{x}_0$ where $\boldsymbol{f}: D \times \mathbb{R}_{\geq 0} \rightarrow \mathbb{R}^n$ is discontinuous in ${\boldsymbol{x}}$ and piecewise continuous in $t$ on $D \times \mathbb{R}_{\geq 0}$.
+> Then $x=0$ is a **uniformly asymptotically stable equilibrium point** of system $\dot{\boldsymbol{x}}=\boldsymbol{f}(\boldsymbol{x}, t), \quad \boldsymbol{x}(t_0)=\boldsymbol{x}_0$ where $\boldsymbol{f}: D \times \mathbb{R}_{\geqslant 0} \rightarrow \mathbb{R}^n$ is discontinuous in ${\boldsymbol{x}}$ and piecewise continuous in $t$ on $D \times \mathbb{R}_{\geqslant 0}$.
 
 ## 2 Single-Integrator Model [1]
 This section will set the foundation for the formation control designs. We use here a very simple model for the motion of the agents known as the **single-integrator model**, which only includes two variables: **position and velocity**. This is a simplified kinematic model for omnidirectional robots (e.g., mobile robots with Swedish wheels). Specifically, we consider a system of $n$ agents governed by the first-order differential equation
@@ -205,7 +229,7 @@ where $s$ is the Laplace variable, i.e., the inputs and outputs are separated by
 
 Formation controllers based on [$(2.1)$](#eq-2.1) are called **high-level control laws** because they are often embedded in controllers designed for more refined agent models. Therefore, the control laws introduced in this section will form the basis for all subsequent designs.
 
-### Formation Acquisition
+### 2.1 Formation Acquisition
 We begin with the formation acquisition problem defined in [Section 1](#1-introduction-1). Given [$(2.1)$](#eq-2.1), we seek to design $\boldsymbol{u}_i = \boldsymbol{u}_i(\boldsymbol{q}_i − \boldsymbol{q}_j, d_{ij}), i = 1, \ldots , n$ and $j ∈ \mathcal{N}_i(\mathcal{E}^∗)$, where $\mathcal{N}_i(\cdot)$ was defined in [Preliminary of Graph Theory](./1distance.md#preliminary-graph-theory-45) to achieve the control objective described by [$(1.2)$](#eq-1.2) (or equivalently [$(1.3)$](#eq-1.3)).
 
 It is appropriate at this point to elaborate on an issue mentioned at the end of [Section of framework ambiguities](./1distance.md#framework-ambiguities). The inputs $\boldsymbol{u}_i, i = 1, \ldots , n$ will directly control the distances $\|\boldsymbol{q}_i − \boldsymbol{q}_j\|, (i, j) \in \mathcal{E}^∗$. Therefore, they can only directly ensure that
@@ -405,7 +429,7 @@ The control [$(2.15)$](#eq-2.15) can be expressed element-wise as
 
 $$
 \begin{equation*}
-u_{i}=-k_{v} \sum_{j \in \mathcal{N}_{i}\left(\mathcal{E}^{*}\right)} \tilde{\boldsymbol{q}}_{i j} \boldsymbol{z}_{i j}, \quad i=1, \ldots n, \tag{2.20}
+\boldsymbol{u}_{i}=-k_{v} \sum_{j \in \mathcal{N}_{i}\left(\mathcal{E}^{*}\right)} \tilde{\boldsymbol{q}}_{i j} \boldsymbol{z}_{i j}, \quad i=1, \ldots n, \tag{2.20}
 \end{equation*}
 $$
 
@@ -413,7 +437,7 @@ which is only a function of $\tilde{\boldsymbol{q}}_{i j}$ and $d_{i j}$ for $(i
 
 Notice that each individual term of the summation in [$(2.20)$](#eq-2.20) is a vector whose direction is along $\tilde{\boldsymbol{q}}_{i j}$. If all $n$ agents are positioned collinearly at $t=0$, the control input of each one will necessarily be **directed along the line**. As a result, the agents will be stuck in a collinear formation and will never converge to the desired formation. In other words, the collinear formation is an **invariant set**. However, if at least one agent is not initially collinear with the others, the agents will not necessarily remain collinear because the edges between these agents and the noncollinear ones will create **control components whose directions are not parallel to the line**.
 
-The stability result of [Theorem 2.1](#thm-2.1) guarantees that the desired formation is acquired up to rotation and translation. In other words, the formation acquisition controller does not regulate the formation to a pre-defined global location in space. This is a reflection of the facts that $\boldsymbol{u}_{i}$ is not a function of $\boldsymbol{q}_{i}$ but only of the relative positions $\tilde{\boldsymbol{q}}_{i j},(i, j) \in \mathcal{E}^{*}$ and that the control objective is to regulate $\left\|\tilde{q}_{i j}\right\|$.
+The stability result of [Theorem 2.1](#thm-2.1) guarantees that the desired formation is acquired up to rotation and translation. In other words, the formation acquisition controller does not regulate the formation to a pre-defined global location in space. This is a reflection of the facts that $\boldsymbol{u}_{i}$ is not a function of $\boldsymbol{q}_{i}$ but only of the relative positions $\tilde{\boldsymbol{q}}_{i j},(i, j) \in \mathcal{E}^{*}$ and that the control objective is to regulate $\left\|\tilde{\boldsymbol{q}}_{i j}\right\|$.
 
 Since we are only concerned with the inter-agent distances, any coordinate frame can be used to implement $\boldsymbol{u}_{i}$. That is, although the above analysis was done with the variables defined with respect to a common, fixed coordinate frame for convenience, [$(2.20)$](#eq-2.20) can be implemented in practice with respect to the $i^\text{th}$ agent's own local coordinate frame. This means that the agents do not need to have a common sense of orientation and [$(2.20)$](#eq-2.20) is rotationally invariant. To see this, let $\mathcal{F}_{0}$ and $\mathcal{F}_{i}$ denote the Earth-fixed coordinate frame and the local coordinate frame of the $i^\text{th}$ agent, respectively (see [Figure 2.2](#fig-2.2)). If $\mathcal{R}_{i}^{0} \in \mathbb{R}^{m}$ denotes the rotation matrix representing the orientation of $\mathcal{F}_{i}$ with respect to $\mathcal{F}_{0}$, we have that
 
@@ -472,7 +496,7 @@ $$
 
 which is the same as [$(2.7)$](#eq-2.7) without the control gain. That is, since [$(2.22)$](#eq-2.22) (also called a **potential function**) has a minimum when $r_\mathcal{G}(\boldsymbol{q})=r_\mathcal{G}\left(\boldsymbol{q}^{*}\right)$, it is well known from optimization theory that the negative gradient causes the system trajectory to approach the local minimum.
 
-### Formation Maneuvering
+### 2.2 Formation Maneuvering
 
 In this section, we solve the formation maneuvering problem defined in Section 1.4 using model [$(2.1)$](#eq-2.1). Since formation acquisition is embedded in the formation maneuvering problem, we use [$(2.12)$](#eq-2.12) as the starting point. The control law here will take the form $\boldsymbol{u}_{i}=\boldsymbol{u}_{i}\left(\tilde{\boldsymbol{q}}_{i j}, d_{i j}, \boldsymbol{v}_{d i}\right), i=1, \ldots, n$ and $j \in \mathcal{N}_{i}\left(\mathcal{E}^{*}\right)$ where $\boldsymbol{v}_{d i}(t)$, which was defined in [$(1.4)$](#eq-1.4), is a bounded continuous function.
 
@@ -507,7 +531,7 @@ Substituting [$(2.23)$](#eq-2.23) into [$(2.12)$](#eq-2.12) yields
 
 $$
 \begin{equation*}
-\dot{W}=-k_{v} \boldsymbol{z}^{T} R_\mathcal{D}(\tilde{q}) R_\mathcal{D}^{\top}(\tilde{q}) \boldsymbol{z}+\boldsymbol{z}^{T} R_\mathcal{D}(\tilde{\boldsymbol{q}}) \boldsymbol{v}_{d} . \tag{2.25}
+\dot{W}=-k_{v} \boldsymbol{z}^{\top} R_\mathcal{D}(\tilde{\boldsymbol{q}}) R_\mathcal{D}^{\top}(\tilde{\boldsymbol{q}}) \boldsymbol{z}+\boldsymbol{z}^{\top} R_\mathcal{D}(\tilde{\boldsymbol{q}}) \boldsymbol{v}_{d} . \tag{2.25}
 \end{equation*}
 $$
 
@@ -548,7 +572,7 @@ $$
 
 which shows that it is **decentralized**. Note that in many applications the signals $\boldsymbol{v}_{0}$ and $\boldsymbol{\omega}_{0}$ are known a priori and therefore can be stored on each agent's onboard computer. Also, since $\tilde{\boldsymbol{q}}_{n n}=0$, the formation maneuvering term of the leader only has the translation component $\boldsymbol{v}_{0}$. This is expected since the leader by design lies on the axis of rotation of the virtual rigid body.
 
-### Flocking
+### 2.3 Flocking
 
 Here, we consider the special case of formation maneuvering where the **desired velocity only includes the translation component**. Recall from Section 1 that this is commonly referred to as **flocking**. Unlike last Section, we consider that the desired flocking velocity is only **available to a subset of agents**. We will overcome this constraint by employing a distributed observer that estimates this velocity by exploiting the connectedness of the formation graph.
 
@@ -651,7 +675,7 @@ $$
 \end{align*}
 $$
 
-where we used the fact that $\hat{\boldsymbol{v}}_{i}-\hat{\boldsymbol{v}}_{j}=\tilde{\boldsymbol{v}}_{i}-\tilde{\boldsymbol{v}}_{j}, \mathbf{B}:=\operatorname{diag}\left(b_{1}, \ldots b_{n}\right), \mathcal{L}$ is the Laplacian matrix defined in [$(1.4)$](#eq-1.4), and $\mathbf{M}:=\mathcal{L}+\mathbf{B}$ is symmetric. Our overall closed-loop system is composed of two interconnected subsystems, [$(2.34)$](#eq-2.34) and [$(2.35)$](#eq-2.35), which are in the form of [$(1.6)$](#eq-1.6). Notice that [$(2.34)$](#eq-2.34) with $\tilde{\boldsymbol{v}}=0$ is input-to-state stable by [Theorem 1.2](#thm-1.2) since it reduces to the closed-loop system analyzed in [Theorem 2.1](#thm-2.1). Since the graph of a rigid framework is always connected, we know that $\mathcal{G}^{*}$ is connected. Therefore, we know from Lemmas 1.1 and nonautonomous (time-varying) system $\dot{\boldsymbol{x}}=f(\boldsymbol{x},t), \quad \boldsymbol{x}(t_0)=\boldsymbol{x}_0$ that $\mathbf{M}$ and $\mathbf{M} \otimes \mathbf{I}_{m}$ are positive definite, respectively. It then follows from [$(2.35)$](#eq-2.35) that $\tilde{\boldsymbol{v}}=0$ is exponentially stable. We can now invoke [Theorem 1.3](#thm-1.3) to claim that $(\boldsymbol{z}, \tilde{\boldsymbol{v}})=0$ is an asymptotically stable equilibrium point of the interconnected system. Since $\boldsymbol{z}=0$ if and only if $\boldsymbol{e}=0$, we know $\boldsymbol{e}=0$ is asymptotically stable. Finally, by virtue of the initial conditions, we know that $\mathcal{F}(t) \rightarrow \operatorname{Iso}\left(\mathcal{F}^{*}\right)$ as $t \rightarrow \infty$ as argued in the proof of [Theorem 2.1](#thm-2.1).
+where we used the fact that $\hat{\boldsymbol{v}}_{i}-\hat{\boldsymbol{v}}_{j}=\tilde{\boldsymbol{v}}_{i}-\tilde{\boldsymbol{v}}_{j}, \mathbf{B}:=\operatorname{diag}\left(b_{1}, \ldots b_{n}\right), \mathcal{L}$ is the Laplacian matrix defined in [$(1.4)$](#eq-1.4), and $\mathbf{M}:=\mathcal{L}+\mathbf{B}$ is symmetric. Our overall closed-loop system is composed of two interconnected subsystems, [$(2.34)$](#eq-2.34) and [$(2.35)$](#eq-2.35), which are in the form of [$(1.6)$](#eq-1.6). Notice that [$(2.34)$](#eq-2.34) with $\tilde{\boldsymbol{v}}=0$ is input-to-state stable by [Theorem 1.4](#thm-1.4) since it reduces to the closed-loop system analyzed in [Theorem 2.1](#thm-2.1). Since the graph of a rigid framework is always connected, we know that $\mathcal{G}^{*}$ is connected. Therefore, we know from Lemmas 1.1 and nonautonomous (time-varying) system $\dot{\boldsymbol{x}}=f(\boldsymbol{x},t), \quad \boldsymbol{x}(t_0)=\boldsymbol{x}_0$ that $\mathbf{M}$ and $\mathbf{M} \otimes \mathbf{I}_{m}$ are positive definite, respectively. It then follows from [$(2.35)$](#eq-2.35) that $\tilde{\boldsymbol{v}}=0$ is exponentially stable. We can now invoke [Theorem 1.5](#thm-1.5) to claim that $(\boldsymbol{z}, \tilde{\boldsymbol{v}})=0$ is an asymptotically stable equilibrium point of the interconnected system. Since $\boldsymbol{z}=0$ if and only if $\boldsymbol{e}=0$, we know $\boldsymbol{e}=0$ is asymptotically stable. Finally, by virtue of the initial conditions, we know that $\mathcal{F}(t) \rightarrow \operatorname{Iso}\left(\mathcal{F}^{*}\right)$ as $t \rightarrow \infty$ as argued in the proof of [Theorem 2.1](#thm-2.1).
 
 Finally, due to the asymptotic stability of $\boldsymbol{e}=0$, we know $\boldsymbol{u}_{a}(t) \rightarrow 0$ as $t \rightarrow \infty$ and therefore from [$(2.28a)$](#eq-2.28) that $\boldsymbol{u}(t)-\hat{\boldsymbol{v}}(t) \rightarrow 0$ as $t \rightarrow \infty$. Since $\tilde{\boldsymbol{v}}_{i}(t)=\hat{\boldsymbol{v}}_{i}(t)- \boldsymbol{v}_{0} \rightarrow 0$ as $t \rightarrow \infty$, then we know from [$(2.1)$](#eq-2.1) that [$(1.4)$](#eq-1.4) holds. Q.E.D. <div style="text-align: right;">$\square$</div>
 </details>
@@ -735,11 +759,11 @@ $$
 \end{align*}
 $$
 
-By choosing $\alpha>\gamma$, we get that $\dot{W}_{f}$ is negative definite. Therefore, from [Theorem 1.4](#thm-1.4), we know that $\tilde{\boldsymbol{v}}=0$ is asymptotically stable.
+By choosing $\alpha>\gamma$, we get that $\dot{W}_{f}$ is negative definite. Therefore, from [Theorem 1.6](#thm-1.6), we know that $\tilde{\boldsymbol{v}}=0$ is asymptotically stable.
 
 Now the proof that [$(2.15)$](#eq-2.15) and [$(2.36)$](#eq-2.36) guarantee that [$(1.2)$](#eq-1.2) and [$(1.4)$](#eq-1.4) are satisfied directly follows from the proof of [Theorem 2.3](#thm-2.3).
 
-### Target Interception with Unknown Target Velocity
+### 2.4 Target Interception with Unknown Target Velocity
 
 We now turn our attention to the target interception problem defined in Section 1. We assume the target motion is such that $\boldsymbol{q}_{T}(t)$ is three times continuously differentiable and $\mathrm{d}^{i} \boldsymbol{q}_{T} / \mathrm{d} t^{i} \in \mathcal{L}_{\infty}, i=0,1,2,3$. Furthermore, we consider the target velocity $\dot{\boldsymbol{q}}_{T}$ to be unknown to all agents, but that the **leader** can measure the target's relative position $\boldsymbol{q}_{T}-\boldsymbol{q}_{n}$ with its onboard sensors and can broadcast this information to the followers.
 
@@ -804,7 +828,7 @@ k_{2}>\left\|\dot{\boldsymbol{v}}_{T}\right\|_{\mathcal{L}_{\infty}}+\frac{1}{k_
 >
 > $$
 \begin{equation*}
-\zeta_{b}=k_{2}\left\|\boldsymbol{e}_{T}(0)\right\|_{1}-\boldsymbol{e}_{T}^{T}(0) \dot{\boldsymbol{v}}_{T}(0) \tag{2.49}
+\zeta_{b}=k_{2}\left\|\boldsymbol{e}_{T}(0)\right\|_{1}-\boldsymbol{e}_{T}^{\top}(0) \dot{\boldsymbol{v}}_{T}(0) \tag{2.49}
 \end{equation*}
 > $$
 
@@ -885,7 +909,7 @@ After substituting [$(2.53)$](#eq-2.53) into [$(2.12)$](#eq-2.12), we obtain
 
 $$
 \begin{equation*}
-\dot{W}=-k_{v} z^{\top} R(\tilde{q}) R^{\top}(\tilde{q}) z+z^{\top} R(\tilde{q})\left(\mathbf{1}_{n} \otimes \boldsymbol{h}\right) . \tag{2.55}
+\dot{W}=-k_{v} z^{\top} R(\tilde{\boldsymbol{q}}) R^{\top}(\tilde{\boldsymbol{q}}) z+z^{\top} R(\tilde{\boldsymbol{q}})\left(\mathbf{1}_{n} \otimes \boldsymbol{h}\right) . \tag{2.55}
 \end{equation*}
 $$
 
@@ -950,7 +974,7 @@ whose derivative along [$(2.61)$](#eq-2.61) is given by
 
 $$
 \begin{equation*}
-\dot{P}=w^{T}\left(-w+\dot{\boldsymbol{v}}_{T}-k_{2} \operatorname{sgn}\left(\boldsymbol{e}_{T}\right)\right)=-w^{\top} w+L \tag{2.63}
+\dot{P}=w^{\top}\left(-w+\dot{\boldsymbol{v}}_{T}-k_{2} \operatorname{sgn}\left(\boldsymbol{e}_{T}\right)\right)=-w^{\top} w+L \tag{2.63}
 \end{equation*}
 $$
 
@@ -969,9 +993,9 @@ $$
 \int_{0}^{t} w^{\top}(\tau) w(\tau) \mathrm{~d} \tau \leqslant \zeta_{b}+P(0)-P(t)<\infty
 $$
 
-which means that $w(t) \in \mathcal{L}_{2}$. Therefore, we know from [$(2.59)$](#eq-2.59) and Theorem C. 1 that $e_{T}(t) \rightarrow 0$ as $t \rightarrow \infty$. We can also use [$(2.59)$](#eq-2.59) to claim that $\dot{e}_{T} \in \mathcal{L}_{\infty}$, which implies from [$(2.57)$](#eq-2.57) (together with the boundedness of $\boldsymbol{v}_{T}(t)$ ) that $u_{n}(t) \in \mathcal{L}_{\infty}$. From [$(2.56)$](#eq-2.56), we then know that $\hat{\boldsymbol{v}}_{T}(t) \in \mathcal{L}_{\infty}$. Since (1.26) holds and $F^{*}$ is constructed such that $q_{n}^{*} \in \operatorname{conv}\left\{q_{1}^{*}, \ldots, q_{n-1}^{*}\right\}$, we know that $q_{n}(t) \in \operatorname{conv}\left\{q_{1}(t), q_{2}(t), \ldots, q_{n-1}(t)\right\}$ as $t \rightarrow \infty$. Therefore, from the fact that $e_{T}(t) \rightarrow 0$ as $t \rightarrow \infty$, we conclude that [$(1.5)$](#eq-1.5) holds.
+which means that $w(t) \in \mathcal{L}_{2}$. Therefore, we know from [$(2.59)$](#eq-2.59) and [Theorem 1.1](#thm-1.1) that $e_{T}(t) \rightarrow 0$ as $t \rightarrow \infty$. We can also use [$(2.59)$](#eq-2.59) to claim that $\dot{e}_{T} \in \mathcal{L}_{\infty}$, which implies from [$(2.57)$](#eq-2.57) (together with the boundedness of $\boldsymbol{v}_{T}(t)$ ) that $u_{n}(t) \in \mathcal{L}_{\infty}$. From [$(2.56)$](#eq-2.56), we then know that $\hat{\boldsymbol{v}}_{T}(t) \in \mathcal{L}_{\infty}$. Since (1.26) holds and $F^{*}$ is constructed such that $\boldsymbol{q}_{n}^{*} \in \operatorname{conv}\left\{\boldsymbol{q}_{1}^{*}, \ldots, \boldsymbol{q}_{n-1}^{*}\right\}$, we know that $\boldsymbol{q}_{n}(t) \in \operatorname{conv}\left\{\boldsymbol{q}_{1}(t), \boldsymbol{q}_{2}(t), \ldots, \boldsymbol{q}_{n-1}(t)\right\}$ as $t \rightarrow \infty$. Therefore, from the fact that $e_{T}(t) \rightarrow 0$ as $t \rightarrow \infty$, we conclude that [$(1.5)$](#eq-1.5) holds.
 
-Finally, we know $\dot{w}(t) \in \mathcal{L}_{\infty}$ from [$(2.61)$](#eq-2.61) since $\dot{\boldsymbol{v}}_{T}$ is assumed bounded. It then follows from Theorem C. 3 that $w(t) \rightarrow 0$ as $t \rightarrow \infty$. Therefore, we can use (2.59) to show that $\dot{e}_{T}(t) \rightarrow 0$ as $t \rightarrow \infty$, and then (2.58) to conclude that $\boldsymbol{v}_{T}(t)-\hat{\boldsymbol{v}}_{T}(t) \rightarrow 0$ as $t \rightarrow \infty$. Q.E.D. <div style="text-align: right;">$\square$</div>
+Finally, we know $\dot{w}(t) \in \mathcal{L}_{\infty}$ from [$(2.61)$](#eq-2.61) since $\dot{\boldsymbol{v}}_{T}$ is assumed bounded. It then follows from [Theorem 1.3](#thm-1.3) that $w(t) \rightarrow 0$ as $t \rightarrow \infty$. Therefore, we can use (2.59) to show that $\dot{e}_{T}(t) \rightarrow 0$ as $t \rightarrow \infty$, and then (2.58) to conclude that $\boldsymbol{v}_{T}(t)-\hat{\boldsymbol{v}}_{T}(t) \rightarrow 0$ as $t \rightarrow \infty$. Q.E.D. <div style="text-align: right;">$\square$</div>
 </details>
 
 Similar to the formation maneuvering control, the target interception controller [$(2.53)$](#eq-2.53) and [$(2.54)$](#eq-2.54) has two components with well-defined roles:
@@ -994,13 +1018,15 @@ whereas the control for the leader is given by [$(2.56)$](#eq-2.56). As one can 
 
 Finally, note that the target interception error [$(2.44)$](#eq-2.44) could be redefined to include a constant **offset** so that the leader **does not collide** with the target, i.e., $\boldsymbol{e}_{T}=\boldsymbol{q}_{n}-\boldsymbol{q}_{T}-\boldsymbol{c}$ where $\boldsymbol{c} \in \mathbb{R}^{m}$ is a constant vector.
 
-### Dynamic Formation Acquisition
+### 2.5 Dynamic Formation Acquisition
 
 So far, we have only considered formation acquisition when the desired formation $\mathcal{F}^{*}$ is static. In certain applications it may be necessary that the **formation size and/or geometric shape change in time**, such as to **avoid obstacles, dynamically adapt to a change of mission, or adapt to limits in communication range and bandwidth**. Thus, we consider now the problem of **dynamic** formation acquisition in the sense that the desired formation is a function of time, $\mathcal{F}^{*}(t)$. In control systems jargon, we will deal here with the more general **tracking** problem instead of the simpler setpoint problem.
 
 Note that dynamic formation acquisition is independent of what we call formation maneuvering. In the former, the time-varying nature is related to the formation itself, whereas in the latter, the formation (whether static or dynamic) maneuvers as a virtual rigid body. The formal statement of the dynamic formation acquisition problem is as follows.
 
->[!info] Problem 1 (Dynamic Formation Acquisition)
+<span id="problem-4"></span>
+
+>[!info] Problem 4 (Dynamic Formation Acquisition)
 > Let the desired formation be represented by a **dynamic**, infinitesimally and minimally rigid framework $\mathcal{F}^{*}(t)=\left(\mathcal{G}^{*}, \boldsymbol{q}^{*}(t)\right)$[^2.5] where the time-varying desired distance between agents $i$ and $j$ is given by
 >
 > <span id="eq-2.65"></span>
@@ -1090,11 +1116,457 @@ One possible remedy for this problem is to have the agents communicate their res
 Yet another solution is to **use a directed graph-based controller** since it reduces the overall number of communication/sensing/control channels while avoiding the potential conflict between a pair of agents trying to achieve the same objective. However, in directed graphs it is possible to have cycles in the pathways, which are more challenging to control and can lead to formation instability. Therefore, the issue of **cyclic versus acyclic graphs** is an important consideration for directed formation control.
 
 ## 3 Double-Integrator Model [1]
-TBC
+In this section, we re-discuss the class of formation controllers presented in [Chapter 2](#2-single-integrator-model-1) in the context of a slightly more refined model, viz., the **double-integrator model**. We will follow the same format as the previous section for ease of correlation.
+
+The double-integrator model accounts for the agent acceleration by treating the agent as a point mass. Therefore, it can be considered a very simple dynamic model for omnidirectional robots. Given a system of $n$ agents, the equations of motion for the double-integrator model are
+
+<span id="eq-3.1"></span>
+
+$$
+\begin{align*}
+& \dot{\boldsymbol{q}}_{i}=\boldsymbol{v}_{i}  \tag{3.1a}\\
+& \dot{\boldsymbol{v}}_{i}=\boldsymbol{u}_{i}, \quad i=1, \ldots, n \tag{3.1b}
+\end{align*}
+$$
+
+where $\boldsymbol{v}_{i} \in \mathbb{R}^{m}$ represents the velocity of the $i$ th agent with respect to an Earth-fixed coordinate frame, $\boldsymbol{u}_{i} \in \mathbb{R}^{m}$ is the acceleration-level control input, and $\boldsymbol{q}_{i}$ is defined as in [$(2.1)$](#eq-2.1). Since the agent velocity is now a system state rather than the control input, the formation control laws in this section will be a function of the agent velocities in addition to the positions.
+
+Note that the system transfer function matrix is now $G_{i}(s)=1 / s^{2} I_{m}$, which gives rise to the model name. Since the only difference between this transfer function and [$(2.2)$](#eq-2.2) is an additional integrator, the extension of the single-integrator-based control laws to [$(3.1)$](#eq-3.1) is rather **seamless** if one exploits the **integrator backstepping** methodology (see Appendix A).
+
+### Double-Integrator Model for Formation Control
+As in [Section 2.1](#2-single-integrator-model-1), we begin by deriving the distance error dynamics. To this end, we use [$(2.6)$](#eq-2.6) and [$(3.1a)$](#eq-3.1a) to obtain
+
+<span id="eq-3.2"></span>
+
+$$
+\dot{e}_{i j}=\frac{\tilde{\boldsymbol{q}}_{i j}^{\top}\left(\boldsymbol{v}_{i}-\boldsymbol{v}_{j}\right)}{e_{i j}+d_{i j}} \tag{3.2}
+$$
+
+Differentiating [$(2.10)$](#eq-2.10) along [$(3.2)$](#eq-3.2) gives
+
+<span id="eq-3.3"></span>
+
+$$
+\dot{W}=\frac{1}{2} \boldsymbol{z}^{\top} \dot{\boldsymbol{z}}=\boldsymbol{z}^{\top} R_\mathcal{D}(\tilde{\boldsymbol{q}}) \boldsymbol{v} \tag{3.3}
+$$
+
+where $\boldsymbol{v}=\left[\boldsymbol{v}_{1}, \ldots, \boldsymbol{v}_{n}\right] \in \mathbb{R}^{m n}$.
+
+Given that $\boldsymbol{v}$ in [$(3.3)$](#eq-3.3) cannot be directly prescribed since it is a **system state**, we follow the **backstepping** technique and introduce the following variable
+
+<span id="eq-3.4"></span>
+
+$$
+\boldsymbol{s}=\boldsymbol{v}-\boldsymbol{v}_{f} \tag{3.4}
+$$
+
+where $\boldsymbol{v}_{f} \in \mathbb{R}^{m n}$ denotes the **fictitious** (or desired) velocity input, which will be specified later. The variable $\boldsymbol{s}$ quantifies the error between the actual agent velocity and the desired velocity-level input. The design of $\boldsymbol{v}_{f}$ will be problem-specific, and will come from the velocity-level control laws of Chapter 2. That is, generally speaking, $\boldsymbol{v}_{f}=\boldsymbol{u}^\mathrm{S I}$ where the superscript $\mathrm{S I}$ stands for one of the control input designs for the single-integrator model. The block diagrams in [Figure 3.1](#fig-3.1) illustrate the relationship between the control designs for the single- and double-integrator models. As one can see, the velocity-level, position control algorithms from [Chapter 2](#2-single-integrator-model-1) will be **embedded in the acceleration-level, velocity control loop** to be designed in this chapter.
+
+<figure>
+   <img src="./images/1dist_control_3-diff.JPG" alt="diff" id="fig-3.1" width="100%" align="center">
+   <div align="center"><figcaption> Figure 3.1: Relationship between the (a) single- and (b) double-integrator control designs.</figcaption></div>
+</figure>
+
+Due to the new error variable [$(3.4)$](#eq-3.4), we introduce the **augmented Lyapunov function candidate**
+
+<span id="eq-3.5"></span>
+
+$$
+W_{d}(\boldsymbol{e}, \boldsymbol{s})=W(\boldsymbol{e})+\frac{1}{2} \boldsymbol{s}^{\top} \boldsymbol{s} \tag{3.5}
+$$
+
+where $W$ was defined in [$(2.10)$](#eq-2.10). Notice that $W$ is a potential energy-like term since it is only position dependent, whereas $\frac{1}{2} \boldsymbol{s}^{\top} \boldsymbol{s}$ is a **kinetic energy-like term** due to its dependence on velocity. Therefore, $W_{d}$ captures the total energy of the double-integrator model formation.
+
+After taking the time derivative of [$(3.5)$](#eq-3.5), we obtain
+
+<span id="eq-3.6"></span>
+
+$$
+\begin{align*}
+\dot{W}_{d} & =\boldsymbol{z}^{\top} R_\mathcal{D}(\tilde{\boldsymbol{q}}) \boldsymbol{v}+\boldsymbol{s}^{\top} \dot{\boldsymbol{s}} \\
+& =\boldsymbol{z}^{\top} R_\mathcal{D}(\tilde{\boldsymbol{q}})\left(\boldsymbol{s}+\boldsymbol{v}_{f}\right)+\boldsymbol{s}^{\top}\left(\boldsymbol{u}-\dot{\boldsymbol{v}}_{f}\right) \\
+& =\boldsymbol{z}^{\top} R_\mathcal{D}(\tilde{\boldsymbol{q}}) \boldsymbol{v}_{f}+\boldsymbol{s}^{\top}\left(\boldsymbol{u}+R_\mathcal{D}^{\top}(\tilde{\boldsymbol{q}}) \boldsymbol{z}-\dot{\boldsymbol{v}}_{f}\right) \tag{3.6}
+\end{align*}
+$$
+
+where [$(3.3)$](#eq-3.3), [$(3.1b)$](#eq-3.1), and [$(3.4)$](#eq-3.4) were used. Equation [$(3.6)$](#eq-3.6) is the analogue of [$(2.12)$](#eq-2.12) since it will be the starting point for all double-integrator control designs as [$(2.12)$](#eq-2.12) was for the single-integrator designs.
+
+### 3.1 Cross-Edge Energy
+
+Before presenting the formation controllers, we need to discuss a complication in the stability analysis of the closed-loop system that arises from the double-integrator model. Specifically, this complication is related to the **avoidance of flip ambiguities**.
+
+Recall that for the single-integrator model, the position of the initial formation needs to be restricted to prevent convergence to a flip ambiguity since the velocity-level control input is designed to promote **convergence** to $\operatorname{Iso}\left(\mathcal{F}^{*}\right)$ or $\operatorname{Amb}\left(\mathcal{F}^{*}\right)$, whichever is closer at $t=0$. Unfortunately, this condition is **not sufficient** for the double-integrator model. In this case, the agents' **velocity** will also affect the convergence since it is a system state. This idea is conceptually illustrated by [Figure 3.2](#fig-3.2). Note that even if the formation position is closer to $\operatorname{Iso}\left(\mathcal{F}^{*}\right)$, the formation will overcome the energy barrier and converge to $\operatorname{Amb}\left(\mathcal{F}^{*}\right)$ if its velocity is large enough. In other words, the total formation energy is now affected by the combination of **potential energy and kinetic energy**. The implication of this for stability is that **a restriction also needs to be imposed on the initial velocity of the formation**, which means that we need to limit the **initial total energy** of the formation.
+
+<figure>
+   <img src="./images/1dist_control_3-energy.JPG" alt="energy" id="fig-3.2" width="100%" align="center">
+   <div align="center"><figcaption> Figure 3.2: Energy landscape where the formation is at position q with velocity v.</figcaption></div>
+</figure>
+
+While the need for an upper bound on the initial energy of the formation is evident, its precise value is difficult to calculate in general. For simple formations, one may be able to calculate a conservative value for the energy upper bound as illustrated next. Consider the desired triangular formation in [Figure 3.3](#fig-3.3) along with one of its flipped versions. Note that a flip may occur whenever an agent has enough energy to cross the edge connecting the two other agents, e.g., agent 1 crossing edge $(2,3)$. Once the agent crosses the edge, it is closer to $\operatorname{Amb}\left(\mathcal{F}^{*}\right)$ and may be attracted to this undesired equilibrium.
+
+<figure>
+   <img src="./images/1dist_control_3-amb.JPG" alt="amb" id="fig-3.3" width="100%" align="center">
+   <div align="center"><figcaption> Figure 3.3: Desired formation (solid line) and a flip ambiguity (dashed line).</figcaption></div>
+</figure>
+
+The question is then: What is the **minimum energy** needed for this to happen? Hereafter, we refer to this minimum energy as the **cross-edge energy**, $E_{c}$.
+
+A conservative estimate for the cross-edge energy can be made by using the following observations: 
+1. The cross-edge energy is related to the energy that drives the agents to a **collinear formation** 
+2. The minimum collinearity energy is given by the agent with the **smallest distance** to its cross-edge, e.g., the dotted line in [Figure 3.3](#fig-3.3).
+
+These rules facilitate the cross-edge energy estimation because they are **only position dependent**. Furthermore, we have from [$(3.5)$](#eq-3.5) and [$(2.10)$](#eq-2.10) that $W_{d} \geqslant W=\frac{1}{4} \boldsymbol{z}^{\top} \boldsymbol{z}$, which is also only position dependent. That is, **a sufficient condition for $E_{c}$ can be determined by calculating the minimum value of $W$ when the three agents are collinear**. For example, let $d_{12}= d_{13}=\sqrt{2}$ and $d_{23}=2$. When agent 1 is collinear with agents 2 and 3 , we have that $\left\|\tilde{\boldsymbol{q}}_{12}\right\|+\left\|\tilde{\boldsymbol{q}}_{13}\right\|=\left\|\tilde{\boldsymbol{q}}_{23}\right\|$. For notational convenience, we use $\boldsymbol{q} \in \mathcal{C}$ where $\boldsymbol{q}=\left[\boldsymbol{q}_{1}, \boldsymbol{q}_{2}, \boldsymbol{q}_{3}\right]$ to denote that the agents are collinear. Therefore,
+
+$$
+\begin{aligned}
+E_{c} & =\min _{\boldsymbol{q} \in \mathcal{C}} W=\min _{\boldsymbol{q} \in \mathcal{C}} \frac{1}{4}\left(z_{12}^{2}+z_{13}^{2}+z_{23}^{2}\right) \\
+& =\min _{\boldsymbol{q} \in \mathcal{C}} \frac{1}{4}\left[\left(\left\|\tilde{\boldsymbol{q}}_{12}\right\|^{2}-d_{12}^{2}\right)^{2}+\left(\left\|\tilde{\boldsymbol{q}}_{13}\right\|^{2}-d_{13}^{2}\right)^{2}+\left(\left\|\tilde{\boldsymbol{q}}_{23}\right\|^{2}-d_{23}^{2}\right)^{2}\right] \\
+& =\min \frac{1}{4}\left[\left(\left\|\tilde{\boldsymbol{q}}_{12}\right\|^{2}-2\right)^{2}+\left(\left(\left\|\tilde{\boldsymbol{q}}_{23}\right\|-\left\|\tilde{\boldsymbol{q}}_{12}\right\|\right)^{2}-2\right)^{2}+\left(\left\|\tilde{\boldsymbol{q}}_{23}\right\|^{2}-4\right)^{2}\right] .
+\end{aligned}
+$$
+
+It can be found that the above function reaches a minimum at $\left\|\tilde{\boldsymbol{q}}_{12}\right\|= \left\|\tilde{\boldsymbol{q}}_{23}\right\| / 2=\sqrt{10} / 3$ and $E_{c}=0.444$. This means that if $W_{d}(0) \leqslant E_{c}$, the agents will not converge to the flip ambiguity.
+
+Notice that the condition $W_{d}(0) \leqslant E_{c}$ imposes a **trade-off between the initial distance error and the initial velocity error**. The larger the initial distance error, the smaller the initial velocity error needs to be, and vice versa. Based on [$(3.4)$](#eq-3.4), a small $\boldsymbol{s}$ implies that the agents' velocities are close to $\boldsymbol{v}_{f}$, which is the desired velocity that ensures convergence to $\operatorname{Iso}\left(\mathcal{F}^{*}\right)$.
+
+For formations with $n>3$, one may apply the above estimation method by triangulating the framework and comparing the cross-edge energy of each triangle to estimate $E_{c}$. For example, consider the infinitesimally rigid framework in [Figure 3.4](#fig-3.4). The agents most likely to flip are agents 2 and 6 about cross-edges $(1,3)$ and $(1,5)$, respectively, since they only have two edges (constraints) each. Thus, $E_{c}=\min \left\{\mathcal{E}_{c 2}, \mathcal{E}_{c 6}\right\}$ where $\mathcal{E}_{c i}$ denotes the cross-edge energy of agent $i$. Note that **higher order flips** are also possible, but they would require more energy than aforementioned single-agent flips. For example, agents $\{2,3\}$ or $\{5,6\}$ could simultaneously also flip about cross-edge $(1,4)$, or agents $\{2,3,4,5,6\}$ could simultaneously flip about agent 1 , leading to a full reflection of the formation.
+
+<figure>
+   <img src="./images/1dist_control_3-hex.JPG" alt="hex" id="fig-3.4" width="100%" align="center">
+   <div align="center"><figcaption> Figure 3.4: Triangulated hexagon framework.</figcaption></div>
+</figure>
+
+### 3.2 Formation Acquisition
+
+The formation acquisition controller for [$(3.1)$](#eq-3.1) will have the general form $\boldsymbol{u}_{i}=\boldsymbol{u}_{i}\left(\boldsymbol{q}_{i}-\boldsymbol{q}_{j}, \boldsymbol{v}_{i}-\boldsymbol{v}_{j}, \boldsymbol{v}_{i}, d_{i j}\right), i=1, \ldots, n$ and $j \in \mathcal{N}_{i}\left(\mathcal{E}^{*}\right)$. Based on [$(3.6)$](#eq-3.6), the following theorem introduces the control law that solves the formation acquisition problem.
+
+<span id="thm-3.1"></span>
+
+> [!caution] Theorem 3.1
+> Given the formation $\mathcal{F}(t)=\left(\mathcal{G}^{*}, \boldsymbol{q}(t)\right)$, let the initial conditions be such that $(\boldsymbol{e}(0), \boldsymbol{s}(0)) \in \Omega_{1} \cap \Omega_{2} \cap \Omega_{3}$ where $\Omega_{1}$ and $\Omega_{2}$ were defined in [$(2.14)$](#eq-2.14),
+>
+> <span id="eq-3.7"></span>
+>
+> $$
+\Omega_{3}=\left\{\boldsymbol{e} \in \mathbb{R}^{l}, \boldsymbol{s} \in \mathbb{R}^{m n} \mid W_{d} \leqslant E_{c}\right\}, \tag{3.7}
+> $$
+>
+> and $E_{c}$ is the total cross-edge energy of the formation. Then, the control
+>
+> <span id="eq-3.8"></span>
+>
+> $$
+\boldsymbol{u}=-k_{a} \boldsymbol{s}+\dot{\boldsymbol{v}}_{f}-R^{\top}_\mathcal{D}(\tilde{\boldsymbol{q}}) \boldsymbol{z}, \tag{3.8}
+> $$
+>
+> where
+>
+> <span id="eq-3.9"></span>
+>
+> $$
+\boldsymbol{v}_{f}=\boldsymbol{u}_{a}, \tag{3.9}
+> $$
+>
+> $\boldsymbol{u}_{a}$ was defined in [$(2.15)$](#eq-2.15), and $k_{a}>0$ is a user-defined control gain, renders $(\boldsymbol{e}, \boldsymbol{s})=0$ **exponentially stable** and ensures that [$(1.2)$](#eq-1.2) is satisfied.
+
+**Proof**:
+
+<details>
+  <summary>Details of Proof</summary>
+
+Substituting [$(3.8)$](#eq-3.8) and [$(3.9)$](#eq-3.9) into [$(3.6)$](#eq-3.6) yields
+
+$$
+\dot{W}_{d}=-k_{v} \boldsymbol{z}^{\top} R_\mathcal{D}(\tilde{\boldsymbol{q}}) R^{\top}_\mathcal{D}(\tilde{\boldsymbol{q}}) \boldsymbol{z}-k_{a} \boldsymbol{s}^{\top} \boldsymbol{s} . \tag{3.10}
+$$
+
+Following the arguments used in the proof of [Theorem 2.1](#thm-2.1), we have that
+
+<span id="eq-3.11"></span>
+
+$$
+\begin{align*}
+  \dot{W}_{d} &\leqslant-k_{v} \lambda_{\min }\left(R_\mathcal{D} R_\mathcal{D}^{\top}\right) \boldsymbol{z}^{\top} \boldsymbol{z}-k_{a} \boldsymbol{s}^{\top} \boldsymbol{s} \\
+  &\leqslant-\min \left\{2 k_{a}, 4 k_{v} \lambda_{\min }\left(R_\mathcal{D} R_\mathcal{D}^{\top}\right)\right\} W_{d} \tag{3.11}  
+\end{align*}
+$$
+
+for $\boldsymbol{e}(0) \in \Omega_{1}$. From [$(3.5)$](#eq-3.5) and [$(3.11)$](#eq-3.11), we know that $(\boldsymbol{e}, \boldsymbol{s})=0$ is exponentially stable for $\boldsymbol{e}(0) \in \Omega_{1}$ from [Corollary 1.1](#corollary-1.1), and therefore, $\mathcal{F}(t) \rightarrow \operatorname{Iso}\left(\mathcal{F}^{*}\right)$ or $\mathcal{F}(t) \rightarrow \operatorname{Amb}\left(\mathcal{F}^{*}\right)$ as $t \rightarrow \infty$ for $\boldsymbol{e}(0) \in \Omega_{1}$. Now, if the initial conditions are chosen such that $(\boldsymbol{e}(0), \boldsymbol{s}(0)) \in \Omega_{1} \cap \Omega_{2} \cap \Omega_{3}$, we know that the formation starts closer to $\operatorname{Iso}\left(\mathcal{F}^{*}\right)$ than $\operatorname{Amb}\left(\mathcal{F}^{*}\right)$ and $W_{d}(\boldsymbol{e}(0), \boldsymbol{s}(0))<E_{c}$. Since $\dot{W}_{d} \leqslant 0$, we know that $W_{d}(\boldsymbol{e}(t), \boldsymbol{s}(t))<E_{c}$ for all $t>0$, indicating that the formation energy is always less than the minimum energy required for a flip to occur. Thus, we have that [$(1.2)$](#eq-1.2) holds for $(\boldsymbol{e}(0), \boldsymbol{s}(0)) \in \Omega_{1} \cap \Omega_{2} \cap \Omega_{3}$. Q.E.D. <div style="text-align: right;">$\square$</div>
+</details>
+
+The expression for $\dot{\boldsymbol{v}}_{f}$ in [$(3.8)$](#eq-3.8) is given by
+
+$$
+\dot{\boldsymbol{v}}_{f}=-k_{v} \dot{R}_\mathcal{D}^{\top} \boldsymbol{z}-k_{v} R_\mathcal{D}^{\top} \dot{\boldsymbol{z}} \tag{3.12}
+$$
+
+where from [$(6)$ in Distance](./1distance.md#eq-6)
+
+<span id="eq-3.13"></span>
+
+$$
+\dot{R}_\mathcal{D}(\tilde{\boldsymbol{q}})=R_\mathcal{D}(\tilde{\boldsymbol{v}}),  \tag{3.13}
+$$
+
+$\tilde{\boldsymbol{v}}=\left[\ldots, \boldsymbol{v}_{i}-\boldsymbol{v}_{j}, \ldots\right] \in \mathbb{R}^{l},(i, j) \in \mathcal{E}^{*}$, and from [$(3.3)$](#eq-3.3)
+
+$$
+\dot{\boldsymbol{z}}=2 R_\mathcal{D}(\tilde{\boldsymbol{q}}) \boldsymbol{v} . \tag{3.14}
+$$
+
+The control [$(3.8)$](#eq-3.8)-[$(3.9)$](#eq-3.9) can be written element-wise as
+
+<span id="eq-3.15"></span>
+
+$$
+\boldsymbol{u}_{i}=-k_{a} \boldsymbol{v}_{i}-\sum_{j \in \mathcal{N}_{i}\left(\mathcal{E}^{*}\right)}\left[\left(k_{a} k_{v}+1\right) \tilde{\boldsymbol{q}}_{i j} z_{i j}+k_{v}\left(z_{i j} \mathbf{I}_{2}+2 \tilde{\boldsymbol{q}}_{i j} \tilde{\boldsymbol{q}}_{i j}^{\top}\right) \tilde{v}_{i j}\right] \tag{3.15}
+$$
+
+for $i=1, \ldots n$ and
+
+$$
+\tilde{\boldsymbol{v}}_{i j}=\boldsymbol{v}_{i}-\boldsymbol{v}_{j}, \quad(i, j) \in \mathcal{E}^{*} . \tag{3.16}
+$$
+
+This control is **decentralized** since its implementation only requires each agent to measure its **own velocity** and the **relative position** and **relative velocity** to neighboring agents. The agent's velocity can be measured using onboard sensors such as an odometer and a compass.
+
+### 3.3 Formation Maneuvering
+
+The formation maneuvering control law for the double-integrator model [$(3.1a)$](#eq-3.1)-[$(3.1b)$](#eq-3.1) is simply a combination of the designs in Sections [2.2](#22-formation-maneuvering) and [3.2](#32-formation-acquisition). Specifically, $\boldsymbol{u}$ is given by [$(3.8)$](#eq-3.8) with
+
+<span id="eq-3.17"></span>
+
+$$
+\boldsymbol{v}_{f}=\boldsymbol{u}_{a}+\boldsymbol{v}_{d} \tag{3.17}
+$$
+
+where the formation maneuvering velocity $\boldsymbol{v}_{d}$ was specified in [$(2.24)$](#eq-2.24). Note that [$(3.17)$](#eq-3.17) is exactly the right-hand side of [$(2.23)$](#eq-2.23).
+
+We will not present the formal statement and proof of this result, but only discuss the aspects in which it differs from the proofs of Theorems [2.2](#thm-2.2) and [3.1](#thm-3.1). This is namely the proof that [$(1.4)$](#eq-1.4) holds. First, after substituting [$(3.17)$](#eq-3.17) into [$(3.6)$](#eq-3.6), the proofs of the exponentially stability of $(\boldsymbol{e}, \boldsymbol{s})=0$ and [$(1.2)$](#eq-1.2) are straightforward given that $R_\mathcal{D}(\tilde{\boldsymbol{q}}) \boldsymbol{v}_{d}=0$ (see [$(1.20)$](#eq-1.20) and [$(2.24)$](#eq-2.24)). Now, since $\boldsymbol{e}(t) \rightarrow 0$ as $t \rightarrow \infty$, we know from [$(2.9)$](#eq-2.9) that $\boldsymbol{z}(t) \rightarrow \mathbf{0}$ as $t \rightarrow \infty$. Since $R_\mathcal{D}(\tilde{\boldsymbol{q}})$ is bounded, then $\boldsymbol{u}_{a}(t) \rightarrow \mathbf{0}$ as $t \rightarrow \infty$ from [$(2.15)$](#eq-2.15). Therefore, we have that $\boldsymbol{v}_{f}(t) \rightarrow \boldsymbol{v}_{d}(t)$ as $t \rightarrow \infty$ from [$(3.17)$](#eq-3.17). Since we know $\boldsymbol{s}(t) \rightarrow \mathbf{0}$ as $t \rightarrow \infty$, it follows from [$(3.4)$](#eq-3.4) that $v(t)-\boldsymbol{v}_{f}(t) \rightarrow \mathbf{0}$ as $t \rightarrow \infty$. Therefore, $\boldsymbol{v}_{i}(t)-\boldsymbol{v}_{d i}(t) \rightarrow 0$ as $t \rightarrow \infty, i=1, \ldots, n$, which is the same as [$(1.4)$](#eq-1.4) due to [$(3.1a)$](#eq-3.1).
+
+The term $\dot{\boldsymbol{v}}_{f}$ in [$(3.8)$](#eq-3.8) will contain additional terms from the derivative of $\boldsymbol{v}_{d}$. Specifically, from [$(2.24)$](#eq-2.24), we have that
+
+<span id="eq-3.18"></span>
+
+$$
+\dot{\boldsymbol{v}}_{d i}=\dot{\boldsymbol{v}}_{t}+\dot{\boldsymbol{\omega}} \times \tilde{\boldsymbol{q}}_{i n}+\boldsymbol{\omega} \times \tilde{\boldsymbol{v}}_{i n}, \quad i=1, \ldots n \tag{3.18}
+$$
+
+where $\dot{\boldsymbol{v}}_{t} \in \mathbb{R}^{3}$ denotes the desired translational acceleration and $\dot{\boldsymbol{\omega}} \in \mathbb{R}^{3}$ is the desired angular acceleration for the virtual rigid body. Therefore, for the double-integrator model, $\boldsymbol{v}_{t}$ and $\boldsymbol{\omega}$ need to be continuously differentiable functions of time with bounded first derivative for the control input to be continuous and bounded. Note that element-wise the formation maneuvering control law is simply made up of the sum of the right-hand sides of [$(3.15)$](#eq-3.15) and [$(3.18)$](#eq-3.18). Like $\boldsymbol{v}_{t}$ and $\boldsymbol{\omega}$, the signals $\dot{\boldsymbol{v}}_{t}$ and $\dot{\boldsymbol{\omega}}$ can be stored on each agent's onboard computer since they are typically known a priori.
+
+### 3.4 Target Interception with Unknown Target Acceleration
+
+Solving the target interception problem for the double-integrator model requires a more elaborate solution than the one presented in Section [2.4](#24-target-interception-with-unknown-target-velocity) for the single-integrator model. Here, we consider that the target position $\boldsymbol{q}_{T}(t)$ is twice continuously differentiable and $\boldsymbol{q}_{T}(t), \dot{\boldsymbol{q}}_{T}(t), \ddot{\boldsymbol{q}}_{T}(t) \in \mathcal{L}_{\infty}$. We also assume the signals $\boldsymbol{q}_{T}-\boldsymbol{q}_{n}, \dot{\boldsymbol{q}}_{T}-\dot{\boldsymbol{q}}_{n}, \dot{\boldsymbol{q}}_{n}$, and $\dot{\boldsymbol{q}}_{T}$ are **known** and can be **broadcast from the leader to the followers**; however, the signal $\ddot{\boldsymbol{q}}_{T}$ is unknown. A variable structure-type control term will be used to compensate for the unknown target acceleration. As a result, the right-hand side of the resulting error system dynamics will be **discontinuous**, requiring us to apply some ideas from Lyapunov stability of nonsmooth systems. As in Section [2.4](#24-target-interception-with-unknown-target-velocity), we let $\boldsymbol{v}_{T}:=\dot{\boldsymbol{q}}_{T}$ to simplify the notation.
+
+> [!caution] Theorem 3.2
+> Let the initial conditions be such that $(\boldsymbol{e}(0), \boldsymbol{s}(0)) \in \Omega_{1} \cap \Omega_{2} \cap \Omega_{3}$ where $\Omega_{1}$ and $\Omega_{2}$ were defined in [$(2.14)$](#eq-2.14) and $\Omega_{3}$ was defined in [$(3.7)$](#eq-3.7). Consider the control
+> 
+> <span id="eq-3.19"></span>
+> 
+> $$
+\boldsymbol{u}=-k_{a} \boldsymbol{s}+\dot{\boldsymbol{u}}_{a}+\mathbf{1}_{n} \otimes k_{T}\left(\boldsymbol{v}_{T}-\boldsymbol{v}_{n}\right)-k_{s} \operatorname{sgn}(\boldsymbol{s})-R_\mathcal{D}^{\top}(\tilde{\boldsymbol{q}}) \boldsymbol{z} \tag{3.19}
+> $$
+> 
+> where $\boldsymbol{s}$ was defined in [$(3.4)$](#eq-3.4),
+> 
+> <span id="eq-3.20"></span>
+> <span id="eq-3.21"></span>
+> 
+> $$
+\begin{align*}
+\boldsymbol{v}_{f} & =\boldsymbol{u}_{a}+\mathbf{1}_{n} \otimes \boldsymbol{h},  \tag{3.20}\\
+\boldsymbol{h} & =k_{T} \boldsymbol{e}_{T}+\boldsymbol{v}_{T}, \tag{3.21}
+\end{align*}
+> $$
+> 
+> $\boldsymbol{u}_{a}$ was defined in [$(2.15)$](#eq-2.15), $\boldsymbol{e}_{T}$ was defined in [$(2.44)$](#eq-2.44), $k_{s} \geqslant \sqrt{n}\left\|\dot{\boldsymbol{v}}_{T}\right\|_{\mathcal{L}_{\infty}}$, and $k_{T}>0$. Then, [$(3.19)$](#eq-3.19) renders $(\boldsymbol{e}, \boldsymbol{s})=0$ **asymptotically stable** and ensures that [$(1.2)$](#eq-1.2) and [$(1.5)$](#eq-1.5) are satisfied.
+
+**Proof**:
+
+<details>
+    <summary>Details of Proof</summary>
+
+First, notice that the differential equations describing the $( \boldsymbol{e}, \boldsymbol{s} )$-error system dynamics in a closed loop with [$(3.19)$](#eq-3.19)-[$(3.21)$](#eq-3.21) have a discontinuous right-hand side due to the term $\operatorname{sgn}(\boldsymbol{s})$ in [$(3.19)$](#eq-3.19). That is, if $\dot{\boldsymbol{\xi}}=f(\boldsymbol{\xi}, t)$ denotes the closed-loop system where $\boldsymbol{\xi}=[\boldsymbol{e}, \boldsymbol{s}]$, then $f(\boldsymbol{\xi}, t)$ is continuous everywhere except in the set $\{(\boldsymbol{\xi}, t) \mid \boldsymbol{s}=0\}$. For such a system, a generalized solution exists by embedding the differential equations into the differential inclusions $\dot{\boldsymbol{\xi}} \in K[f](\boldsymbol{\xi}, t)$. In this case, the time derivative of [$(3.5)$](#eq-3.5) is given by
+
+<span id="eq-3.22"></span>
+
+$$
+\begin{align*}
+\dot{W}_{d} & \stackrel{\text { a.e. }}{\in} \frac{\partial W_{d}}{\partial \xi} K[f](\xi, t) \\
+& \subset \boldsymbol{z}^{\top} R_\mathcal{D}(\tilde{\boldsymbol{q}}) \boldsymbol{v}_{f}+s^{\top}\left(\boldsymbol{u}+R_\mathcal{D}^{\top}(\tilde{\boldsymbol{q}}) \boldsymbol{z}-\dot{\boldsymbol{v}}_{f}\right) \tag{3.22}
+\end{align*}
+$$
+
+where [$(3.6)$](#eq-3.6) was used. Substituting [$(2.15)$](#eq-2.15), [$(3.19)$](#eq-3.19), [$(3.20)$](#eq-3.20), and [$(3.21)$](#eq-3.21) into [$(3.22)$](#eq-3.22) and then applying $R_\mathcal{D}(\boldsymbol{p})(\mathbf{1}_n\otimes\boldsymbol{x})=0$ gives [42]
+
+<span id="eq-3.23"></span>
+
+$$
+\begin{align*}
+\dot{W}_{d} & \subset-k_{v} \boldsymbol{z}^{\top} R_\mathcal{D} R_\mathcal{D}^{\top} \boldsymbol{z}-k_{a} \boldsymbol{s}^{\top} \boldsymbol{s}-\boldsymbol{s}^{\top}\left(k_{s} \operatorname{sgn}(\boldsymbol{s})+\mathbf{1}_{n} \otimes \dot{\boldsymbol{v}}_{T}\right) \\
+& =-k_{v} \boldsymbol{z}^{\top} R_\mathcal{D} R_\mathcal{D}^{\top} \boldsymbol{z}-k_{a} \boldsymbol{s}^{\top} \boldsymbol{s}-\boldsymbol{s}^{\top}\left(k_{s} \operatorname{SGN}(\boldsymbol{s})+\mathbf{1}_{n} \otimes \dot{\boldsymbol{v}}_{T}\right) \\
+& \leqslant-k_{v} \boldsymbol{z}^{\top} R_\mathcal{D} R_\mathcal{D}^{\top} \boldsymbol{z}-k_{a} \boldsymbol{s}^{\top} \boldsymbol{s}+\|\boldsymbol{s}\|\left(\sqrt{n}\left\|\dot{\boldsymbol{v}}_{T}\right\|_{\mathcal{L}_{\infty}}-k_{s}\right) \tag{3.23}
+\end{align*}
+$$
+
+where $\operatorname{sgn}(\cdot)$ and $\operatorname{SGN}(x)$ were defined in [$(2.37)$](#eq-2.37) and [$(2.42)$](#eq-2.42), respectively.
+
+For $k_{s} \geqslant \sqrt{n}\left\|\dot{\boldsymbol{v}}_{T}\right\|_{\mathcal{L}_{\infty}}$, [$(3.23)$](#eq-3.23) reduces to [$(3.11)$](#eq-3.11) so $\dot{W}_{d}$ is negative definite for $\boldsymbol{e}(0) \in \Omega_{1}$. Therefore, from [Theorem 1.6](#thm-1.6), we know that $(\boldsymbol{z}, \boldsymbol{s})=0$ is asymptotically stable. Since $W_{d}$ is positive definite in $\boldsymbol{e}$, we know that $(\boldsymbol{e}, \boldsymbol{s})=0$ is asymptotically stable for $\boldsymbol{e}(0) \in \Omega_{1}$. The proof of [$(1.2)$](#eq-1.2) for $(\boldsymbol{e}(0), \boldsymbol{s}(0)) \in \Omega_{1} \cap \Omega_{2} \cap \Omega_{3}$ now follows from the same arguments used in the proof of [Theorem 3.1](#thm-3.1).
+
+Next, from [$(3.20)$](#eq-3.20), we have
+
+<span id="eq-3.24"></span>
+
+$$
+\boldsymbol{v}_{f n}=\boldsymbol{u}_{a n}+\boldsymbol{v}_{T}+k_{T} \boldsymbol{e}_{T} \tag{3.24}
+$$
+
+where the subscript $n$ denotes the $n$th element of the corresponding vector. Differentiating [$(2.44)$](#eq-2.44) and applying [$(3.24)$](#eq-3.24) yields
+
+<span id="eq-3.25"></span>
+
+$$
+\begin{align*}
+\dot{\boldsymbol{e}}_{T} & =\boldsymbol{v}_{T}-\boldsymbol{v}_{n}=\boldsymbol{v}_{T}-\left(\boldsymbol{v}_{f n}+\boldsymbol{s}_{n}\right) \\
+& =-k_{1} \boldsymbol{e}_{T}+\boldsymbol{r} \tag{3.25}
+\end{align*}
+$$
+
+where $\boldsymbol{r}:=-\boldsymbol{s}_{n}-\boldsymbol{u}_{a n}$. Since [$(3.25)$](#eq-3.25) is a stable linear system with input $\boldsymbol{r}$ and output $\boldsymbol{e}_{T}$, the output will converge to zero if the input converges to zero (see [Theorem 1.1](#thm-1.1)). Given that $(\boldsymbol{z}, \boldsymbol{s})=\mathbf{0}$ is asymptotically stable, we know that $(\boldsymbol{s}(t), \boldsymbol{z}(t)) \rightarrow \mathbf{0}$ as $t \rightarrow \infty$ and therefore $\boldsymbol{u}_{a}(t) \rightarrow \mathbf{0}$ as $t \rightarrow \infty$. As a result, $\boldsymbol{r}(t) \rightarrow \mathbf{0}$ as $t \rightarrow \infty$ and, from [$(3.25)$](#eq-3.25), $\boldsymbol{e}_{T}(t) \rightarrow \mathbf{0}$ as $t \rightarrow \infty$. Finally, since [$(1.2)$](#eq-1.2) implies that $\boldsymbol{q}_{n}(t) \in \operatorname{conv}\left\{\boldsymbol{q}_{1}(t), \boldsymbol{q}_{2}(t), \ldots, \boldsymbol{q}_{n-1}(t)\right\}$ as $t \rightarrow \infty$ due to the manner in which $F^{*}$ is constructed for the target interception problem, we conclude from the convergence of $\boldsymbol{e}_{T}$ to zero that [$(1.5)$](#eq-1.5) holds. Q.E.D. <div style="text-align: right;">$\square$</div>
+</details>
+
+A few observations are in order concerning the structure of [$(3.19)$](#eq-3.19)-[$(3.21)$](#eq-3.21).
+1. $\dot{\boldsymbol{v}}_{f}$ is not included in [$(3.19)$](#eq-3.19) as it is in [$(3.8)$](#eq-3.8) because the derivative of [$(3.20)$](#eq-3.20) is a function of the unknown signal $\dot{\boldsymbol{v}}_{T}$. Hence, only the measurable terms of $\dot{\boldsymbol{v}}_{f}$ appear in [$(3.19)$](#eq-3.19). Since $\dot{\boldsymbol{v}}_{T}$ cannot be directly cancelled by the control, it is instead dominated by the variable structure term $k_{s} \operatorname{sgn}(\boldsymbol{s})$ as shown in [$(3.23)$](#eq-3.23).
+2. Comparing [$(2.54)$](#eq-2.54) and [$(3.21)$](#eq-3.21), notice the absence of the term $-u_{a n}$ in the latter. Unlike the control in [Theorem 2.4](#thm-2.4), the presence of this term in [$(3.21)$](#eq-3.21) is not necessary for proving the converge of $\boldsymbol{e}_{T}$ to zero. If $-\boldsymbol{u}_{a n}$ was included [$(3.21)$](#eq-3.21), the above stability analysis would still hold with the exception that the auxiliary variable $\boldsymbol{r}$ in [$(3.25)$](#eq-3.25) would become simply $\boldsymbol{r}=-\boldsymbol{s}_{n}$.
+
+When expressed element-wise, the control [$(3.19)$](#eq-3.19)-[$(3.21)$](#eq-3.21) takes the form
+
+$$
+\begin{aligned}
+\boldsymbol{u}_{i}= & -k_{a} \boldsymbol{v}_{i}+k_{a}\left(\boldsymbol{v}_{T}+k_{T} \boldsymbol{e}_{T}\right)+k_{T}\left(\boldsymbol{v}_{T}-\boldsymbol{v}_{n}\right) \\
+& -\sum_{j \in \mathcal{N}_{i}\left(\mathcal{E}^{*}\right)}\left[k_{v}\left(z_{i j} \mathbf{I}_{2}+2 \tilde{\boldsymbol{q}}_{i j} \tilde{\boldsymbol{q}}_{i j}^{\top}\right) \tilde{v}_{i j}+\left(k_{a} k_{v}+1\right) \tilde{\boldsymbol{q}}_{i j} z_{i j}\right] \\
+& -k_{s} \operatorname{sgn}\left(\boldsymbol{v}_{i}-\boldsymbol{v}_{T}-k_{T} \boldsymbol{e}_{T}+k_{v} \sum_{j \in \mathcal{N}_{i}} \tilde{\boldsymbol{q}}_{i j} z_{i j}\right)
+\end{aligned}
+$$
+
+As one can see, the $i^\text{th}$ agent's control input is dependent on its own velocity and the relative position/velocity to neighboring agents, $\boldsymbol{e}_{T}, \boldsymbol{v}_{T}$, and $\boldsymbol{v}_{n}$.
+
+### 3.5 Dynamic Formation Acquisition
+
+When solving the dynamic formation acquisition problem (see [Problem 4](#problem-4) in Section 2.5) for the double-integrator model, we require that the time-varying distance $d_{i j}(t)$ be twice continuously differentiable and $d_{i j}(t), \dot{d}_{i j}(t), \ddot{d}_{i j}(t) \in \mathcal{L}_{\infty}$ for the control law to be continuous and bounded.
+
+Similar to the formation maneuvering control law of this chapter, the dynamic formation acquisition control input will take the form of [$(3.8)$](#eq-3.8) but with the problem-specific design for $\boldsymbol{v}_{f}$. That is, $\boldsymbol{v}_{f}$ is set to the right-hand side of [$(2.71)$](#eq-2.71) for dynamic formation acquisition.
+
+The term $\dot{\boldsymbol{v}}_{f}$ in [$(3.8)$](#eq-3.8) can be explicitly calculated from [$(2.71)$](#eq-2.71) as follows
+
+<span id="eq-3.26"></span>
+
+$$
+\dot{\boldsymbol{v}}_{f}=\dot{R}^{\dagger}(\tilde{\boldsymbol{q}})\left(-k_{v} \boldsymbol{z}+d_{v}\right)+R^{\dagger}(\tilde{\boldsymbol{q}})\left(-k_{v} \dot{\boldsymbol{z}}+\dot{d}_{v}\right) \tag{3.26}
+$$
+
+where $d_{v}$ was defined in [$(2.70)$](#eq-2.70),
+
+$$
+\begin{aligned}
+\dot{d}_{v} & =\left[\ldots, \dot{d}_{i j}^{2}+d_{i j} \ddot{d}_{i j}, \ldots\right],(i, j) \in \mathcal{E}^{*}, \\
+\dot{\boldsymbol{z}} & =2\left(R_\mathcal{D}(\tilde{\boldsymbol{q}}) \boldsymbol{v}-d_{v}\right), \\
+\dot{R}^{\dagger} & =\dot{R}_\mathcal{D}^{\top}\left(R_\mathcal{D} R_\mathcal{D}^{\top}\right)^{-1}-R_\mathcal{D}^{\top}\left(R_\mathcal{D} R_\mathcal{D}^{\top}\right)^{-1} \frac{\mathrm{d}\left(R_\mathcal{D} R_\mathcal{D}^{\top}\right)}{\mathrm{d} t}\left(R_\mathcal{D} R_\mathcal{D}^{\top}\right)^{-1},
+\end{aligned}
+$$
+
+and $\dot{R}_\mathcal{D}$ was defined in [$(3.13)$](#eq-3.13). It is not difficult to see that [$(3.26)$](#eq-3.26) is a function of $\tilde{\boldsymbol{q}}_{i j}, \tilde{\boldsymbol{v}}_{i j}, d_{i j}, \dot{d}_{i j}$, and $\ddot{d}_{i j}$ for $(i, j) \in \mathcal{E}^{*}$. This control also suffers from the coupling issue discussed in Section 2.5 due to the presence of the pseudoinverse matrix $R^{\dagger}$in [$(2.71)$](#eq-2.71) and [$(3.26)$](#eq-3.26).
+
+The proof of stability uses the same Lyapunov function candidate [$(3.5)$](#eq-3.5) and combines the arguments from the proofs of Theorems [2.5](#thm-2.5) and [3.1](#thm-3.1). A sketch of the proof is as follows. Substituting [$(3.8)$](#eq-3.8) and [$(2.71)$](#eq-2.71) into [$(3.6)$](#eq-3.6) yields
+
+$$
+\dot{W}_{d}=-k_{v} \boldsymbol{z}^{\top} \boldsymbol{z}-k_{a} \boldsymbol{s}^{\top} \boldsymbol{s} \leqslant-2 \min \left(k_{v}, k_{a}\right) W_{d} \tag{3.27}
+$$
+
+for $\boldsymbol{e}(t) \in \Omega_{1}$ from which we conclude that $(\boldsymbol{e}, \boldsymbol{s})=\mathbf{0}$ is exponentially stable for $\boldsymbol{e}(0) \in \Omega_{1}$ in the same vein of [Theorem 3.1](#thm-3.1). The proof of [$(2.66)$](#eq-2.66) for $(\boldsymbol{e}(0), \boldsymbol{s}(0)) \in \Omega_{1} \cap \Omega_{2} \cap \Omega_{3}$ proceeds as in [Theorem 3.1](#thm-3.1).
+
+As in the single-integrator case, formation maneuvering can be performed concurrently with dynamic formation acquisition by setting $\boldsymbol{v}_{f}$ to the right-hand side of [$(2.73)$](#eq-2.73). The derivative of $\boldsymbol{v}_{f}$ will then be given by [$(3.26)$](#eq-3.26) plus $\dot{\boldsymbol{v}}_{d}$ as defined in [$(3.18)$](#eq-3.18).
+
+## Appendix
+### A. Integrator Backstepping Methodology
+
+Integrator backstepping is a recursive control design methodology for systems in so-called **strict-feedback form**. It provides a systematic way of designing Lyapunov functions and nonlinear controllers for systems of any order. Unlike the feedback linearization method, backstepping can accommodate model uncertainties and avoid the unnecessary cancellation of "useful" (stabilizing) nonlinearities.
+
+Since the dynamic model of the individual agents here have **at most order two**, we illustrate the backstepping technique by considering the system
+
+<span id="eq-a.1"></span>
+<span id="eq-a.2"></span>
+
+$$
+\begin{align*}
+& \dot{x}=f(x)+\eta  \tag{A.1}\\
+& \dot{\eta}=u \tag{A.2}
+\end{align*}
+$$
+
+where $[x, \eta] \in \mathbb{R}^{2}$ is the system state, $u \in \mathbb{R}$ is the control input, and $f(x)$ is continuously differentiable with $f(0)=0$. Say that our control objective is to stabilize the system at the equilibrium point $[x, \eta]=0$ for any initial conditions.
+
+Notice that the above system is a cascaded connection of subsystems [$(A.1)$](#eq-a.1) and [$(A.2)$](#eq-a.2). The idea behind backstepping is to first consider $\eta$ as a **control input** for subsystem [$(A.1)$](#eq-a.1). Under this assumption, we could design $\eta=-f(x)-x$ to obtain the exponentially stable closed-loop system $\dot{x}=-x$. Since in reality $\eta$ is a system state and thus **cannot be directly manipulated**, we use the trick of adding and subtracting a **fictitious control input** $\eta_{f}$ to the right-hand side of [$(A.1)$](#eq-a.1) and introducing the variable transformation
+
+$$
+\xi=\eta-\eta_{f}
+$$
+
+As a result, our system becomes
+
+$$
+\begin{aligned}
+\dot{x} & =f(x)+\eta_{f}+\xi \\
+\dot{\xi} & =u-\dot{\eta}_{f} .
+\end{aligned}
+$$
+
+Now, if we design
+
+<span id="eq-a.3"></span>
+
+$$
+\begin{align*}
+\eta_{f} & =-f(x)-x \\
+u & =\dot{\eta}_{f}-\xi-x \tag{A.3}
+\end{align*}
+$$
+
+where
+
+$$
+\dot{\eta}_{f}=\frac{\partial \eta_{f}}{\partial x}(f(x)+\eta),
+$$
+
+we get the closed-loop system
+
+<span id="eq-a.4"></span>
+
+$$
+\begin{align*}
+\dot{x} & =-x+\xi \\
+\dot{\xi} & =-\xi-x \tag{A.4}
+\end{align*}
+$$
+
+whose **unique equilibrium point** is $[x, \xi]=0$.
+Using the Lyapunov function candidate
+
+$$
+V(x, \xi)=\frac{1}{2}\left(x^{2}+\xi^{2}\right)
+$$
+
+and taking its time derivative along [$(A.4)$](#eq-a.4) yields
+
+$$
+\dot{V}=-x^{2}-\xi^{2}
+$$
+
+From [Corollary 1.1](#corollary-1.1), we can conclude that $[x, \xi]=0$ is exponentially stable. Since $\eta_{f}(x=0)=0$, we know that $[x, \eta]=0$ is an exponentially stable equilibrium point for [$(A.1)$](#eq-a.1) and [$(A.2)$](#eq-a.2) in closed-loop with [$(A.3)$](#eq-a.3).
 
 [^2.1]: Although the argument of the rigidity matrix function is commonly written as q, it is obvious from $r_\mathcal{G}$ and $R_\mathcal{D}$ that $R_\mathcal{D}$ is dependent on $\tilde{\boldsymbol{q}}$ only. Henceforth, we write $R_\mathcal{D}(\tilde{\boldsymbol{q}})$ so it is clear that the matrix is a function of the relative position.
 
-[^2.2]: The variable $u_{a}$ in [$(2.15)$](#eq-2.15) denotes the basic formation acquisition control term that will be embedded in all control algorithms.
+[^2.2]: The variable $u_{a}$ in [$(2.15)$](#eq-2.15)$ denotes the basic formation acquisition control term that will be embedded in all control algorithms.
 
 [^2.3]: Recall from the statement of the formation maneuvering problem in Section 1 that agent $n$ serves as the reference point through which the rotation axis passes. Therefore, $\tilde{\boldsymbol{q}}_{\text {in }}$ in [$(2.24)$](#eq-2.24) is the relative position between each agent and agent $n$.
 
@@ -1111,4 +1583,4 @@ TBC
 
 ----
 
-> 1. Marcio de Queiroz, Xiaoyu Cai, and Matthew Feemster, *[*Formation Control of Multi-Agent Systems: A Graph Rigidity Approach](https://onlinelibrary.wiley.com/doi/book/10.1002/9781118887455)*. USA: John Wiley & Sons, Ltd, 2019. Accessed: Dec. 31, 2025: Section 2.
+> 1. Marcio de Queiroz, Xiaoyu Cai, and Matthew Feemster, *[*Formation Control of Multi-Agent Systems: A Graph Rigidity Approach](https://onlinelibrary.wiley.com/doi/book/10.1002/9781118887455)*. USA: John Wiley & Sons, Ltd, 2019. Accessed: Dec. 31, 2025: `Section 2 & 3, Appendix C`.
