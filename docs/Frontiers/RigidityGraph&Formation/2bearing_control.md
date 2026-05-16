@@ -649,7 +649,7 @@ $$
 
 When there are no leaders, [$(4.2)$](#eq-4.2) ensures global stability in the sense that $\boldsymbol{g}_{i j}(t)$ converges to either $\boldsymbol{g}_{i j}^{*}$ or $-\boldsymbol{g}_{i j}^{*}$ as $t \rightarrow \infty$, given any initial values of $\boldsymbol{p}_{i}(0)$ and $\theta_{i}(0)$ if the target formation is **infinitesimally bearing rigid** [5]. The final value of $\theta_{i}$ is not specified in the control law.
 
-Details from [5] can be seen in [Formation Control of Mobile Agents With Motion Constraints](./0control_constraits.md).
+Details from [5] can be seen in [Formation Control of Mobile Agents With Motion Constraints](./0control_constraints.md).
 
 ## 5 Bearing-only Formation Control
 

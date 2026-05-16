@@ -99,7 +99,7 @@ Given a formation $F(\boldsymbol{p})$ in $2$-space with **direction constraints*
 
 <figure>
    <img src="./images/2bearing_1-parallel.jpg" alt="Parallel Constaints" id="fig-1" width="100%" align="center">
-   <div align="center"><figcaption> Figure 1: Parallel Constraits</figcaption></div>
+   <div align="center"><figcaption> Figure 1: Parallel Constraints</figcaption></div>
 </figure>
 
 For example, Figure 1(b) shows a **translation** of the formation in Figure 1(a); and Figure 1(c) and (d) are **uniform scaling** of the formation in Figure 1(a). In particular, Figure 1(c) is a **uniform contraction** and Figure 1(d) is an **uniform expansion**. Figure 1(e) shows a **non-trivial parallel formation** of Figure 1(a), because the formation in Figure 1(e) **cannot** be obtained from the formation in Figure 1(a) by **translation or uniform scaling** although all the corresponding links in these two formations are parallel to each other.
@@ -310,7 +310,7 @@ Note the unit vector $g_{ij}$ represents the **relative bearing** of $p_j$ to $p
 
 We now introduce an important **orthogonal projection operator** that will be widely used in this paper. For any nonzero vector $\boldsymbol{x}\in\mathbb{R}^d (d\geqslant 2)$, define the operator $P:\mathbb{R}^d\longmapsto\mathbb{R}^{d\times d}$ as
 $$
-P(\boldsymbol{x})\triangleq I_d - \frac{\boldsymbol{x}}{\|\boldsymbol{x}\|}\frac{\boldsymbol{x}^\top}{\|\boldsymbol{x}\|}
+P(\boldsymbol{x})\triangleq \mathbf{I}_d - \frac{\boldsymbol{x}}{\|\boldsymbol{x}\|}\frac{\boldsymbol{x}^\top}{\|\boldsymbol{x}\|}
 $$
 
 For notational simplicity, denote $P_x = P(\boldsymbol{x})$. Note:
@@ -372,7 +372,7 @@ $$
 e_{k}\triangleq p_j-p_i, \quad g_{k}\triangleq \frac{e_{k}}{\|e_{k}\|} = \frac{p_j-p_i}{\|p_j-p_i\|}, \quad \forall k\in\{1,2,\cdots,m\}.
 $$
 
-as the edge vector and the bearing for the $k$-th directed edge. Note that $g_k$ is the unit vector so that $P(g_{ij}) = I_d - g_{ij}g_{ij}^\top$. Denote $\boldsymbol{z} = [e_1^\top,\cdots , e_m^\top]^\top$ and $\boldsymbol{g} = [g_1^\top, \cdots, g_m^\top]^\top$. Note $\boldsymbol{z}$ satisfies $\boldsymbol{z}=\bar{H}\boldsymbol{p}$ where $\bar{H}=H\otimes I_d$ and $H$ is the **incidence matrix** of the graph.. Define the **bearing rigidity function** $B_\mathcal{G}(\boldsymbol{p}): \mathbb{R}^{dn} \longmapsto \mathbb{R}^{dm}$ as
+as the edge vector and the bearing for the $k$-th directed edge. Note that $g_k$ is the unit vector so that $P(g_{ij}) = \mathbf{I}_d - g_{ij}g_{ij}^\top$. Denote $\boldsymbol{z} = [e_1^\top,\cdots , e_m^\top]^\top$ and $\boldsymbol{g} = [g_1^\top, \cdots, g_m^\top]^\top$. Note $\boldsymbol{z}$ satisfies $\boldsymbol{z}=\bar{H}\boldsymbol{p}$ where $\bar{H}=H\otimes \mathbf{I}_d$ and $H$ is the **incidence matrix** of the graph.. Define the **bearing rigidity function** $B_\mathcal{G}(\boldsymbol{p}): \mathbb{R}^{dn} \longmapsto \mathbb{R}^{dm}$ as
 $$
 B_\mathcal{G}(\boldsymbol{p})\triangleq [g_1^\top, \cdots, g_m^\top]^\top \in\mathbb{R}^{dm}.
 $$
@@ -424,8 +424,8 @@ For a framework with an **undirected** graph, the bearing Laplacian has the **sa
 > [!tip] Lemma 2
 > For a framework $\mathcal{G}(\boldsymbol{p})$ with **undirected** graph $\mathcal{G}$, the bearing Laplacian $L_\mathcal{B}$ satisfies the following:
 > 1. $L_\mathcal{B}$ is symmetric positive semi-definite;
-> 2. $\operatorname{rank}(L_\mathcal{B}) \leqslant dn − d − 1$ and $\operatorname{span}\{\mathbf{1} \otimes I_d, \boldsymbol{p}\} \subseteq Null(L_\mathcal{B})$;
-> 3. $\operatorname{rank}(L_\mathcal{B}) = dn − d − 1$ and $\operatorname{Null}(L_\mathcal{B}) = \operatorname{span} \{\mathbf{1} \otimes I_d, \boldsymbol{p}\}$ if and only if $\mathcal{G}(\boldsymbol{p})$ is infinitesimally bearing rigid.
+> 2. $\operatorname{rank}(L_\mathcal{B}) \leqslant dn − d − 1$ and $\operatorname{span}\{\mathbf{1} \otimes \mathbf{I}_d, \boldsymbol{p}\} \subseteq Null(L_\mathcal{B})$;
+> 3. $\operatorname{rank}(L_\mathcal{B}) = dn − d − 1$ and $\operatorname{Null}(L_\mathcal{B}) = \operatorname{span} \{\mathbf{1} \otimes \mathbf{I}_d, \boldsymbol{p}\}$ if and only if $\mathcal{G}(\boldsymbol{p})$ is infinitesimally bearing rigid.
 
 **Proof**:
 
@@ -437,7 +437,7 @@ $$
 L_\mathcal{B} = \bar{H}^\top\operatorname{diag}(P_{g_k})\bar{H} \triangleq R^\top R
 $$
 
-Note $R = \operatorname{diag}(\|e_k\|I_d)R_\mathcal{B}$ where $R_\mathcal{B}$ is the bearing rigidity matrix. As a result, the matrix $R$ and hence $L_\mathcal{B}$, have exactly the same rank and null space as $R_\mathcal{B}$. Then the results in $2^\text{nd}$ and $3^\text{rd}$ follow immediately from [Lemma 5](#lem-5) and [Theorem 8](#thm-8). <div style="text-align: right;">$\square$</div>
+Note $R = \operatorname{diag}(\|e_k\|\mathbf{I}_d)R_\mathcal{B}$ where $R_\mathcal{B}$ is the bearing rigidity matrix. As a result, the matrix $R$ and hence $L_\mathcal{B}$, have exactly the same rank and null space as $R_\mathcal{B}$. Then the results in $2^\text{nd}$ and $3^\text{rd}$ follow immediately from [Lemma 5](#lem-5) and [Theorem 8](#thm-8). <div style="text-align: right;">$\square$</div>
 </details>
 
 Since the nodes in the framework are partitioned into **a**nchors and **f**ollowers, it will be useful to partition the corresponding bearing Laplacian as
@@ -481,7 +481,7 @@ R_\mathcal{B}(\boldsymbol{p}) = \operatorname{diag}\left(\frac{P_{g_{k}}}{\|e_k\
 
 It follows from $g_{k}= e_{k}/\|e_{k}\| \, \forall k\in\{1,2,\cdots,m\}$ that:
 $$
-\frac{\partial g_k}{\partial e_k} = \frac{1}{\|e_k\|}(I_d - \frac{e_k}{\|e_k\|}\frac{e_k^\top}{\|e_k\|}) = \frac{1}{\|e_k\|}P_{g_k}.
+\frac{\partial g_k}{\partial e_k} = \frac{1}{\|e_k\|}(\mathbf{I}_d - \frac{e_k}{\|e_k\|}\frac{e_k^\top}{\|e_k\|}) = \frac{1}{\|e_k\|}P_{g_k}.
 $$
 
 As a result, $\partial B_\mathcal{G}(\boldsymbol{p})/\partial \boldsymbol{z} = \operatorname{diag}(P_{g_k}/\|e_k\|)$ and consequently
@@ -498,7 +498,7 @@ The expression [$(3)$](#eq-3) can be used to characterize the **null space** and
 
 > [!tip] Lemma 5
 > A framework $\mathcal{G}(\boldsymbol{p})$ in $\mathbb{R}^d$ **always** satisfies:
-> - $\operatorname{span}\{\mathbf{1} \otimes I_d, \boldsymbol{p}\} \subseteq \operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$
+> - $\operatorname{span}\{\mathbf{1} \otimes \mathbf{I}_d, \boldsymbol{p}\} \subseteq \operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$
 > - $\operatorname{rank}(R_\mathcal{B}(\boldsymbol{p})) \leqslant dn − d − 1$.
 
 **Proof**:
@@ -506,9 +506,9 @@ The expression [$(3)$](#eq-3) can be used to characterize the **null space** and
 <details>
     <summary>Details of Proof</summary>
 
-1. It's clear that $\operatorname{span}\{\mathbf{1} \otimes I_d\} \subseteq \operatorname{Null}(\bar{H}) \subseteq \operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$
+1. It's clear that $\operatorname{span}\{\mathbf{1} \otimes \mathbf{I}_d\} \subseteq \operatorname{Null}(\bar{H}) \subseteq \operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$
 2. Since $P_{e_k}e_k=0$, we have $R_\mathcal{B}(\boldsymbol{p})\boldsymbol{p}=\operatorname{diag}\left(\frac{P_{g_{k}}}{\|e_k\|}\right)\bar{H}\boldsymbol{p} = \operatorname{diag}\left(\frac{P_{g_{k}}}{\|e_k\|}\right)\boldsymbol{z} = 0$ and hence $\boldsymbol{p}\subseteq \operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$.
-3. The inequality $\operatorname{rank}(R_\mathcal{B}(\boldsymbol{p})) \leqslant dn − d − 1$ follows immediately from $\operatorname{span}\{\mathbf{1} \otimes I_d, \boldsymbol{p}\} \subseteq \operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$. <div style="text-align: right;">$\square$</div>
+3. The inequality $\operatorname{rank}(R_\mathcal{B}(\boldsymbol{p})) \leqslant dn − d − 1$ follows immediately from $\operatorname{span}\{\mathbf{1} \otimes \mathbf{I}_d, \boldsymbol{p}\} \subseteq \operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$. <div style="text-align: right;">$\square$</div>
 </details>
 
 For any undirected graph $\mathcal{G} = (\mathcal{V}, \mathcal{E})$, denote $\mathcal{G}^\mathcal{K}$ as the **complete graph** over the **same vertex** set $\mathcal{V}$, and $R^\mathcal{K}_\mathcal{B}(\boldsymbol{p})$ as the bearing rigidity matrix of the framework $\mathcal{G}^\mathcal{K}(\boldsymbol{p})$. The next result gives the **necessary and sufficient conditions** for **bearing equivalency** and **bearing congruency**.
@@ -541,7 +541,7 @@ We next give a useful lemma and then prove the **necessary and sufficient condit
 
 > [!tip] Lemma 6
 > A framework $\mathcal{G}(\boldsymbol{p})$ in $\mathbb{R}^d$ **always** satisfies:
-> - $\operatorname{span}\{\mathbf{1} \otimes I_d, \boldsymbol{p}\} \subseteq \operatorname{Null}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p}))\subseteq \operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$
+> - $\operatorname{span}\{\mathbf{1} \otimes \mathbf{I}_d, \boldsymbol{p}\} \subseteq \operatorname{Null}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p}))\subseteq \operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$
 > - $\operatorname{rank}(R_\mathcal{B}(\boldsymbol{p})) \leqslant \operatorname{rank}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p})) \leqslant dn − d − 1$.
 
 **Proof**:
@@ -550,7 +550,7 @@ We next give a useful lemma and then prove the **necessary and sufficient condit
     <summary>Details of Proof</summary>
 
 
-1. The result that $\operatorname{span}\{\mathbf{1} \otimes I_d, \boldsymbol{p}\} \subseteq \operatorname{Null}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p}))$ and $\operatorname{rank}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p})) \leqslant dn − d − 1$ can be proved similarly as [Lemma 5](#lem-5).
+1. The result that $\operatorname{span}\{\mathbf{1} \otimes \mathbf{I}_d, \boldsymbol{p}\} \subseteq \operatorname{Null}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p}))$ and $\operatorname{rank}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p})) \leqslant dn − d − 1$ can be proved similarly as [Lemma 5](#lem-5).
 2. For any $\delta\boldsymbol{p}\in\operatorname{Null}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p}))$, we have $R^\mathcal{K}_\mathcal{B}(\boldsymbol{p})\delta\boldsymbol{p}=\mathbf{0}\Rightarrow R^\mathcal{K}_\mathcal{B}(\boldsymbol{p})(\boldsymbol{p} + \delta\boldsymbol{p})=\mathbf{0}$. As a result, $\mathcal{G}(\boldsymbol{p}+\delta\boldsymbol{p})$ is **bearing congruent** to $\mathcal{G}(\boldsymbol{p})$ by [Theorem 5](#thm-5). Since bearing congruency implies bearing equivalency, we further know $R_\mathcal{B}(\boldsymbol{p})(\boldsymbol{p} + \delta\boldsymbol{p})=\mathbf{0}$ and hence $R_\mathcal{B}(\boldsymbol{p})\delta\boldsymbol{p}=\mathbf{0}$. Therefore, any $\delta\boldsymbol{p}$ in $\operatorname{Null}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p}))$ is also in $\operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$.
 3. Since $R_\mathcal{B}(\boldsymbol{p}),R^\mathcal{K}_\mathcal{B}(\boldsymbol{p})$ have the same column number, it follows immediately that $\operatorname{rank}(R_\mathcal{B}(\boldsymbol{p})) \leqslant \operatorname{rank}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p}))$. <div style="text-align: right;">$\square$</div>
 </details>
@@ -594,18 +594,18 @@ We next give the necessary and sufficient condition for **infinitesimal bearing 
 > For a framework $\mathcal{G}(\boldsymbol{p})$ in $\mathbb{R}^d$, the following statements are equivalent:
 > - $\mathcal{G}(\boldsymbol{p})$ is **infinitesimally bearing rigid**;
 > - $\operatorname{rank}(R_\mathcal{B}(\boldsymbol{p})) = dn − d − 1$;
-> - $\operatorname{Null}(R_\mathcal{B}(\boldsymbol{p})) = \operatorname{span}\{\mathbf{1} \otimes I_d, \boldsymbol{p}\} = \operatorname{span}\{\mathbf{1} \otimes I_d, \boldsymbol{p} −  \mathbf{1} \otimes \bar{\boldsymbol{p}}\}$, where $\bar{\boldsymbol{p}}= (\mathbf{1} \otimes I_d)^\top \boldsymbol{p}/n$ is the centroid of $\{p_i\}_{i\in\mathcal{V}}$ .
+> - $\operatorname{Null}(R_\mathcal{B}(\boldsymbol{p})) = \operatorname{span}\{\mathbf{1} \otimes \mathbf{I}_d, \boldsymbol{p}\} = \operatorname{span}\{\mathbf{1} \otimes \mathbf{I}_d, \boldsymbol{p} −  \mathbf{1} \otimes \bar{\boldsymbol{p}}\}$, where $\bar{\boldsymbol{p}}= (\mathbf{1} \otimes \mathbf{I}_d)^\top \boldsymbol{p}/n$ is the centroid of $\{p_i\}_{i\in\mathcal{V}}$ .
 
 **Proof**:
 
 <details>
     <summary>Details of Proof</summary>
 
-1. [Lemma 5](#lem-5) shows $\operatorname{span}\{\mathbf{1} \otimes I_d, \boldsymbol{p}\}\subseteq \operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$. Observe $\mathbf{1} \otimes I_d$ and $\boldsymbol{p}$ correspond to a rigid-body **translation** and a **scaling** of the framework, respectively. The stated condition directly follows from Definition of infinitesimally bearing rigid.
-2. Note also that $\{\mathbf{1} \otimes I_d, \boldsymbol{p} −  \mathbf{1} \otimes \bar{\boldsymbol{p}}\}$ is an **orthogonal basis** for $\operatorname{span}\{\mathbf{1} \otimes I_d, \boldsymbol{p}\}$. <div style="text-align: right;">$\square$</div>
+1. [Lemma 5](#lem-5) shows $\operatorname{span}\{\mathbf{1} \otimes \mathbf{I}_d, \boldsymbol{p}\}\subseteq \operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$. Observe $\mathbf{1} \otimes \mathbf{I}_d$ and $\boldsymbol{p}$ correspond to a rigid-body **translation** and a **scaling** of the framework, respectively. The stated condition directly follows from Definition of infinitesimally bearing rigid.
+2. Note also that $\{\mathbf{1} \otimes \mathbf{I}_d, \boldsymbol{p} −  \mathbf{1} \otimes \bar{\boldsymbol{p}}\}$ is an **orthogonal basis** for $\operatorname{span}\{\mathbf{1} \otimes \mathbf{I}_d, \boldsymbol{p}\}$. <div style="text-align: right;">$\square$</div>
 </details>
 
-The special cases of $\mathbb{R}^2$ and $\mathbb{R}^3$ are of particular interest. A framework G(p) is infinitesimally bearing rigid in $\mathbb{R}^2$ if and only if $\operatorname{rank}(R_\mathcal{B}(\boldsymbol{p})) = 2n − 3$, and in $\mathbb{R}^3$ if and only if $\operatorname{rank}(R_\mathcal{B}(\boldsymbol{p})) = 3n−4$. Note [Theorem 8](#thm-8) does not require $n \geqslant d$. 
+The special cases of $\mathbb{R}^2$ and $\mathbb{R}^3$ are of particular interest. A framework $\mathcal{G}(\boldsymbol{p})$ is infinitesimally bearing rigid in $\mathbb{R}^2$ if and only if $\operatorname{rank}(R_\mathcal{B}(\boldsymbol{p})) = 2n − 3$, and in $\mathbb{R}^3$ if and only if $\operatorname{rank}(R_\mathcal{B}(\boldsymbol{p})) = 3n−4$. Note [Theorem 8](#thm-8) does not require $n \geqslant d$. 
 
 The following result characterizes the relationship between infinitesimal bearing rigidity and global bearing rigidity.
 
@@ -617,7 +617,7 @@ The following result characterizes the relationship between infinitesimal bearin
 <details>
     <summary>Details of Proof</summary>
 
-Infinitesimal bearing rigidity implies $\operatorname{Null}(R_\mathcal{B}(\boldsymbol{p})) = \operatorname{span}\{\mathbf{1} \otimes  I_d, \boldsymbol{p}\}$. Since $\operatorname{span}\{\mathbf{1} \otimes  I_d, \boldsymbol{p}\} \subseteq \operatorname{Null}(R^\mathcal{K}_\mathcal{B}(p)) \subseteq \operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$ as shown in [Lemma 6](#lem-6), it immediately follows from $\operatorname{Null}(R_\mathcal{B}(\boldsymbol{p})) = \operatorname{span}\{\mathbf{1}\otimes I_d, \boldsymbol{p}\}$ that $\operatorname{Null}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p})) = \operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$, which means $\mathcal{G}(\boldsymbol{p})$ is globally bearing rigid according to Theorem 6. <div style="text-align: right;">$\square$</div>
+Infinitesimal bearing rigidity implies $\operatorname{Null}(R_\mathcal{B}(\boldsymbol{p})) = \operatorname{span}\{\mathbf{1} \otimes  \mathbf{I}_d, \boldsymbol{p}\}$. Since $\operatorname{span}\{\mathbf{1} \otimes  \mathbf{I}_d, \boldsymbol{p}\} \subseteq \operatorname{Null}(R^\mathcal{K}_\mathcal{B}(p)) \subseteq \operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$ as shown in [Lemma 6](#lem-6), it immediately follows from $\operatorname{Null}(R_\mathcal{B}(\boldsymbol{p})) = \operatorname{span}\{\mathbf{1}\otimes \mathbf{I}_d, \boldsymbol{p}\}$ that $\operatorname{Null}(R^\mathcal{K}_\mathcal{B}(\boldsymbol{p})) = \operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$, which means $\mathcal{G}(\boldsymbol{p})$ is globally bearing rigid according to Theorem 6. <div style="text-align: right;">$\square$</div>
 </details>
 
 The **converse** of Theorem 9 is **not true**, i.e., global bearing rigidity does not imply infinitesimal bearing rigidity. For example, the collinear framework as shown in [Figure 5](#fig-5)(a) is globally bearing rigid but not infinitesimally bearing rigid.
@@ -661,12 +661,12 @@ $$
 \boldsymbol{p}' = c\boldsymbol{p} + \mathbf{1}\otimes\eta + \boldsymbol{q} \tag{4}
 $$
 
-where $c\in\mathbb{R}\backslash\{0\}$ is the **scaling** factor, $\eta \in\mathbb{R}^d$ denotes a rigidbody **translation** of the framework, and $\boldsymbol{q} \in\mathbb{R}^{dn}$, which satisfies $\boldsymbol{q} \perp \operatorname{span}\{\mathbf{1} \otimes  I_d, \boldsymbol{p}\}$, represents a transformation other than translation and scaling. We only need to prove $\boldsymbol{q} = \mathbf{0}$. Since infinitesimal bearing rigidity implies that $\operatorname{Null}(R_\mathcal{B}(\boldsymbol{p})) = \operatorname{span}\{\mathbf{1} \otimes  I_d, \boldsymbol{p}\}$, multiplying $R_\mathcal{B}(\boldsymbol{p})$ on both sides of [$(4)$](#eq-4) yields
+where $c\in\mathbb{R}\backslash\{0\}$ is the **scaling** factor, $\eta \in\mathbb{R}^d$ denotes a rigidbody **translation** of the framework, and $\boldsymbol{q} \in\mathbb{R}^{dn}$, which satisfies $\boldsymbol{q} \perp \operatorname{span}\{\mathbf{1} \otimes  \mathbf{I}_d, \boldsymbol{p}\}$, represents a transformation other than translation and scaling. We only need to prove $\boldsymbol{q} = \mathbf{0}$. Since infinitesimal bearing rigidity implies that $\operatorname{Null}(R_\mathcal{B}(\boldsymbol{p})) = \operatorname{span}\{\mathbf{1} \otimes  \mathbf{I}_d, \boldsymbol{p}\}$, multiplying $R_\mathcal{B}(\boldsymbol{p})$ on both sides of [$(4)$](#eq-4) yields
 $$
 R_\mathcal{B}(\boldsymbol{p})\boldsymbol{p}' = R_\mathcal{B}(\boldsymbol{p})\boldsymbol{q}.
 $$
 
-Since $\mathcal{G}(\boldsymbol{p}')$ is bearing equivalent to $\mathcal{G}(\boldsymbol{p})$, we have $R_\mathcal{B}(\boldsymbol{p})\boldsymbol{p}' = \mathbf{0}$ by [Theorem 5](#thm-5). Therefore, the formula above implies $R_\mathcal{B}(\boldsymbol{p})\boldsymbol{q}=\mathbf{0}$. Since $\boldsymbol{q} \perp \operatorname{span}\{\mathbf{1} \otimes  I_d, \boldsymbol{p}\} = \operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$, the above equation suggests $\boldsymbol{q} = \mathbf{0}$. As a result, $\boldsymbol{p}'$ is different from $\boldsymbol{p}$ only in a scaling factor $c$ and a rigid-body translation $\eta$. <div style="text-align: right;">$\square$</div>
+Since $\mathcal{G}(\boldsymbol{p}')$ is bearing equivalent to $\mathcal{G}(\boldsymbol{p})$, we have $R_\mathcal{B}(\boldsymbol{p})\boldsymbol{p}' = \mathbf{0}$ by [Theorem 5](#thm-5). Therefore, the formula above implies $R_\mathcal{B}(\boldsymbol{p})\boldsymbol{q}=\mathbf{0}$. Since $\boldsymbol{q} \perp \operatorname{span}\{\mathbf{1} \otimes  \mathbf{I}_d, \boldsymbol{p}\} = \operatorname{Null}(R_\mathcal{B}(\boldsymbol{p}))$, the above equation suggests $\boldsymbol{q} = \mathbf{0}$. As a result, $\boldsymbol{p}'$ is different from $\boldsymbol{p}$ only in a scaling factor $c$ and a rigid-body translation $\eta$. <div style="text-align: right;">$\square$</div>
 </details>
 
 #### Property: Invariant to Dimension
@@ -695,30 +695,30 @@ $$
 \end{bmatrix}, \quad P_{\tilde{g}_k} = 
 \begin{bmatrix}
     P_{g_k} & 0\\
-    0 & I_{\tilde{d}-d}
+    0 & \mathbf{I}_{\tilde{d}-d}
 \end{bmatrix}, \quad \forall k=\{1,\cdots,m\}.
 $$
 
-2. The bearing rigidity matrix of $\mathcal{G}(\tilde{\boldsymbol{p}})$ is $R(\tilde{\boldsymbol{p}})=\operatorname{diag}(I_{\tilde{d}}/\|e_k\|)\operatorname{diag}(P_{\tilde{g}_k})(H\otimes I_{\tilde{d}})$ where
+2. The bearing rigidity matrix of $\mathcal{G}(\tilde{\boldsymbol{p}})$ is $R(\tilde{\boldsymbol{p}})=\operatorname{diag}(\mathbf{I}_{\tilde{d}}/\|e_k\|)\operatorname{diag}(P_{\tilde{g}_k})(H\otimes \mathbf{I}_{\tilde{d}})$ where
 $$
-\operatorname{diag}(P_{\tilde{g}_k})(H\otimes I_{\tilde{d}}) = \operatorname{diag}\left(
+\operatorname{diag}(P_{\tilde{g}_k})(H\otimes \mathbf{I}_{\tilde{d}}) = \operatorname{diag}\left(
    \begin{bmatrix}
         P_{g_k} & 0\\
-        0 & I_{\tilde{d}-d}
+        0 & \mathbf{I}_{\tilde{d}-d}
    \end{bmatrix}
 \right)H\otimes
 \begin{bmatrix}
-    I_d & 0\\
-    0 & I_{\tilde{d}-d}
+    \mathbf{I}_d & 0\\
+    0 & \mathbf{I}_{\tilde{d}-d}
 \end{bmatrix}
 $$
 
-Permutate the rows of $\operatorname{diag}(P_{\tilde{g}_k})(H\otimes I_{\tilde{d}})$ to obtain
+Permutate the rows of $\operatorname{diag}(P_{\tilde{g}_k})(H\otimes \mathbf{I}_{\tilde{d}})$ to obtain
 $$
 A = 
 \begin{bmatrix}
-    \operatorname{diag}(P_{g_k})H\otimes [I_d\quad 0]\\
-    I_{\tilde{d}-d}H\otimes [0\quad I_{\tilde{d}-d}]
+    \operatorname{diag}(P_{g_k})H\otimes [\mathbf{I}_d\quad 0]\\
+    \mathbf{I}_{\tilde{d}-d}H\otimes [0\quad \mathbf{I}_{\tilde{d}-d}]
 \end{bmatrix}
 \triangleq
 \begin{bmatrix}
@@ -730,8 +730,8 @@ $$
 Since the permutation of the rows does not change the matrix rank, we have $\operatorname{rank}(R(\tilde{\boldsymbol{p}})) = \operatorname{rank}(A)$. Because the rows of $A_1$ are **orthogonal** to the rows of $A_2$ (the identity matrix is divided), we have $\operatorname{rank}(A) = \operatorname{rank}(A_1) + \operatorname{rank}(A_2)$. As a result, considering:
 $$
 \begin{aligned}
-    &\operatorname{rank}(A_1) = \operatorname{rank}(\operatorname{diag}(P_{g_k})H\otimes I_d) = \operatorname{rank}(R_\mathcal{B}(\boldsymbol{p}))\\
-    &\operatorname{rank}(A_2) = \operatorname{rank}(H\otimes I_{\tilde{d}-d}) = (\tilde{d}-d)(n-1)\\
+    &\operatorname{rank}(A_1) = \operatorname{rank}(\operatorname{diag}(P_{g_k})H\otimes \mathbf{I}_d) = \operatorname{rank}(R_\mathcal{B}(\boldsymbol{p}))\\
+    &\operatorname{rank}(A_2) = \operatorname{rank}(H\otimes \mathbf{I}_{\tilde{d}-d}) = (\tilde{d}-d)(n-1)\\
     \implies& \operatorname{rank}(R(\tilde{\boldsymbol{p}})) = \operatorname{rank}(R_\mathcal{B}(\boldsymbol{p})) + (\tilde{d}-d)(n-1).
 \end{aligned}
 $$
@@ -972,11 +972,11 @@ In the definition of bearing laplacian matrix, it's claimed that
 When the graph is directed, the bearing Laplacian is, however, **not symmetric** and the above **kernel persistence** (bearing persistence) relationship would not hold in general.
 
 > [!warning] Definition: Bearing Persistence
-> A directed formation $(\mathcal{G},\boldsymbol{p})$ is **bearing kernel equivalent** (in short, **bearing equivalent** ) if $\operatorname{Null}(R_\mathcal{B}) = \operatorname{Null}(L_\mathcal{B}) = \operatorname{span}\{\mathbf{1} \otimes I_d, \boldsymbol{p}\}$.
+> A directed formation $(\mathcal{G},\boldsymbol{p})$ is **bearing kernel equivalent** (in short, **bearing equivalent** ) if $\operatorname{Null}(R_\mathcal{B}) = \operatorname{Null}(L_\mathcal{B}) = \operatorname{span}\{\mathbf{1} \otimes \mathbf{I}_d, \boldsymbol{p}\}$.
 
 The problem of characterizing favourable properties of **bearing Laplacian** $L_\mathcal{B}$ and **bearing persistence** is motivated by the bearing-based formation system [$(6)$](#eq-6) in **directed graphs**. In particular,
 - The **spectrum** of $L_\mathcal{B}$ determines the **stability** properties of the formation system [$(6)$](#eq-6). Preferably, we aim to find conditions to guarantee that $L_\mathcal{B}$ has **all eigenvalues with non-negative real parts** such that the formation system [$(6)$](#eq-6) is stable.
-- The **null space** of $L_\mathcal{B}$ determines the **converged formation shape** of the system [$(6)$](#eq-6). Preferably, we aim to find conditions to guarantee $\operatorname{Null}(L_\mathcal{B}) = \operatorname{span}\{\mathbf{1} \otimes I_d, \boldsymbol{p}\}$ such that the converged formation shape is bearing equivalent to the target formation.
+- The **null space** of $L_\mathcal{B}$ determines the **converged formation shape** of the system [$(6)$](#eq-6). Preferably, we aim to find conditions to guarantee $\operatorname{Null}(L_\mathcal{B}) = \operatorname{span}\{\mathbf{1} \otimes \mathbf{I}_d, \boldsymbol{p}\}$ such that the converged formation shape is bearing equivalent to the target formation.
 
 Graph conditions to guarantee bearing persistence for a bearing formation still remain open. Here, we will give several graph topological conditions to characterize the spectrum and null space of $L_\mathcal{B}$, which underpin certain key requirements to ensure the formation convergence by the bearing control law [$(6)$](#eq-6).
 
@@ -989,7 +989,7 @@ $$
 L_\mathcal{B} = \bar{J}^\top\operatorname{diag}(P_{g_k})\bar{H} \tag{7}
 $$
 
-where $\bar{J}=J\otimes I_d$ and the matrix $J$ is obtained by replacing the ‘−1’ entry of the incidence matrix $H$ by ‘0’ from the directed graph.
+where $\bar{J}=J\otimes \mathbf{I}_d$ and the matrix $J$ is obtained by replacing the ‘−1’ entry of the incidence matrix $H$ by ‘0’ from the directed graph.
 
 The bearing Laplacian formula of [$(7)$](#eq-7) follows from the formula of the conventional Laplacian matrix $L$ for a directed graph: $L = J^\top H$. By augmenting the Kronecker product and the matrix weight (in terms of the projection matrix $P_{g_k}$ associated to each directed edge), one can obtain [$(7)$](#eq-7).
 
@@ -1000,14 +1000,14 @@ The formula of [$(7)$](#eq-7) gives the following set inclusion of null spaces
 > <span id="eq-8"></span>
 >
 > $$
-\operatorname{span}\{\mathbf{1} \otimes I_d, \boldsymbol{p}\} \subseteq \operatorname{Null}(R_\mathcal{B}) \subseteq \operatorname{Null}(L_\mathcal{B}). \tag{8}
+\operatorname{span}\{\mathbf{1} \otimes \mathbf{I}_d, \boldsymbol{p}\} \subseteq \operatorname{Null}(R_\mathcal{B}) \subseteq \operatorname{Null}(L_\mathcal{B}). \tag{8}
 > $$
 
 **Proof**:
 <details> 
     <summary>Details of Proof</summary>
  
-1. Define $\tilde{R}_\mathcal{B} = \operatorname{diag}(\|e_k\|)R_\mathcal{B}$ where $R_\mathcal{B}$ is the bearing rigidity matrix. Then it holds $\operatorname{Null}(\tilde{R}_\mathcal{B}) = \operatorname{Null}(R_\mathcal{B})$ and therefore $\operatorname{span}\{\mathbf{1} \otimes I_d, \boldsymbol{p}\} \subseteq \operatorname{Null}(R_\mathcal{B})$.
+1. Define $\tilde{R}_\mathcal{B} = \operatorname{diag}(\|e_k\|)R_\mathcal{B}$ where $R_\mathcal{B}$ is the bearing rigidity matrix. Then it holds $\operatorname{Null}(\tilde{R}_\mathcal{B}) = \operatorname{Null}(R_\mathcal{B})$ and therefore $\operatorname{span}\{\mathbf{1} \otimes \mathbf{I}_d, \boldsymbol{p}\} \subseteq \operatorname{Null}(R_\mathcal{B})$.
 2. Note that $L_\mathcal{B} = \bar{J}^\top\tilde{R}_\mathcal{B}$ and one has $\operatorname{Null}(\tilde{R}_\mathcal{B}) \subseteq \operatorname{Null}(L_\mathcal{B})$, which concludes the set inclusion of [$(8)$](#eq-8). <div style="text-align: right;">$\square$</div>
 </details>
 
@@ -1025,11 +1025,11 @@ Based on this formula [$(9)$](#eq-9), we give a **necessary and sufficient condi
 > For a directed formation $(\mathcal{G},\boldsymbol{p})$, the **equality**
 >
 > $$
-\operatorname{Null}(L_\mathcal{B}) = \operatorname{span}\{\mathbf{1} \otimes I_d, \boldsymbol{p}\}
+\operatorname{Null}(L_\mathcal{B}) = \operatorname{span}\{\mathbf{1} \otimes \mathbf{I}_d, \boldsymbol{p}\}
 > $$
 >
 > holds if and only if the following two conditions are **both** satisfied:
-> 1. $\operatorname{Null}(R_\mathcal{B}) = \operatorname{span}\{\mathbf{1} \otimes I_d, \boldsymbol{p}\}$ (i.e., the formation is **infinitesimally bearing rigid**),
+> 1. $\operatorname{Null}(R_\mathcal{B}) = \operatorname{span}\{\mathbf{1} \otimes \mathbf{I}_d, \boldsymbol{p}\}$ (i.e., the formation is **infinitesimally bearing rigid**),
 > 2. $\operatorname{Null}(\tilde{J}_\mathcal{B}^\top) \cap \operatorname{Range}(\tilde{R}_\mathcal{B}) = \{\mathbf{0}\}$.
 
 **Proof**:
@@ -1089,14 +1089,14 @@ According to [Lemma 12](#lem-12), the set of eigenvalues of a block triangular m
 The following conditions are presented to characterize the **null space** property of $L_\mathcal{B}$ for **directed acyclic** graphs. Note that any directed acyclic graph contains a vertex with zero out-going edge, which is often termed as the “**leader agent**” in formation control.
 
 > [!tip] Proposition 4
-> For a bearing formation modeled by a directed acyclic graphs, **any** of the following conditions will result in $\operatorname{span}\{\mathbf{1} \otimes I_d, \boldsymbol{p}\} \subset \operatorname{Null}(L_\mathcal{B})$, leading to a **bearing non-equivalent** formation:
+> For a bearing formation modeled by a directed acyclic graphs, **any** of the following conditions will result in $\operatorname{span}\{\mathbf{1} \otimes \mathbf{I}_d, \boldsymbol{p}\} \subset \operatorname{Null}(L_\mathcal{B})$, leading to a **bearing non-equivalent** formation:
 > 1. There are at least two vertices that have zero outgoing edge;
 > 2. There are at least two vertices with only one out-going edge;
 > 3. There are at least two vertices with collinear out-going edges.
 
 **Proof**:
 
-Due to the block triangular structure of $L_\mathcal{B}$ of directed acyclic graphs, any of the above conditions will introduce **additional null spaces** for $L_\mathcal{B}$ in addition to $\operatorname{span}\{\mathbf{1} \otimes I_d, \boldsymbol{p}\}$. <div style="text-align: right;">$\square$</div>
+Due to the block triangular structure of $L_\mathcal{B}$ of directed acyclic graphs, any of the above conditions will introduce **additional null spaces** for $L_\mathcal{B}$ in addition to $\operatorname{span}\{\mathbf{1} \otimes \mathbf{I}_d, \boldsymbol{p}\}$. <div style="text-align: right;">$\square$</div>
 
 A special class of acyclic directed graphs is the **leader-first-follower (LFF) graph**
 > [!warning] Definition: Leader-first-follower graph
@@ -1131,21 +1131,21 @@ We note that this condition is not necessary. For a counterexample, see the grap
 
 Now we provide a **necessary condition** for bearing persistence in directed graphs.
 > [!tip] Proposition 6
-> For a directed bearing formation $(\mathcal{G},\boldsymbol{p})$, if the associated bearing Laplacian satisfies $\operatorname{Null}(L_\mathcal{B}) = \operatorname{span}\{\mathbf{1} \otimes I_d, \boldsymbol{p}\}$, then the underlying directed graph contains a **directed spanning tree**.
+> For a directed bearing formation $(\mathcal{G},\boldsymbol{p})$, if the associated bearing Laplacian satisfies $\operatorname{Null}(L_\mathcal{B}) = \operatorname{span}\{\mathbf{1} \otimes \mathbf{I}_d, \boldsymbol{p}\}$, then the underlying directed graph contains a **directed spanning tree**.
 
 **Proof**:
 
 <details>
     <summary>Details of Proof</summary>
 
-If the underlying directed graph does not contain a spanning tree, then the Laplacian matrix $L=J^\top H$ will have additional **null vector** besides $\{\mathbf{1}\}$, implying that  the augmented Laplacian matrix $\bar{L}=L\otimes I_d = \bar{J}^\top\bar{H}$ will have additional null space besides $\operatorname{span}\{\mathbf{1} \otimes I_d\}$, i.e., $\operatorname{span}\{\mathbf{1} \otimes I_d\}\subset\operatorname{Null}(\bar{L})$.
+If the underlying directed graph does not contain a spanning tree, then the Laplacian matrix $L=J^\top H$ will have additional **null vector** besides $\{\mathbf{1}\}$, implying that  the augmented Laplacian matrix $\bar{L}=L\otimes \mathbf{I}_d = \bar{J}^\top\bar{H}$ will have additional null space besides $\operatorname{span}\{\mathbf{1} \otimes \mathbf{I}_d\}$, i.e., $\operatorname{span}\{\mathbf{1} \otimes \mathbf{I}_d\}\subset\operatorname{Null}(\bar{L})$.
 
 According to [Lemma 12](#lem-12), since the block diagonal matrix $\operatorname{diag}(P_{g_k})$ is always **singular** that leads to the null space $\operatorname{span}\{\boldsymbol{p}\}$ of $L_\mathcal{B}$, there holds
 $$
 \operatorname{Null}(\bar{L}) = \operatorname{Null}(\bar{J}^\top\bar{H})\subset\operatorname{Null}(\bar{J}^\top\operatorname{diag}(P_{g_k})\bar{H}) = \operatorname{Null}(L_\mathcal{B}),
 $$
 
-which implies $\operatorname{span}\{\mathbf{1} \otimes I_d, \boldsymbol{p}\}\subset\operatorname{Null}(L_\mathcal{B})$. Thus, to ensure $\operatorname{Null}(L_\mathcal{B}) = \operatorname{span}\{\mathbf{1} \otimes I_d, \boldsymbol{p}\}$, the underlying directed graph must contain a spanning tree. <div style="text-align: right;">$\square$</div>
+which implies $\operatorname{span}\{\mathbf{1} \otimes \mathbf{I}_d, \boldsymbol{p}\}\subset\operatorname{Null}(L_\mathcal{B})$. Thus, to ensure $\operatorname{Null}(L_\mathcal{B}) = \operatorname{span}\{\mathbf{1} \otimes \mathbf{I}_d, \boldsymbol{p}\}$, the underlying directed graph must contain a spanning tree. <div style="text-align: right;">$\square$</div>
 </details>
 
 Proposition 6 provides a necessary condition for bearing persistence that holds for **both acyclic and cyclic directed graphs**. In particular, Condition (1) in Proposition 4 violates the spanning tree condition, and therefore any bearing formation with two leader agents (i.e., two vertices with zero out-degree) are not bearing equivalent.
@@ -1156,7 +1156,7 @@ A full characterization of bearing persistence in directed graphs containing cyc
 > [!tip] Proposition 7
 > Consider a **bearing equivalent** formation $(\mathcal{G},\boldsymbol{p})$ in $\mathbb{R}^d$ with $n$ agents modelled by a **directed** graph $\mathcal{G}$.  Suppose an **additional** vertex (agent) $\boldsymbol{p}'$ is added to $(\mathcal{G},\boldsymbol{p})$ with **at least two out-going non-collinear edges** incident to existing vertices in $(\mathcal{G},\boldsymbol{p})$. Then this augmented formation $\mathcal{G}'(\boldsymbol{p}, \boldsymbol{p}')$ is **bearing equivalent**.
 >
-> In particular, if $\operatorname{span}\{\mathbf{1} \otimes I_d, \boldsymbol{p}\} = \operatorname{Null}(L_\mathcal{B}(\mathcal{G}))$, then $\operatorname{span}\{\mathbf{1}_{n+1} \otimes I_d, (\boldsymbol{p}, \boldsymbol{p}')\} = \operatorname{Null}(L_\mathcal{B}(\mathcal{G}'))$.
+> In particular, if $\operatorname{span}\{\mathbf{1} \otimes \mathbf{I}_d, \boldsymbol{p}\} = \operatorname{Null}(L_\mathcal{B}(\mathcal{G}))$, then $\operatorname{span}\{\mathbf{1}_{n+1} \otimes \mathbf{I}_d, (\boldsymbol{p}, \boldsymbol{p}')\} = \operatorname{Null}(L_\mathcal{B}(\mathcal{G}'))$.
 
 **Proof**:
 
@@ -1173,7 +1173,7 @@ L_{\mathcal{B}}(\mathcal{G}(p)) & & \vdots \\
 \end{array}\right]
 $$
 
-The condition that the new vertex $p^{\prime}$ has **at least two out-going non-collinear edges** connected with existing vertices guarantees that **no additional null vector** is introduced in $L_{\mathcal{B}}\left(\mathcal{G}^{\prime}\right)$ with the edge addition. Therefore, if $\operatorname{rank}\left(R_{\mathcal{B}}(\mathcal{G})\right)=\operatorname{rank}\left(L_{\mathcal{B}}(\mathcal{G})\right)$, then it holds that $\operatorname{rank}\left(R_{\mathcal{B}}\left(\mathcal{G}^{\prime}\right)\right)=\operatorname{rank}\left(L_{\mathcal{B}}\left(\mathcal{G}^{\prime}\right)\right)$. In particular, with the matrix structure in (9), it is straightforward to show that if $\operatorname{span}\left\{\mathbf{1}_n \otimes I_d, p\right\}=\operatorname{Null}\left(L_{\mathcal{B}}(\mathcal{G})\right)$, then $\operatorname{span}\left\{\mathbf{1}_{n+1} \otimes\right. \left.I_d,\left(p, p^{\prime}\right)\right\}=\operatorname{Null}\left(L_{\mathcal{B}}\left(\mathcal{G}^{\prime}\right)\right)$. <div style="text-align: right;">$\square$</div>
+The condition that the new vertex $p^{\prime}$ has **at least two out-going non-collinear edges** connected with existing vertices guarantees that **no additional null vector** is introduced in $L_{\mathcal{B}}\left(\mathcal{G}^{\prime}\right)$ with the edge addition. Therefore, if $\operatorname{rank}\left(R_{\mathcal{B}}(\mathcal{G})\right)=\operatorname{rank}\left(L_{\mathcal{B}}(\mathcal{G})\right)$, then it holds that $\operatorname{rank}\left(R_{\mathcal{B}}\left(\mathcal{G}^{\prime}\right)\right)=\operatorname{rank}\left(L_{\mathcal{B}}\left(\mathcal{G}^{\prime}\right)\right)$. In particular, with the matrix structure in (9), it is straightforward to show that if $\operatorname{span}\left\{\mathbf{1}_n \otimes \mathbf{I}_d, p\right\}=\operatorname{Null}\left(L_{\mathcal{B}}(\mathcal{G})\right)$, then $\operatorname{span}\left\{\mathbf{1}_{n+1} \otimes\right. \left.\mathbf{I}_d,\left(p, p^{\prime}\right)\right\}=\operatorname{Null}\left(L_{\mathcal{B}}\left(\mathcal{G}^{\prime}\right)\right)$. <div style="text-align: right;">$\square$</div>
 </details>
 
 This proposition holds for **both acyclic and cyclic** directed formations, and therefore can be used to analyze complex bearing formations if they can be decomposed by simple sub-graphs consisting of vertices with non-collinear outgoing edges.
@@ -1403,7 +1403,7 @@ R^+_{\mathcal{B}}(\boldsymbol{p}(t)) = [ \mathbf{D}_p(t)\mathbf{U} \bar{\mathbf{
 > $$
 >
 > 2. $\mathbf{U}=\operatorname{diag}(\mathbf{U}_{ij})\in \mathbb{R}^{3m \times 3m}$ and $\mathbf{V}=\operatorname{diag}(\mathbf{V}_{ij})\in \mathbb{R}^{3m \times 3m}$ take into account the (time-invariant) matrices  $\mathbf{U}_{ij}, \mathbf{V}_{ij} \in \mathbb{R}^{3 \times 3}$  defining, respectively, the **translational directions** of the bearing measurement $\boldsymbol{b}_{ij}$ and $i$-th and $j$-th agents **rotation directions** in the 3D space with respect to the $i$-th agent frame;
-> 3. $\bar{\mathbf{H}}, \bar{\mathbf{H}}_o\in \mathbb{R}^{3n\times 3m}$ are derived from the (time-invariant) incidence matrix of the graph $\mathcal{G}$, where $\bar{\mathbf{H}}_o = \mathbf{H}_o\otimes I_d\in\mathbb{R}^{dn\times dm}$.
+> 3. $\bar{\mathbf{H}}, \bar{\mathbf{H}}_o\in \mathbb{R}^{3n\times 3m}$ are derived from the (time-invariant) incidence matrix of the graph $\mathcal{G}$, where $\bar{\mathbf{H}}_o = \mathbf{H}_o\otimes \mathbf{I}_d\in\mathbb{R}^{dn\times dm}$.
 
 **Proof**:
 

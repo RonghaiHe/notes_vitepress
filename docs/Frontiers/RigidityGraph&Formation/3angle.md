@@ -224,7 +224,7 @@ $$
 
 where $\bar{H}=H\otimes I_2$, $R_{\mathcal{T}_{\mathcal{G}}^*}(\boldsymbol{p})\triangleq R_g(\boldsymbol{p}) \operatorname{diag}(\frac{P_{ij}}{\|\boldsymbol{z}_{ij}\|})\bar{H}=R_g(\boldsymbol{p})R_B(\boldsymbol{p})\in\mathbb{R}^{w\times 2n}$ is termed the **angle rigidity matrix**, $R_\mathcal{B}=\frac{\partial g(\boldsymbol{p})}{\partial \boldsymbol{p}}$ is actually the bearing rigidity matrix. Therefore, equation [$(1.1)$](#eq-1.1) is equivalent to $R_{\mathcal{T}_{\mathcal{G}}^*}(\boldsymbol{p})\dot{\boldsymbol{p}}=\mathbf{0}$.
 
-Next we define **infinitesimal angle rigidity**, to do this, we should distinguish all **trivial** motions for an angle-constrained geometric shape. By an intuitive observation, the motions always preserving invariance of angles in the framework are **translations, rotations, and scalings**. Therefore, the dimension of the trivial motion space is $2+1+1=4$. Note that the trivial motion space is always a subspace of $\operatorname{Null}(R_{\mathcal{T}_{\mathcal{G}}^*})$, implying that $\dim(\operatorname{Null}(R_{\mathcal{T}_{\mathcal{G}}^*}))\geq 4$. We present the following definition.
+Next we define **infinitesimal angle rigidity**, to do this, we should distinguish all **trivial** motions for an angle-constrained geometric shape. By an intuitive observation, the motions always preserving invariance of angles in the framework are **translations, rotations, and scalings**. Therefore, the dimension of the trivial motion space is $2+1+1=4$. Note that the trivial motion space is always a subspace of $\operatorname{Null}(R_{\mathcal{T}_{\mathcal{G}}^*})$, implying that $\dim(\operatorname{Null}(R_{\mathcal{T}_{\mathcal{G}}^*}))\geqslant 4$. We present the following definition.
 
 > [!warning] Definition: infinitesimally angle rigid
 > A framework $(\mathcal{G},\boldsymbol{p})$ is **infinitesimally angle rigid** if there exists an angle index set $\mathcal{T}_\mathcal{G}^*$ such that every possible motion satisfying equation [$(1)$](#eq-1.1) is trivial, or equivalently, $\dim(\operatorname{Null}(R_{\mathcal{T}_{\mathcal{G}}^*}))=4$.
@@ -247,18 +247,18 @@ Differentiating both sides of formula above w.r.t. time leads to
 <span id="eq-1.2"></span>
 
 $$
-\begin{aligned}
+\begin{align*}
    (-\sin\beta)\dot{\beta} &= \dot{\boldsymbol{g}}_{ij}^\top\boldsymbol{g}_{kj} + \boldsymbol{g}_{ij}^\top\dot{\boldsymbol{g}}_{kj} \\
    &= \left[\frac{P_{ij}}{l_{ij}}(\dot{\boldsymbol{p}}_i - \dot{\boldsymbol{p}}_j)\right]^\top\boldsymbol{g}_{kj} + \boldsymbol{g}_{ij}^\top\frac{P_{kj}}{l_{kj}}(\dot{\boldsymbol{p}}_k - \dot{\boldsymbol{p}}_j) \tag{1.2}
-\end{aligned}
+\end{align*}
 $$
 
 where $l_{jk} = \|\boldsymbol{p}_j - \boldsymbol{p}_k\|$. By rearranging, one obtains
 $$
-\begin{aligned}
+\begin{align*}
    \frac{\mathrm{d}\beta}{\mathrm{d}t} &= \frac{\partial\beta}{\partial\boldsymbol{p}_i}\dot{\boldsymbol{p}}_i + \frac{\partial\beta}{\partial\boldsymbol{p}_j}\dot{\boldsymbol{p}}_j + \frac{\partial\beta}{\partial\boldsymbol{p}_k}\dot{\boldsymbol{p}}_k \\
    &= N_{kji}\dot{\boldsymbol{p}}_i - (N_{kji} + N_{ijk})\dot{\boldsymbol{p}}_j + N_{ijk}\dot{\boldsymbol{p}}_k.
-\end{aligned}
+\end{align*}
 $$
 
 where $N_{kji} = -\frac{\boldsymbol{g}_{kj}^\top P_{ij}}{l_{ij}\sin\beta}\in\mathbb{R}^{1\times 2}, N_{ijk} = -\frac{\boldsymbol{g}_{ij}^\top P_{kj}}{l_{kj}\sin\beta}\in\mathbb{R}^{1\times 2}$, and we have assumed $\sin\beta \neq 0$, i.e., no collinearity among $\boldsymbol{p}_i$, $\boldsymbol{p}_j$, and $\boldsymbol{p}_k$. For each $(i, j, k)$ in $\mathcal{A}$, we obtain an equation in the form above, and then one can write such $M$ equations into the matrix form
@@ -488,7 +488,7 @@ For infinitesimally angle rigid angularities, we now discuss when its **number o
 > [!warning] Definition: Minimal angle rigidity
 > An angularity $\mathbb{A}(\mathcal{V}, \mathcal{A}, p)$ is minimally angle rigid if it is angle rigid and **fails to remain so after removing any element** in $\mathcal{A}$, and is infinitesimally minimally angle rigid if it is infinitesimally angle rigid and minimally angle rigid.
 
-Since $\operatorname{rank}\left[R_\mathcal{A}(p)\right] \leq 2 n-4$, the **minimum number of angle constraints** in $f_{\mathcal{A}}(p)$ to maintain infinitesimal angle rigidity is exactly $2 n-4$. So we immediately have the following lemma.
+Since $\operatorname{rank}\left[R_\mathcal{A}(p)\right] \leqslant 2 n-4$, the **minimum number of angle constraints** in $f_{\mathcal{A}}(p)$ to maintain infinitesimal angle rigidity is exactly $2 n-4$. So we immediately have the following lemma.
 
 > [!tip] Lemma 4
 > An angularity $\mathbb{A}(\mathcal{V}, \mathcal{A}, p)$ is **infinitesimally minimally angle rigid** if and only if it is infinitesimally angle rigid and $|\mathcal{A}|=2 n-4$.
@@ -601,7 +601,7 @@ An example of constructing $^i\mathcal{T}_{\mathcal{G}}^*$ by Algorithm 1 is sho
    <div align="center"><figcaption> Figure 10: An example to illustrate the construction of $^i\mathcal{T}_{\mathcal{G}}^*$ by Algorithm 1. (a) The subgraph composed of vertex $i$ and its neighbors $j_1$, $j_2$, $k_1$, $k_2$, $k_3$. Note that $i,k_2,k_3$ are collinear, $i,j_1,j_2$ are collinear. (b) $\hat{\mathcal{N}}_i=\{j_1,j_2\}$, $\check{\mathcal{N}}_i=\{k_1,k_2,k_3\}$. If $j_s$ and $k_l$ are connected by a red line, it implies that the angle between edge $(i,j_s)$ and edge $(i,k_l)$ is selected to be constrained. This also implies that $(i,j_s,k_l)$ (if $j_s < k_l$) or $(i,k_l,j_s)$ (if $k_l< j_s$) is an element of $^i\mathcal{T}_{\mathcal{G}}^*$. </figcaption></div>
 </figure>
 
-Note that for an infinitesimally angle rigid framework, the angle index set generated by Algorithm 1 is **suitable** but **not minimally suitable** for infinitesimal angle rigidity. For example, let $(\mathcal{G},\boldsymbol{p})$ be a minimally angle rigid framework, then $|\mathcal{E}|=2n-3$. For a set $\mathcal{T}_\mathcal{G}^*$ generated by Algorithm 1, we have $|\mathcal{T}_\mathcal{G}^*|=\sum\limits_{i\in\mathcal{V}}|^i\mathcal{T}_\mathcal{G}^*|=\sum\limits_{i\in\mathcal{V}}(|\mathcal{N}_i|-1)=2(2n-3)-n=3n-6\geq 2n-4$ for $n\geq2$. Currently we do not have an algorithm to construct a minimally suitable angle index set for an arbitrary infinitesimally angle rigid framework.
+Note that for an infinitesimally angle rigid framework, the angle index set generated by Algorithm 1 is **suitable** but **not minimally suitable** for infinitesimal angle rigidity. For example, let $(\mathcal{G},\boldsymbol{p})$ be a minimally angle rigid framework, then $|\mathcal{E}|=2n-3$. For a set $\mathcal{T}_\mathcal{G}^*$ generated by Algorithm 1, we have $|\mathcal{T}_\mathcal{G}^*|=\sum\limits_{i\in\mathcal{V}}|^i\mathcal{T}_\mathcal{G}^*|=\sum\limits_{i\in\mathcal{V}}(|\mathcal{N}_i|-1)=2(2n-3)-n=3n-6\geqslant 2n-4$ for $n\geq2$. Currently we do not have an algorithm to construct a minimally suitable angle index set for an arbitrary infinitesimally angle rigid framework.
 
 > [!info] Remark:
 > Although $\mathcal{T}_\mathcal{G}^*$ constructed by Algorithm 1 supports infinitesimal angle rigidity, it **may not support global angle rigidity**. As shown in Figure 11 (a), by Algorithm 1, we can obtain $\mathcal{T}_\mathcal{G}^*=\{(1,2,4), (4,1,2), (1,3,4), (4,1,3)\}$. Although $(\mathcal{G},\boldsymbol{p})$ is infinitesimally angle rigid, $\boldsymbol{a}_{\mathcal{T}_\mathcal{G}^*}(\boldsymbol{p})$ may determine an incorrect shape as shown in Figure 11 (b). However, if we let $\bar{\mathcal{T}}_\mathcal{G}^*=\{(1,2,3)\}\cup\mathcal{T}_\mathcal{G}^*$, then $\boldsymbol{a}_{\bar{\mathcal{T}}_\mathcal{G}^*}(\boldsymbol{p})$ can always determine a correct shape. This implies that $(\mathcal{G},\boldsymbol{p})$ in Figure 11 (a) is both infinitesimally and globally angle rigid for $\bar{\mathcal{T}}_\mathcal{G}^*(\boldsymbol{p})$.
