@@ -31,7 +31,7 @@ features:
   - title: Control
     details: 1. <a href="/docs/Control/OCP/1introduction">Optimal Control</a>
   - title: Robotics
-    details: 1. <a href="./docs/Robotics/vSLAM//1basis">视觉SLAM</a><br/>
+    details: 1. <a href="./docs/Robotics/vSLAM//1basis">视觉SLAM</a><br/>2. <a href="./docs/Robotics/Planning/1intro">Motion Planning</a><br/>
   - title: Kits
     details: (Empty)
 ---

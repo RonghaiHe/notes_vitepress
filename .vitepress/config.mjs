@@ -49,6 +49,7 @@ export default defineConfig({
         text: 'Robotics',
         items: [
           { text: '视觉SLAM', link: '/docs/Robotics/vSLAM/1intro' },
+          { text: 'Motion Planning', link: '/docs/Robotics/Planning/1intro' },
         ]
       },
       {
@@ -161,6 +162,15 @@ export default defineConfig({
             // { text: '视觉SLAM框架', link: '/docs/Robotics/vSLAM/2bearing' },
             { text: '3D刚体运动', link: '/docs/Robotics/vSLAM/3motion3D' },
             { text: '李群&李代数', link: '/docs/Robotics/vSLAM/4lie' },
+          ]
+        }
+      ],
+      '/docs/Robotics/Planning/': [
+        {
+          text: 'Motion Planning',
+          items: [
+            { text: 'Introduction', link: '/docs/Robotics/Planning/1intro' },
+            { text: 'Kinodynamic Planning', link: '/docs/Robotics/Planning/4path_kinodynamic' },
           ]
         }
       ],
