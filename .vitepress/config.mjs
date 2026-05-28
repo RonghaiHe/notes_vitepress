@@ -171,6 +171,8 @@ export default defineConfig({
           items: [
             { text: 'Introduction', link: '/docs/Robotics/Planning/1intro' },
             { text: 'Kinodynamic Planning', link: '/docs/Robotics/Planning/4path_kinodynamic' },
+            { text: 'Geometrically Constrained Trajectory Optimization(MINCO)', link: '/docs/Robotics/Planning/9MINCO' },
+            { text: 'Multi-Agent Path Finding', link: '/docs/Robotics/Planning/10MAPF' },
           ]
         }
       ],
