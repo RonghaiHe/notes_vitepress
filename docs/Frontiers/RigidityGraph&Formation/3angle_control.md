@@ -432,17 +432,11 @@ From [Lemma 1.3](#lem-1.3), $4$-agent formation achieves the desired shape expon
 > 
 > <span id="eq-1.20"></span>
 > 
-> $$
-\begin{equation*}
-\boldsymbol{u}_{i}=-\sum_{(j, i, k) \in \mathcal{A}}\left(\alpha_{j i k}-\alpha_{j i k}^{*}\right)\left(\boldsymbol{g}_{i j}+\boldsymbol{g}_{i k}\right) \tag{1.20}
-\end{equation*}
-> $$
+> $$ \boldsymbol{u}_{i}=-\sum_{(j, i, k) \in \mathcal{A}}\left(\alpha_{j i k}-\alpha_{j i k}^{*}\right)\left(\boldsymbol{g}_{i j}+\boldsymbol{g}_{i k}\right) \tag{1.20} $$
 > 
 > where $\mathcal{A}=\{(1,2,3),(2,3,1),(3,1,2),(1,4,2),(2,4,3), \ldots$, $\left.\left(j_{1}, k, j_{2}\right),\left(j_{2}, k, j_{3}\right), \ldots,\left(i_{1}, N, i_{2}\right),\left(i_{2}, N, i_{3}\right)\right\}, j_{1}<k, j_{2}< k, j_{3}<k, j_{1} \neq j_{2} \neq j_{3}$. Therefore, the unified control algorithm [$(1.20)$](#eq-1.20) can locally stabilize the angle rigid formation constructed through a sequence of Type-I vertex additions (Case 3) from a triangular shape. Because we aim at obtaining local stability for multiagent formations, we only consider the range of the desired angles belonging to ( $0, \pi$ ) in [$(1.2)$](#eq-1.2)-[$(1.6)$](#eq-1.6), and the case of $\alpha_{i}(0) \in(\pi, 2 \pi), \alpha_{i}^{*} \in(\pi, 2 \pi)$ can be similarly obtained. However, to achieve a general infinitesimally and minimally angle rigid formation, one can use the gradient-based control law
 > 
-> $$
-\dot{\boldsymbol{p}}=\boldsymbol{u}=-\left(\frac{\partial V_{3}}{\partial \boldsymbol{p}}\right)^{\top}=-R_\mathcal{A}^{\top}(\boldsymbol{p})\left(\boldsymbol{\alpha}-\boldsymbol{\alpha}^{*}\right)
-> $$
+> $$ \dot{\boldsymbol{p}}=\boldsymbol{u}=-\left(\frac{\partial V_{3}}{\partial \boldsymbol{p}}\right)^{\top}=-R_\mathcal{A}^{\top}(\boldsymbol{p})\left(\boldsymbol{\alpha}-\boldsymbol{\alpha}^{*}\right) $$
 > 
 > where $V_{3}=0.5\left(\boldsymbol{\alpha}-\boldsymbol{\alpha}^{*}\right)^{\top}\left(\boldsymbol{\alpha}-\boldsymbol{\alpha}^{*}\right), \boldsymbol{p}, \boldsymbol{u}, \boldsymbol{\alpha}$ are the stack vectors of $\boldsymbol{p}_{i}, \boldsymbol{u}_{i}, \alpha_{j i k}$, respectively. It follows that $\dot{V}_{3}=-(\boldsymbol{\alpha}- \left.\boldsymbol{\alpha}^{*}\right)^{\top} R_\mathcal{A}(\boldsymbol{p}) R_\mathcal{A}^{\top}(\boldsymbol{p})\left(\boldsymbol{\alpha}-\boldsymbol{\alpha}^{*}\right)$. Because $R_\mathcal{A}(\boldsymbol{p}) R_\mathcal{A}^{\top}(\boldsymbol{p})$ is positive definite when $\boldsymbol{p}$ is in a small neighborhood of the desired formation, one has the local convergence of $\left(\boldsymbol{\alpha}-\boldsymbol{\alpha}^{*}\right)$.
 
@@ -451,11 +445,7 @@ From [Lemma 1.3](#lem-1.3), $4$-agent formation achieves the desired shape expon
 > 
 > <span id="eq-1.21"></span>
 > 
-> $$
-\begin{equation*}
-\mathbf{R}_{g}^{b} \boldsymbol{u}_{i}=-\sum_{(j, i, k) \in \mathcal{A}}\left(\alpha_{j i k}-\alpha_{j i k}^{*}\right) \mathbf{R}_{g}^{b}\left(\boldsymbol{g}_{i j}+\boldsymbol{g}_{i k}\right) \tag{1.21}
-\end{equation*}
-> $$
+> $$ \mathbf{R}_{g}^{b} \boldsymbol{u}_{i}=-\sum_{(j, i, k) \in \mathcal{A}}\left(\alpha_{j i k}-\alpha_{j i k}^{*}\right) \mathbf{R}_{g}^{b}\left(\boldsymbol{g}_{i j}+\boldsymbol{g}_{i k}\right) \tag{1.21} $$
 > 
 > where $\mathbf{R}_{g}^{b} \in \mathrm{SO}(2)$ is the rotation matrix from the global coordinate frame to agent $i$ 's local coordinate frame, $\mathbf{R}_{g}^{b} \boldsymbol{u}_{i}$ is the controller input in agent $i$ 's local coordinate frame, and $\mathbf{R}_{g}^{b} \boldsymbol{g}_{i j}, \mathbf{R}_{g}^{b} \boldsymbol{g}_{i k}$ are the local bearings measured in agent $i$ 's local coordinate frame. Since $\left(\alpha_{j i k}-\alpha_{j i k}^{*}\right)$ is a scalar and $\alpha_{j i k}$ is the same under different coordinate frames, [$(1.21)$](#eq-1.21) and [$(1.20)$](#eq-1.20) are equivalent.
 

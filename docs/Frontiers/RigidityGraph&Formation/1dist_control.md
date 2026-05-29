@@ -47,16 +47,13 @@ We will deal with three types of control problems:
 >
 > <span id="eq-1.2"></span>
 > 
-> $$
-\mathcal{F}(t)\to\operatorname{Iso}(\mathcal{F}^*) \text{ as }t\to\infty. \tag{1.2}
-> $$
+> $$ \mathcal{F}(t)\to\operatorname{Iso}(\mathcal{F}^*) \text{ as }t\to\infty. \tag{1.2} $$
+>
 > which is equivalent to
 >
 > <span id="eq-1.3"></span>
 > 
-> $$
-\|\boldsymbol{q}_i(t) - \boldsymbol{q}_j(t)\|\to d_{ij} \text{ as } t\to\infty, \quad i,j\in\mathcal{V}^*. \tag{1.3}
-> $$
+> $$ \|\boldsymbol{q}_i(t) - \boldsymbol{q}_j(t)\|\to d_{ij} \text{ as } t\to\infty, \quad i,j\in\mathcal{V}^*. \tag{1.3} $$
 
 Since only the inter-agent distances are to be directly controlled, the actual formation can converge to any isometry of $\mathcal{F}^∗$. That is, the meaning is that the formation will converge to one framework in the set $\operatorname{Iso}(\mathcal{F}^*)$ with the specific one being determined by the initial position of the agents, $\boldsymbol{q}_i(0), i = 1, \ldots, n$.
 
@@ -65,9 +62,8 @@ Since only the inter-agent distances are to be directly controlled, the actual f
 >
 > <span id="eq-1.4"></span>
 >
-> $$
-\dot{\boldsymbol{q}}_i(t) - \boldsymbol{v}_{di}(t) \to \mathbf{0} \text{ as }t\to\infty, \quad i=1,\ldots, n. \tag{1.4}
-> $$
+> $$ \dot{\boldsymbol{q}}_i(t) - \boldsymbol{v}_{di}(t) \to \mathbf{0} \text{ as }t\to\infty, \quad i=1,\ldots, n. \tag{1.4} $$
+> 
 > where $\boldsymbol{v}_{di} \in \mathbb{R}^3$ represents the **desired rigid body velocity** for the swarm of agents. That is, the fixed-shape, desired formation evolves in space as a virtual rigid body undergoing translation and/or rotation.
 
 In practice, the selection of $\boldsymbol{v}_{di}$ is mission-dependent. For example, it could be related to a path planning algorithm that provides an optimal solution to the coverage problem where agents cooperatively maximize the coverage area of a given mission under certain time and/or fuel consumption constraints.
@@ -94,9 +90,7 @@ The association of a leader agent (instead of a virtual leader) with the axis of
 >
 > <span id="eq-1.5"></span>
 >
-> $$
-\boldsymbol{q}_T(t)\in\operatorname{conv}\{\boldsymbol{q}_1(t), \boldsymbol{q}_2(t), \ldots, \boldsymbol{q}_{n−1}(t)\}\text{ as }t\to\infty. \tag{1.5}
-> $$
+> $$ \boldsymbol{q}_T(t)\in\operatorname{conv}\{\boldsymbol{q}_1(t), \boldsymbol{q}_2(t), \ldots, \boldsymbol{q}_{n−1}(t)\}\text{ as }t\to\infty. \tag{1.5} $$
 
 Before beginning with the control design, some theorem and corollary statements will be made without proof.
 
@@ -105,12 +99,7 @@ Before beginning with the control design, some theorem and corollary statements 
 > [!caution] Theorem 1.1 (Originally from [1] of Theorem C. 1)
 > Consider the SISO LTI system
 >
-> $$
-\begin{aligned}
-& \dot{\boldsymbol{x}}=\mathbf{A} \boldsymbol{x}+\mathbf{B} \boldsymbol{u} \\
-& \boldsymbol{y}=\mathbf{C} \boldsymbol{x}
-\end{aligned}
-> $$
+> $$ \begin{aligned} & \dot{\boldsymbol{x}}=\mathbf{A} \boldsymbol{x}+\mathbf{B} \boldsymbol{u} \\ & \boldsymbol{y}=\mathbf{C} \boldsymbol{x} \end{aligned} $$
 >
 > where $\mathbf{A} \in \mathbb{R}^{n \times n}$ is a **Hurwitz** matrix. Then, the following results hold:
 > - If $\boldsymbol{u}(t) \in \mathcal{L}_2$, then $\boldsymbol{y}(t) \in \mathcal{L}_2 \cap \mathcal{L}_{\infty}, \boldsymbol{y}(t) \in \mathcal{L}_2, \boldsymbol{y}(t)$ is continuous, and $\boldsymbol{y}(t) \rightarrow 0$ as $t \rightarrow \infty$.
@@ -119,12 +108,7 @@ Before beginning with the control design, some theorem and corollary statements 
 > [!caution] Theorem 1.2 (Originally from [1] of Theorem C.2)
 > Let $V: D \times \mathbb{R}_{\geqslant 0} \rightarrow \mathbb{R}$ be a continuously differentiable function such that
 > 
-> $$
-\begin{aligned}
-& U_1(x) \leqslant V(x, t) \leqslant U_2(x) \\
-& \dot{V}=\frac{\partial V}{\partial t}+\frac{\partial V}{\partial x} f(x, t) \leqslant-U_3(x)
-\end{aligned}
-> $$
+> $$ \begin{aligned} & U_1(x) \leqslant V(x, t) \leqslant U_2(x) \\ & \dot{V}=\frac{\partial V}{\partial t}+\frac{\partial V}{\partial x} f(x, t) \leqslant-U_3(x) \end{aligned} $$
 > 
 > for all $t \geqslant 0$ and for all $x \in D$, where $U_i(x), i=1,2,3$ are continuous positive definite functions on $D$. Then, $x_e=0$ is uniformly asymptotically stable.
 
@@ -137,9 +121,7 @@ Input-to-state stability bridges the gap between the notions of Lyapunov stabili
 
 > [!warning] Definition: Input-to-State Stability
 > A dynamical system $\dot{\boldsymbol{x}} = \boldsymbol{f}(\boldsymbol{x}, \boldsymbol{u}), \quad \boldsymbol{x}(0)=\boldsymbol{x}_0$ with $\boldsymbol{f}: \mathbb{R}^n \times \mathbb{R}^m \rightarrow \mathbb{R}^n$ is said to be **input-to-state stable** if there exist a class $\mathcal{KL}$ function $\beta$ and a class $\mathcal{K}$ function $\alpha$ such that, for any $\boldsymbol{x}_0$ and any $u(t)\in\mathcal{L}_\infty$, the solution $\boldsymbol{x}(t)$ exists for all $t\geqslant 0$ and satisfies
-> $$
-\|x(t)\| \leqslant \beta(\|x_0\|, t) + \alpha(\sup_{0\leqslant\tau \leqslant t} \|u(\tau)\|).
-> $$
+> $$ \|x(t)\| \leqslant \beta(\|x_0\|, t) + \alpha(\sup_{0\leqslant\tau \leqslant t} \|u(\tau)\|). $$
 
 The above inequality has several implications.
 - For any bounded input, the state is bounded.
@@ -151,9 +133,7 @@ The above inequality has several implications.
 > [!caution] Theorem 1.3 (A corollary to Barbalat's Lemma, originally from [1] of Theorem C.3)
 > Consider the function $F: \mathbb{R}_{\geqslant 0} \rightarrow \mathbb{R}$. If $f(t)\in\mathcal{L}_\infty, \dot{f}(t)\in\mathcal{L}_\infty$, and $f(t)\in\mathcal{L}_2$, then
 >
-> $$
-f(t)\to 0 \text{ as }t\to\infty.
-> $$
+> $$ f(t)\to 0 \text{ as }t\to\infty. $$
 
 <span id="thm-1.4"></span>
 
@@ -167,12 +147,7 @@ f(t)\to 0 \text{ as }t\to\infty.
 >
 > <span id="eq-1.6"></span>
 > 
-> $$
-\begin{aligned}
-& \Sigma_1: \dot{x}=f(x, y) \\
-& \Sigma_2: \dot{y}=g(y) .
-\end{aligned} \tag{1.6}
-> $$
+> $$ \begin{aligned} & \Sigma_1: \dot{x}=f(x, y) \\ & \Sigma_2: \dot{y}=g(y) . \end{aligned} \tag{1.6} $$
 >
 > If subsystem $\Sigma_1$ with input $y$ is locally input-to-state stable and $y=0$ is a locally asymptotically stable equilibrium point of subsystem $\Sigma_2$, then $[x, y]=0$ is a locally asymptotically stable equilibrium point of the interconnected system.
 
@@ -181,30 +156,19 @@ f(t)\to 0 \text{ as }t\to\infty.
 > [!caution] Theorem 1.6 (Originally from [1] of Theorem C. 6)
 > If $0 \in K[f](0, t)$ in a region $Q \supset B(0, \delta) \times\left[t_0, \infty\right)$ and $V$ : $D \times \mathbb{R}_{\geqslant 0} \rightarrow \mathbb{R}$ is a regular function satisfying $V(0, t)=0$,
 > 
-> $$
-\alpha_1(\|x\|) \leqslant V(x, t) \leqslant \alpha_2(\|x\|) \quad \forall x \neq 0
-> $$
+> $$ \alpha_1(\|x\|) \leqslant V(x, t) \leqslant \alpha_2(\|x\|) \quad \forall x \neq 0 $$
 > 
 > and
 > 
-> $$
-\dot{V} \stackrel{\text { a.e. }}{\in} \underset{\xi \in \partial V(x, t)}{\cap} \xi^{\top}\left[\begin{array}{c}
-K[f](x, t) \\
-1
-\end{array}\right] \leqslant-\alpha_3(\|x\|)
-> $$
+> $$ \dot{V} \stackrel{\text { a.e. }}{\in} \underset{\xi \in \partial V(x, t)}{\cap} \xi^{\top}\left[\begin{array}{c} K[f](x, t) \\ 1 \end{array}\right] \leqslant-\alpha_3(\|x\|) $$
 > 
 > in $Q$ where $\alpha_i(\cdot), i=1,2,3$ are class $\mathcal{K}$ functions, $K[f](x, t)$ is an upper semi-continuous, nonempty, compact, convex-valued map on $D$ defined as
 > 
-> $$
-K[f](x,t) := \underset{\delta>0}{\cap}\underset{\mu N=0}{\cap} \overline{\operatorname{co}}f(B(x, \delta) \backslash N, t),
-> $$
+> $$ K[f](x,t) := \underset{\delta>0}{\cap}\underset{\mu N=0}{\cap} \overline{\operatorname{co}}f(B(x, \delta) \backslash N, t), $$
 >
 > where $\underset{\mu N=0}{\cap}$ denotes the intersection over all sets $N$ of Lebesgue measure zero, $\overline{\operatorname{co}}$ is the convex closure, and $B$ was defined as 
 >
-> $$
-B(\bar{\boldsymbol{x}},r) = \{\boldsymbol{x}\in\mathbb{R}^n: \|\boldsymbol{x} - \bar{\boldsymbol{x}}\| < r\}
-> $$
+> $$ B(\bar{\boldsymbol{x}},r) = \{\boldsymbol{x}\in\mathbb{R}^n: \|\boldsymbol{x} - \bar{\boldsymbol{x}}\| < r\} $$
 >
 > represents the "ball" of radius $r$ centered at $\bar{\boldsymbol{x}}$.
 > 
@@ -348,22 +312,13 @@ The control law for solving the formation acquisition problem is given in the fo
 > [!caution] Theorem 2.1
 > Consider the formation $\mathcal{F}(t)=\left(\mathcal{G}^{*}, \boldsymbol{q}(t)\right)$, and let the initial conditions of the error dynamics be such that $\boldsymbol{e}(0) \in \Omega_{1} \cap \Omega_{2}$ where
 >
-> $$
-\begin{align*}
-& \Omega_{1}=\left\{\boldsymbol{e} \in \mathbb{R}^{l} \mid \Psi\left(\mathcal{F}, \mathcal{F}^{*}\right) \leqslant \delta\right\}, \\
-& \Omega_{2}=\left\{\boldsymbol{e} \in \mathbb{R}^{l} \mid \operatorname{dist}\left(\boldsymbol{q}, \operatorname{Iso}\left(\mathcal{F}^{*}\right)\right)<\operatorname{dist}\left(\boldsymbol{q}, \operatorname{Amb}\left(\mathcal{F}^{*}\right)\right)\right\}, \tag{2.14}
-\end{align*}
-> $$
+> $$ \begin{align*} & \Omega_{1}=\left\{\boldsymbol{e} \in \mathbb{R}^{l} \mid \Psi\left(\mathcal{F}, \mathcal{F}^{*}\right) \leqslant \delta\right\}, \\ & \Omega_{2}=\left\{\boldsymbol{e} \in \mathbb{R}^{l} \mid \operatorname{dist}\left(\boldsymbol{q}, \operatorname{Iso}\left(\mathcal{F}^{*}\right)\right)<\operatorname{dist}\left(\boldsymbol{q}, \operatorname{Amb}\left(\mathcal{F}^{*}\right)\right)\right\}, \tag{2.14} \end{align*} $$
 >
 > and $\delta$ is a sufficiently small positive constant. The control law[^2.2]
 >
 > <span id="eq-2.15"></span>
 > 
-> $$
-\begin{equation*}
-\boldsymbol{u}=\boldsymbol{u}_{a}:=-k_{v} R^{\top}_\mathcal{D}(\tilde{\boldsymbol{q}}) \boldsymbol{z}, \tag{2.15}
-\end{equation*}
-> $$
+> $$ \boldsymbol{u}=\boldsymbol{u}_{a}:=-k_{v} R^{\top}_\mathcal{D}(\tilde{\boldsymbol{q}}) \boldsymbol{z}, \tag{2.15} $$
 >
 > where $k_{v}>0$ is a user-defined control gain, renders $\boldsymbol{e}=0$ exponentially stable and ensures [$(1.2)$](#eq-1.2) is satisfied.
 
@@ -507,19 +462,13 @@ In this section, we solve the formation maneuvering problem defined in Section 1
 >
 > <span id="eq-2.23"></span>
 >
-> $$
-\boldsymbol{u}=\boldsymbol{u}_{a}+\boldsymbol{v}_{d}, \tag{2.23}
-> $$
+> $$ \boldsymbol{u}=\boldsymbol{u}_{a}+\boldsymbol{v}_{d}, \tag{2.23} $$
 >
 > where $\boldsymbol{u}_{a}$ was defined in [$(2.15)$](#eq-2.15), $\boldsymbol{v}_{d}=\left[\boldsymbol{v}_{d 1}, \ldots, \boldsymbol{v}_{d n}\right] \in \mathbb{R}^{3 n}$ is the desired rigid body velocity specified by[^2.3]
 >
 > <span id="eq-2.24"></span>
 >
-> $$
-\begin{equation*}
-\boldsymbol{v}_{d i}=\boldsymbol{v}_{0}+\boldsymbol{\omega}_{0} \times \tilde{\boldsymbol{q}}_{i n}, i=1, \ldots, n \tag{2.24}
-\end{equation*}
-> $$
+> $$ \boldsymbol{v}_{d i}=\boldsymbol{v}_{0}+\boldsymbol{\omega}_{0} \times \tilde{\boldsymbol{q}}_{i n}, i=1, \ldots, n \tag{2.24} $$
 >
 > $\boldsymbol{v}_{0}(t) \in \mathbb{R}^{3}$ denotes the desired translation velocity for the formation, $\boldsymbol{\omega}_{0}(t) \in \mathbb{R}^{3}$ is the desired angular velocity, renders $\boldsymbol{e}=0$ exponentially stable and ensures that [$(1.2)$](#eq-1.2) and [$(1.4)$](#eq-1.4) are satisfied.
 
@@ -798,39 +747,23 @@ Before presenting the control law, a lemma is related to [$(2.45)$](#eq-2.45) is
 >
 > <span id="eq-2.46"></span>
 >
-> $$
-\begin{equation*}
-L:=\left(k_{1} \boldsymbol{e}_{T}+\dot{\boldsymbol{e}}_{T}\right)^{\top}\left(\dot{\boldsymbol{v}}_{T}-k_{2} \operatorname{sgn}\left(\boldsymbol{e}_{T}\right)\right) . \tag{2.46}
-\end{equation*}
-> $$
+> $$ L:=\left(k_{1} \boldsymbol{e}_{T}+\dot{\boldsymbol{e}}_{T}\right)^{\top}\left(\dot{\boldsymbol{v}}_{T}-k_{2} \operatorname{sgn}\left(\boldsymbol{e}_{T}\right)\right) . \tag{2.46} $$
 >
 > If $k_{2}$ in (2.45) is selected to satisfy the following sufficient condition
 >
 > <span id="eq-2.47"></span>
 >
-> $$
-\begin{equation*}
-k_{2}>\left\|\dot{\boldsymbol{v}}_{T}\right\|_{\mathcal{L}_{\infty}}+\frac{1}{k_{1}}\left\|\ddot{\boldsymbol{v}}_{T}\right\|_{\mathcal{L}_{\infty}}, \tag{2.47}
-\end{equation*}
-> $$
+> $$ k_{2}>\left\|\dot{\boldsymbol{v}}_{T}\right\|_{\mathcal{L}_{\infty}}+\frac{1}{k_{1}}\left\|\ddot{\boldsymbol{v}}_{T}\right\|_{\mathcal{L}_{\infty}}, \tag{2.47} $$
 >
 > then
 >
 > <span id="eq-2.48"></span>
 >
-> $$
-\begin{equation*}
-\int_{0}^{t} L(\tau) \mathrm{~d} \tau \leqslant \zeta_{b} \tag{2.48}
-\end{equation*}
-> $$
+> $$ \int_{0}^{t} L(\tau) \mathrm{~d} \tau \leqslant \zeta_{b} \tag{2.48} $$
 >
 > where the positive constant $\zeta_{b}$ is defined as
 >
-> $$
-\begin{equation*}
-\zeta_{b}=k_{2}\left\|\boldsymbol{e}_{T}(0)\right\|_{1}-\boldsymbol{e}_{T}^{\top}(0) \dot{\boldsymbol{v}}_{T}(0) \tag{2.49}
-\end{equation*}
-> $$
+> $$ \zeta_{b}=k_{2}\left\|\boldsymbol{e}_{T}(0)\right\|_{1}-\boldsymbol{e}_{T}^{\top}(0) \dot{\boldsymbol{v}}_{T}(0) \tag{2.49} $$
 
 **Proof**:
 <details>
@@ -884,18 +817,12 @@ when $k_{2}$ is selected according to [$(2.47)$](#eq-2.47). Q.E.D. <div style="t
 >
 > <span id="eq-2.53"></span>
 >
-> $$
-u=u_{a}+\mathbf{1}_{n} \otimes \boldsymbol{h}, \tag{2.53}
-> $$
+> $$ u=u_{a}+\mathbf{1}_{n} \otimes \boldsymbol{h}, \tag{2.53} $$
 >
 > where $u_{a}=\left[u_{a 1}, \ldots, u_{a n}\right]$ was defined in [$(2.15)$](#eq-2.15) and
 >
 > <span id="eq-2.54"></span>
-> $$
-\begin{equation*}
-\boldsymbol{h}=\left(k_{1}+1\right) \boldsymbol{e}_{T}+\hat{\boldsymbol{v}}_{T}-\boldsymbol{u}_{a n}, \tag{2.54}
-\end{equation*}
-> $$
+> $$ \boldsymbol{h}=\left(k_{1}+1\right) \boldsymbol{e}_{T}+\hat{\boldsymbol{v}}_{T}-\boldsymbol{u}_{a n}, \tag{2.54} $$
 >
 > renders $e=0$ **exponentially stable** and ensures that [$(1.2)$](#eq-1.2) and [$(1.5)$](#eq-1.5) are satisfied. Further, the target velocity can be identified in the sense that $\boldsymbol{v}_{T}(t)-\hat{\boldsymbol{v}}_{T}(t) \rightarrow 0$ as $t \rightarrow \infty$.
 
@@ -1031,21 +958,15 @@ Note that dynamic formation acquisition is independent of what we call formation
 >
 > <span id="eq-2.65"></span>
 >
-> $$
-d_{i j}(t)=\left\|\boldsymbol{q}_{i}^{*}(t)-\boldsymbol{q}_{j}^{*}(t)\right\|>0, \quad i, j \in \mathcal{V}^{*} . \tag{2.65}
-> $$
+> $$ d_{i j}(t)=\left\|\boldsymbol{q}_{i}^{*}(t)-\boldsymbol{q}_{j}^{*}(t)\right\|>0, \quad i, j \in \mathcal{V}^{*} . \tag{2.65} $$
 >
 > We assume the desired distances are sufficiently smooth functions of time[^2.6]. The control objective is to design $\boldsymbol{u}_{i}$ such that
 >
-> $$
-\mathcal{F}(t)-\operatorname{Iso}\left(\mathcal{F}^{*}(t)\right) \rightarrow 0 \text { as } t \rightarrow \infty, \tag{2.66}
-> $$
+> $$ \mathcal{F}(t)-\operatorname{Iso}\left(\mathcal{F}^{*}(t)\right) \rightarrow 0 \text { as } t \rightarrow \infty, \tag{2.66} $$
 >
 > or equivalently
 >
-> $$
-e_{i j}(t) \rightarrow 0 \text { as } t \rightarrow \infty, \quad i, j \in \mathcal{V}^{*} . \tag{2.67}
-> $$
+> $$ e_{i j}(t) \rightarrow 0 \text { as } t \rightarrow \infty, \quad i, j \in \mathcal{V}^{*} . \tag{2.67} $$
 
 Because of the time-varying nature of [$(2.65)$](#eq-2.65), the distance error dynamics is now given by
 
@@ -1078,9 +999,7 @@ with elements ordered as $r_\mathcal{G}$. We assume $d_{i j}$ is a continuously 
 >
 > <span id="eq-2.71"></span>
 >
-> $$
-\boldsymbol{u}=R^{\dagger}_\mathcal{D}(\tilde{\boldsymbol{q}})\left(-k_{v} \boldsymbol{z}+\boldsymbol{d}_{v}\right) \tag{2.71}
-> $$
+> $$ \boldsymbol{u}=R^{\dagger}_\mathcal{D}(\tilde{\boldsymbol{q}})\left(-k_{v} \boldsymbol{z}+\boldsymbol{d}_{v}\right) \tag{2.71} $$
 >
 > where $R^{\dagger}_\mathcal{D}(\tilde{\boldsymbol{q}})=R^{\top}_\mathcal{D}(\tilde{\boldsymbol{q}})\left[R_\mathcal{D}(\tilde{\boldsymbol{q}}) R^{\top}_\mathcal{D}(\tilde{\boldsymbol{q}})\right]^{-1}$ is the Moore-Penrose pseudoinverse, yields $\boldsymbol{e}=0$ exponentially stable and guarantees that [$(2.66)$](#eq-2.66) is satisfied.
 
@@ -1247,25 +1166,19 @@ The formation acquisition controller for [$(3.1)$](#eq-3.1) will have the genera
 >
 > <span id="eq-3.7"></span>
 >
-> $$
-\Omega_{3}=\left\{\boldsymbol{e} \in \mathbb{R}^{l}, \boldsymbol{s} \in \mathbb{R}^{m n} \mid W_{d} \leqslant E_{c}\right\}, \tag{3.7}
-> $$
+> $$ \Omega_{3}=\left\{\boldsymbol{e} \in \mathbb{R}^{l}, \boldsymbol{s} \in \mathbb{R}^{m n} \mid W_{d} \leqslant E_{c}\right\}, \tag{3.7} $$
 >
 > and $E_{c}$ is the total cross-edge energy of the formation. Then, the control
 >
 > <span id="eq-3.8"></span>
 >
-> $$
-\boldsymbol{u}=-k_{a} \boldsymbol{s}+\dot{\boldsymbol{v}}_{f}-R^{\top}_\mathcal{D}(\tilde{\boldsymbol{q}}) \boldsymbol{z}, \tag{3.8}
-> $$
+> $$ \boldsymbol{u}=-k_{a} \boldsymbol{s}+\dot{\boldsymbol{v}}_{f}-R^{\top}_\mathcal{D}(\tilde{\boldsymbol{q}}) \boldsymbol{z}, \tag{3.8} $$
 >
 > where
 >
 > <span id="eq-3.9"></span>
 >
-> $$
-\boldsymbol{v}_{f}=\boldsymbol{u}_{a}, \tag{3.9}
-> $$
+> $$ \boldsymbol{v}_{f}=\boldsymbol{u}_{a}, \tag{3.9} $$
 >
 > $\boldsymbol{u}_{a}$ was defined in [$(2.15)$](#eq-2.15), and $k_{a}>0$ is a user-defined control gain, renders $(\boldsymbol{e}, \boldsymbol{s})=0$ **exponentially stable** and ensures that [$(1.2)$](#eq-1.2) is satisfied.
 
@@ -1363,21 +1276,14 @@ Solving the target interception problem for the double-integrator model requires
 > 
 > <span id="eq-3.19"></span>
 > 
-> $$
-\boldsymbol{u}=-k_{a} \boldsymbol{s}+\dot{\boldsymbol{u}}_{a}+\mathbf{1}_{n} \otimes k_{T}\left(\boldsymbol{v}_{T}-\boldsymbol{v}_{n}\right)-k_{s} \operatorname{sgn}(\boldsymbol{s})-R_\mathcal{D}^{\top}(\tilde{\boldsymbol{q}}) \boldsymbol{z} \tag{3.19}
-> $$
+> $$ \boldsymbol{u}=-k_{a} \boldsymbol{s}+\dot{\boldsymbol{u}}_{a}+\mathbf{1}_{n} \otimes k_{T}\left(\boldsymbol{v}_{T}-\boldsymbol{v}_{n}\right)-k_{s} \operatorname{sgn}(\boldsymbol{s})-R_\mathcal{D}^{\top}(\tilde{\boldsymbol{q}}) \boldsymbol{z} \tag{3.19} $$
 > 
 > where $\boldsymbol{s}$ was defined in [$(3.4)$](#eq-3.4),
 > 
 > <span id="eq-3.20"></span>
 > <span id="eq-3.21"></span>
 > 
-> $$
-\begin{align*}
-\boldsymbol{v}_{f} & =\boldsymbol{u}_{a}+\mathbf{1}_{n} \otimes \boldsymbol{h},  \tag{3.20}\\
-\boldsymbol{h} & =k_{T} \boldsymbol{e}_{T}+\boldsymbol{v}_{T}, \tag{3.21}
-\end{align*}
-> $$
+> $$ \begin{align*} \boldsymbol{v}_{f} & =\boldsymbol{u}_{a}+\mathbf{1}_{n} \otimes \boldsymbol{h},  \tag{3.20}\\ \boldsymbol{h} & =k_{T} \boldsymbol{e}_{T}+\boldsymbol{v}_{T}, \tag{3.21} \end{align*} $$
 > 
 > $\boldsymbol{u}_{a}$ was defined in [$(2.15)$](#eq-2.15), $\boldsymbol{e}_{T}$ was defined in [$(2.44)$](#eq-2.44), $k_{s} \geqslant \sqrt{n}\left\|\dot{\boldsymbol{v}}_{T}\right\|_{\mathcal{L}_{\infty}}$, and $k_{T}>0$. Then, [$(3.19)$](#eq-3.19) renders $(\boldsymbol{e}, \boldsymbol{s})=0$ **asymptotically stable** and ensures that [$(1.2)$](#eq-1.2) and [$(1.5)$](#eq-1.5) are satisfied.
 

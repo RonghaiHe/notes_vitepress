@@ -179,9 +179,7 @@ This subsection develops tools for **assessing arbitrary frameworks for infinite
 > [!caution] Theorem 1
 > Infinitesimal motions $\dot{\boldsymbol{p}}$ of the framework $G(\boldsymbol{p})$ are **angle-consistent** if and only if
 >
-> $$
-\dot{\boldsymbol{p}} \in \operatorname{null}\left(R_S(\boldsymbol{p})\right) .
-> $$
+> $$ \dot{\boldsymbol{p}} \in \operatorname{null}\left(R_S(\boldsymbol{p})\right) . $$
 
 **Proof**:
 
@@ -351,12 +349,7 @@ The results in [Theorem 1](#thm-1) and Corrollary of Theorem 2 facilitate unders
 > [!caution] Theorem 3
 > The framework $G(\boldsymbol{p})$ is **infinitesimally shape-similar** if and only if
 >
-> $$
-\begin{aligned}
-  &\operatorname{rank}\left(R_S(\boldsymbol{p})\right)\\
-  =&d n+\frac{1}{2} \dim(\operatorname{aff}\{\boldsymbol{p}\})(\dim(\operatorname{aff}\{\boldsymbol{p}\})+1)-d(\dim(\operatorname{aff}\{\boldsymbol{p}\})+1)-1 .   
-\end{aligned} \tag{10}
-> $$
+> $$ \begin{aligned} &\operatorname{rank}\left(R_S(\boldsymbol{p})\right)\\ =&d n+\frac{1}{2} \dim(\operatorname{aff}\{\boldsymbol{p}\})(\dim(\operatorname{aff}\{\boldsymbol{p}\})+1)-d(\dim(\operatorname{aff}\{\boldsymbol{p}\})+1)-1 . \end{aligned} \tag{10} $$
 
 **Proof**:
 
@@ -379,18 +372,11 @@ The following corollary to [Theorem 3](#thm-3) is presented for frameworks whose
 > [!tip] Corollary of [Theorem 3](#thm-3)
 > Let $G(\boldsymbol{p})$ be a framework with
 >
-> $$
-\operatorname{dim}(\operatorname{aff}\{\boldsymbol{p}\})=\max _{\boldsymbol{p} \in \mathbb{R}^{d n}}[\operatorname{dim}(\operatorname{aff}\{\boldsymbol{p}\})] .
-> $$
+> $$ \operatorname{dim}(\operatorname{aff}\{\boldsymbol{p}\})=\max _{\boldsymbol{p} \in \mathbb{R}^{d n}}[\operatorname{dim}(\operatorname{aff}\{\boldsymbol{p}\})] . $$
 > 
 > $G(\boldsymbol{p})$ is infinitesimally shape-similar if and only if
 >
-> $$
-\operatorname{rank}\left(R_S(\boldsymbol{p})\right)=\left\{\begin{array}{ll}
-d n-\frac{1}{2} d(d+1)-1, & n \geqslant d \\
-\frac{1}{2}(n-2)(n+1), & n<d
-\end{array} .\right.
-> $$
+> $$ \operatorname{rank}\left(R_S(\boldsymbol{p})\right)=\left\{\begin{array}{ll} d n-\frac{1}{2} d(d+1)-1, & n \geqslant d \\ \frac{1}{2}(n-2)(n+1), & n<d \end{array} .\right. $$
 
 **Proof**:
 
@@ -405,9 +391,7 @@ The **rank conditions** in [Theorem 3](#thm-3) and Corollary of [Theorem 3](#thm
 > [!warning] Definition: pathological
 > A framework $G(\boldsymbol{p})$ is **pathological** ${ }^4$ if
 >
-> $$
-\operatorname{rank}\left(R_S(\boldsymbol{p})\right)<\max _{\boldsymbol{p} \in \mathbb{R}^{d n}}\left[\operatorname{rank}\left(R_S(\boldsymbol{p})\right)\right]
-> $$
+> $$ \operatorname{rank}\left(R_S(\boldsymbol{p})\right)<\max _{\boldsymbol{p} \in \mathbb{R}^{d n}}\left[\operatorname{rank}\left(R_S(\boldsymbol{p})\right)\right] $$
 >
 > and nonpathological otherwise.
 

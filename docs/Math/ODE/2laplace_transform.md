@@ -13,9 +13,7 @@ $$
 $$
 
 > Here's the Fourier Transformation (for **real number**):
-> $$
-    \mathscr{F}(\omega) = \mathscr{F}(f(t)) = \int_0^\infty f(t)e^{-i\omega t}\mathrm{~d}t.
-> $$
+> $$     \mathscr{F}(\omega) = \mathscr{F}(f(t)) = \int_0^\infty f(t)e^{-i\omega t}\mathrm{~d}t. $$
 
 ### Why do we need Laplace Transform for solving ODE?
 
@@ -42,18 +40,7 @@ $$
 y(0) = -1.
 $$
 
-> $$
-    \begin{align*}
-        &\frac{\mathrm{d}y}{\mathrm{d}t} - y = e^{at}\\
-        \implies& \text{Let} \quad p = \exp\left(\int-1\mathrm{~d}t\right) = \exp(-t)\\
-        \implies& y = \frac{1}{p}\int pe^{at}\mathrm{~d}t + \frac{c}{\exp(-t)}\\
-        & y = \exp(t)\int \exp(-t+at)\mathrm{~d}t + c\exp(t)\\
-        & y= \exp(t)\left(c+\frac{1}{a-1}\exp((a-1)t)\right)\\
-        y(0)=-1 \implies & c = -1 - \frac{1}{a-1} = -\frac{a}{a-1}\\
-        \implies& y = \exp(t)\left(-\frac{a}{a-1} + \frac{1}{a-1}\exp((a-1)t)\right)\\
-        & y= \frac{1}{a-1}(\exp(at)-a\exp(t))
-    \end{align*}
-> $$
+> $$ \begin{align*} &\frac{\mathrm{d}y}{\mathrm{d}t} - y = e^{at}\\ \implies& \text{Let} \quad p = \exp\left(\int-1\mathrm{~d}t\right) = \exp(-t)\\ \implies& y = \frac{1}{p}\int pe^{at}\mathrm{~d}t + \frac{c}{\exp(-t)}\\ & y = \exp(t)\int \exp(-t+at)\mathrm{~d}t + c\exp(t)\\ & y= \exp(t)\left(c+\frac{1}{a-1}\exp((a-1)t)\right)\\ y(0)=-1 \implies & c = -1 - \frac{1}{a-1} = -\frac{a}{a-1}\\ \implies& y = \exp(t)\left(-\frac{a}{a-1} + \frac{1}{a-1}\exp((a-1)t)\right)\\ & y= \frac{1}{a-1}(\exp(at)-a\exp(t)) \end{align*} $$
 
 1. We first take the Laplace transform of both sides of the previous equation, by multiplying both sides of the equation by $e^{-s t}$ and integrating the results with respect to $t$ from zero to infinity,
 $$
@@ -153,44 +140,24 @@ $$
 \end{align*}
 $$
 
-> $$
-    \mathscr{L}\left\{\frac{\mathrm{d} f(t)}{\mathrm{d} t}\right\}=\int_0^{\infty} e^{-s t} \frac{\mathrm{d} f(t)}{\mathrm{d} t} \mathrm{~d} t
-> $$
+> $$     \mathscr{L}\left\{\frac{\mathrm{d} f(t)}{\mathrm{d} t}\right\}=\int_0^{\infty} e^{-s t} \frac{\mathrm{d} f(t)}{\mathrm{d} t} \mathrm{~d} t $$
 > 
 >An integration by parts gives
-> $$
-\int_0^{\infty} e^{-s t} \frac{\mathrm{d} f(t)}{\mathrm{d} t} \mathrm{~d} t=\left.e^{-s t} f(t)\right|_0 ^{\infty}+s \int_0^{\infty} e^{-s t} f(t) \mathrm{~d} t
-> $$
+> $$ \int_0^{\infty} e^{-s t} \frac{\mathrm{d} f(t)}{\mathrm{d} t} \mathrm{~d} t=\left.e^{-s t} f(t)\right|_0 ^{\infty}+s \int_0^{\infty} e^{-s t} f(t) \mathrm{~d} t $$
 > 
 > if $f(t)$ is continuous and $\frac{\mathrm{d} f(t)}{\mathrm{d} t}$ is piecewise continuous in every interval But since $f(t)$ is of exponential order, the integrated part vanishes as (for $s>s_0$ ), and there follows
 > 
-> $$
-\begin{align*}
-\mathscr{L}\left\{\frac{\mathrm{d} f(t)}{\mathrm{d} t}\right\}=&s \bar{f}(s)-f(0+) \\
-\mathscr{L}\left\{\frac{\mathrm{d}^2 f(t)}{\mathrm{d} t^2}\right\}=&\int_0^{\infty} e^{-s t} \frac{\mathrm{d}^2 f(t)}{\mathrm{d} t^2} \mathrm{~d} t \\
-=&\left.e^{-s t} \frac{\mathrm{d} f(t)}{\mathrm{d} t}\right|_0 ^{\infty}+s \int_0^{\infty} e^{-s t} \frac{\mathrm{d} f(t)}{\mathrm{d} t} \mathrm{~d} t \\
-=&\left.e^{-s t} \frac{\mathrm{d} f(t)}{\mathrm{d} t}\right|_0 ^{\infty}+s \mathscr{L}\left\{\frac{\mathrm{d} f(t)}{\mathrm{d} t}\right\} \\
-\mathscr{L}\left\{\frac{\mathrm{d}^2 f(t)}{\mathrm{d} t^2}\right\}=&s^2 \bar{f}(s)-s f(0+)-\frac{\mathrm{d} f(0+)}{\mathrm{d} t}
-\end{align*}
-> $$
+> $$ \begin{align*} \mathscr{L}\left\{\frac{\mathrm{d} f(t)}{\mathrm{d} t}\right\}=&s \bar{f}(s)-f(0+) \\ \mathscr{L}\left\{\frac{\mathrm{d}^2 f(t)}{\mathrm{d} t^2}\right\}=&\int_0^{\infty} e^{-s t} \frac{\mathrm{d}^2 f(t)}{\mathrm{d} t^2} \mathrm{~d} t \\ =&\left.e^{-s t} \frac{\mathrm{d} f(t)}{\mathrm{d} t}\right|_0 ^{\infty}+s \int_0^{\infty} e^{-s t} \frac{\mathrm{d} f(t)}{\mathrm{d} t} \mathrm{~d} t \\ =&\left.e^{-s t} \frac{\mathrm{d} f(t)}{\mathrm{d} t}\right|_0 ^{\infty}+s \mathscr{L}\left\{\frac{\mathrm{d} f(t)}{\mathrm{d} t}\right\} \\ \mathscr{L}\left\{\frac{\mathrm{d}^2 f(t)}{\mathrm{d} t^2}\right\}=&s^2 \bar{f}(s)-s f(0+)-\frac{\mathrm{d} f(0+)}{\mathrm{d} t} \end{align*} $$
 
 $$
 \mathscr{L}\left\{\int_0^t f(u) \mathrm{~d} u\right\}=\frac{1}{s} \bar{f}(s)$$
 
-> $$
-\begin{aligned}
-\mathscr{L}\left\{\int_0^t f(u) \mathrm{~d} u\right\} & =\int_0^{\infty} e^{-s t}\left\{\int_0^t f(u) \mathrm{~d} u\right\} \mathrm{~d} t \\
-& =\left[\frac{e^{-s t}}{-s} \int_0^t f(u) \mathrm{~d} u\right]_0^{\infty}+\frac{1}{s} \int_0^{\infty} e^{-s t} f(t) \mathrm{~d} t \\
-& =\frac{1}{s} \bar{f}(s)
-\end{aligned}
-> $$
+> $$ \begin{aligned} \mathscr{L}\left\{\int_0^t f(u) \mathrm{~d} u\right\} & =\int_0^{\infty} e^{-s t}\left\{\int_0^t f(u) \mathrm{~d} u\right\} \mathrm{~d} t \\ & =\left[\frac{e^{-s t}}{-s} \int_0^t f(u) \mathrm{~d} u\right]_0^{\infty}+\frac{1}{s} \int_0^{\infty} e^{-s t} f(t) \mathrm{~d} t \\ & =\frac{1}{s} \bar{f}(s) \end{aligned} $$
 >
 > the integrated part vanishing at the upper limit (for sufficiently large values of $s$ ), since $f(t)$, and hence $\int_0^t f(u) \mathrm{~d} u$, is of exponential order. Thus, in general, if a function is integrated over $(0, t)$, the transform of the integral is obtained by dividing the transform of the function by $s$.
 > 
 > If the lower limit differs from zero, the formula
-> $$
-\mathscr{L}\left\{\int_a^t f(u) \mathrm{~d} u\right\}=\frac{1}{s} \bar{f}(s)-\frac{1}{s} \int_0^a f(u) \mathrm{~d} u
-> $$
+> $$ \mathscr{L}\left\{\int_a^t f(u) \mathrm{~d} u\right\}=\frac{1}{s} \bar{f}(s)-\frac{1}{s} \int_0^a f(u) \mathrm{~d} u $$
 > 
 > is easily established.
 
@@ -209,35 +176,16 @@ $$
 In these equations $a$ and $b$ are constants, and $n$ is a positive integer.
 
 ### The Convolution Properity
-> $$
-\begin{gathered}
-\mathscr{L}\left\{\int_0^t f(t-u) g(u) \mathrm{~d} u\right\}=\bar{f}(s) \bar{g}(s) \\
-\begin{align*}
-  \bar{f}(s) \bar{g}(s)=&\left[\int_0^{\infty} e^{-s v} f(v) \mathrm{~d} v\right]\left[\int_0^{\infty} e^{-s u} g(u) \mathrm{~d} u\right] \\
-  =&\int_0^{\infty} \int_0^{\infty} e^{-s(v+u)} f(v) g(u) \mathrm{~d} v \mathrm{~d} u \\
-  =&\int_0^{\infty} g(u)\left\{\int_0^{\infty} e^{-s(v+u)} f(v) \mathrm{~d} v\right\} \mathrm{~d} u
-\end{align*}  
-\end{gathered}
-> $$
+> $$ \begin{gathered} \mathscr{L}\left\{\int_0^t f(t-u) g(u) \mathrm{~d} u\right\}=\bar{f}(s) \bar{g}(s) \\ \begin{align*} \bar{f}(s) \bar{g}(s)=&\left[\int_0^{\infty} e^{-s v} f(v) \mathrm{~d} v\right]\left[\int_0^{\infty} e^{-s u} g(u) \mathrm{~d} u\right] \\ =&\int_0^{\infty} \int_0^{\infty} e^{-s(v+u)} f(v) g(u) \mathrm{~d} v \mathrm{~d} u \\ =&\int_0^{\infty} g(u)\left\{\int_0^{\infty} e^{-s(v+u)} f(v) \mathrm{~d} v\right\} \mathrm{~d} u \end{align*} \end{gathered} $$
 > 
 > if different "dummy variables" of integration ( $v$ and $u$ ) are used in defining the two transforms. If, in the inner integral of the last form, we replace $v$ by a new variable $t$ with the substitution
-> $$
-v=t-u, \quad \mathrm{d} v=\mathrm{d} t,
-> $$
+> $$ v=t-u, \quad \mathrm{d} v=\mathrm{d} t, $$
 > 
 > there follows
-> $$
-\int_0^{\infty} e^{-s(v+u)} f(v) \mathrm{~d} v=\int_u^{\infty} e^{-s t} f(t-u) \mathrm{~d} t
-> $$
+> $$ \int_0^{\infty} e^{-s(v+u)} f(v) \mathrm{~d} v=\int_u^{\infty} e^{-s t} f(t-u) \mathrm{~d} t $$
 > 
 > and hence
-> $$
-\begin{align*}
-\bar{f}(s) \bar{g}(s)&=\int_0^{\infty}g(u)\left\{\int_u^{\infty} e^{-s t} f(t-u) \mathrm{~d} t\right\} \mathrm{~d} u \\
-&= \int_0^{\infty}e^{-s t}\left\{\int_0^{t}  f(t-u)g(u) \mathrm{~d} u\right\} \mathrm{~d} t\\
-&= \mathscr{L}\left\{\int_0^t f(t-u) g(u) \mathrm{~d} u\right\}.
-\end{align*}
-> $$
+> $$ \begin{align*} \bar{f}(s) \bar{g}(s)&=\int_0^{\infty}g(u)\left\{\int_u^{\infty} e^{-s t} f(t-u) \mathrm{~d} t\right\} \mathrm{~d} u \\ &= \int_0^{\infty}e^{-s t}\left\{\int_0^{t}  f(t-u)g(u) \mathrm{~d} u\right\} \mathrm{~d} t\\ &= \mathscr{L}\left\{\int_0^t f(t-u) g(u) \mathrm{~d} u\right\}. \end{align*} $$
 > 
 > <img src="./images/2laplace_2_conv.png" alt="conv" width="100%" align="center">
 
@@ -332,15 +280,8 @@ $$
 $$
 
 > (Heaviside cover-up method / Residue Method) Let
-> $$
-    \begin{aligned}
-      &\frac{N(s)}{D(s)} = \sum_{m=1}^n\frac{A_m}{s-a_m} \\
-      \implies& (s-a_k)\frac{N(s)}{D(s)} = A_k + \sum_{m=1,m\neq k}^n A_m\frac{s-a_k}{s-a_m} \\
-      \implies& \lim_{s\to a_k}(s-a_k)\frac{N(s)}{D(s)} = \lim_{s\to a_k}\left(A_k + \sum_{m=1,m\neq k}^n A_m\frac{s-a_k}{s-a_m}\right) \\
-      & \lim_{s\to a_k}\frac{N(s)}{\frac{D(s) - D(a_k)}{s-a_k}} = A_k\\
-      \implies& \frac{N(a_k)}{D^{\prime}(a_k)} = A_k.
-    \end{aligned}
-> $$
+> 
+> $$ \begin{aligned} &\frac{N(s)}{D(s)} = \sum_{m=1}^n\frac{A_m}{s-a_m} \\ \implies& (s-a_k)\frac{N(s)}{D(s)} = A_k + \sum_{m=1,m\neq k}^n A_m\frac{s-a_k}{s-a_m} \\ \implies& \lim_{s\to a_k}(s-a_k)\frac{N(s)}{D(s)} = \lim_{s\to a_k}\left(A_k + \sum_{m=1,m\neq k}^n A_m\frac{s-a_k}{s-a_m}\right) \\ & \lim_{s\to a_k}\frac{N(s)}{\frac{D(s) - D(a_k)}{s-a_k}} = A_k\\ \implies& \frac{N(a_k)}{D^{\prime}(a_k)} = A_k. \end{aligned} $$
 
 With $M$-fold roots, like only $a_k$, i.e. $(s-a_k)^M$:
 $$

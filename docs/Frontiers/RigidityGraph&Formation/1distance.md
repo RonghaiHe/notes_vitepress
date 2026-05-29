@@ -167,9 +167,7 @@ Note that congruency implies equivalency, but the reverse is not necessarily tru
 
 > [!warning] Definition: isometry
 > An isometry of $\mathbb{R}^m$ is a bijective map $T ∶ \mathbb{R}^m \to \mathbb{R}^m$ such that
-> $$
-> \|T(x) - T(y)\| = \|x-y\|, \quad \forall x,y\in\mathbb{R}^m.
-> $$
+> $$ > \|T(x) - T(y)\| = \|x-y\|, \quad \forall x,y\in\mathbb{R}^m. $$
 > Note that $T$ accounts for **rotation and/or translation** of the vector $x,y$.
 
 Two frameworks $(\mathcal{G},\boldsymbol{p})$ and $(\mathcal{G},\hat{\boldsymbol{p}})$ are said to be **isomorphic** in $\mathbb{R}^d$ if they are related by an **isometry** in $\mathbb{R}^d$. It is not difficult to see that isomorphic frameworks are **congruent**. We denote the set of all frameworks that are **isomorphic** to $\mathcal{F}$ by $\operatorname{Iso}(\mathcal{F})$.
@@ -179,9 +177,7 @@ A motion of a framework $\mathcal{F} = (\mathcal{G}, \boldsymbol{p})$ with $\mat
 
 <span id="eq-4"></span>
 
-> $$
-\|p_i(t) - p_j(t)\| = \|p_i-p_j\|, \quad (i,j)\in\mathcal{E}. \tag{4}
-> $$
+> $$ \|p_i(t) - p_j(t)\| = \|p_i-p_j\|, \quad (i,j)\in\mathcal{E}. \tag{4} $$
 
 This leads us to the following definition of rigidity.
 
@@ -252,15 +248,11 @@ Finally, a subset $M$ of $\mathbb{R}^{d}$ is said to be an affine set if $M$ con
 > [!caution] Theorem 0
 > Let $\mathcal{G}$ be a graph with $n$ vertices, $m$ edges, and edge function $f_\mathcal{G}$ : $\mathbb{R}^{dn} \rightarrow \mathbb{R}^{m}$. Suppose that $\boldsymbol{p} \in \mathbb{R}^{dn}$ is a regular point of $f_\mathcal{G}$. Then the graph $\mathcal{G}(\boldsymbol{p})$ is **rigid** in $\mathbb{R}^{d}$ if and only if
 >
-> $$
-\operatorname{rank} (\mathrm{d} f_\mathcal{G}(\boldsymbol{p}))=d n-(\dim\boldsymbol{p}+1)(2 d-\dim\boldsymbol{p}) / 2,
-> $$
+> $$ \operatorname{rank} (\mathrm{d} f_\mathcal{G}(\boldsymbol{p}))=d n-(\dim\boldsymbol{p}+1)(2 d-\dim\boldsymbol{p}) / 2, $$
 >
 > and $\mathcal{G}(\boldsymbol{p})$ is **flexible** in $\mathbb{R}^{d}$ if and only if
 >
-> $$
-\operatorname{rank} (\mathrm{d} f_\mathcal{G}(\boldsymbol{p}))<d n-(\dim\boldsymbol{p}+1)(2 d-\dim\boldsymbol{p}) / 2 .
-> $$
+> $$ \operatorname{rank} (\mathrm{d} f_\mathcal{G}(\boldsymbol{p}))<d n-(\dim\boldsymbol{p}+1)(2 d-\dim\boldsymbol{p}) / 2 . $$
 
 TODO
 
@@ -297,9 +289,7 @@ where $v_i:=\dot{p}_i(0)$ and $p_i(0) = p_i$ from the definition of continuous f
 
 > [!warning] Definition: infinitesimal motion [6]
 > An **infinitesimal motion** is an assignment of velocities that guarantees the invariance of $r_\mathcal{G}(\boldsymbol{p})$, i.e.,
-> $$
-\dot{r}_\mathcal{G}(\boldsymbol{p}) = \frac{\partial r_\mathcal{G}(\boldsymbol{p})}{\partial \boldsymbol{p}}\boldsymbol{v} = 0,
-> $$
+> $$ \dot{r}_\mathcal{G}(\boldsymbol{p}) = \frac{\partial r_\mathcal{G}(\boldsymbol{p})}{\partial \boldsymbol{p}}\boldsymbol{v} = 0, $$
 >
 > where $\boldsymbol{v} = (\boldsymbol{v}_1^\top, \cdots, \boldsymbol{v}_n^\top)^\top, \boldsymbol{v}_i=\dot{\boldsymbol{p}}_i$ is the velocity of vertex $i$. We say a motion is **trivial** if it satisfies equation above for **any framework** with $n$ vertices. A framework is **infinitesimally rigid** if every infinitesimal motion is trivial.
 
@@ -372,13 +362,7 @@ Given the above, we deduce that $\dim(\operatorname{Null}(R_\mathcal{D}(\boldsym
 > [!caution] Theorem 1 [3]
 > Consider a framework $(\mathcal{G}, p)$ in $d$-dimensional space with $n \geqslant d$ vertices and $m$ edges. It is **infinitesimally rigid** if and only if
 >
-> $$
-\operatorname{rank}(R_\mathcal{D}(\boldsymbol{p})) = 
-\begin{cases}
-dn-d(d+1)/2, & n\geqslant d, \\
-n(n-1)/2, & n<d
-\end{cases}. \tag{5}
-> $$
+> $$ \operatorname{rank}(R_\mathcal{D}(\boldsymbol{p})) =  \begin{cases} dn-d(d+1)/2, & n\geqslant d, \\ n(n-1)/2, & n<d \end{cases}. \tag{5} $$
 >
 > - $d=2: 2n-3$
 > - $d=3: 3n-6$
@@ -392,78 +376,19 @@ From Theorem 1, one knows that the dimension of the null space of $R_\mathcal{D}
 >
 > - $d=2$: The null space of $R_\mathcal{D}(\boldsymbol{p})$ is of dimension $3$ and is described as $\operatorname{null}(R_\mathcal{D}(\boldsymbol{p})) = \operatorname{span}(q_1, q_2, q_3)$, where
 >
-> $$
-\begin{gathered}
-q_1=\mathbf{1}_n\otimes
-\begin{bmatrix}
-    1 \\
-    0
-\end{bmatrix}, \quad q_2=\mathbf{1}_n\otimes
-\begin{bmatrix}
-    0 \\
-    1
-\end{bmatrix}\\
-q_3 = [(K_3p_1)^\top, (K_3p_2)^\top, \cdots, (K_3p_n)^\top]^\top
-\end{gathered}
-> $$
+> $$ \begin{gathered} q_1=\mathbf{1}_n\otimes \begin{bmatrix} 1 \\ 0 \end{bmatrix}, \quad q_2=\mathbf{1}_n\otimes \begin{bmatrix} 0 \\ 1 \end{bmatrix}\\ q_3 = [(K_3p_1)^\top, (K_3p_2)^\top, \cdots, (K_3p_n)^\top]^\top \end{gathered} $$
 >
 > and the matrix $K_3$ is defined as
 >
-> $$
-K_3 =
-\begin{bmatrix}
-    0 & 1\\
-    -1 & 0
-\end{bmatrix}
-> $$
+> $$ K_3 = \begin{bmatrix} 0 & 1\\ -1 & 0 \end{bmatrix} $$
 >
 > - $d=3$: The null space of $R_\mathcal{D}(\boldsymbol{p})$ is of dimension $6$ and is described as $\operatorname{null}(R_\mathcal{D}(\boldsymbol{p})) = \operatorname{span}(q_1, q_2, q_3, q_4, q_5, q_6)$, where
 >
-> $$
-\begin{gathered}
-q_1=\mathbf{1}_n\otimes
-\begin{bmatrix}
-    1 \\
-    0 \\
-    0
-\end{bmatrix}, \quad q_2=\mathbf{1}_n\otimes
-\begin{bmatrix}
-    0 \\
-    1 \\
-    0
-\end{bmatrix}
-\quad q_3=\mathbf{1}_n\otimes
-\begin{bmatrix}
-    0 \\
-    0 \\
-    1
-\end{bmatrix}\\ 
-q_i= [(K_ip_1)^\top, (K_ip_2)^\top, \cdots, (K_ip_n)^\top]^\top, \quad i=4,5,6\\
-\end{gathered}
-> $$
+> $$ \begin{gathered} q_1=\mathbf{1}_n\otimes \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix}, \quad q_2=\mathbf{1}_n\otimes \begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix} \quad q_3=\mathbf{1}_n\otimes \begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix}\\ q_i= [(K_ip_1)^\top, (K_ip_2)^\top, \cdots, (K_ip_n)^\top]^\top, \quad i=4,5,6\\ \end{gathered} $$
 >
 > and the matrix $K_i$ is defined as
 >
-> $$
-K_4 =
-\begin{bmatrix}
-    0 & 0 & 0\\
-    0 & 0 & -1\\
-    0 & 1 & 0
-\end{bmatrix}, \quad
-K_5 =
-\begin{bmatrix}
-    0 & 0 & 1\\
-    0 & 0 & 0\\
-    -1 & 0 & 0
-\end{bmatrix}, \quad
-K_6 =
-\begin{bmatrix}
-    0 & -1 & 0\\
-    1 & 0 & 0\\
-    0 & 0 & 0
-\end{bmatrix}
-> $$
+> $$ K_4 = \begin{bmatrix} 0 & 0 & 0\\ 0 & 0 & -1\\ 0 & 1 & 0 \end{bmatrix}, \quad K_5 = \begin{bmatrix} 0 & 0 & 1\\ 0 & 0 & 0\\ -1 & 0 & 0 \end{bmatrix}, \quad K_6 = \begin{bmatrix} 0 & -1 & 0\\ 1 & 0 & 0\\ 0 & 0 & 0 \end{bmatrix} $$
 
 TODO Proof
 
@@ -483,9 +408,7 @@ As discussed earlier, the rigidity property of a generic framework $\mathcal{F} 
 >
 > Here,
 >
-> $$
-\operatorname{dist}(\bar{\boldsymbol{p}}, \operatorname{Iso}(\mathcal{F})) := \inf_{\boldsymbol{x}\in\operatorname{Iso}(\mathcal{F})}\|\bar{\boldsymbol{p}}-\boldsymbol{x}\|.
-> $$
+> $$ \operatorname{dist}(\bar{\boldsymbol{p}}, \operatorname{Iso}(\mathcal{F})) := \inf_{\boldsymbol{x}\in\operatorname{Iso}(\mathcal{F})}\|\bar{\boldsymbol{p}}-\boldsymbol{x}\|. $$
 
 **Proof**:
 <details>
@@ -588,9 +511,7 @@ The existence of framework ambiguities is **problematic for formation control** 
 
 > [!tip] Corollary of Theorem 2
 > Let $\mathcal{F} = (\mathcal{G}, \boldsymbol{p})$ and $\bar{\mathcal{F}} = (\mathcal{G}, \bar{\boldsymbol{p}})$ be two frameworks sharing the **same graph**, and consider the function
-> $$
-\Psi(\bar{\mathcal{F}},\mathcal{F}) = \sum_{(i,j)\in\mathcal{E}}(\|\bar{p}_i-\bar{p}_j\| - \|p_i-p_j\|)^2.
-> $$
+> $$ \Psi(\bar{\mathcal{F}},\mathcal{F}) = \sum_{(i,j)\in\mathcal{E}}(\|\bar{p}_i-\bar{p}_j\| - \|p_i-p_j\|)^2. $$
 >
 > If $\mathcal{F}$ is infinitesimally rigid and $\Psi(\bar{\mathcal{F}},\mathcal{F}) \leqslant \delta$ where $\delta$ is a sufficiently small positive constant, then $\bar{\mathcal{F}}$ is also infinitesimally rigid.
 

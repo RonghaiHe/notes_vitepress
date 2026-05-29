@@ -169,9 +169,7 @@ $$
 $$
 
 Integrating the right member by parts, we obtain
-> $$
-\mathrm{RHS} = \int_{a}^{b}\left[\varphi_{2} \mathrm{~d}\left(p \frac{\mathrm{d} \varphi_{1}}{\mathrm{d} x}\right)-\varphi_{1} \mathrm{d}\left(p \frac{\mathrm{d} \varphi_{2}}{\mathrm{d} x}\right)\right]
-> $$
+> $$ \mathrm{RHS} = \int_{a}^{b}\left[\varphi_{2} \mathrm{~d}\left(p \frac{\mathrm{d} \varphi_{1}}{\mathrm{d} x}\right)-\varphi_{1} \mathrm{d}\left(p \frac{\mathrm{d} \varphi_{2}}{\mathrm{d} x}\right)\right] $$
 
 $$
 \begin{aligned}
@@ -196,9 +194,7 @@ y+\alpha \frac{\mathrm{d} y}{\mathrm{d} x} & =0
 \end{aligned}\right\} \quad(\text { when } x=a \text { or } x=b)
 $$
 
-> $$
-\varphi_2\varphi_1' - \varphi_1\varphi_2'\equiv (\varphi_2 + \alpha\varphi_2')\varphi_1' - (\varphi_1 + \alpha\varphi_1')\varphi_2'
-> $$
+> $$ \varphi_2\varphi_1' - \varphi_1\varphi_2'\equiv (\varphi_2 + \alpha\varphi_2')\varphi_1' - (\varphi_1 + \alpha\varphi_1')\varphi_2' $$
 
 $$
 \implies\int_{a}^{b} r(x) \varphi_{1}(x) \varphi_{2}(x) \mathrm{~d} x=0 \quad \text { if } \lambda_{2} \neq \lambda_{1}

@@ -50,12 +50,7 @@ $$
 $$
 
 - with the **initial condition** that $y = 2$ at $x =0$. 
-> $$
-\begin{aligned}
-  &\frac{\mathrm{d}y}{\mathrm{d}x} - y = -x\\
-  \implies& y = 3\exp(x)-x-1.
-\end{aligned}
-> $$
+> $$ \begin{aligned} &\frac{\mathrm{d}y}{\mathrm{d}x} - y = -x\\ \implies& y = 3\exp(x)-x-1. \end{aligned} $$
 
 - Choose an interval $h = 0.1$,
 - calculate successively the approximate values of $y$ at $x = 0.1, 0.2, 0.3$, and so on:

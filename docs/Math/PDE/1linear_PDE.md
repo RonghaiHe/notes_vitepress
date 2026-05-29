@@ -543,9 +543,7 @@ $$
 \frac{\mathrm{d} y}{\mathrm{~d} x}=\frac{b+\sqrt{b^{2}-a c}}{a} . \tag{3.4}
 $$
 
-> $$
-\frac{\partial \xi}{\partial x} \mathrm{~d} x=-\frac{\partial \xi}{\partial y} \mathrm{~d} y
-> $$
+> $$ \frac{\partial \xi}{\partial x} \mathrm{~d} x=-\frac{\partial \xi}{\partial y} \mathrm{~d} y $$
 
 Similarly we find that the characteristic curves described by $\eta(x, y)=$ constant satisfy
 

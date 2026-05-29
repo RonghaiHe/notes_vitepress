@@ -57,15 +57,11 @@ It is easy to see that whether $\boldsymbol{a}_{\mathcal{T}_\mathcal{G}^*}(\bold
 > [!warning] Definition: Equivalency and congruency abut angle rigidity
 > Two angularities $\mathbb{A}(\mathcal{V}, \mathcal{A}, \boldsymbol{p})$ and $\mathbb{A}'(\mathcal{V}, \mathcal{A}, \boldsymbol{p}')$ with the same $\mathcal{V}$ and $\mathcal{A}$ are **equivalent** if
 >
-> $$
-\measuredangle ijk(\boldsymbol{p}_i, \boldsymbol{p}_j, \boldsymbol{p}_k) = \measuredangle ijk(\boldsymbol{p}_i', \boldsymbol{p}_j', \boldsymbol{p}_k'), \, \forall (i,j,k)\in\mathcal{A}.
-> $$
+> $$ \measuredangle ijk(\boldsymbol{p}_i, \boldsymbol{p}_j, \boldsymbol{p}_k) = \measuredangle ijk(\boldsymbol{p}_i', \boldsymbol{p}_j', \boldsymbol{p}_k'), \, \forall (i,j,k)\in\mathcal{A}. $$
 >
 > They are **congruency** if
 >
-> $$
-\measuredangle ijk(\boldsymbol{p}_i, \boldsymbol{p}_j, \boldsymbol{p}_k) = \measuredangle ijk(\boldsymbol{p}_i', \boldsymbol{p}_j', \boldsymbol{p}_k'), \, \forall i,j,k\in\mathcal{V}.
-> $$
+> $$ \measuredangle ijk(\boldsymbol{p}_i, \boldsymbol{p}_j, \boldsymbol{p}_k) = \measuredangle ijk(\boldsymbol{p}_i', \boldsymbol{p}_j', \boldsymbol{p}_k'), \, \forall i,j,k\in\mathcal{V}. $$
 
 > [!warning] Definition: angle rigid
 > A framework $(\mathcal{G},\boldsymbol{p})$ is **angle rigid** if there exist an angle index set $\mathcal{T}_\mathcal{G}^*$ and a neighborhood $\mathcal{U}_p$ of $\boldsymbol{p}$ such that $\boldsymbol{a}_{\mathcal{T}_\mathcal{G}^*}^{-1}(\boldsymbol{a}_{\mathcal{T}_\mathcal{G}^*}(\boldsymbol{p}))\cap \mathcal{U}_p=~\boldsymbol{a}_{\mathcal{K}}^{-1}(\boldsymbol{a}_{\mathcal{K}}(\boldsymbol{p}))\cap \mathcal{U}_p$.
@@ -402,9 +398,7 @@ This completes the proof. <div style="text-align: right;">$\square$</div>
 > [!tip] Lemma 3
 > A framework $(\mathcal{G},\boldsymbol{p})$ is **infinitesimally angle rigid** if and only if
 >
-> $$
-\operatorname{null}(R_{\mathcal{T}_{\mathcal{G}}}(\boldsymbol{p}))=\mathcal{S}.
-> $$
+> $$ \operatorname{null}(R_{\mathcal{T}_{\mathcal{G}}}(\boldsymbol{p}))=\mathcal{S}. $$
 
 In the Chapter: [basis](./1distance), it's shown that the set $D_{\mathcal K}^{-1}(D_{\mathcal K}(\boldsymbol{p}))$, which includes all configurations having inter-distance **congruent** to $\boldsymbol{p}$, is always a manifold of dimension $3$. In fact, since an angle-constrained shape has at least $4$ DoF, $\boldsymbol{a}_{\mathcal{K}}^{-1}(\boldsymbol{a}_{\mathcal{K}}(\boldsymbol{p}))$ is a manifold of dimension $4$ when $(\mathcal{K},\boldsymbol{p})$ is infinitesimally angle rigid (i.e., $\boldsymbol{p}$ is a regular point). See the following theorem.
 
@@ -690,9 +684,7 @@ The following theorem shows that the shape of a **strongly nondegenerate triangu
 > A triangulated framework $(\mathcal{L}_n,p)$ is **strongly nondegenerate**	
 > 1. if and only if $(\mathcal{L}_n,\boldsymbol{p})$ is **minimally infinitesimally angle rigid**. A minimally suitable angle index set is 
 >
-> $$
-\mathcal{T}_{\mathcal{L}_n}^*=\{(i,j,k)\in\mathcal{V}^3_n:~~(i,j),(j,k),(i,k)\in\mathcal{E}_n,~i,j<k\}; \tag{1.4}
-> $$
+> $$ \mathcal{T}_{\mathcal{L}_n}^*=\{(i,j,k)\in\mathcal{V}^3_n:~~(i,j),(j,k),(i,k)\in\mathcal{E}_n,~i,j<k\}; \tag{1.4} $$
 > 
 > 2. only if $(\mathcal{L}_n,\boldsymbol{p})$ is **globally angle rigid**. A minimally suitable angle index set is $\mathcal{T}_{\mathcal{L}_n}^\dagger=\mathcal{T}_{\mathcal{L}_n}^*\cup\Delta\mathcal{T}_{\mathcal{L}_n}$, where $\Delta\mathcal{T}_{\mathcal{L}_n}=\{(i,k,l):  k=\min\{\mathcal{N}_i\cap\mathcal{N}_j\cap\mathcal{V}_{l-1}\}, i,j\in\mathcal{N}_l, ~ i<j<l, l=4,\cdots,n\}$ if $n\geqslant 4$, and $\Delta\mathcal{T}_{\mathcal{L}_n}=\varnothing$ otherwise. 
 

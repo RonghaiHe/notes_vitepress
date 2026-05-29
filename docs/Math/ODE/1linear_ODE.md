@@ -430,13 +430,7 @@ $$
 \begin{aligned} x \frac{\mathrm{d} y}{\mathrm{d} x} & =\frac{\mathrm{d} y}{\mathrm{d} z} \\ x^2 \frac{\mathrm{d}^2 y}{\mathrm{d} x^2} & =\frac{\mathrm{d}^2 y}{\mathrm{d} z^2}-\frac{\mathrm{d} y}{\mathrm{d} z}=\frac{\mathrm{d}}{\mathrm{d} z}\left(\frac{\mathrm{d}}{\mathrm{d} z}-1\right) y, \\ x^3 \frac{\mathrm{d}^3 y}{\mathrm{d} x^3} & =\frac{\mathrm{d}^3 y}{\mathrm{d} z^3}-3 \frac{\mathrm{d}^2 y}{\mathrm{d} z^2}+2 \frac{\mathrm{d} y}{\mathrm{d} z} \\ & =\frac{\mathrm{d}}{\mathrm{d} z}\left(\frac{\mathrm{d}}{\mathrm{d} z}-1\right)\left(\frac{\mathrm{d}}{\mathrm{d} z}-2\right) y,\end{aligned}
 $$
 
-> $$
-    \begin{align*}
-    x^2 \frac{\mathrm{d}^2 y}{\mathrm{d} x^2} =& x^2 \frac{\mathrm{d} }{\mathrm{d} x} \left(\frac{\mathrm{d}}{\mathrm{d} x}y\right) = x \frac{\mathrm{d} }{\mathrm{d} z}\left(\frac{\mathrm{d} y}{\mathrm{d} x}\right) = x \frac{\mathrm{d} }{\mathrm{d} z}\left(\frac{1}{x}\frac{\mathrm{d} y}{\mathrm{d} z}\right)\\
-    =& e^z \frac{\mathrm{d} }{\mathrm{d} z}\left(\frac{1}{e^z}\frac{\mathrm{d} y}{\mathrm{d} z}\right) = e^z\left(-\frac{1}{e^z}\frac{\mathrm{d} y}{\mathrm{d} z} + \frac{1}{e^z}\frac{\mathrm{d}^2 y}{\mathrm{d} z^2}\right) \\
-    =& \frac{\mathrm{d}^2 y}{\mathrm{d} z^2}-\frac{\mathrm{d} y}{\mathrm{d} z}
-    \end{align*}
-> $$
+> $$ \begin{align*} x^2 \frac{\mathrm{d}^2 y}{\mathrm{d} x^2} =& x^2 \frac{\mathrm{d} }{\mathrm{d} x} \left(\frac{\mathrm{d}}{\mathrm{d} x}y\right) = x \frac{\mathrm{d} }{\mathrm{d} z}\left(\frac{\mathrm{d} y}{\mathrm{d} x}\right) = x \frac{\mathrm{d} }{\mathrm{d} z}\left(\frac{1}{x}\frac{\mathrm{d} y}{\mathrm{d} z}\right)\\ =& e^z \frac{\mathrm{d} }{\mathrm{d} z}\left(\frac{1}{e^z}\frac{\mathrm{d} y}{\mathrm{d} z}\right) = e^z\left(-\frac{1}{e^z}\frac{\mathrm{d} y}{\mathrm{d} z} + \frac{1}{e^z}\frac{\mathrm{d}^2 y}{\mathrm{d} z^2}\right) \\ =& \frac{\mathrm{d}^2 y}{\mathrm{d} z^2}-\frac{\mathrm{d} y}{\mathrm{d} z} \end{align*} $$
 
 In general, it is found that
 $$
@@ -856,9 +850,7 @@ $$
 $$
 
 is homogeneous (with $n=2$ ) and, with $y=v x$, it becomes
-> $$
-    (3v^2x^2 - x^2)\mathrm{~d}x = 2vx^2(v \mathrm{~d} x+x \mathrm{~d} v)
-> $$
+> $$     (3v^2x^2 - x^2)\mathrm{~d}x = 2vx^2(v \mathrm{~d} x+x \mathrm{~d} v) $$
 
 $$
 \implies \left(v^2-1\right) \mathrm{~d} x+2 x v \mathrm{~d} v=0

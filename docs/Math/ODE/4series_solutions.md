@@ -122,14 +122,10 @@ $$
 y=A_0u_1(x)+A_1u_2(x)
 $$
 
-> $$
-y=A_0u_1(x)+A_1u_2(x) = A_1\cosh(x) + A_2\sinh(x)
-> $$
+> $$ y=A_0u_1(x)+A_1u_2(x) = A_1\cosh(x) + A_2\sinh(x) $$
 > 
 > Let $C_1 = (A_0+A_1)/2, C_2 = (A_0-A_1)/2$, then
-> $$
-y=C_1e^x + C_2e^{-x}.
-> $$
+> $$ y=C_1e^x + C_2e^{-x}. $$
 
 where $u_1(x)$ and $u_2(x)$ are two linearly independent solutions
 
@@ -375,9 +371,7 @@ L y=\left(s^2-1\right) A_0 x^s+\sum_{k=1}^{\infty}\left\{\left[(s+k)^2-1\right] 
 $$
 
 > From [Example II](#example-ii-solving-ode-with-power-series)
-> $$
-Ly\equiv\sum_{k=0}^\infty((k+s)^2-1)A_kx^{k+s} + \sum_{k=1}^\infty (k+s-1)A_{k-1}x^{k+s} = 0
-> $$
+> $$ Ly\equiv\sum_{k=0}^\infty((k+s)^2-1)A_kx^{k+s} + \sum_{k=1}^\infty (k+s-1)A_{k-1}x^{k+s} = 0 $$
 
 
 Hence the indicial equation is

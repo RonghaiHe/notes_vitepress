@@ -68,9 +68,7 @@ Note $\boldsymbol{r}(\boldsymbol{p})$ is always orthogonal to $\mathbf{1} \otime
 > [!caution] Theorem 1: Convergence of Leaderless Control
 > Under [Assumption 1](#assumption-1), the trajectory of system [$(2.3)$](#eq-2.3) converges **exponentially** from any initial point $\boldsymbol{p}(0)$ to
 >
-> $$
-\boldsymbol{p}(\infty)=\mathbf{1} \otimes c(0)+\left(\frac{(\boldsymbol{r}^*)^\top}{\|\boldsymbol{r}^*\|}\boldsymbol{p}(0)\right) \frac{\boldsymbol{r}^*}{\|\boldsymbol{r}^*\|}.
-> $$
+> $$ \boldsymbol{p}(\infty)=\mathbf{1} \otimes c(0)+\left(\frac{(\boldsymbol{r}^*)^\top}{\|\boldsymbol{r}^*\|}\boldsymbol{p}(0)\right) \frac{\boldsymbol{r}^*}{\|\boldsymbol{r}^*\|}. $$
 >
 > If $(\boldsymbol{r}^*)^\top\boldsymbol{p}(0)>0$, the leaderless controller [$(2.2)$](#eq-2.2) successfully achieves the control objective. Furthermore, the centroid and the scale of the final formation are $c(\infty) = c(0)$ and $s(\infty) =  |(\boldsymbol{r}^∗)^\top\boldsymbol{p}(0)/\|\boldsymbol{r}^∗\||$, respectively.
 
@@ -98,9 +96,7 @@ Several remarks regarding [Theorem 1](#thm-1) are given here.
 > 1. When $\left(\boldsymbol{r}^{*}\right)^{\top} \boldsymbol{p}(0)<0$, the formation converges to a final formation with the bearings as $\boldsymbol{g}_{i j}=-\boldsymbol{g}_{i j}^{*}, \forall(i, j) \in \mathcal{E}$ instead of $\boldsymbol{g}_{i j}=\boldsymbol{g}_{i j}^{*}, \forall(i, j) \in \mathcal{E}$. In this case, although the final formation has the **opposite bearings** as desired, it can be viewed as a point reflection of the target formation and has the same shape.
 > 2. The **centroid of the final formation is the same as that of the initial formation**. In fact, it follows from $\left(\mathbf{1} \otimes \mathbf{I}_{d}\right)^{\top} \dot{\boldsymbol{p}}= 0$ that the centroid of the formation is **invariant** under controller [$(2.2)$](#eq-2.2).
 > 3. Although the centroid is invariant, the scale of the formation is changed under controller [$(2.2)$](#eq-2.2). Specifically, the scale of the final formation satisfies
-> $$
-> 0 \leqslant s(\infty) \leqslant s(0)
-> $$
+> $$ > 0 \leqslant s(\infty) \leqslant s(0) $$
 > The scale of the final formation is no larger than that of the initial formation. It is clear that the lower bound of $s(\infty)$ is achieved when $\left(\boldsymbol{r}^{*}\right)^{\top} \boldsymbol{p}(0)=0$. In this case, the formation will finally reach rendezvous (i.e., consensus in terms of position). In order to obtain the upper bound, rewrite $\left(\boldsymbol{r}^{*}\right)^{\top} \boldsymbol{p}(0)=\left(\boldsymbol{r}^{*}\right)^{\top}[\boldsymbol{p}(0)-\mathbf{1} \otimes c(\boldsymbol{p}(0))]= \left(\boldsymbol{r}^{*}\right)^{\top} \boldsymbol{r}(0)$. Then $s(\infty)=\left|\left(\boldsymbol{r}^{*}\right)^{\top} \boldsymbol{r}(0) /\left\|\boldsymbol{r}^{*}\right\|\right| \leq\|\boldsymbol{r}(0)\|= s(0)$. As a result, the upper bound of $s(\infty)$ is achieved when $\boldsymbol{r}^{*}$ is parallel to $\boldsymbol{p}(0)$ or $\boldsymbol{r}(0)$.
 
 <figure>
@@ -182,9 +178,7 @@ When $n_{l} \geqslant 2$, the positions of the leaders, $p_{l}$, must be feasibl
 > [!tip] Lemma 2
 > Under [Assumption 1](#assumption-1), a feasible $p_{l}$ satisfies
 >
-> $$
-\left(L_{\mathcal{B}_{l l}}-L_{\mathcal{B}_{l f}} L_{\mathcal{B}_{f f}}^{-1} L_{\mathcal{B}_{f l}}\right) \boldsymbol{p}_{l}=0
-> $$
+> $$ \left(L_{\mathcal{B}_{l l}}-L_{\mathcal{B}_{l f}} L_{\mathcal{B}_{f f}}^{-1} L_{\mathcal{B}_{f l}}\right) \boldsymbol{p}_{l}=0 $$
 
 **Proof**:
 
@@ -213,9 +207,7 @@ Based on [Lemmas 1](#lem-1) and [2](#lem-2), we have the following convergence r
 > [!caution] Theorem 2: Convergence of Leader-Follower Control
 > Under [Assumption 1](#assumption-1), given $n_{l} \geqslant 2$ and a feasible $\boldsymbol{p}_{l}$, the trajectory of system [$(2.6)$](#eq-2.6) converges **exponentially** fast from any initial $\boldsymbol{p}_{f}(0)$ to
 > 
-> $$
-\boldsymbol{p}_{f}(\infty)=-L_{\mathcal{B}_{f f}}^{-1} L_{\mathcal{B}_{f l}} \boldsymbol{p}_{l}
-> $$
+> $$ \boldsymbol{p}_{f}(\infty)=-L_{\mathcal{B}_{f f}}^{-1} L_{\mathcal{B}_{f l}} \boldsymbol{p}_{l} $$
 > 
 > The finally converged formation satisfies the bearing constraints $\left\{\boldsymbol{g}_{i j}^{*}\right\}_{(i, j) \in \mathcal{E}}$.
 
@@ -379,12 +371,7 @@ Since $A$ is Hurwitz, system [$(2.13)$](#eq-2.13) is stable. When $v_{l}^{*}(t)$
 > [!caution] Theorem 3 (Global Convergence with Constant Leader Velocities)
 > When $\boldsymbol{v}_{l}^{*}(t)=\mathbf{v}_{l}^{*}$ is constant, $\boldsymbol{\delta}(t)$ and $\boldsymbol{\xi}(t)$ exponentially and globally converges to $\boldsymbol{\delta}(\infty)=0$ and $\boldsymbol{\xi}(\infty)=L_{\mathcal{B}_{f f}}^{-1} L_{\mathcal{B}_{f l}} \mathbf{v}_{l}^{*} / k_{I}$, respectively. As a result,
 >
-> $$
-\begin{aligned}
-& \boldsymbol{p}_{f}(t) \rightarrow \boldsymbol{p}_{f}^{*}(t)=-L_{\mathcal{B}_{f f}}^{-1} L_{\mathcal{B}_{f l}} \boldsymbol{p}_{l}(t) \\
-& \dot{\boldsymbol{p}}_{f}(t) \rightarrow \boldsymbol{v}_{f}^{*}=-L_{\mathcal{B}_{f f}}^{-1} L_{\mathcal{B}_{f l}} \mathbf{v}_{l}^{*}
-\end{aligned}
-> $$
+> $$ \begin{aligned} & \boldsymbol{p}_{f}(t) \rightarrow \boldsymbol{p}_{f}^{*}(t)=-L_{\mathcal{B}_{f f}}^{-1} L_{\mathcal{B}_{f l}} \boldsymbol{p}_{l}(t) \\ & \dot{\boldsymbol{p}}_{f}(t) \rightarrow \boldsymbol{v}_{f}^{*}=-L_{\mathcal{B}_{f f}}^{-1} L_{\mathcal{B}_{f l}} \mathbf{v}_{l}^{*} \end{aligned} $$
 >
 > as $t \rightarrow \infty$.
 
@@ -420,15 +407,11 @@ which is similar to that of [$(2.4)$](#eq-2.4) in the leaderless case. The follo
 > [!tip] Proposition 1 (Translational Maneuvering)
 > If the velocity of each leader is constant and satisfies
 >
-> $$
-\boldsymbol{v}_{i}^{*}=\mathbf{v}_{c}, \quad i \in \mathcal{V}_{l},
-> $$
+> $$ \boldsymbol{v}_{i}^{*}=\mathbf{v}_{c}, \quad i \in \mathcal{V}_{l}, $$
 >
 > where $\mathbf{v}_{c} \in \mathbb{R}^{d}$ is a common velocity, then
 >
-> $$
-\dot{c}\left(\boldsymbol{p}^{*}(t)\right) \equiv \mathbf{v}_{c}, \quad \dot{s}\left(\boldsymbol{p}^{*}(t)\right) \equiv 0
-> $$
+> $$ \dot{c}\left(\boldsymbol{p}^{*}(t)\right) \equiv \mathbf{v}_{c}, \quad \dot{s}\left(\boldsymbol{p}^{*}(t)\right) \equiv 0 $$
 >
 > which means the target formation $\boldsymbol{p}^{*}(t)$ moves at the common velocity while the scale is fixed.
 
@@ -463,15 +446,11 @@ Q.E.D. <div style="text-align: right;">$\square$</div>
 >
 > <span id="eq-2.14"></span>
 >
-> $$
-\boldsymbol{v}_{i}^{*}=\alpha_{i} \frac{\boldsymbol{p}_{i}^{*}(t)-c\left(\boldsymbol{p}^{*}\right)}{\left\|\boldsymbol{p}_{i}^{*}(t)-c\left(\boldsymbol{p}^{*}\right)\right\|}, \quad i \in \mathcal{V}_{l}, \tag{2.14}
-> $$
+> $$ \boldsymbol{v}_{i}^{*}=\alpha_{i} \frac{\boldsymbol{p}_{i}^{*}(t)-c\left(\boldsymbol{p}^{*}\right)}{\left\|\boldsymbol{p}_{i}^{*}(t)-c\left(\boldsymbol{p}^{*}\right)\right\|}, \quad i \in \mathcal{V}_{l}, \tag{2.14} $$
 >
 > where $\alpha_{i} \in \mathbb{R}$ is constant and satisfies $\alpha_{i} /\left\|\boldsymbol{p}_{i}^{*}(t)-c\left(\boldsymbol{p}^{*}\right)\right\|= \alpha_{j} /\left\|\boldsymbol{p}_{j}^{*}(t)-c\left(\boldsymbol{p}^{*}\right)\right\|$ for all $i, j \in \mathcal{V}_{l}$, then
 >
-> $$
-\dot{c}\left(\boldsymbol{p}^{*}(t)\right) \equiv 0, \quad \dot{s}\left(\boldsymbol{p}^{*}(t)\right) \equiv \operatorname{sgn}\left(\alpha_{i}\right) \sqrt{\frac{1}{n} \sum_{i \in \mathcal{V}} \alpha_{i}^{2}},
-> $$
+> $$ \dot{c}\left(\boldsymbol{p}^{*}(t)\right) \equiv 0, \quad \dot{s}\left(\boldsymbol{p}^{*}(t)\right) \equiv \operatorname{sgn}\left(\alpha_{i}\right) \sqrt{\frac{1}{n} \sum_{i \in \mathcal{V}} \alpha_{i}^{2}}, $$
 >
 > which means the scale of the target formation $\boldsymbol{p}^{*}(t)$ is continuously varying while the centroid is fixed.
 
@@ -527,17 +506,11 @@ When the velocity of the leaders is a linear combination of a translational and 
 >
 > <span id="eq-2.15"></span>
 >
-> $$
-\begin{equation*}
-\boldsymbol{v}_{i}^{*}=\mathbf{v}_{c}+\alpha_{i} \frac{\boldsymbol{p}_{i}^{*}(t)-c\left(\boldsymbol{p}^{*}\right)}{\left\|\boldsymbol{p}_{i}^{*}(t)-c\left(\boldsymbol{p}^{*}\right)\right\|}, \quad \forall i \in \mathcal{V}_{l}, \tag{2.15}
-\end{equation*}
-> $$
+> $$ \begin{equation*} \boldsymbol{v}_{i}^{*}=\mathbf{v}_{c}+\alpha_{i} \frac{\boldsymbol{p}_{i}^{*}(t)-c\left(\boldsymbol{p}^{*}\right)}{\left\|\boldsymbol{p}_{i}^{*}(t)-c\left(\boldsymbol{p}^{*}\right)\right\|}, \quad \forall i \in \mathcal{V}_{l}, \tag{2.15} \end{equation*} $$
 >
 > where $\alpha_{i}$ satisfies $\alpha_{i} /\left\|\boldsymbol{p}_{i}^{*}(t)-c\left(\boldsymbol{p}^{*}\right)\right\|=\alpha_{j} /\left\|\boldsymbol{p}_{j}^{*}(t)-c\left(\boldsymbol{p}^{*}\right)\right\|$ for all $i, j \in \mathcal{V}_{l}$. As a result,
 >
-> $$
-\dot{c}\left(\boldsymbol{p}^{*}(t)\right) \equiv \mathbf{v}_{c}, \quad \dot{s}\left(\boldsymbol{p}^{*}(t)\right) \equiv \operatorname{sgn}\left(\alpha_{i}\right) \sqrt{\frac{1}{n} \sum_{i \in \mathcal{V}} \alpha_{i}^{2}} .
-> $$
+> $$ \dot{c}\left(\boldsymbol{p}^{*}(t)\right) \equiv \mathbf{v}_{c}, \quad \dot{s}\left(\boldsymbol{p}^{*}(t)\right) \equiv \operatorname{sgn}\left(\alpha_{i}\right) \sqrt{\frac{1}{n} \sum_{i \in \mathcal{V}} \alpha_{i}^{2}} . $$
 >
 > Furthermore, $\dot{c}(\boldsymbol{p}(t))$ and $\dot{s}(\boldsymbol{p}(t))$ globally converge to $\dot{c}\left(\boldsymbol{p}^{*}(t)\right)$ and $\dot{s}\left(\boldsymbol{p}^{*}(t)\right)$, respectively.
 

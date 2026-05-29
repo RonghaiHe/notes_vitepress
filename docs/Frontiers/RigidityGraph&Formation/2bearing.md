@@ -342,9 +342,7 @@ is the skew-symmetric matrix associated with $\boldsymbol{x}$
 </figure>
 
 > Most existing works, like the last section, use the notion of **normal vectors** to describe parallel vectors in $\mathbb{R}^2$. Specifically, given a nonzero vector $\boldsymbol{x} \in \mathbb{R}^2$, denote $\boldsymbol{x}^\perp \in \mathbb{R}^2$ as a **nonzero normal vector** satisfying $\boldsymbol{x}^\top\boldsymbol{x}^\perp = 0$. Then any vector $\boldsymbol{y} \in \mathbb{R}^2$ is parallel to $\boldsymbol{x}$ if and only if $(\boldsymbol{x}^\perp)^\top\boldsymbol{y}= 0$. This approach is applicable to 2D cases but difficult to extend to arbitrary dimensions. Moreover, it is straightforward to prove that in $\mathbb{R}^2$ the use of the orthogonal projection operator is **equivalent** to the use of normal vectors based on the fact that
-> $$
-P_x = \frac{\boldsymbol{x}^\perp(\boldsymbol{x}^\perp)^\top}{\|\boldsymbol{x}^\perp\|^2}, \quad \forall \boldsymbol{x}\in\mathbb{R}^2.
-> $$
+> $$ P_x = \frac{\boldsymbol{x}^\perp(\boldsymbol{x}^\perp)^\top}{\|\boldsymbol{x}^\perp\|^2}, \quad \forall \boldsymbol{x}\in\mathbb{R}^2. $$
 
 ### Fundamental Concepts about Bearing Rigidity
 Now ready to define the fundamental concepts in bearing rigidity. These concepts are defined analogously to those in the distance rigidity theory.
@@ -404,14 +402,7 @@ An alternative necessary and sufficient condition for infinitesimal bearing rigi
 > [!warning] Definition: Bearing Laplacian of Networks
 > Given the framework $(\mathcal{G}, \boldsymbol{p})$ with **no colocated** nodes, define the bearing Laplacian $L_\mathcal{B}\in\mathbb{R}^{dn\times dn}$ as
 >
-> $$
-[L_\mathcal{B}]_{ij} =
-\begin{cases}
-    \mathbf{0}_{d\times d}, & i\neq j,\,(i,j)\not\in\mathcal{E}\\
-    -P_{g_{ij}}, & i\neq j,\,(i,j)\in\mathcal{E}\\
-    \sum\limits_{k\in\mathcal{N}_i}P_{g_{ik}}, & i=j,\,(i,j)\in\mathcal{V}
-\end{cases}
-> $$
+> $$ [L_\mathcal{B}]_{ij} = \begin{cases} \mathbf{0}_{d\times d}, & i\neq j,\,(i,j)\not\in\mathcal{E}\\ -P_{g_{ij}}, & i\neq j,\,(i,j)\in\mathcal{E}\\ \sum\limits_{k\in\mathcal{N}_i}P_{g_{ik}}, & i=j,\,(i,j)\in\mathcal{V} \end{cases} $$
 >
 > where $[L_\mathcal{B}]_{ij}$ is the $ij$-th block of submatrix of $L_\mathcal{B}$.
 
@@ -470,9 +461,7 @@ Up to this point, we have introduced all the fundamental concepts in the bearing
 >
 > <span id="eq-3"></span>
 >
-> $$
-R_\mathcal{B}(\boldsymbol{p}) = \operatorname{diag}\left(\frac{P_{g_{k}}}{\|e_k\|}\right)\bar{H}. \tag{3}
-> $$
+> $$ R_\mathcal{B}(\boldsymbol{p}) = \operatorname{diag}\left(\frac{P_{g_{k}}}{\|e_k\|}\right)\bar{H}. \tag{3} $$
 
 **Proof**:
 
@@ -999,9 +988,7 @@ The formula of [$(7)$](#eq-7) gives the following set inclusion of null spaces
 >
 > <span id="eq-8"></span>
 >
-> $$
-\operatorname{span}\{\mathbf{1} \otimes \mathbf{I}_d, \boldsymbol{p}\} \subseteq \operatorname{Null}(R_\mathcal{B}) \subseteq \operatorname{Null}(L_\mathcal{B}). \tag{8}
-> $$
+> $$ \operatorname{span}\{\mathbf{1} \otimes \mathbf{I}_d, \boldsymbol{p}\} \subseteq \operatorname{Null}(R_\mathcal{B}) \subseteq \operatorname{Null}(L_\mathcal{B}). \tag{8} $$
 
 **Proof**:
 <details> 
@@ -1024,9 +1011,7 @@ Based on this formula [$(9)$](#eq-9), we give a **necessary and sufficient condi
 > [!caution] Theorem 16
 > For a directed formation $(\mathcal{G},\boldsymbol{p})$, the **equality**
 >
-> $$
-\operatorname{Null}(L_\mathcal{B}) = \operatorname{span}\{\mathbf{1} \otimes \mathbf{I}_d, \boldsymbol{p}\}
-> $$
+> $$ \operatorname{Null}(L_\mathcal{B}) = \operatorname{span}\{\mathbf{1} \otimes \mathbf{I}_d, \boldsymbol{p}\} $$
 >
 > holds if and only if the following two conditions are **both** satisfied:
 > 1. $\operatorname{Null}(R_\mathcal{B}) = \operatorname{span}\{\mathbf{1} \otimes \mathbf{I}_d, \boldsymbol{p}\}$ (i.e., the formation is **infinitesimally bearing rigid**),
@@ -1065,9 +1050,7 @@ Given two Lemmas below:
 > [!tip] Lemma 13: Block triangular matrix
 > Consider a real-valued block upper triangular square matrix $A$, with the $i$-th diagonal square block denoted by $A_{ii}$. Then the eigenvalues of $A$ are the **union** of the set of eigenvalues of each diagonal block $A_{ii}$; i.e., it holds
 >
-> $$
-\lambda(A)=\Cup_{i=1}^n \lambda(A_{ii}).
-> $$
+> $$ \lambda(A)=\Cup_{i=1}^n \lambda(A_{ii}). $$
 
 > [!tip] Lemma 14: Sum of projection matrices
 > Consider a set of projection matrix, $P_i(\boldsymbol{x}_i)$ associated with nonzero vector $\boldsymbol{x}_i \in \mathbb{R}^d (d \geqslant 2)$. Then the following holds:
@@ -1075,9 +1058,7 @@ Given two Lemmas below:
 > 2. Otherwise, if the vectors $\boldsymbol{x}_i$ and $\boldsymbol{x}_j$ are **linearly independent**, then $\operatorname{Null}(P_i(\boldsymbol{x}_i) + P_j(\boldsymbol{x}_j)) = \{\mathbf{0}\}$ and the matrix sum $P_i(\boldsymbol{x}_i) + P_j(\boldsymbol{x}_j)$ is positive definite.
 > 3. For the matrix sum $P_i(\boldsymbol{x}_i) + P_j(\boldsymbol{x}_j) + \cdots + P_k(\boldsymbol{x}_k)$, if all vectors $\boldsymbol{x}_i, \boldsymbol{x}_j, \cdots , \boldsymbol{x}_k$ are parallel, then  
 >
-> $$
-> \operatorname{Null}(P_i(\boldsymbol{x}_i) + P_j(\boldsymbol{x}_j) + \cdots + P_k(\boldsymbol{x}_k)) = \operatorname{span}\{\boldsymbol{x}_i\}.
-> $$
+> $$ > \operatorname{Null}(P_i(\boldsymbol{x}_i) + P_j(\boldsymbol{x}_j) + \cdots + P_k(\boldsymbol{x}_k)) = \operatorname{span}\{\boldsymbol{x}_i\}. $$
 > 4. The matrix sum $P_i(\boldsymbol{x}_i) + P_j(\boldsymbol{x}_j) + \cdots + P_k(\boldsymbol{x}_k)$ is positive definite if there exist **at least** two vectors in the list that are non-parallel.
 
 For directed acyclic graphs, the bearing Laplacian can always be reconstructed (with permutation of vertices and edges) as a block triangular matrix, while the $i$-th diagonal block consists of a projection matrix $P_{g^*_{ij}}$ (if the associated vertex $i$ has only one out-going edge $(i, j)$), or  a sum of projection matrix $\sum\limits_{j\in\mathcal{N}_i}P_{g^*_{ij}}$ (if the associated  vertex $i$ has multiple out-going edges $(i, j)$), or is a zero block (if the associated vertex $i$ has no out-going edge).
@@ -1249,9 +1230,7 @@ The definition of these sets allows to introduce the (local and global) property
 > [!warning] Definition: Bearing Rigidity in $\bar{\mathcal{P}}$
 > A framework $(\mathcal{G},\boldsymbol{p})$ is (locally) **bearing rigid (BR)** in $\bar{\mathcal{P}}$ if there exists a **neighborhood** $\mathcal{U}(\boldsymbol{p}) \subseteq \bar{\mathcal{P}}$ of $\boldsymbol{p}$ such that 
 >
-> $$
-    \mathcal{Q}(\boldsymbol{p}) \cap \mathcal{U}(\boldsymbol{p}) = \mathcal{C}(\boldsymbol{p})\cap\mathcal{U}(\boldsymbol{p}).
-> $$
+> $$     \mathcal{Q}(\boldsymbol{p}) \cap \mathcal{U}(\boldsymbol{p}) = \mathcal{C}(\boldsymbol{p})\cap\mathcal{U}(\boldsymbol{p}). $$
 
 > [!warning] Definition: Global Bearing Rigidity in $\bar{\mathcal{P}}$
 > A framework $\left(\mathcal{G}, \boldsymbol{p} \right)$ is **globally bearing rigid (GBR)** in $\bar{\mathcal{P}}$ if every framework which is **BE** to $\left( \mathcal{G}, \boldsymbol{p} \right)$ is also **BC** to $\left( \mathcal{G}, \boldsymbol{p} \right)$, i.e.,	$\mathcal{C}(\boldsymbol{p}) = \mathcal{Q}(\boldsymbol{p})$.
@@ -1284,9 +1263,7 @@ Given this setup, our aim is to **identify the conditions under which a given dy
 >
 > <span id="eq-10"></span>
 >
-> $$
-\dot{\boldsymbol{b}}_{\mathcal{G}}({\boldsymbol{p}(t)}) = \frac{\mathrm{d}}{\mathrm{d}t}\boldsymbol{b}_{\mathcal{G}}(\boldsymbol{p}(t))= R_\mathcal{B}(\boldsymbol{p}(t))\boldsymbol{\delta}. \tag{10}
-> $$
+> $$ \dot{\boldsymbol{b}}_{\mathcal{G}}({\boldsymbol{p}(t)}) = \frac{\mathrm{d}}{\mathrm{d}t}\boldsymbol{b}_{\mathcal{G}}(\boldsymbol{p}(t))= R_\mathcal{B}(\boldsymbol{p}(t))\boldsymbol{\delta}. \tag{10} $$
 
 Indeed, $R_\mathcal{B}(\boldsymbol{p}(t))$ can be interpreted as a Jacobian matrix within a differential geometry perspective, whose dimensions depend on the spaces $\bar{\mathcal{M}}$ and $\bar{\mathcal{I}}$.
 
@@ -1376,10 +1353,7 @@ This allows to introduce the following definition.
 >
 > <span id="eq-14"></span>
 >
-> $$
-\dot{\boldsymbol{b}}_{\mathcal{G}}^+({\boldsymbol{p}(t)}) =
-    \frac{\mathrm{d}}{\mathrm{d}t}\boldsymbol{b}_{\mathcal{G}}^+(\boldsymbol{p}(t))= R_{\mathcal{B}}^+(\boldsymbol{p}(t)) {\boldsymbol{\delta}}^+. \tag{14}
-> $$
+> $$ \dot{\boldsymbol{b}}_{\mathcal{G}}^+({\boldsymbol{p}(t)}) = \frac{\mathrm{d}}{\mathrm{d}t}\boldsymbol{b}_{\mathcal{G}}^+(\boldsymbol{p}(t))= R_{\mathcal{B}}^+(\boldsymbol{p}(t)) {\boldsymbol{\delta}}^+. \tag{14} $$
 
 Note that since $\boldsymbol{b}^+_\mathcal{G}(\boldsymbol{p}(t))$ can be interpreted as the zero-padded version of the vector $\boldsymbol{b}_\mathcal{G}(\boldsymbol{p}(t))$ in [$(11)$](#eq-11), the relation [$(14)$](#eq-14) corresponds to [$(10)$](#eq-10) when accounting for the embedding of $\mathcal{P}_i$ in $\mathrm{SE}(3)$. The consistency between $R_{\mathcal{B}}(\boldsymbol{p}(t))$ and $R_{\mathcal{B}}^+(\boldsymbol{p}(t))$ is guaranteed by the emergence of zero rows in the latter. Along the same line, we also observe that [$(13)$](#eq-13) induces a partition of $R^+_\mathcal{B}(\boldsymbol{p}(t))$  into **two blocks**, distinguishing between the bearing variations due to the variations of the agents **position and orientation**, as formalized in the next proposition.
 
@@ -1388,19 +1362,12 @@ Note that since $\boldsymbol{b}^+_\mathcal{G}(\boldsymbol{p}(t))$ can be interpr
 >
 > <span id="eq-15"></span>
 >
-> $$
-R^+_{\mathcal{B}}(\boldsymbol{p}(t)) = [ \mathbf{D}_p(t)\mathbf{U} \bar{\mathbf{E}}^\top,  \mathbf{D}_{{a}}(t) \mathbf{V}\bar{\mathbf{E}}_{o}^\top] \in \mathbb{R}^{3m \times 6n}, \tag{15}
-> $$
+> $$ R^+_{\mathcal{B}}(\boldsymbol{p}(t)) = [ \mathbf{D}_p(t)\mathbf{U} \bar{\mathbf{E}}^\top,  \mathbf{D}_{{a}}(t) \mathbf{V}\bar{\mathbf{E}}_{o}^\top] \in \mathbb{R}^{3m \times 6n}, \tag{15} $$
 >
 > where
 > 1. $\mathbf{D}_p(t), \mathbf{D}_{{a}}(t) \in \mathbb{R}^{3m \times 3m}$ are derived from the orthogonal projections of relative position and attitude
 >
-> $$
-\begin{aligned}
-\mathbf{D}_p(t)&= \operatorname{diag}(s_{ij}(t) \mathbf{R}_i^\top(t)\mathbf{P}\left(\bar{\boldsymbol{x}}_{ij}(t) \right)) , \\ 
-\mathbf{D}_a(t) &= -\operatorname{diag}(\mathbf{R}_i^{\top}(t)[\bar{\boldsymbol{x}}_{ij}(t)]_\times),
-\end{aligned}
-> $$
+> $$ \begin{aligned} \mathbf{D}_p(t)&= \operatorname{diag}(s_{ij}(t) \mathbf{R}_i^\top(t)\mathbf{P}\left(\bar{\boldsymbol{x}}_{ij}(t) \right)) , \\ \mathbf{D}_a(t) &= -\operatorname{diag}(\mathbf{R}_i^{\top}(t)[\bar{\boldsymbol{x}}_{ij}(t)]_\times), \end{aligned} $$
 >
 > 2. $\mathbf{U}=\operatorname{diag}(\mathbf{U}_{ij})\in \mathbb{R}^{3m \times 3m}$ and $\mathbf{V}=\operatorname{diag}(\mathbf{V}_{ij})\in \mathbb{R}^{3m \times 3m}$ take into account the (time-invariant) matrices  $\mathbf{U}_{ij}, \mathbf{V}_{ij} \in \mathbb{R}^{3 \times 3}$  defining, respectively, the **translational directions** of the bearing measurement $\boldsymbol{b}_{ij}$ and $i$-th and $j$-th agents **rotation directions** in the 3D space with respect to the $i$-th agent frame;
 > 3. $\bar{\mathbf{H}}, \bar{\mathbf{H}}_o\in \mathbb{R}^{3n\times 3m}$ are derived from the (time-invariant) incidence matrix of the graph $\mathcal{G}$, where $\bar{\mathbf{H}}_o = \mathbf{H}_o\otimes \mathbf{I}_d\in\mathbb{R}^{dn\times dm}$.
@@ -1457,9 +1424,7 @@ We finally provide a rank condition on the extended bearing rigidity matrix  tha
 > [!caution] Theorem 18
 > A **non-colinear** $n$-agent formation modeled as a framework $(\mathcal{G}, \boldsymbol{p}(t))$ in an arbitrary differential manifold $\bar{\mathcal{P}}$ is **IBR** if and only if
 > 
-> $$
-\operatorname{rank}(R^+_\mathcal{B}(\boldsymbol{p}(t))) = \operatorname{rank}(R^{\mathcal{K}+}_\mathcal{B}(\boldsymbol{p}(t))).
-> $$
+> $$ \operatorname{rank}(R^+_\mathcal{B}(\boldsymbol{p}(t))) = \operatorname{rank}(R^{\mathcal{K}+}_\mathcal{B}(\boldsymbol{p}(t))). $$
 
 
 
