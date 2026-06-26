@@ -11,8 +11,8 @@ hero:
       text: Graph Rigidity & Formation Control
       link: /docs/Frontiers/RigidityGraph&Formation/1distance
     - theme: alt
-      text: Optimal Control
-      link: /docs/Control/OCP/1introduction
+      text: Git Commands
+      link: /docs/Kits/git_learn
     - theme: alt
       text: Linear Algebra
       link: /docs/Math/LA/1intro
@@ -33,6 +33,6 @@ features:
   - title: Robotics
     details: 1. <a href="./docs/Robotics/vSLAM//1basis">视觉SLAM</a><br/>2. <a href="./docs/Robotics/Planning/1intro">Motion Planning</a><br/>
   - title: Kits
-    details: (Empty)
+    details: 1. <a href="./docs/Kits/git_learn">Git Commands</a>
 ---
 

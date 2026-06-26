@@ -46,6 +46,12 @@ export default defineConfig({
         ]
       },
       {
+        text: 'Kits',
+        items: [
+          { text: 'Git Commands', link: '/docs/Kits/git_learn' },
+        ]
+      },
+      {
         text: 'Robotics',
         items: [
           { text: '视觉SLAM', link: '/docs/Robotics/vSLAM/1intro' },
@@ -176,6 +182,14 @@ export default defineConfig({
           ]
         }
       ],
+      '/docs/Kits/': [
+        {
+          text: 'Kits',
+          items: [
+            { text: 'Git Commands', link: '/docs/Kits/git_learn' },
+          ]
+        }
+      ]
     },
 
     outline: {
