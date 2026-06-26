@@ -96,6 +96,30 @@ $$
 
 where $\mathbf{I} \in \mathbb{R}^{N\times N}$ is the identity matrix. $\mathbf{\hat{L}}$ contains the information that is **invariant to scale, translation, and rotation**.
 
+> (Explained by ChatGPT 5.5)
+> The distance measurement is invariant to translation and rotation. For uniform scaling:
+> $$ \mathbf{p}_i' = s\mathbf{p}_i, \quad s > 0 \to w_{ij}' = s^2 w_{ij} \to \mathbf{A}' = s^2\mathbf{A}, \quad \mathbf{D}' = s^2\mathbf{D} \to \mathbf{L}' = s^2\mathbf{L} \to \mathbf{\hat{L}}' \text{ constant} $$
+>
+> A more precise statement is that $\mathbf{\hat{L}}$ is a **shape descriptor** invariant under **similarity transformations** (rotation + translation + uniform scaling). Since distances are also unchanged by **reflection**, it is actually invariant under the full Euclidean similarity group, including mirror reflections.
+>
+> Other properties:
+> - Symmetric and positive semidefinite
+> - Eigenvalues lie in a bounded interval: $0 = \lambda_1 \leq \lambda_2 \leq ... \leq \lambda_N \leq 2$
+> - The multiplicity of the zero eigenvalue corresponds to the number of connected components in the graph. Since the grph is complete: $\operatorname{mult}(0)=1\to \lambda_1=0,\lambda_2>0$
+> - The largest eigenvalue $\lambda_N$ is related to the maximum degree of the graph and can indicate the presence of highly connected nodes (hubs)
+> - Known eigenvector for $\lambda=0$ is the constant vector $\mathbf{1}$, which reflects the uniform distribution of vertices in the graph 
+> - The second smallest eigenvalue (normalized algebraic connectivity) indicates how well connected the graph is: larger values suggest stronger connectivity and robustness to node removal, while smaller values indicate a more fragile structure
+> - The eigenvalues and eigenvectors of $\mathbf{\hat{L}}$ can be used for spectral clustering, community detection, and dimensionality reduction in graph-based machine learning tasks
+> - The eigenvectors (Laplacian eigenmaps) can be used for clustering and dimensionality reduction
+> - Spectral invariance: the spectrum of $\mathbf{\hat{L}}$ is a compact shape descriptor. Many formation-recognition methods use only the eigenvalues because eigenvalues are independent of robot numbering up to permutation.
+> - Invariance to robot relabeling (permutation): $\mathbf{\hat{L}}$ is invariant under any permutation of the robot indices, which means that the formation similarity metric based on $\mathbf{\hat{L}}$ does not depend on how we label the robots.
+> - The trace of $\mathbf{\hat{L}}$ is equal to the number of vertices $N$ (since the diagonal entries are all 1)
+> - The Frobenius norm $\|\mathbf{\hat{L}}\|_F$ is related to the total edge weight and can be used as a measure of graph connectivity
+> - The normalized Laplacian can be interpreted as a discrete analog of the continuous Laplace-Beltrami operator on a manifold, which is useful for analyzing the geometry of the formation 
+> - The normalized Laplacian can be used to define a diffusion process on the graph, which can model how information or influence spreads through the swarm formation
+> - the spectrum alone does not always uniquely determine the formation. Different formations can occasionally be cospectral. However, in practice, the spectrum of $\mathbf{\hat{L}}$ is often sufficient to distinguish between different formation shapes, especially when combined with other features or constraints.
+> - The normalized Laplacian is particularly useful for comparing formations of different sizes, as it normalizes the influence of the number of robots and their connectivity, allowing for a more meaningful comparison of formation shapes.
+
 Finally, we use graph theory to describe various desired formation shapes,  such as squares, hexagons, and pyramids.
 
 By specifying the desired positions $\mathbf{p}_i^d= [x_i^d,\,\,y_i^d,\,\,z_i^d]\in \mathbb{R}^3,\,\,i = 1,...,N$, computing $\mathbf{\hat{L}}_\text{des}$ is simple.
@@ -109,10 +133,10 @@ To assess the deviation from the desired formation, we propose a differentiable 
 <span id="eq-5"></span>
 
 $$
-  \begin{aligned}
-      f_s & = f_s(\mathbf{p}_1,...,\mathbf{p}_i,...,\mathbf{p}_N) = f_s (\mathbf{A},\mathbf{D}) = f_s(\mathbf{\hat{L}},\mathbf{\hat{L}}_{des}) \\   
-      & = \parallel\mathbf{\hat{L}}-\mathbf{\hat{L}}_{des}\parallel^2_F = \operatorname{tr}\{(\mathbf{\hat{L}}-\mathbf{\hat{L}}_{des})^\top(\mathbf{\hat{L}}-\mathbf{\hat{L}}_{des})\}, \tag{5}
-  \end{aligned}
+  \begin{align*}
+      f_s & = f_s(\mathbf{p}_1,...,\mathbf{p}_i,...,\mathbf{p}_N) = f_s (\mathbf{A},\mathbf{D}) = f_s(\mathbf{\hat{L}},\mathbf{\hat{L}}_\text{des}) \\   
+      & = \parallel\mathbf{\hat{L}}-\mathbf{\hat{L}}_\text{des}\parallel^2_F = \operatorname{tr}\{(\mathbf{\hat{L}}-\mathbf{\hat{L}}_\text{des})^\top(\mathbf{\hat{L}}-\mathbf{\hat{L}}_\text{des})\}, \tag{5}
+  \end{align*}
 $$
 
 where $\operatorname{tr}\{\cdot\}$ denotes the trace of a matrix, $\mathbf{\hat{L}}$ is the symmetric normalized Laplacian of the current swarm formation, $\mathbf{\hat{L}}_\text{des}$ is the counterpart of the desired formation. Frobenius norm $\parallel\cdot\parallel_F$ is used in our distance metric.
@@ -198,8 +222,8 @@ Thus, we can effectively solve the coupled trajectory optimization with a **two-
 
 $$
   \begin{align*}
-        &\text{1.}~~\mathbf{p}_i^* = \argmin \sum_{j=0}^{M_c}f_s(\mathbf{p}_{i,j}), \\
-        \xRightarrow{\mathbf{p}_i^*}~~&\text{2.}~~\min_{\mathbf{p}_{i,0},...,\mathbf{p}_{i,M_c}} \| \mathbf{p}_{i,j}-\mathbf{p}_{i,j}^*\|^2+J_\text{other}. \tag{11}
+        &\text{1.}~~\mathbf{p}_i^* = \arg\min \sum_{k=0}^{M_c}f_s(\mathbf{p}_{i,k}), \\
+        \xRightarrow{\mathbf{p}_i^*}~~&\text{2.}~~\min_{\mathbf{p}_{i,0},...,\mathbf{p}_{i,M_c}} \| \mathbf{p}_{i,k}-\mathbf{p}_{i,k}^*\|^2+J_\text{other}. \tag{11}
   \end{align*}
 $$
 
@@ -215,7 +239,7 @@ To ensure a smoother trajectory, we introduce the **uniform optimal formation po
 
 $$
   \begin{align*}
-    \hat{\mathbf{p}}_i^* &= \argmin \lambda_s J_s + \lambda_u J_u, \tag{12} \\
+    \hat{\mathbf{p}}_i^* &= \arg\min \lambda_s J_s + \lambda_u J_u, \tag{12} \\
     J_s &= \sum_{j=0}^{M_c} 
     f_s(\hat{\mathbf{p}}_{i,j}^*), \\
     J_u &= \mathbb{E}(\mathbf{U}^2) - \mathbb{E}(\mathbf{U})^2 = \frac{\| \mathbf{U}\|_2^2}{M_c}  - \frac{\| \mathbf{U}\|_1^2}{(M_c)^2}, \tag{13}
@@ -294,7 +318,7 @@ Finally, the continuous constrained optimization problem is converted to a discr
 
 $$
   \min_{\mathbf{q},\mathbf{T}}  
-      \sum_{x} \lambda_\star \widetilde{J}_\star(\mathbf{q},\mathbf{T},\delta), \tag{18}
+      \sum_{\star} \lambda_\star \widetilde{J}_\star(\mathbf{q},\mathbf{T},\delta), \tag{18}
 $$
 
 where $\widetilde{J}_\star$ are various terms of cost function or penalties, and $\lambda_\star$ are relative weights. Subscripts $\star=\{f,e,t,o,r,d\}$:
@@ -349,7 +373,7 @@ then the cost function $\widetilde{J}_\star$ in [$(18)$](#eq-18) is calculated a
 
 $$
 \begin{align*}
-    \nonumber \widetilde{J}_\star(\mathbf{q}, \mathbf{T},\delta) =&  J_\star(\mathbf{c},\mathbf{T},\delta), \\
+    \nonumber \widetilde{J}_\star(\mathbf{q}, \mathbf{T},\delta) =&  J_\star(\mathbf{c},\mathbf{T},\delta) \\
     =& \delta \sum_{j=0}^\kappa \bar{\omega}_j \mathcal{P}_\star(\mathbf{c},\mathbf{T},j\delta) + \\
     &+ \frac{1}{2} (T_\Sigma -\kappa\delta)\left[\mathcal{P}_\star(\mathbf{c},\mathbf{T},\kappa\delta) + \mathcal{P}_\star(\mathbf{c},\mathbf{T},T_\Sigma)\right], \tag{21}
 \end{align*}
@@ -440,11 +464,11 @@ $$
 We limit the maximum value of velocity and acceleration to guarantee that the robots can execute the trajectory.
 <span id="eq-35"></span>
 $$
-  \begin{aligned}
+  \begin{align*}
         \mathcal{P}_d(\tilde{\mathbf{p}}_{j}(t))&=\mathcal{P}_{d,v}(\tilde{\mathbf{p}}_{j}(t))+\mathcal{P}_{d,a}(\tilde{\mathbf{p}}_{j}(t)), \\
         \mathcal{P}_{d,v}(\tilde{\mathbf{p}}_{j}(t)) &= \max \{ \parallel \dot{\tilde{\mathbf{p}}}_{j}(t)\parallel^2 - v_m^2, 0\}^3, \\
         \mathcal{P}_{d,a}(\tilde{\mathbf{p}}_{j}(t)) &= \max \{ \parallel \ddot{\tilde{\mathbf{p}}}_{j}(t)\parallel^2 - a_m^2, 0\}^3, \tag{35}
-    \end{aligned}
+    \end{align*}
 $$
 where $v_m$ and $a_m$ are the maximum velocity and acceleration.
 
