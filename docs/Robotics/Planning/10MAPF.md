@@ -6,6 +6,8 @@
 > [2] L. Quan, L. Yin, C. Xu, and F. Gao, “Distributed swarm trajectory optimization for formation flight in dense environments,” in *Proc. Int. Conf. Robot. Autom.*, 2022, pp. 4979–4985.
 >
 > [3] Z. Wang, X. Zhou, C. Xu, and F. Gao, "Geometrically constrained trajectory optimization for multicopters", *IEEE Trans. Robot.*, vol. 38, no. 5, pp. 3259–3278, Oct. 2022, doi: [10.1109/TRO.2022.3160022](https://doi.org/10.1109/TRO.2022.3160022).
+>
+> [4] Teo K L, Rehbock V, Jennings L S. "A new computational algorithm for functional inequality constrained optimization problems"[J]. *Automatica*, 1993, 29(3): 789-792.
 
 
 ## Notation
@@ -31,8 +33,8 @@
 |$m$|Dimension of the robot|
 |$N$| Number of robots|
 |$\mathcal{P}$|Cost: subscript $f$: swarm formation similarity; $e$: control effort; $t$: total time; $o$: obstacle avoidance; $r$: swarm reciprocal avoidance; $d$: dynamic feasibility|
-|$\mathbf{p}_{i,j}$|The $j^\text{th}$ sample point of the $i^\text{th}$ robot trajectory|
-|$\mathbf{p}_{i,j}^*$|The **optimal** $j^\text{th}$ sample point of the $i^\text{th}$ robot trajectory|
+|$\mathbf{p}_{i,k}$|The $k^\text{th}$ sample point of the $i^\text{th}$ robot trajectory|
+|$\mathbf{p}_{i,k}^*$|The **optimal** $k^\text{th}$ sample point of the $i^\text{th}$ robot trajectory|
 |$p(t)$|Trajectory, piecewise polynomial|
 |$\mathbf{p}^{(s-1)}(t)$|The $(s-1)^\text{th}$ derivative of the trajectory, i.e., the control input|
 |$\mathbf{p}^{[s-1]}(t)$|$(\mathbf{p}(t)^\top, \dot{\mathbf{p}}(t)^\top, \cdots, \mathbf{p}^{(s-1)}(t)^\top)^\top\in\mathbb{R}^{ms}$|
@@ -163,31 +165,31 @@ Considering the simplified equation for coupled trajectory optimization
 <span id="eq-9"></span>
 
 $$
-  \min_{\mathbf{p}_{i,0},...,\mathbf{p}_{i,M_c}} \sum_{j=0}^{M_c} f_s(\mathbf{p}_{i,j})+J_\text{other}, \tag{9}
+  \min_{\mathbf{p}_{i,0},...,\mathbf{p}_{i,M_c}} \sum_{k=0}^{M_c} f_s(\mathbf{p}_{i,k})+J_\text{other}, \tag{9}
 $$
 
-where $\mathbf{p}_{i,j}$ represent the $j^{th}$ sample point of $i^{th}$ robot trajectory in [$(19)$](#eq-19) for convenience. $J_\text{other}$ represents all other cost functions, and $M_c$ is the number of sample points with corresponding timestamps.
+where $\mathbf{p}_{i,k}$ represent the $k^{th}$ sample point of $i^{th}$ robot trajectory in [$(19)$](#eq-19) for convenience. $J_\text{other}$ represents all other cost functions, and $M_c$ is the number of sample points with corresponding timestamps.
 
 The primary purpose of calculating $f_s$ is to **supply gradient information for minimizing formation similarity error**. However, since the graph $\mathcal{G}$ is a complete graph, computing $f_s$ has a complexity of $O(N^2)$.
 
 Consequently, the coupled trajectory optimization [$(9)$](#eq-9) also exhibits high complexity of $O(N^2)$ in each iteration, limiting its applicability to large-scale swarm operations.
 
-To address this issue, we must identify an **equivalent approach** with reduced computational complexity to replace the function of $f_s$ in [$(9)$](#eq-9). We introduce the concept of **optimal formation position** $\mathbf{p}_{i,j}^*$ for robot $i$ at timestamp $j$, which is the position that minimizes the formation similarity error $f_s$. [Fig.1(a)](#fig-10-1) illustrates this concept using a 2D formation as an example. 
+To address this issue, we must identify an **equivalent approach** with reduced computational complexity to replace the function of $f_s$ in [$(9)$](#eq-9). We introduce the concept of **optimal formation position** $\mathbf{p}_{i,k}^*$ for robot $i$ at timestamp $k$, which is the position that minimizes the formation similarity error $f_s$. [Fig.1(a)](#fig-10-1) illustrates this concept using a 2D formation as an example. 
 
 <figure>
    <img src="./images/10optimal_formation_sequence.jpg" id="fig-10-1" alt="fig-10-1" width="100%" align="center">
    <div align="center"><figcaption> Figure 1[1]: Illustration of optimal formation position sequence using a 2D formation. (a) The surface shows the profile of the similarity metric when one UAV moves in the plane and the other three remain still. The minimum suggests the optimal formation position to form the desired shape. (b) The sequence of optimal formation positions corresponds to the timestamps.</figcaption></div>
 </figure>
 
-It is evident from the figure that there exists an optimal formation position $\mathbf{p}_{i,j}^*$ that results in a minimal formation similarity error, and the partial derivative is $\partial f_s/\partial \mathbf{p}_{i,j}^*=0$.
+It is evident from the figure that there exists an optimal formation position $\mathbf{p}_{i,k}^*$ that results in a minimal formation similarity error, and the partial derivative is $\partial f_s/\partial \mathbf{p}_{i,k}^*=0$.
 
-In the future period with a sequence of timestamps $\{0, ..., j, ..., M_c\}$, we represent the expected positions of robot $i$ with the **optimal formation position sequence** $\mathbf{p}_i^*=\{\mathbf{p}_{i,0}^*,\cdots,\mathbf{p}_{i,j}^*,\dots,\mathbf{p}_{i,M_c}^*\}$, as shown in [Fig. 1(b)](#fig-10-1).
+In the future period with a sequence of timestamps $\{0, ..., k, ..., M_c\}$, we represent the expected positions of robot $i$ with the **optimal formation position sequence** $\mathbf{p}_i^*=\{\mathbf{p}_{i,0}^*,\cdots,\mathbf{p}_{i,k}^*,\dots,\mathbf{p}_{i,M_c}^*\}$, as shown in [Fig. 1(b)](#fig-10-1).
 By **precomputing** $\mathbf{p}_i^*$, we can utilize **its quadratic distance to replace the gradient information** offered by $f_s$ in [$(11)$](#eq-11), thus decreasing the computational requirements as follows
 
 <span id="eq-10"></span>
 
 $$
-  f_s(\mathbf{p}_{i,j}) \Rightarrow \| \mathbf{p}_{i,j} - \mathbf{p}_{i,j}^* \|^2. \tag{10}
+  f_s(\mathbf{p}_{i,k}) \Rightarrow \| \mathbf{p}_{i,k} - \mathbf{p}_{i,k}^* \|^2. \tag{10}
 $$
 
 Since the **optimal solutions of $f_s$ and quadratic distance cost are equivalent**, the trajectory approaches the positions with minimal formation similarity error, maintaining the desired formation.
@@ -198,8 +200,8 @@ Thus, we can effectively solve the coupled trajectory optimization with a **two-
 
 $$
   \begin{align*}
-        &\text{1.}~~\mathbf{p}_i^* = \argmin \sum_{j=0}^{M_c}f_s(\mathbf{p}_{i,j}), \\
-        \xRightarrow{\mathbf{p}_i^*}~~&\text{2.}~~\min_{\mathbf{p}_{i,0},...,\mathbf{p}_{i,M_c}} \| \mathbf{p}_{i,j}-\mathbf{p}_{i,j}^*\|^2+J_\text{other}. \tag{11}
+        &\text{1.}~~\mathbf{p}_i^* = \argmin \sum_{k=0}^{M_c}f_s(\mathbf{p}_{i,k}), \\
+        \xRightarrow{\mathbf{p}_i^*}~~&\text{2.}~~\min_{\mathbf{p}_{i,0},...,\mathbf{p}_{i,M_c}} \| \mathbf{p}_{i,k}-\mathbf{p}_{i,k}^*\|^2+J_\text{other}. \tag{11}
   \end{align*}
 $$
 
@@ -207,7 +209,7 @@ As a result, the previously required calculation of $f_s$ in each trajectory opt
 
 Formula [$(11)$](#eq-11) indicates that trajectory optimization in the next section is performed on discretized points. **Non-uniform discretized points may lead to poor trajectories and sub-optimal performance**. Therefore it is crucial to ensure a uniform distribution of these points to maintain the effectiveness of the optimization process.
 
-In engineering practice, since graphs $\mathcal{G}$ are constructed from a series of discretized timestamps as depicted in [Fig. 1(b)](#fig-10-1), each $\mathbf{p}_{i,j}^*$ is **independent**.
+In engineering practice, since graphs $\mathcal{G}$ are constructed from a series of discretized timestamps as depicted in [Fig. 1(b)](#fig-10-1), each $\mathbf{p}_{i,k}^*$ is **independent**.
 
 To ensure a smoother trajectory, we introduce the **uniform optimal formation position sequence** $\hat{\mathbf{p}}_i^*$, which is generated by considering the formation similarity error $J_s$ and the uniform distribution cost $J_u$
 
@@ -216,8 +218,8 @@ To ensure a smoother trajectory, we introduce the **uniform optimal formation po
 $$
   \begin{align*}
     \hat{\mathbf{p}}_i^* &= \argmin \lambda_s J_s + \lambda_u J_u, \tag{12} \\
-    J_s &= \sum_{j=0}^{M_c} 
-    f_s(\hat{\mathbf{p}}_{i,j}^*), \\
+    J_s &= \sum_{k=0}^{M_c} 
+    f_s(\hat{\mathbf{p}}_{i,k}^*), \\
     J_u &= \mathbb{E}(\mathbf{U}^2) - \mathbb{E}(\mathbf{U})^2 = \frac{\| \mathbf{U}\|_2^2}{M_c}  - \frac{\| \mathbf{U}\|_1^2}{(M_c)^2}, \tag{13}
   \end{align*}
 $$
@@ -286,7 +288,17 @@ $$
 We define costs [$(17a)$](#eq-17) for smoothness and aggressiveness to achieve smooth and efficient flight. $\rho$ is time regularization parameter, $T_\Sigma=\sum\limits_{i=1}^M T_i$. The state of robot $p(t)$ [$(17b)$](#eq-17) is parameterized by the optimization variables $\{\mathbf{q},\mathbf{T}\}$. $\mathbf{p}^{[s-1]}(t)=(p(t)^\top,\dot{p}(t)^\top,...,p^{(s-1)}(t)^\top)^\top\in\mathbb{R}^{ms}$ represents the higher-order derivatives of a chain dynamic system with $s$-integrator. Boundary conditions involve initial state $\bar{\mathbf{p}}_0\in\mathbb{R}^{ms}$ [$(17c)$](#eq-17) and terminal state $\bar{\mathbf{p}}_f\in\mathbb{R}^{ms}$ [$(17d)$](#eq-17). Continuous-time constraints $\mathcal{H}$ [$(17e)$](#eq-17) include **swarm formation similarity, dynamic feasibility, obstacle avoidance, and swarm reciprocal avoidance**. 
 
 ### 2.3 Constraints Transcription
-To solve the continuous constrained optimization problem [$(17)$](#eq-17) in real-time, we use the optimization variable of MINCO [$(15)$](#eq-15) to eliminate all kinds of equality constraints [$(17b)$](#eq-17)-[$(17d)$](#eq-17) (See [MINCO](./9MINCO.md#3-geometrically-constrained-flight-trajectory-optimization) for details). And penalty function method TODO is used to deal with the inequality constraints [$(17e)$](#eq-17). Then, every integral is evaluated by a finite sum of sample points.
+To solve the continuous constrained optimization problem [$(17)$](#eq-17) in real-time, we use the optimization variable of MINCO [$(15)$](#eq-15) to eliminate all kinds of equality constraints [$(17b)$](#eq-17)-[$(17d)$](#eq-17) (See [MINCO](./9MINCO.md#3-geometrically-constrained-flight-trajectory-optimization) for details). And penalty function method is used to deal with the inequality constraints [$(17e)$](#eq-17). Then, every integral is evaluated by a finite sum of sample points.
+
+> **Penalty function method** in [4] (Concluded by ChatGPT 5.5)
+> A **functional inequality constrained optimization** problem has the form
+> $$ \begin{align*} &\min_{x} f(x), \\ &\text{s.t.}~~g(x,, t) \leqslant 0, \forall t\in[0,T], \end{align*} $$
+>
+> where $f(x)$ is the cost function, $g(x,t)$ is the constraint function, and $t$ is a continuous variable. The penalty function method transforms this problem into an unconstrained optimization problem by introducing a penalty term that penalizes any violation of the constraints. The transformed problem can be expressed as
+>
+> $$ \min_{x} f(x) + r \int_0^T \max(0, g(x,t))^2 \mathrm{~d}t, $$
+>
+> where $r$ is a penalty parameter that controls the weight of the penalty term. The key observation is that $\max(0, g(x,t))^2$ is zero when the constraint is satisfied (i.e., $g(x,t) \leqslant 0$) and positive when the constraint is violated (i.e., $g(x,t) > 0$).
 
 Finally, the continuous constrained optimization problem is converted to a discrete unconstrained optimization problem
 
@@ -307,9 +319,9 @@ where $\widetilde{J}_\star$ are various terms of cost function or penalties, and
 
 $\delta$ is the sampling time interval.
 
-In the previous work[2], we used the **fixed number** sampling points $\hat{\mathbf{p}}_{i,j}=p_i((j/\kappa_i)\cdot T_i)$ to transform the optimization problem, where $p_i(t)$ is the $i^{th}$ piece trajectory and $\kappa_i$ is the fixed sample number on this piece.
+In the previous work[2], we used the **fixed number** sampling points $\hat{\mathbf{p}}_{i,k}=p_i((k/\kappa_i)\cdot T_i)$ to transform the optimization problem, where $p_i(t)$ is the $i^{th}$ piece trajectory and $\kappa_i$ is the fixed sample number on this piece.
 
-However, considering that the total time $T_\Sigma$ changes during the optimization process, the fixed number sampling points $\hat{\mathbf{p}}_{i,j}$ are difficult to space on the whole trajectory equally.
+However, considering that the total time $T_\Sigma$ changes during the optimization process, the fixed number sampling points $\hat{\mathbf{p}}_{i,k}$ are difficult to space on the whole trajectory equally.
 
 Therefore, we take **fixed-time-interval sampling points** for the whole trajectory to ensure the accuracy of the penalty function sampling transformation
 
@@ -317,30 +329,30 @@ Therefore, we take **fixed-time-interval sampling points** for the whole traject
 
 $$
   \begin{align*}
-      & \tilde{\mathbf{p}}_{j}(t)=p_i\left(j\delta-\sum^{i-1}_{l=1}T_l\right), \\
-      & j\in\{0,\cdots,\kappa\}, \kappa=\left\lfloor \frac{T_\Sigma}{\delta} \right\rfloor, \tag{19}
+      & \tilde{\mathbf{p}}_{k}(t)=p_i\left(k\delta-\sum^{i-1}_{l=1}T_l\right), \\
+      & k\in\{0,\cdots,\kappa\}, \kappa=\left\lfloor \frac{T_\Sigma}{\delta} \right\rfloor, \tag{19}
   \end{align*}
 $$
 
 where $\kappa$ is the sample number and $T_l$ is the preceding time for any $1 \leqslant l<i$.
 
-For the trajectory planning of swarm robots, the fixed time interval sampling points $\tilde{\mathbf{p}}_{j}(t)$ can simplify the optimization problem. Compared with $\hat{\mathbf{p}}_{i,j}$, the timestamp corresponding to $\tilde{\mathbf{p}}_{j}(t)$ is **fixed**, so the states of other robots at this timestamp are also **constant** during the optimization process.
+For the trajectory planning of swarm robots, the fixed time interval sampling points $\tilde{\mathbf{p}}_{k}(t)$ can simplify the optimization problem. Compared with $\hat{\mathbf{p}}_{i,k}$, the timestamp corresponding to $\tilde{\mathbf{p}}_{k}(t)$ is **fixed**, so the states of other robots at this timestamp are also **constant** during the optimization process.
 
-Therefore, it is feasible to calculate the states of other robots w.r.t $\tilde{\mathbf{p}}_{j}(t)$ according to the broadcast trajectories before optimization.
+Therefore, it is feasible to calculate the states of other robots w.r.t $\tilde{\mathbf{p}}_{k}(t)$ according to the broadcast trajectories before optimization.
 
 Then we can solve the **uniform formation position sequence optimization** [$(12)$](#eq-12) **in advance** and use $\hat{\mathbf{p}}_i^*$ to replace the formation similarity metric $f_s$ in trajectory optimization [$(17a)$](#eq-17) of $i^{th}$ robot. This decoupled formation trajectory optimization results in higher computational efficiency, making our method suitable for large-scale swarm robots.
 
 Despite the optimization problem is **not differentiable** when sampling number $\kappa$ changes, the cost function remains continuous w.r.t. time duration $\mathbf{T}$. We use the **quasi-Newton method** to solve the non-smooth discrete unconstrained optimization problem [$(18)$](#eq-18).
 
 ### 2.4 Cost Functions and Gradients
-Given the fixed sampling time interval $\delta$, we can evaluate the cost functions and gradients of the whole trajectory by a finite sum of sampling points $\tilde{\mathbf{p}}_{j}(t)$.
+Given the fixed sampling time interval $\delta$, we can evaluate the cost functions and gradients of the whole trajectory by a finite sum of sampling points $\tilde{\mathbf{p}}_{k}(t)$.
 
-The cost of various general purpose penalties at $j^{th}$ sampling points is
+The cost of various general purpose penalties at $k^{th}$ sampling points is
 
 <span id="eq-20"></span>
 
 $$
-    \mathcal{P}_\star(\mathbf{c},\mathbf{T},j\delta) = \mathcal{P}_\star(\tilde{\mathbf{p}}_{j}(t)), \tag{20}
+    \mathcal{P}_\star(\mathbf{c},\mathbf{T},k\delta) = \mathcal{P}_\star(\tilde{\mathbf{p}}_{k}(t)), \tag{20}
 $$
 
 then the cost function $\widetilde{J}_\star$ in [$(18)$](#eq-18) is calculated as follows
@@ -350,7 +362,7 @@ then the cost function $\widetilde{J}_\star$ in [$(18)$](#eq-18) is calculated a
 $$
 \begin{align*}
     \nonumber \widetilde{J}_\star(\mathbf{q}, \mathbf{T},\delta) =&  J_\star(\mathbf{c},\mathbf{T},\delta), \\
-    =& \delta \sum_{j=0}^\kappa \bar{\omega}_j \mathcal{P}_\star(\mathbf{c},\mathbf{T},j\delta) + \\
+    =& \delta \sum_{k=0}^\kappa \bar{\omega}_k \mathcal{P}_\star(\mathbf{c},\mathbf{T},k\delta) + \\
     &+ \frac{1}{2} (T_\Sigma -\kappa\delta)\left[\mathcal{P}_\star(\mathbf{c},\mathbf{T},\kappa\delta) + \mathcal{P}_\star(\mathbf{c},\mathbf{T},T_\Sigma)\right], \tag{21}
 \end{align*}
 $$
@@ -359,22 +371,22 @@ where $(\bar{\omega}_0,\bar{\omega}_1,\cdots,\bar{\omega}_{\kappa-1},\bar{\omega
 
 And `MINCO` allows any second-order continuous cost function $\widetilde{J}_\star(\mathbf{q},\mathbf{T})$ to be represented by $J_\star(\mathbf{c},\mathbf{T})$. Hence, $\partial\widetilde{J}_\star/\partial\mathbf{q}$ and $\partial\widetilde{J}_\star/\partial\mathbf{T}$ can be efficiently obtained from $\partial{J}_\star/\partial\mathbf{c}$ and $\partial{J}_\star/\partial\mathbf{T}$ respectively, which is benefit to the construction and solution of the optimization problem.
 
-In [$(19)$](#eq-19), the sampling time $t=j\delta-\sum\limits^{i-1}_{l=1}T_l$ is related to the preceding time $T_l$, so the gradient of $J_\star$ w.r.t $\mathbf{c}_i$ and $T_l$ are computed as
+In [$(19)$](#eq-19), the sampling time $t=k\delta-\sum\limits^{i-1}_{l=1}T_l$ is related to the preceding time $T_l$, so the gradient of $J_\star$ w.r.t $\mathbf{c}_i$ and $T_l$ are computed as
 
 <span id="eq-22"></span> <span id="eq-23"></span> <span id="eq-24"></span>
 
 $$
   \begin{align*}
-    \frac{\partial{J}_\star}{\partial \mathbf{c}_i} &= \frac{\partial{J}_\star}{\partial \mathcal{P}_\star}                           \frac{\partial \mathcal{P}_\star}{\partial \tilde{\mathbf{p}}_{j}(t)} \frac{\partial \tilde{\mathbf{p}}_{j}(t)}{\partial \mathbf{c}_i}, \tag{22} \\
-    \frac{\partial{J}_\star}{\partial T_l} &= \frac{\partial{J}_\star}{\partial \mathcal{P}_\star}                           \frac{\partial \mathcal{P}_\star}{\partial \tilde{\mathbf{p}}_{j}(t)} \frac{\partial \tilde{\mathbf{p}}_{j}(t)}{\partial t} \frac{\partial t}{\partial T_l}, \tag{23} \\
-    \frac{\partial \tilde{\mathbf{p}}_{j}(t)}{\partial \mathbf{c}_i} &= \boldsymbol{\beta}(t), \frac{\partial \tilde{\mathbf{p}}_{j}(t)}{\partial t}=\dot{\tilde{\mathbf{p}}}_{j}(t), \frac{\partial t}{\partial T_l} = 
+    \frac{\partial{J}_\star}{\partial \mathbf{c}_i} &= \frac{\partial{J}_\star}{\partial \mathcal{P}_\star}                           \frac{\partial \mathcal{P}_\star}{\partial \tilde{\mathbf{p}}_{k}(t)} \frac{\partial \tilde{\mathbf{p}}_{k}(t)}{\partial \mathbf{c}_i}, \tag{22} \\
+    \frac{\partial{J}_\star}{\partial T_l} &= \frac{\partial{J}_\star}{\partial \mathcal{P}_\star}                           \frac{\partial \mathcal{P}_\star}{\partial \tilde{\mathbf{p}}_{k}(t)} \frac{\partial \tilde{\mathbf{p}}_{k}(t)}{\partial t} \frac{\partial t}{\partial T_l}, \tag{23} \\
+    \frac{\partial \tilde{\mathbf{p}}_{k}(t)}{\partial \mathbf{c}_i} &= \boldsymbol{\beta}(t), \frac{\partial \tilde{\mathbf{p}}_{k}(t)}{\partial t}=\dot{\tilde{\mathbf{p}}}_{k}(t), \frac{\partial t}{\partial T_l} = 
       \begin{cases}
       0,  &l=i, \\
       -1, &l<i,
       \end{cases} \tag{24}
   \end{align*}
 $$
-where the calculation of $\partial{J}_\star/\partial \mathcal{P}_\star$ is simple and the details of $\mathcal{P}_\star(\tilde{\mathbf{p}}_{j}(t))$ for various general purpose are given as follow.
+where the calculation of $\partial{J}_\star/\partial \mathcal{P}_\star$ is simple and the details of $\mathcal{P}_\star(\tilde{\mathbf{p}}_{k}(t))$ for various general purpose are given as follow.
 
 - **Cost of Swarm Formation Similarity** $\mathcal{P}_f$
 In [Sec. 1.3](#13-optimal-formation-position-sequence), we decouple the formation similarity error metric from trajectory optimization by constructing an unconstrained optimization problem to calculate the uniform optimal formation position sequence $\hat{\mathbf{p}}_i^*$ for each sampling point. This improvement avoids multiple calculations of formation similarity metric $f_s$.
@@ -383,7 +395,7 @@ Then, we use the quadratic form to calculate the cost of swarm formation similar
 <span id="eq-25"></span>
 
 $$
-  \mathcal{P}_f(\tilde{\mathbf{p}}_{j}(t))=\max \{ \parallel \tilde{\mathbf{p}}_{j}(t) - \hat{\mathbf{p}}_{i,j}^* \parallel^2,0 \}^3. \tag{25}
+  \mathcal{P}_f(\tilde{\mathbf{p}}_{k}(t))=\max \{ \parallel \tilde{\mathbf{p}}_{k}(t) - \hat{\mathbf{p}}_{i,k}^* \parallel^2,0 \}^3. \tag{25}
 $$
 
 - **Control Effort** $J_e$
@@ -408,32 +420,32 @@ We penalize the sampling points which are too close to the obstacles
 <span id="eq-29"></span><span id="eq-30"></span>
 $$
   \begin{align*}
-    \mathcal{P}_o(\tilde{\mathbf{p}}_{j}(t)) &= \max\{\psi_o(\tilde{\mathbf{p}}_{j}(t)), 0\}^3, \tag{29}\\
-    \psi_o(\tilde{\mathbf{p}}_{j}(t)) &= d_o - d_o(\tilde{\mathbf{p}}_{j}(t)), \tag{30}
+    \mathcal{P}_o(\tilde{\mathbf{p}}_{k}(t)) &= \max\{\psi_o(\tilde{\mathbf{p}}_{k}(t)), 0\}^3, \tag{29}\\
+    \psi_o(\tilde{\mathbf{p}}_{k}(t)) &= d_o - d_o(\tilde{\mathbf{p}}_{k}(t)), \tag{30}
   \end{align*}
 $$
-where $d_o$ is the safety threshold set according to the actual situation and $d_o(\tilde{\mathbf{p}}_{j}(t))$ is the distance between $\tilde{\mathbf{p}}_{j}(t)$ and the closest obstacle around it. The gradient of $\mathcal{P}_o$ w.r.t $\tilde{\mathbf{p}}_{j}(t)$ is
+where $d_o$ is the safety threshold set according to the actual situation and $d_o(\tilde{\mathbf{p}}_{k}(t))$ is the distance between $\tilde{\mathbf{p}}_{k}(t)$ and the closest obstacle around it. The gradient of $\mathcal{P}_o$ w.r.t $\tilde{\mathbf{p}}_{k}(t)$ is
 <span id="eq-31"></span>
 $$
-  \frac{\partial \mathcal{P}_o}{\partial \tilde{\mathbf{p}}_{j}(t)} = - \nabla d^\top, \tag{31}
+  \frac{\partial \mathcal{P}_o}{\partial \tilde{\mathbf{p}}_{k}(t)} = - \nabla d^\top, \tag{31}
 $$
-where the $\nabla d$ is the gradient of ESDF in $\tilde{\mathbf{p}}_{j}(t)$.
+where the $\nabla d$ is the gradient of ESDF in $\tilde{\mathbf{p}}_{k}(t)$.
 
 - **Cost of Swarm Reciprocal Avoidance** $\mathcal{P_r}$
-We penalize $\tilde{\mathbf{p}}_{j}(t)$ when it is too close to the trajectories $p_\phi(t),\phi\in\Phi$ at the fixed timestamp $t=j\delta$, where $\Phi$ represents the all other robots in the swarm. Compared to previous work[2], the state of other robots with fixed timestamp $p_\phi(j\delta)$ are constant during the optimization process and do not produce a gradient w.r.t $\mathbf{T}$ for the cost function $J_r$. So the optimization problem and the gradients are simplified.
+We penalize $\tilde{\mathbf{p}}_{k}(t)$ when it is too close to the trajectories $p_\phi(t),\phi\in\Phi$ at the fixed timestamp $t=k\delta$, where $\Phi$ represents the all other robots in the swarm. Compared to previous work[2], the state of other robots with fixed timestamp $p_\phi(k\delta)$ are constant during the optimization process and do not produce a gradient w.r.t $\mathbf{T}$ for the cost function $J_r$. So the optimization problem and the gradients are simplified.
 The cost of swarm reciprocal avoidance is defined as
 <span id="eq-32"></span><span id="eq-33"></span>
 $$
   \begin{align*}
-    \mathcal{P}_r(\tilde{\mathbf{p}}_{j}(t))= \sum_{\Phi} \max \{\psi_r(\tilde{\mathbf{p}}_{j}(t),p_\phi(j\delta)),0\}^3,  \tag{32}\\
-	  \psi_r(\tilde{\mathbf{p}}_{j}(t),p_\phi(j\delta))=d_r^2-\parallel \tilde{\mathbf{p}}_{j}(t)-p_\phi(j\delta) \parallel^2, \tag{33}
+    \mathcal{P}_r(\tilde{\mathbf{p}}_{k}(t))= \sum_{\Phi} \max \{\psi_r(\tilde{\mathbf{p}}_{k}(t),p_\phi(k\delta)),0\}^3,  \tag{32}\\
+	  \psi_r(\tilde{\mathbf{p}}_{k}(t),p_\phi(k\delta))=d_r^2-\parallel \tilde{\mathbf{p}}_{k}(t)-p_\phi(k\delta) \parallel^2, \tag{33}
   \end{align*}
 $$
 where $d_r$ is the safe clearance between each robot. 
-And the gradient of $\mathcal{P}_r$ w.r.t $\tilde{\mathbf{p}}_{j}(t)$ is
+And the gradient of $\mathcal{P}_r$ w.r.t $\tilde{\mathbf{p}}_{k}(t)$ is
 <span id="eq-34"></span>
 $$
-  \frac{\partial \mathcal{P}_r}{\partial \tilde{\mathbf{p}}_{j}(t)} = -2(\tilde{\mathbf{p}}_{j}(t)-p_\phi(j\delta))^\top. \tag{34}
+  \frac{\partial \mathcal{P}_r}{\partial \tilde{\mathbf{p}}_{k}(t)} = -2(\tilde{\mathbf{p}}_{k}(t)-p_\phi(k\delta))^\top. \tag{34}
 $$
 
 - Cost of Dynamic feasibility $\mathcal{P_d}$
@@ -441,9 +453,9 @@ We limit the maximum value of velocity and acceleration to guarantee that the ro
 <span id="eq-35"></span>
 $$
   \begin{aligned}
-        \mathcal{P}_d(\tilde{\mathbf{p}}_{j}(t))&=\mathcal{P}_{d,v}(\tilde{\mathbf{p}}_{j}(t))+\mathcal{P}_{d,a}(\tilde{\mathbf{p}}_{j}(t)), \\
-        \mathcal{P}_{d,v}(\tilde{\mathbf{p}}_{j}(t)) &= \max \{ \parallel \dot{\tilde{\mathbf{p}}}_{j}(t)\parallel^2 - v_m^2, 0\}^3, \\
-        \mathcal{P}_{d,a}(\tilde{\mathbf{p}}_{j}(t)) &= \max \{ \parallel \ddot{\tilde{\mathbf{p}}}_{j}(t)\parallel^2 - a_m^2, 0\}^3, \tag{35}
+        \mathcal{P}_d(\tilde{\mathbf{p}}_{k}(t))&=\mathcal{P}_{d,v}(\tilde{\mathbf{p}}_{k}(t))+\mathcal{P}_{d,a}(\tilde{\mathbf{p}}_{k}(t)), \\
+        \mathcal{P}_{d,v}(\tilde{\mathbf{p}}_{k}(t)) &= \max \{ \parallel \dot{\tilde{\mathbf{p}}}_{k}(t)\parallel^2 - v_m^2, 0\}^3, \\
+        \mathcal{P}_{d,a}(\tilde{\mathbf{p}}_{k}(t)) &= \max \{ \parallel \ddot{\tilde{\mathbf{p}}}_{k}(t)\parallel^2 - a_m^2, 0\}^3, \tag{35}
     \end{aligned}
 $$
 where $v_m$ and $a_m$ are the maximum velocity and acceleration.
@@ -487,9 +499,9 @@ Implementing these measures, our method reliably achieves robust formation fligh
   ```
 
 3. **Precompute the (uniform) optimal formation position sequence.**
-  - For each robot $i$ and each discrete timestamp $j\in\{0,\dots,M_c\}$, solve the formation-only optimization to obtain the optimal formation positions $\mathbf{p}^*_{i,j}$ ([Sec. 1.3](#13-optimal-formation-position-sequence)).
+  - For each robot $i$ and each discrete timestamp $k\in\{0,\dots,M_c\}$, solve the formation-only optimization to obtain the optimal formation positions $\mathbf{p}^*_{i,k}$ ([Sec. 1.3](#13-optimal-formation-position-sequence)).
   - Replace the $O(N^2)$ formation similarity term by a quadratic distance surrogate [$(10)$](#eq-10), yielding the decoupled two-step pipeline [$(11)$](#eq-11).
-  - Add the uniformity regularizer and solve [$(12)$](#eq-12)–[$(14)$](#eq-14) to obtain the *uniform* sequence $\hat{\mathbf{p}}^*_{i,j}$.
+  - Add the uniformity regularizer and solve [$(12)$](#eq-12)–[$(14)$](#eq-14) to obtain the *uniform* sequence $\hat{\mathbf{p}}^*_{i,k}$.
 
 4. **Initialize a feasible trajectory for each robot.**
   - Generate an initial collision-free, dynamically feasible trajectory (e.g., hybrid-A*) to warm start the optimizer ([Sec. 2.5](#25-discussion-on-solution-quality-of-trajectory-optimization)). Codes: [computeInitReferenceState](https://github.com/ZJU-FAST-Lab/Swarm-Formation/tree/967a4bdfae949e994691f8ffc87dbb0147cbebb7/src/planner/plan_manage/src/planner_manager.cpp#L41:L136) $\to$ [astarWithMinTraj](https://github.com/ZJU-FAST-Lab/Swarm-Formation/tree/967a4bdfae949e994691f8ffc87dbb0147cbebb7/src/planner/traj_opt/src/poly_traj_optimizer.cpp#L623:L675) $\to$ [astarSearchAndGetSimplePath](https://github.com/ZJU-FAST-Lab/Swarm-Formation/tree/967a4bdfae949e994691f8ffc87dbb0147cbebb7/src/planner/path_searching/src/dyn_a_star.cpp#L265:L276) $\to$ [AstarSearch](https://github.com/ZJU-FAST-Lab/Swarm-Formation/tree/967a4bdfae949e994691f8ffc87dbb0147cbebb7/src/planner/path_searching/src/dyn_a_star.cpp#L121:L252)
@@ -500,12 +512,12 @@ Implementing these measures, our method reliably achieves robust formation fligh
 
 6. **Transcribe continuous constraints with fixed-interval sampling.**
   - Sample the full trajectory using the fixed time interval $\delta$ to obtain $\tilde{\mathbf{p}}_j(t)$ as in [$(19)$](#eq-19), so timestamps remain constant while $\mathbf{T}$ changes.
-  - For reciprocal avoidance, query other robots’ broadcast trajectories at the fixed timestamps $t=j\delta$.
+  - For reciprocal avoidance, query other robots’ broadcast trajectories at the fixed timestamps $t=k\delta$.
 
 7. **Assemble the discrete unconstrained optimization objective.**
   - Convert [$(17)$](#eq-17) into the sampled objective [$(18)$](#eq-18) using trapezoidal integration [$(21)$](#eq-21).
   - Use the following penalty/cost terms at samples:
-    - Formation similarity via distance to $\hat{\mathbf{p}}^*_{i,j}$ [$(25)$](#eq-25).
+    - Formation similarity via distance to $\hat{\mathbf{p}}^*_{i,k}$ [$(25)$](#eq-25).
     - Control effort and time terms [$(26)$](#eq-26)–[$(28)$](#eq-28).
     - Obstacle avoidance using ESDF [$(29)$](#eq-29)–[$(31)$](#eq-31).
     - Reciprocal avoidance [$(32)$](#eq-32)–[$(34)$](#eq-34).
