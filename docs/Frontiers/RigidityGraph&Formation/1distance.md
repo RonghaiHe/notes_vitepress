@@ -167,7 +167,7 @@ Note that congruency implies equivalency, but the reverse is not necessarily tru
 
 > [!warning] Definition: isometry
 > An isometry of $\mathbb{R}^m$ is a bijective map $T ∶ \mathbb{R}^m \to \mathbb{R}^m$ such that
-> $$ > \|T(x) - T(y)\| = \|x-y\|, \quad \forall x,y\in\mathbb{R}^m. $$
+> $$ \|T(x) - T(y)\| = \|x-y\|, \quad \forall x,y\in\mathbb{R}^m. $$
 > Note that $T$ accounts for **rotation and/or translation** of the vector $x,y$.
 
 Two frameworks $(\mathcal{G},\boldsymbol{p})$ and $(\mathcal{G},\hat{\boldsymbol{p}})$ are said to be **isomorphic** in $\mathbb{R}^d$ if they are related by an **isometry** in $\mathbb{R}^d$. It is not difficult to see that isomorphic frameworks are **congruent**. We denote the set of all frameworks that are **isomorphic** to $\mathcal{F}$ by $\operatorname{Iso}(\mathcal{F})$.
